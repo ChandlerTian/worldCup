@@ -49,6 +49,29 @@ export interface ScorePrediction {
 
 export type Confidence = 'high' | 'mid' | 'low'
 
+export interface BetRecommendation {
+  type: string
+  pick: string
+  odds?: string
+  modelProb: number
+  reason: string
+}
+
+export interface HandicapLine {
+  line: number
+  win: number
+  draw: number
+  lose: number
+}
+
+export interface OverUnder {
+  line: number
+  over: number
+  under: number
+  marketOver?: string
+  marketUnder?: string
+}
+
 export interface MatchPrediction {
   team1: string
   team2: string
@@ -74,7 +97,10 @@ export interface MatchPrediction {
   injuries2: string
   tacticalMatchup: TacticalMatchup[]
   groupContext: string
+  handicaps?: HandicapLine[]
+  overUnder?: OverUnder[]
   predictions: ScorePrediction[]
+  recommendations: BetRecommendation[]
   confidence: Confidence
 }
 

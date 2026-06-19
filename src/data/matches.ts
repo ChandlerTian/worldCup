@@ -84,13 +84,13 @@ export const todayPredictions: MatchPrediction[] = [
     group: 'C', ground: '波士顿', time: '18:00 UTC-4',
     elo1: 1794, elo2: 1840, eloDiff: -46,
     model: { home: 0.3247, draw: 0.2765, away: 0.3988 },
-    market: { home: 0.174, draw: 0.266, away: 0.559 },
+    market: { home: 0.166, draw: 0.261, away: 0.573 },
     lambda: { home: 1.27, away: 1.43, total: 2.7 },
-    gap: { team: '苏格兰', value: 15.0, direction: 'model_higher' },
+    gap: { team: '苏格兰', value: 15.9, direction: 'model_higher' },
     formation1: '3-5-2', formation2: '4-3-3',
     coach1: '克拉克', coach2: '雷格拉吉',
-    style1: '中位防守 + 快速纵向转换 + 定位球。McTominay后插上核心武器',
-    style2: '防守紧凑 + 快速转换 + Hakimi前插宽度。2022半决赛基因',
+    style1: '中位防守 + 快速纵向转换 + 定位球。McTominay box-to-box后插上是核心武器',
+    style2: '防守紧凑 + 快速转换 + Hakimi前插宽度。2022世界杯半决赛DNA',
     lineup1: 'Gunn; Hendry, Hanley, Tierney; Patterson, McTominay, Gilmour, McGinn, Robertson; Adams, Dykes',
     lineup2: 'Bounou; Hakimi, Aguerd?, Saiss, Mazraoui; Amrabat, Ounahi, Saibari; Ziyech, En-Nesyri, B.Diaz',
     injuries1: 'Dykes轻伤可出场。全员可用',
@@ -101,10 +101,24 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '转换', advantage: '摩洛哥', reason: '快速转换能力强于苏格兰，Hakimi助攻→反击速度极快' },
       { area: '定位球', advantage: '苏格兰', reason: '3中卫身高+McTominay头球，首轮唯一得分方式' }
     ],
-    groupContext: '苏格兰3分领跑(赢/平即可)。摩洛哥1分 → must-win',
+    groupContext: '苏格兰3分领跑(赢/平即可出线)。摩洛哥1分 → must-win',
     predictions: [
       { score: '0-1', prob: 8.6, reason: '摩洛哥must-win + Hakimi/Saibari转换速度制造机会' },
       { score: '1-1', prob: 13.2, reason: '最高概率比分。苏格兰定位球/McTominay后插上有得分能力' }
+    ],
+    recommendations: [
+      { type: '胜平负', pick: '摩洛哥胜', odds: '-150', modelProb: 39.9, reason: '模型方向一致+摩洛哥must-win压力+Hakimi/Saibari转换质量' },
+      { type: '大小球', pick: 'Under 2.5', odds: '-148', modelProb: 49.4, reason: '双方紧凑防守，苏格兰mid-block+摩洛哥2022世界杯防守基因' },
+      { type: '波胆', pick: '0-1', odds: '+600', modelProb: 8.6, reason: '摩洛哥must-win压力下全力进攻，苏格兰中位防守难以制造进球' }
+    ],
+    handicaps: [
+      { line: -1, win: 0.144, draw: 0.180, lose: 0.675 },
+      { line: 0, win: 0.325, draw: 0.277, lose: 0.399 },
+      { line: 1, win: 0.601, draw: 0.204, lose: 0.194 }
+    ],
+    overUnder: [
+      { line: 1.5, over: 0.751, under: 0.249 },
+      { line: 2.5, over: 0.506, under: 0.494, marketOver: '+112', marketUnder: '-148' }
     ],
     confidence: 'low'
   },
@@ -115,14 +129,14 @@ export const todayPredictions: MatchPrediction[] = [
     model: { home: 0.724, draw: 0.1898, away: 0.0863 },
     market: { home: 0.864, draw: 0.091, away: 0.045 },
     lambda: { home: 2.17, away: 0.63, total: 2.8 },
-    gap: { team: '巴西', value: -14.0, direction: 'market_higher' },
+    gap: { team: '巴西', value: 14.0, direction: 'market_higher' },
     formation1: '4-2-3-1', formation2: '5-4-1',
     coach1: '多里瓦尔', coach2: '德莱赫尔',
-    style1: '控球型(62%) + 高位逼抢 + 内切型边锋 + 边后卫套边',
-    style2: '极端低位防守(38%控球) + Étienne Jr速度反击 + 定位球Adé头球',
-    lineup1: 'Alisson; Danilo, Marquinhos, G.Magalhães, Wendell; Bruno Guimarães, Paquetá; Raphinha, Rodrygo, Vinícius Jr; Endrick↑',
+    style1: '控球型(62%均值) + 高位逼抢 + 内切型边锋 + 边后卫套边。Endrick跑身后拉伸低位防线',
+    style2: '极端低位防守5-4-1(资格赛38%控球)。Étienne Jr速度反击 + Adé头球定位球。首轮守住苏格兰72分钟',
+    lineup1: 'Alisson; Danilo, Marquinhos, G.Magalhães, Wendell; Bruno Guimarães, Paquetá; Raphinha, Rodrygo, Vinícius Jr; Endrick',
     lineup2: 'Duverger; Arcus, Adé, Désiré, Jérôme, Lafrance; Étienne Jr, CM, CM, LM; Pierrot',
-    injuries1: 'Endrick替换Richarlison首发。Neymar/Militão/Bremer赛前报销',
+    injuries1: 'Neymar/Militão/Bremer赛前报销。Endrick替换Richarlison(战术调整)',
     injuries2: 'Pierrot轻伤恢复可出场。全员可用',
     tacticalMatchup: [
       { area: '控球vs低位', advantage: '巴西', reason: '5种破密集手段: 边后卫宽度/内切/Endrick跑身后/Rodrygo肋部/定位球' },
@@ -135,6 +149,21 @@ export const todayPredictions: MatchPrediction[] = [
       { score: '3-0', prob: 10.4, reason: 'Elo差442碾压+追分动机+Endrick跑身后克制低位。海地首轮0射正' },
       { score: '4-0', prob: 5.7, reason: '加拿大320差打6-0。巴西442差+攻击天赋更强+不会收工' }
     ],
+    recommendations: [
+      { type: '让球', pick: '巴西 -1 赢盘', odds: '-110', modelProb: 48.5, reason: 'Elo差442当日最大。48.5%概率对应公允赔率2.06有价值' },
+      { type: '大小球', pick: 'Over 2.5', odds: '+100', modelProb: 53.0, reason: '巴西lambda 2.17 + 追分动机 + 海地防线持久度有限' },
+      { type: '波胆', pick: '3-0', odds: '+700', modelProb: 10.4, reason: '最高概率比分。巴西碾压+加拿大6-0先例(Elo差更小)' },
+      { type: '让球', pick: '巴西 -2.5', odds: '-110', modelProb: 26.4, reason: '加拿大320差打6-0 → 巴西442差不应压缩。大胜需求驱动' }
+    ],
+    handicaps: [
+      { line: -1, win: 0.485, draw: 0.239, lose: 0.276 },
+      { line: -2, win: 0.264, draw: 0.221, lose: 0.515 },
+      { line: 0, win: 0.724, draw: 0.190, lose: 0.086 }
+    ],
+    overUnder: [
+      { line: 2.5, over: 0.530, under: 0.469, marketOver: '-115', marketUnder: '-113' },
+      { line: 3.5, over: 0.318, under: 0.682, marketOver: '-115', marketUnder: '-113' }
+    ],
     confidence: 'high'
   },
   {
@@ -144,11 +173,11 @@ export const todayPredictions: MatchPrediction[] = [
     model: { home: 0.4303, draw: 0.2742, away: 0.2956 },
     market: { home: 0.600, draw: 0.217, away: 0.183 },
     lambda: { home: 1.50, away: 1.20, total: 2.7 },
-    gap: { team: '美国', value: -17.0, direction: 'market_higher' },
+    gap: { team: '美国', value: 17.0, direction: 'market_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1',
     coach1: '波切蒂诺', coach2: '阿诺德',
-    style1: '激进高位逼抢(首轮抢断14次!) + 边后卫极度前压 + pressing traps',
-    style2: '务实中低位防守(38%控球) + 双后腰屏蔽 + Irankunda反击(67%射正转化)',
+    style1: '激进高位逼抢(首轮14次前场抢断!) + 边后卫极度前压 + 前场三叉戟pressing traps。本届赛事R1最高压强度球队',
+    style2: '务实中低位防守(首轮38%控球)。双后腰屏蔽防线 + Irankunda速度反击。防守4-4-2阵型。极高效率: 首轮67%射正转化(3射正2球)',
     lineup1: 'Turner; Dest, Richards, Robinson, A.Robinson; McKennie, Adams, Reyna; Weah, Balogun, Pulisic',
     lineup2: 'Ryan; Atkinson, Souttar(196cm), Rowles, Behich; Mooy, Irvine; Irankunda, Metcalfe, Goodwin; Duke',
     injuries1: 'Weah脚踝轻伤已通过测试。全员可用',
@@ -157,12 +186,27 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '高压vs低位', advantage: '澳大利亚(克制)', reason: '美国高压需对手出球配合。澳大利亚放弃控球+长传找速度点→高压踩空' },
       { area: '反击通道', advantage: '澳大利亚', reason: 'A.Robinson前压→身后空间→Irankunda速度利用(首轮67%射正转化)' },
       { area: '个体1v1', advantage: '美国', reason: 'Pulisic/Reyna/Balogun阵地战突破。个人能力制造机会' },
-      { area: '主场因素', advantage: '美国', reason: '西雅图6.8万人。北美主场buff已验证(墨西哥1-0/加拿大6-0)' }
+      { area: '主场因素', advantage: '美国', reason: '西雅图6.8万人。北美主场buff已验证(墨西哥1-0/加拿大6-0) +80-100 Elo' }
     ],
     groupContext: '双方都3分。争头名直接对话——赢者通吃',
     predictions: [
       { score: '2-1', prob: 9.1, reason: '美国主场+个体天赋进2球。澳大利亚Irankunda反击一定能得1球' },
       { score: '1-0', prob: 9.1, reason: '澳大利亚低位防守克制高压。美国65%+控球但创造有限。定位球破门' }
+    ],
+    recommendations: [
+      { type: '胜平负', pick: '美国胜', odds: '-170', modelProb: 43.0, reason: '信任市场主场加成定价——已被墨西哥1-0/加拿大6-0主场战绩验证' },
+      { type: '大小球', pick: 'Under 2.5', odds: '-118', modelProb: 49.4, reason: '澳大利亚低位防守风格天然压制进球数。双方lambda合计仅2.7' },
+      { type: '波胆', pick: '2-1', odds: '+700', modelProb: 9.1, reason: '美国主场+个体质量保底2球，澳大利亚Irankunda反击效率极高必进1球' },
+      { type: '波胆', pick: '1-0', odds: '+600', modelProb: 9.1, reason: '澳大利亚低位防守限制大比分，美国靠一个定位球或个人突破制胜' }
+    ],
+    handicaps: [
+      { line: -1, win: 0.217, draw: 0.213, lose: 0.570 },
+      { line: 0, win: 0.430, draw: 0.274, lose: 0.296 },
+      { line: 1, win: 0.705, draw: 0.169, lose: 0.126 }
+    ],
+    overUnder: [
+      { line: 1.5, over: 0.751, under: 0.249 },
+      { line: 2.5, over: 0.506, under: 0.494, marketOver: '-110', marketUnder: '-118' }
     ],
     confidence: 'mid'
   },
@@ -173,15 +217,15 @@ export const todayPredictions: MatchPrediction[] = [
     model: { home: 0.418, draw: 0.2748, away: 0.3072 },
     market: { home: 0.481, draw: 0.284, away: 0.235 },
     lambda: { home: 1.48, away: 1.23, total: 2.71 },
-    gap: { team: '土耳其', value: -6.3, direction: 'market_higher' },
+    gap: { team: '土耳其', value: 6.3, direction: 'market_higher' },
     formation1: '4-3-3 (换阵)', formation2: '5-3-2 (换阵)',
     coach1: '蒙特拉', coach2: '阿尔法罗',
-    style1: '控球型+换阵增加边路宽度。Çalhanoğlu深层组织+Arda Güler/Kökçü创造力',
-    style2: '极端防守+快速反击。换门将+加一中卫。Almirón+Enciso反击组合',
+    style1: '控球型+换阵增加边路宽度。Çalhanoğlu深层组织+Arda Güler/Kökçü创造力。Yıldız/Yılmaz自然宽度。弱点: 转换防守脆弱(首轮被澳大利亚同方式打穿)',
+    style2: '极端防守5-3-2(首轮1-4惨败后加固)。Almirón速度+Enciso盘带快速反击。弱点: 组织度远不如澳大利亚体系。换门将(战术调整非伤病)',
     lineup1: 'Bayindir; Çelik, Demiral, Akaydin, Kadioğlu?; Çalhanoğlu, Kökçü, Arda Güler; Yıldız, B.A.Yılmaz, Yazıcı',
-    lineup2: 'Coronel↑; Escobar, Gómez, Balbuena, Alderete↑, Espinoza; Cubas, Villasanti, Almirón; Enciso, Sanabria',
-    injuries1: 'Kadioğlu腿筋待定 → Ridvan Yılmaz替。3处换人+换阵',
-    injuries2: 'Gómez大腿轻微不适可出场。换门将(战术非伤病)',
+    lineup2: 'Coronel(新GK); Escobar, Gómez, Balbuena, Alderete(加入), Espinoza; Cubas, Villasanti, Almirón; Enciso, Sanabria',
+    injuries1: 'Kadioğlu腿筋待定(Ridvan Yılmaz可替)。3处换人+换阵',
+    injuries2: 'Gómez大腿轻微不适可出场。换门将属战术(Fernandez首轮丢4球)',
     tacticalMatchup: [
       { area: '边路进攻', advantage: '土耳其', reason: 'Yıldız/Yılmaz自然宽度。巴拉圭翼卫需同时盯边锋+覆盖中路→overload' },
       { area: '反击速度', advantage: '巴拉圭', reason: 'Almirón+Enciso速度极快。土耳其首轮转换防守被同样方式打穿' },
@@ -192,6 +236,21 @@ export const todayPredictions: MatchPrediction[] = [
     predictions: [
       { score: '2-1', prob: 8.9, reason: '土耳其4-3-3宽度打开巴拉圭5-3-2。但Almirón+Enciso反击抓住转换软肋' },
       { score: '1-0', prob: 8.9, reason: '生死战不敢冒险。Çalhanoğlu任意球或Arda Güler个人突破进1球' }
+    ],
+    recommendations: [
+      { type: '胜平负', pick: '土耳其胜', odds: '-105', modelProb: 41.8, reason: '个体天赋优势明显(Arda Güler/Çalhanoğlu/Yıldız) + 换阵增加宽度' },
+      { type: '大小球', pick: 'Under 2.5', odds: '-155', modelProb: 49.1, reason: '双方首轮惨败后防守优先。生死战心态保守。巴拉圭5-3-2加固' },
+      { type: '波胆', pick: '2-1', odds: '+700', modelProb: 8.9, reason: '土耳其边路宽度制造2球+巴拉圭Almirón/Enciso反击抓转换软肋得1球' },
+      { type: '波胆', pick: '1-0', odds: '+550', modelProb: 8.9, reason: '生死战保守→Çalhanoğlu任意球或Arda Güler个人突破制胜' }
+    ],
+    handicaps: [
+      { line: -1, win: 0.208, draw: 0.210, lose: 0.582 },
+      { line: 0, win: 0.418, draw: 0.275, lose: 0.307 },
+      { line: 1, win: 0.693, draw: 0.174, lose: 0.134 }
+    ],
+    overUnder: [
+      { line: 1.5, over: 0.753, under: 0.247 },
+      { line: 2.5, over: 0.509, under: 0.491, marketOver: '+118', marketUnder: '-155' }
     ],
     confidence: 'mid'
   }

@@ -27,10 +27,13 @@
         <section id="tab-today" class="tab-content active">
             <div class="section-title-row">
                 <h2 class="section-header">Matchday 9 — 6月19日推荐</h2>
-                <div class="summary-badges">
-                    <span class="badge green">最高信心: 巴西3-0</span>
-                    <span class="badge yellow">中高: 美国2-1</span>
-                </div>
+            </div>
+            <!-- Match Sub-tabs -->
+            <div class="match-tabs">
+                <button class="match-tab-btn active" onclick="switchMatch(0)">苏格兰vs摩洛哥</button>
+                <button class="match-tab-btn" onclick="switchMatch(1)">巴西vs海地</button>
+                <button class="match-tab-btn" onclick="switchMatch(2)">美国vs澳大利亚</button>
+                <button class="match-tab-btn" onclick="switchMatch(3)">土耳其vs巴拉圭</button>
             </div>
             <div id="today-matches"></div>
         </section>
