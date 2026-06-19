@@ -101,7 +101,7 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '转换', advantage: '摩洛哥', reason: '快速转换能力强于苏格兰，Hakimi助攻→反击速度极快' },
       { area: '定位球', advantage: '苏格兰', reason: '3中卫身高+McTominay头球，首轮唯一得分方式' }
     ],
-    groupContext: '苏格兰3分领跑(赢/平即可出线)。摩洛哥1分 → must-win',
+    groupContext: '苏格兰3分领跑(赢/平即可出线)。摩洛哥1分 → must-win。淘汰赛路径: C1对F2(日本Elo1910) vs C2对F1(荷兰Elo1944)，争第1优势不大(+34)但方向明确',
     predictions: [
       { score: '0-1', prob: 8.6, reason: '摩洛哥must-win + Hakimi/Saibari转换速度制造机会' },
       { score: '1-1', prob: 13.2, reason: '最高概率比分。苏格兰定位球/McTominay后插上有得分能力' }
@@ -144,7 +144,7 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '个体天赋', advantage: '巴西(碾压)', reason: 'Vinícius+Rodrygo+Endrick vs 海地无世界级球员' },
       { area: '空中对抗', advantage: '中性', reason: '海地Adé有头球威胁。概率极低但定位球需注意' }
     ],
-    groupContext: '巴西1分急需大胜追苏格兰(3分)+净胜球。海地0分已半出局',
+    groupContext: '巴西1分急需大胜追苏格兰(3分)+净胜球。海地0分已半出局。淘汰赛路径: C1对日本(1910) vs C2对荷兰(1944)。巴西不想第2碰荷兰→追分动力叠加',
     predictions: [
       { score: '3-0', prob: 10.4, reason: 'Elo差442碾压+追分动机+Endrick跑身后克制低位。海地首轮0射正' },
       { score: '4-0', prob: 5.7, reason: '加拿大320差打6-0。巴西442差+攻击天赋更强+不会收工' }
@@ -188,7 +188,7 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '个体1v1', advantage: '美国', reason: 'Pulisic/Reyna/Balogun阵地战突破。个人能力制造机会' },
       { area: '主场因素', advantage: '美国', reason: '西雅图6.8万人。北美主场buff已验证(墨西哥1-0/加拿大6-0) +80-100 Elo' }
     ],
-    groupContext: '双方都3分。争头名直接对话——赢者通吃',
+    groupContext: '双方都3分。争头名直接对话——赢者通吃。淘汰赛: D1对最佳第3(Elo≈1700) vs D2对G2伊朗(1772)。第1路线更舒服(+72 Elo)',
     predictions: [
       { score: '2-1', prob: 9.1, reason: '美国主场+个体天赋进2球。澳大利亚Irankunda反击一定能得1球' },
       { score: '1-0', prob: 9.1, reason: '澳大利亚低位防守克制高压。美国65%+控球但创造有限。定位球破门' }
@@ -232,7 +232,7 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '个体天赋', advantage: '土耳其', reason: 'Arda Güler(皇马)+Çalhanoğlu(国米)+Yıldız(尤文) 明显更高' },
       { area: '防守纪律', advantage: '巴拉圭(微)', reason: '5-3-2加固后比首轮4-4-2更稳。但组织度远不如澳大利亚' }
     ],
-    groupContext: '双方都0分 — 输者回家。两队首轮都惨败(0-2/1-4)',
+    groupContext: '双方都0分 — 输者回家。两队首轮都惨败(0-2/1-4)。淘汰赛路径同D组: 争第1对弱第3(1700) vs 第2对伊朗(1772)。但先活下来再说',
     predictions: [
       { score: '2-1', prob: 8.9, reason: '土耳其4-3-3宽度打开巴拉圭5-3-2。但Almirón+Enciso反击抓住转换软肋' },
       { score: '1-0', prob: 8.9, reason: '生死战不敢冒险。Çalhanoğlu任意球或Arda Güler个人突破进1球' }
