@@ -1,56 +1,37 @@
 # 2026 FIFA World Cup 预测 Dashboard
 
-Poisson-Elo Multi-Agent Prediction System 可视化面板。
+## Netlify 部署
 
-## 直接打开（无需安装）
+已配置 `netlify.toml`，推送代码后自动部署：
+- Build命令: `npm install && npm run build`
+- Publish目录: `dist/`
 
-双击打开 `dist/index.html` 即可，无需任何服务器或依赖安装。
-
-适用于任何机器，直接用浏览器打开 dist 文件夹下的 index.html。
-
-## 开发模式
+## 本地开发
 
 ```bash
 npm install
-npm run dev      # 启动 Vite dev server (http://localhost:5173)
-```
-
-## 构建
-
-```bash
-npm run build    # 输出到 dist/，base='./' 支持文件系统直接打开
+npm run dev       # http://localhost:5173
+npm run build     # 输出到 dist/
 ```
 
 ## 项目结构
 
 ```
-├── dist/                  # 构建产物（可直接打开）
-│   ├── index.html
-│   └── assets/
-├── src/
-│   ├── types.ts           # TypeScript 接口定义
-│   ├── style.css          # 全局样式（深色主题）
-│   ├── main.ts            # 主逻辑（Tab切换/渲染/图表初始化）
-│   ├── data/
-│   │   └── matches.ts     # 所有数据（赛果/预测/Elo/进球分布）
-│   └── charts/
-│       └── index.ts       # ECharts 图表（概率对比/净胜球分布/趋势）
-├── index.html
-├── package.json
+├── src/                 # TypeScript 源码
+│   ├── types.ts         # 接口定义
+│   ├── style.css        # 样式
+│   ├── main.ts          # 主逻辑
+│   ├── data/matches.ts  # 比赛数据
+│   └── charts/index.ts  # ECharts 图表
+├── scripts/postbuild.js # 构建后处理(兼容file://打开)
+├── index.html           # 开发入口
+├── vite.config.js
 ├── tsconfig.json
-└── vite.config.js
+├── netlify.toml         # Netlify部署配置
+└── dist/                # 构建产物(部署用)
 ```
 
-## 每日更新流程
+## 每日更新
 
-1. 编辑 `src/data/matches.ts`，追加新比赛日结果到 `matchResults`
-2. 更新 `todayPredictions` 为当天比赛预测
-3. `npm run build`
-4. 将 `dist/` 发给任何人即可查看
-
-## 技术栈
-
-- TypeScript (strict mode)
-- Vite 5
-- ECharts 5 (交互式图表)
-- 纯前端，无后端依赖
+1. 编辑 `src/data/matches.ts`
+2. `git push` → Netlify自动部署
