@@ -155,6 +155,39 @@ function renderTodayMatch(idx: number): void {
         </div>
       `).join('')}
     </div>
+    ${p.analysis ? `
+    <!-- Deep Analysis -->
+    <div class="section-divider">深度分析</div>
+    <div class="analysis-article">
+      <div class="analysis-section">
+        <h4>小组出线形势</h4>
+        <div class="analysis-content">${p.analysis.groupSituation}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>${p.team1} 首发阵容</h4>
+        <div class="analysis-content">${p.analysis.lineup1Detail}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>${p.team2} 首发阵容</h4>
+        <div class="analysis-content">${p.analysis.lineup2Detail}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>球队风格 & 阵型匹配度</h4>
+        <div class="analysis-content">${p.analysis.styleAnalysis}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>战术克制关系</h4>
+        <div class="analysis-content">${p.analysis.tacticalNarrative}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>模型数据解读</h4>
+        <div class="analysis-content">${p.analysis.modelInterpretation}</div>
+      </div>
+      <div class="analysis-section">
+        <h4>投注逻辑</h4>
+        <div class="analysis-content">${p.analysis.betReasoning}</div>
+      </div>
+    </div>` : ''}
   </div>`
 }
 

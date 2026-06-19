@@ -72,6 +72,16 @@ export interface OverUnder {
   marketUnder?: string
 }
 
+export interface MatchAnalysis {
+  groupSituation: string        // 小组出线形势(含淘汰赛路径)
+  lineup1Detail: string         // 主队首发阵容详细描述
+  lineup2Detail: string         // 客队首发阵容详细描述
+  styleAnalysis: string         // 双方球队风格+阵型匹配度
+  tacticalNarrative: string     // 战术克制关系深度分析
+  modelInterpretation: string   // 模型数据解读(含市场对比)
+  betReasoning: string          // 波胆+推荐理由(完整逻辑链)
+}
+
 export interface MatchPrediction {
   team1: string
   team2: string
@@ -101,6 +111,7 @@ export interface MatchPrediction {
   overUnder?: OverUnder[]
   predictions: ScorePrediction[]
   recommendations: BetRecommendation[]
+  analysis?: MatchAnalysis
   confidence: Confidence
 }
 

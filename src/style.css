@@ -485,3 +485,32 @@ body {
   color: var(--text-secondary);
   line-height: 1.4;
 }
+
+/* Analysis Article */
+.analysis-article {
+  margin: 16px 0;
+}
+.analysis-section {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.analysis-section h4 {
+  color: var(--accent-blue);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.analysis-content {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+.analysis-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
