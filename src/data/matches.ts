@@ -112,13 +112,13 @@ export const todayPredictions: MatchPrediction[] = [
       { type: '波胆', pick: '0-1', odds: '+600', modelProb: 8.6, reason: '摩洛哥must-win压力下全力进攻，苏格兰中位防守难以制造进球' }
     ],
     handicaps: [
-      { line: -1, win: 0.144, draw: 0.180, lose: 0.675 },
+      { line: 0.75, win: 0.601, draw: 0, lose: 0.399 },
       { line: 0, win: 0.325, draw: 0.277, lose: 0.399 },
-      { line: 1, win: 0.601, draw: 0.204, lose: 0.194 }
+      { line: -1, win: 0.144, draw: 0.180, lose: 0.675 }
     ],
     overUnder: [
-      { line: 1.5, over: 0.751, under: 0.249 },
-      { line: 2.5, over: 0.506, under: 0.494, marketOver: '+112', marketUnder: '-148' }
+      { line: 2.25, over: 0.506, under: 0.494, marketOver: '@2.05', marketUnder: '@1.87' },
+      { line: 2.5, over: 0.506, under: 0.494, marketOver: '@2.28', marketUnder: '@1.67' }
     ],
     confidence: 'low'
   },
@@ -156,13 +156,13 @@ export const todayPredictions: MatchPrediction[] = [
       { type: '让球', pick: '巴西 -2.5', odds: '-110', modelProb: 26.4, reason: '加拿大320差打6-0 → 巴西442差不应压缩。大胜需求驱动' }
     ],
     handicaps: [
-      { line: -1, win: 0.485, draw: 0.239, lose: 0.276 },
+      { line: -2.5, win: 0.264, draw: 0, lose: 0.736 },
       { line: -2, win: 0.264, draw: 0.221, lose: 0.515 },
-      { line: 0, win: 0.724, draw: 0.190, lose: 0.086 }
+      { line: -1, win: 0.485, draw: 0.239, lose: 0.276 }
     ],
     overUnder: [
-      { line: 2.5, over: 0.530, under: 0.469, marketOver: '-115', marketUnder: '-113' },
-      { line: 3.5, over: 0.318, under: 0.682, marketOver: '-115', marketUnder: '-113' }
+      { line: 2.5, over: 0.530, under: 0.469, marketOver: '@1.30', marketUnder: '@3.25' },
+      { line: 3.5, over: 0.318, under: 0.682, marketOver: '@1.85', marketUnder: '@2.05' }
     ],
     confidence: 'high'
   },
@@ -200,13 +200,12 @@ export const todayPredictions: MatchPrediction[] = [
       { type: '波胆', pick: '1-0', odds: '+600', modelProb: 9.1, reason: '澳大利亚低位防守限制大比分，美国靠一个定位球或个人突破制胜' }
     ],
     handicaps: [
-      { line: -1, win: 0.217, draw: 0.213, lose: 0.570 },
-      { line: 0, win: 0.430, draw: 0.274, lose: 0.296 },
-      { line: 1, win: 0.705, draw: 0.169, lose: 0.126 }
+      { line: -1.0, win: 0.217, draw: 0, lose: 0.783 },
+      { line: -0.5, win: 0.430, draw: 0, lose: 0.570 },
+      { line: 0, win: 0.430, draw: 0.274, lose: 0.296 }
     ],
     overUnder: [
-      { line: 1.5, over: 0.751, under: 0.249 },
-      { line: 2.5, over: 0.506, under: 0.494, marketOver: '-110', marketUnder: '-118' }
+      { line: 2.5, over: 0.506, under: 0.494, marketOver: '@1.93', marketUnder: '@1.98' }
     ],
     confidence: 'mid'
   },
@@ -244,13 +243,13 @@ export const todayPredictions: MatchPrediction[] = [
       { type: '波胆', pick: '1-0', odds: '+550', modelProb: 8.9, reason: '生死战保守→Çalhanoğlu任意球或Arda Güler个人突破制胜' }
     ],
     handicaps: [
-      { line: -1, win: 0.208, draw: 0.210, lose: 0.582 },
+      { line: -0.5, win: 0.418, draw: 0, lose: 0.582 },
       { line: 0, win: 0.418, draw: 0.275, lose: 0.307 },
-      { line: 1, win: 0.693, draw: 0.174, lose: 0.134 }
+      { line: -1, win: 0.208, draw: 0.210, lose: 0.582 }
     ],
     overUnder: [
-      { line: 1.5, over: 0.753, under: 0.247 },
-      { line: 2.5, over: 0.509, under: 0.491, marketOver: '+118', marketUnder: '-155' }
+      { line: 2.25, over: 0.509, under: 0.491, marketOver: '@1.84', marketUnder: '@2.08' },
+      { line: 2.5, over: 0.509, under: 0.491, marketOver: '@2.05', marketUnder: '@1.78' }
     ],
     confidence: 'mid'
   }
