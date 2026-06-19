@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026世界杯预测Dashboard</title>
+  <script src="./assets/index-BiZl8q88.js"></script>
+  <link rel="stylesheet" href="./assets/style-BedAXvJM.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>2026 FIFA World Cup</h1>
+            <p class="subtitle">Poisson-Elo Multi-Agent Prediction Dashboard</p>
+            <div class="header-badges">
+                <span class="model-badge">RHO=0.08</span>
+                <span class="model-badge">Dixon-Coles</span>
+                <span class="model-badge">48 Teams</span>
+            </div>
+        </header>
+        
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('today')">今日推荐 (6/19)</button>
+            <button class="tab-btn" onclick="switchTab('history')">历史赛果</button>
+            <button class="tab-btn" onclick="switchTab('analysis')">模型复盘</button>
+        </nav>
+        
+        <!-- Today Tab -->
+        <section id="tab-today" class="tab-content active">
+            <div class="section-title-row">
+                <h2 class="section-header">Matchday 9 — 6月19日推荐</h2>
+                <div class="summary-badges">
+                    <span class="badge green">最高信心: 巴西3-0</span>
+                    <span class="badge yellow">中高: 美国2-1</span>
+                </div>
+            </div>
+            <div id="today-matches"></div>
+        </section>
+        
+        <!-- History Tab -->
+        <section id="tab-history" class="tab-content">
+            <h2 class="section-header">全部赛果</h2>
+            <div class="overview-stats">
+                <div class="stat-item"><div class="stat-label">总场次</div><div class="stat-value blue">28</div></div>
+                <div class="stat-item"><div class="stat-label">总进球</div><div class="stat-value">68</div></div>
+                <div class="stat-item"><div class="stat-label">场均</div><div class="stat-value green">2.43</div></div>
+                <div class="stat-item"><div class="stat-label">主胜</div><div class="stat-value">12 (43%)</div></div>
+                <div class="stat-item"><div class="stat-label">平局</div><div class="stat-value yellow">12 (43%)</div></div>
+                <div class="stat-item"><div class="stat-label">客胜</div><div class="stat-value red">4 (14%)</div></div>
+            </div>
+            <div id="goals-trend-chart" style="height:280px;margin-bottom:24px;background:var(--bg-card);border-radius:12px;padding:16px;"></div>
+            <div id="history-matches"></div>
+        </section>
+        
+        <!-- Analysis Tab -->
+        <section id="tab-analysis" class="tab-content">
+            <h2 class="section-header">模型 vs 实际 复盘</h2>
+            <div id="model-comparison"></div>
+        </section>
+    </div>
+    
+</body>
+</html>
