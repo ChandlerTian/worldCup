@@ -107,9 +107,9 @@ export const todayPredictions: MatchPrediction[] = [
       { score: '1-1', prob: 13.2, reason: '最高概率比分。苏格兰定位球/McTominay后插上有得分能力' }
     ],
     recommendations: [
-      { type: '胜平负', pick: '摩洛哥胜', odds: '-150', modelProb: 39.9, reason: '模型方向一致+摩洛哥must-win压力+Hakimi/Saibari转换质量' },
-      { type: '大小球', pick: 'Under 2.5', odds: '-148', modelProb: 49.4, reason: '双方紧凑防守，苏格兰mid-block+摩洛哥2022世界杯防守基因' },
-      { type: '波胆', pick: '0-1', odds: '+600', modelProb: 8.6, reason: '摩洛哥must-win压力下全力进攻，苏格兰中位防守难以制造进球' }
+      { type: '胜平负', pick: '苏格兰胜或平 (受让0.75)', odds: '@1.97', modelProb: 60.1, reason: 'VALUE: 模型给苏格兰不败60%，Pinnacle受让0.75@1.97(需51%)。苏格兰3分在手不冒险，3-5-2边路覆盖克制摩洛哥4-3-3' },
+      { type: '大小球', pick: 'Under 2.25', odds: '@1.87', modelProb: 49.4, reason: '苏格兰mid-block+摩洛哥防守基因→低球。市场主盘在2.25小球@1.87' },
+      { type: '波胆', pick: '1-1', odds: '@7.0', modelProb: 13.2, reason: '最高概率比分。苏格兰定位球得分+摩洛哥转换进1球。平局模型27.7%远高于市场26.5%' }
     ],
     handicaps: [
       { line: 0.75, win: 0.601, draw: 0, lose: 0.399 },
@@ -150,10 +150,10 @@ export const todayPredictions: MatchPrediction[] = [
       { score: '4-0', prob: 5.7, reason: '加拿大320差打6-0。巴西442差+攻击天赋更强+不会收工' }
     ],
     recommendations: [
-      { type: '让球', pick: '巴西 -1 赢盘', odds: '-110', modelProb: 48.5, reason: 'Elo差442当日最大。48.5%概率对应公允赔率2.06有价值' },
-      { type: '大小球', pick: 'Over 2.5', odds: '+100', modelProb: 53.0, reason: '巴西lambda 2.17 + 追分动机 + 海地防线持久度有限' },
-      { type: '波胆', pick: '3-0', odds: '+700', modelProb: 10.4, reason: '最高概率比分。巴西碾压+加拿大6-0先例(Elo差更小)' },
-      { type: '让球', pick: '巴西 -2.5', odds: '-110', modelProb: 26.4, reason: '加拿大320差打6-0 → 巴西442差不应压缩。大胜需求驱动' }
+      { type: '让球', pick: '巴西 -2.5', odds: '@1.88', modelProb: 26.4, reason: 'VALUE方向: 模型给26%偏保守，Pinnacle@1.88(需53%)说明市场认为赢3+是主流。加拿大320差打6-0→巴西442差碾压。跟市场走' },
+      { type: '大小球', pick: 'Over 3.5', odds: '@1.85', modelProb: 31.8, reason: '市场主盘在3.5而非2.5(Over 2.5@1.30已无value)。巴西追净胜球不会收工+Endrick首发拉纵深' },
+      { type: '波胆', pick: '2-0', odds: '@6.5', modelProb: 14.4, reason: '模型最高概率比分(14.4%)。但市场定价偏大比分→3-0(10.4%)作为备选' },
+      { type: '胜平负', pick: '平局', odds: '@11.0', modelProb: 19.0, reason: 'VALUE陷阱: 模型给19%平局远高于市场9%隐含。海地5-4-1曾守苏格兰72分钟。高赔value但风险大' }
     ],
     handicaps: [
       { line: -2.5, win: 0.264, draw: 0, lose: 0.736 },
@@ -194,10 +194,10 @@ export const todayPredictions: MatchPrediction[] = [
       { score: '1-0', prob: 9.1, reason: '澳大利亚低位防守克制高压。美国65%+控球但创造有限。定位球破门' }
     ],
     recommendations: [
-      { type: '胜平负', pick: '美国胜', odds: '-170', modelProb: 43.0, reason: '信任市场主场加成定价——已被墨西哥1-0/加拿大6-0主场战绩验证' },
-      { type: '大小球', pick: 'Under 2.5', odds: '-118', modelProb: 49.4, reason: '澳大利亚低位防守风格天然压制进球数。双方lambda合计仅2.7' },
-      { type: '波胆', pick: '2-1', odds: '+700', modelProb: 9.1, reason: '美国主场+个体质量保底2球，澳大利亚Irankunda反击效率极高必进1球' },
-      { type: '波胆', pick: '1-0', odds: '+600', modelProb: 9.1, reason: '澳大利亚低位防守限制大比分，美国靠一个定位球或个人突破制胜' }
+      { type: '让球', pick: '澳大利亚 +1.0 (受让1球)', odds: '@1.83', modelProb: 57.0, reason: 'VALUE: 模型给美国胜仅43%→澳大利亚不败57%。Pinnacle +1@1.83(需55%)。澳大利亚低位反击体系天然克制美国高压' },
+      { type: '胜平负', pick: '平局', odds: '@4.40', modelProb: 27.4, reason: 'VALUE: 模型27.4%平局 vs Pinnacle需22.7%。两队都3分不想输→保守对局概率高' },
+      { type: '大小球', pick: 'Under 2.5', odds: '@1.98', modelProb: 49.4, reason: '澳大利亚低位防守压制进球数(首轮38%控球仍零封土耳其)。Pinnacle接近50-50' },
+      { type: '波胆', pick: '1-1', odds: '@6.5', modelProb: 13.1, reason: '模型最高概率比分。美国主场压制但澳大利亚Irankunda反击必得1球' }
     ],
     handicaps: [
       { line: -1.0, win: 0.217, draw: 0, lose: 0.783 },
@@ -237,10 +237,10 @@ export const todayPredictions: MatchPrediction[] = [
       { score: '1-0', prob: 8.9, reason: '生死战不敢冒险。Çalhanoğlu任意球或Arda Güler个人突破进1球' }
     ],
     recommendations: [
-      { type: '胜平负', pick: '土耳其胜', odds: '-105', modelProb: 41.8, reason: '个体天赋优势明显(Arda Güler/Çalhanoğlu/Yıldız) + 换阵增加宽度' },
-      { type: '大小球', pick: 'Under 2.5', odds: '-155', modelProb: 49.1, reason: '双方首轮惨败后防守优先。生死战心态保守。巴拉圭5-3-2加固' },
-      { type: '波胆', pick: '2-1', odds: '+700', modelProb: 8.9, reason: '土耳其边路宽度制造2球+巴拉圭Almirón/Enciso反击抓转换软肋得1球' },
-      { type: '波胆', pick: '1-0', odds: '+550', modelProb: 8.9, reason: '生死战保守→Çalhanoğlu任意球或Arda Güler个人突破制胜' }
+      { type: '让球', pick: '巴拉圭 +0.5 (受让半球)', odds: '@1.85', modelProb: 58.2, reason: 'VALUE: 模型给土耳其胜仅41.8%→巴拉圭不败58.2%。Pinnacle+0.5@1.85(需54%)。巴拉圭5-3-2加固+Almirón反击速度克制土耳其转换弱点' },
+      { type: '大小球', pick: 'Under 2.25', odds: '@2.08', modelProb: 49.1, reason: '双方首轮惨败后防守优先。Pinnacle主盘2.25偏低。生死战心态保守+巴拉圭摆铁桶' },
+      { type: '波胆', pick: '1-1', odds: '@6.0', modelProb: 13.1, reason: '模型最高概率比分。生死战双方都得分但无力打破僵局' },
+      { type: '胜平负', pick: '巴拉圭胜', odds: '@3.90', modelProb: 30.7, reason: 'VALUE: 模型30.7% vs Pinnacle需25.6%。5pp正EV。Almirón+Enciso反击有爆冷能力' }
     ],
     handicaps: [
       { line: -0.5, win: 0.418, draw: 0, lose: 0.582 },
