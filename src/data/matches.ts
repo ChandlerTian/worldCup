@@ -153,6 +153,7 @@ export const todayPredictions: MatchPrediction[] = [
       {type:'大小球', pick:'Over 2.5', odds:'@1.95', modelProb:54.7, reason:'德国进攻爆发+科有反击→双方都能进球'},
       {type:'波胆', pick:'2-1', odds:'@8.0', modelProb:9.8, reason:'德国碾压但科非鱼腩(CAN冠军)必有1球反击'}
     ],
+    analysis: { groupSituation: '**E组积分形势**\n\n德国3分(GD+6, 7-1库拉索) vs 科特迪瓦3分(GD+1, 1-0厄瓜多尔)。双方都首轮赢了，这是争头名的直接对话。\n\n**淘汰赛路径:** E1对最佳第3(Elo≈1700) vs E2对I2挪威(Elo1914)。争第1动力极强(+214差距)！', lineup1Detail: '**德国 (4-2-3-1) — 纳格尔斯曼**\n\n首轮7-1血洗库拉索展现恐怖火力。Musiala+Wirtz双核驱动,Havertz假9号,Undav替补双响。全员健康。', lineup2Detail: '**科特迪瓦 (4-3-3) — 法埃**\n\n2023非洲杯冠军阵容为班底。Amad Diallo(曼联)90分钟绝杀厄瓜多尔展现大心脏。Kessié+Seri中场攻守兼备。', styleAnalysis: '**德国:** 高节奏逼抢+位置进攻。Musiala/Wirtz双10号创造力爆表。Kimmich右后卫前插+Raum左路冲击。首轮7-1但对手是Elo1427库拉索。\n\n**科特迪瓦:** 身体对抗强硬+快速转换。非洲杯冠军证明大赛抗压能力。Amad Diallo个人能力可改变比赛。', tacticalNarrative: '**核心对位:** 德国高位逼抢 vs 科特迪瓦身体对抗。科特迪瓦不会像库拉索被打穿——有对抗力+反击速度。但德国进攻维度(Musiala内切+Wirtz直塞+Kimmich套边)远超首轮对手。\n\n**关键:** 科特迪瓦能否前30分钟顶住→能则比赛变紧凑。Amad Diallo的反击速度是德国高线最大威胁。', modelInterpretation: '**模型52.6% vs 市场62.6%** — 市场多看好德国10pp。可能因7-1心理冲击过度反应。但7-1对手是Elo1427库拉索(48队最弱之一)不具参考性。科特迪瓦Elo1743是正经对手。\n\nValue在科特迪瓦方向: 平局@4.69(模型25.6%>需21.3%)和科胜@5.74(模型21.9%>需17.4%)。', betReasoning: '**核心: 科特迪瓦+1.0@2.03 + Over 2.5@1.95**\n\n让球逻辑: 模型给科不败47.5%,Pinnacle需49%→微亏但接近。结合德国7-1是虚假繁荣(对手太弱)→实际科不败>50%。\n\nOver逻辑: 模型54.7%>需51%→有value。德国进攻恐怖+科有反击能力(Amad Diallo)。双方都能进球。' },
     confidence: 'mid'
   },
   {
@@ -184,6 +185,7 @@ export const todayPredictions: MatchPrediction[] = [
       {type:'波胆', pick:'3-0', odds:'@7.0', modelProb:11.2, reason:'追分+崩盘对手。跟昨天巴西3-0同模式'},
       {type:'胜平负', pick:'平局(防冷)', odds:'@9.50', modelProb:18.4, reason:'VALUE陷阱: 模型18.4% vs市场10.2%。高赔但风险极大'}
     ],
+    analysis: { groupSituation: '**E组**\n\n厄瓜多尔0分(0-1负科特迪瓦)必须大胜追分+净胜球。库拉索0分(1-7负德国)已被淘汰。Elo差463=本轮最大碾压场。', lineup1Detail: '**厄瓜多尔 (4-3-3) — 贝卡塞切**\n\nCaicedo(切尔西)中场核心。Hincapié(勒沃库森)后防。Páez新星崛起。首轮0-1负科特迪瓦→必须全力猛攻。', lineup2Detail: '**库拉索 (5-4-1) — 比森蒂尼**\n\n首轮1-7惨败德国。加勒比弱旅Elo1427(48队倒数第二)。士气完全崩溃。将全力摆铁桶祈祷。', styleAnalysis: '**厄瓜多尔:** 南美技术流+身体强度。Caicedo(切尔西)控制中场。首轮输球后心态急躁但有追分动力。\n\n**库拉索:** 1-7后心态+体能双崩。首轮被打穿7球说明防守组织度极低。可能全场退守祈祷。', tacticalNarrative: '类似巴西vs海地的碾压格局。厄瓜多尔有5种破密集手段,库拉索唯一的反击武器首轮证明执行力极差。\n\n教训应用: 巴西昨天3-0海地(Elo差442,半场解决战斗)。厄瓜多尔463差应该更大。不缩比分。', modelInterpretation: '**模型74.2% vs 市场85.6%** — 市场比模型激进11.4pp。与巴西vs海地结构完全相同(模型72%市场86%→实际3-0命中-2.5)。\n\n跟市场走。模型偏保守已被反复验证。', betReasoning: '**核心: 厄瓜多尔-2.25@1.98 + Over 3.0@1.93**\n\n跟市场。昨天巴西-2.5@1.88命中(半场3-0)。今天完全相同结构: 碾压级Elo差+必须大胜+对手1-7后崩盘。不缩比分。' },
     confidence: 'high'
   },
   {
@@ -215,6 +217,7 @@ export const todayPredictions: MatchPrediction[] = [
       {type:'大小球', pick:'Over 2.5', odds:'@1.89', modelProb:55.0, reason:'两队首轮合计9球。本轮最佳大球场'},
       {type:'波胆', pick:'2-2', odds:'@12.0', modelProb:5.5, reason:'荷兰首轮2-2+瑞典进攻爆发互破防线'}
     ],
+    analysis: { groupSituation: '**F组**\n\n荷兰1分(2-2日本)压力大——必须赢才能重回争第1轨道。瑞典3分(5-1突尼斯)领跑。\n\n**淘汰赛:** F1对C2 vs F2对C1。目前瑞典是F1。', lineup1Detail: '**荷兰 (4-3-3) — 科曼**\n\nvan Dijk坐镇后防。Simons+Gakpo+Depay三叉戟。F.de Jong控节奏。首轮2-2日本暴露防守被打身后的问题。', lineup2Detail: '**瑞典 (4-4-2) — 托马松**\n\nIsak(阿森纳)+Gyökeres(葡超金靴)致命双前锋。Kulusevski(热刺)右路。首轮5-1血洗突尼斯火力全开。', styleAnalysis: '**荷兰:** 经典全攻全守4-3-3。控球主导,技术细腻。但首轮2-2日本暴露高线+van Dijk速度不足被跑身后的隐患。\n\n**瑞典:** 力量型足球。Isak+Gyökeres双前锋组合速度+力量兼备。Kulusevski提供创造力。5-1首轮状态极佳。', tacticalNarrative: '**本轮最佳大球场!**\n\n两队首轮合计进9球(荷兰2+瑞典5)。双方攻击端火力充沛但防守都有漏洞:\n- 荷兰: 高线被日本两次打穿(Nakamura+Kamada)\n- 瑞典: 5-1的对手突尼斯太弱,防守能力未被真正检验\n\nIsak+Gyökeres的速度+力量组合 vs van Dijk的回追速度是核心对位。', modelInterpretation: '**模型52.0% vs 市场55.1%** — 分歧极小(3pp)。双方都认为荷兰微优但不碾压。\n\n**Value:** 平局@4.06(模型25.7%>需24.6%)微弱正EV。瑞典@4.56(模型22.4%>需21.9%)微弱正EV。荷兰@1.75(模型52%<需57%)无value。', betReasoning: '**核心: Over 2.5@1.89 (本轮最强信号)**\n\n模型55%>需53%→有value。两队首轮9球说明攻守比极度失衡。荷兰高线被打身后+瑞典Isak/Gyökeres反击=几乎必然互相进球。\n\n平局@4.06也有微弱value——两队实力接近且荷兰防守不稳。' },
     confidence: 'mid'
   },
   {
@@ -246,6 +249,7 @@ export const todayPredictions: MatchPrediction[] = [
       {type:'波胆', pick:'0-2', odds:'@7.0', modelProb:12.1, reason:'模型最高概率比分。日本碾压突尼斯进攻乏力'},
       {type:'让球', pick:'观望', odds:'-', modelProb:0, reason:'双方让球盘均无value。日本-1@2.11需47%模型仅37%'}
     ],
+    analysis: { groupSituation: '**F组**\n\n突尼斯0分(1-5惨败瑞典)几乎出局。日本1分(2-2荷兰)需要赢来保住出线希望。\n\nElo差325=碾压级(同加拿大vs卡塔尔级别)。', lineup1Detail: '**突尼斯 (5-4-1) — 卡德里**\n\n首轮1-5被瑞典血洗后士气崩溃。北非球队有组织时防守纪律强,但心理层面已经破碎。Khazri/Msakni老将带队但无力回天。', lineup2Detail: '**日本 (4-2-3-1) — 森保一**\n\n首轮2-2平荷兰证明了与世界顶级对抗的能力。Kamada 88分钟扳平展现顶级心态。Kubo+Mitoma+Doan技术型三叉戟。Endo后腰稳健。', styleAnalysis: '**突尼斯:** 5-4-1防守紧凑是北非传统。但1-5后心理层面是否还能维持纪律性存疑。进攻端几乎没有威胁(首轮唯一进球是瑞典后卫送的)。\n\n**日本:** 技术型逼抢+高节奏。与荷兰2-2证明了他们是本届黑马级存在。Kamada/Kubo/Mitoma的创造力在亚洲球队中无与伦比。', tacticalNarrative: '**日本技术碾压:**\n\nKubo+Kamada+Mitoma+Doan的技术密度远超突尼斯中前场。日本在荷兰面前都能控球对攻——面对突尼斯会更从容。\n\n**唯一变量:** 突尼斯5-4-1如果能像海地对苏格兰那样坚守70+分钟,日本可能需要耐心。但突尼斯1-5的心理创伤比海地0-1严重得多——崩盘概率更高。', modelInterpretation: '**模型63.3% vs 市场59.9%** — 模型比市场更看好日本3.4pp。这是今天唯一一场模型>市场的比赛。\n\n**Value:** 日本@1.61(模型63.3%>需62.1%)有微弱正EV(+1.2pp)。这是今天唯一强队有value的场次。', betReasoning: '**核心: 日本胜@1.61 + Over 2.25@1.88**\n\n日本胜: 唯一模型概率>市场需求的强队方向。微弱正EV但方向明确。日本2-2荷兰证明了绝对实力,突尼斯1-5后心态崩盘。\n\nOver: 日本λ=1.94(本轮所有队伍最高!)。即使突尼斯摆铁桶,日本的技术密度也能创造足够机会。突尼斯防线1-5后信心归零。' },
     confidence: 'mid'
   }
 ]
