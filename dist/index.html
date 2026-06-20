@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026世界杯预测Dashboard</title>
-  <script src="./assets/index-BMTx28AQ.js"></script>
+  <script src="./assets/index-BbP9up51.js"></script>
   <link rel="stylesheet" href="./assets/style-DMj2E_Mm.css">
 </head>
 <body>
@@ -20,34 +20,40 @@
         </header>
         
         <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('today')">今日推荐 (6/19)</button>
+            <button class="tab-btn active" onclick="switchTab('today')">今日推荐 (6/20)</button>
+            <button class="tab-btn" onclick="switchTab('recap')">MD9复盘 (6/19)</button>
             <button class="tab-btn" onclick="switchTab('history')">历史赛果</button>
             <button class="tab-btn" onclick="switchTab('analysis')">模型复盘</button>
         </nav>
         
         <section id="tab-today" class="tab-content active">
             <div class="section-title-row">
-                <h2 class="section-header">Matchday 9 — 6月19日推荐</h2>
+                <h2 class="section-header">Matchday 10 — 6月20日推荐</h2>
             </div>
             <!-- Match Sub-tabs -->
             <div class="match-tabs">
-                <button class="match-tab-btn active" onclick="switchMatch(0)">苏格兰vs摩洛哥</button>
-                <button class="match-tab-btn" onclick="switchMatch(1)">巴西vs海地</button>
-                <button class="match-tab-btn" onclick="switchMatch(2)">美国vs澳大利亚</button>
-                <button class="match-tab-btn" onclick="switchMatch(3)">土耳其vs巴拉圭</button>
+                <button class="match-tab-btn active" onclick="switchMatch(0)">德国vs科特迪瓦</button>
+                <button class="match-tab-btn" onclick="switchMatch(1)">厄瓜多尔vs库拉索</button>
+                <button class="match-tab-btn" onclick="switchMatch(2)">荷兰vs瑞典</button>
+                <button class="match-tab-btn" onclick="switchMatch(3)">突尼斯vs日本</button>
             </div>
             <div id="today-matches"></div>
+        </section>
+        
+        <section id="tab-recap" class="tab-content">
+          <h2 class="section-header">MD9 复盘 (6/19)</h2>
+          <div id="recap-content"></div>
         </section>
         
         <section id="tab-history" class="tab-content">
             <h2 class="section-header">全部赛果</h2>
             <div class="overview-stats">
-                <div class="stat-item"><div class="stat-label">总场次</div><div class="stat-value blue">28</div></div>
-                <div class="stat-item"><div class="stat-label">总进球</div><div class="stat-value">68</div></div>
-                <div class="stat-item"><div class="stat-label">场均</div><div class="stat-value green">2.43</div></div>
-                <div class="stat-item"><div class="stat-label">主胜</div><div class="stat-value">12 (43%)</div></div>
-                <div class="stat-item"><div class="stat-label">平局</div><div class="stat-value yellow">12 (43%)</div></div>
-                <div class="stat-item"><div class="stat-label">客胜</div><div class="stat-value red">4 (14%)</div></div>
+                <div class="stat-item"><div class="stat-label">总场次</div><div class="stat-value blue">32</div></div>
+                <div class="stat-item"><div class="stat-label">总进球</div><div class="stat-value">75</div></div>
+                <div class="stat-item"><div class="stat-label">场均</div><div class="stat-value green">2.34</div></div>
+                <div class="stat-item"><div class="stat-label">主胜</div><div class="stat-value">13 (41%)</div></div>
+                <div class="stat-item"><div class="stat-label">平局</div><div class="stat-value yellow">12 (38%)</div></div>
+                <div class="stat-item"><div class="stat-label">客胜</div><div class="stat-value red">7 (22%)</div></div>
             </div>
             <div id="goals-trend-chart" style="height:280px;margin-bottom:24px;background:var(--bg-card);border-radius:12px;padding:16px;"></div>
             <div id="history-matches"></div>

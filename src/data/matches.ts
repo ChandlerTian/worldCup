@@ -35,6 +35,11 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-18', group: 'A', team1: '墨西哥', team2: '韩国', score1: 1, score2: 0, scorers1: ['Romo 50\''], scorers2: [], ground: '瓜达拉哈拉' },
   { date: '2026-06-18', group: 'B', team1: '瑞士', team2: '波黑', score1: 4, score2: 1, scorers1: ['Manzambi 74\'', 'Vargas 84\'', 'Manzambi 90\'', 'Xhaka 90+7\''], scorers2: ['Mahmic 90+3\''], ground: '洛杉矶' },
   { date: '2026-06-18', group: 'B', team1: '加拿大', team2: '卡塔尔', score1: 6, score2: 0, scorers1: ['Larin 16\'', 'J.David 29\'', 'J.David 45+3\'', 'Saliba 64\'', 'Manai 75\'', 'J.David 90+2\''], scorers2: [], ground: '温哥华' },
+  // Matchday 9 (6/19)
+  { date: '2026-06-19', group: 'C', team1: '苏格兰', team2: '摩洛哥', score1: 0, score2: 1, scorers1: [], scorers2: ['Saibari 2\''], ground: '波士顿' },
+  { date: '2026-06-19', group: 'C', team1: '巴西', team2: '海地', score1: 3, score2: 0, scorers1: ['Cunha 23\'', 'Cunha 36\'', 'Vinícius Jr 45+3\''], scorers2: [], ground: '费城' },
+  { date: '2026-06-19', group: 'D', team1: '美国', team2: '澳大利亚', score1: 2, score2: 0, scorers1: ['Burgess OG 11\'', 'Freeman 43\''], scorers2: [], ground: '西雅图' },
+  { date: '2026-06-19', group: 'D', team1: '土耳其', team2: '巴拉圭', score1: 0, score2: 1, scorers1: [], scorers2: ['进球者未知'], ground: '旧金山' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
@@ -74,6 +79,46 @@ export const modelVsActual: ModelVsActual[] = [
     modelCorrect: true,
     expertCorrect: false,
     winner: '模型方向正确'
+  }
+]
+
+// ====== 6/19 模型 vs 实际 ======
+export const modelVsActualDay19: ModelVsActual[] = [
+  {
+    match: '苏格兰 vs 摩洛哥',
+    model: { home: 0.3247, draw: 0.2765, away: 0.3988, topPick: '0-1 / 1-1' },
+    expertRevision: '苏格兰受让0.75',
+    actual: '0-1',
+    modelCorrect: true,
+    expertCorrect: false,
+    winner: '模型波胆命中0-1'
+  },
+  {
+    match: '巴西 vs 海地',
+    model: { home: 0.724, draw: 0.1898, away: 0.0863, topPick: '3-0 / 4-0' },
+    expertRevision: '巴西-2.5',
+    actual: '3-0',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '双命中! 巴西-2.5✓ 波胆3-0✓'
+  },
+  {
+    match: '美国 vs 澳大利亚',
+    model: { home: 0.4303, draw: 0.2742, away: 0.2956, topPick: '2-1 / 1-0' },
+    expertRevision: '澳大利亚+1.0',
+    actual: '2-0',
+    modelCorrect: false,
+    expertCorrect: false,
+    winner: '都没中(主场buff低估)'
+  },
+  {
+    match: '土耳其 vs 巴拉圭',
+    model: { home: 0.418, draw: 0.2748, away: 0.3072, topPick: '2-1 / 1-0' },
+    expertRevision: '巴拉圭+0.5',
+    actual: '0-1',
+    modelCorrect: false,
+    expertCorrect: true,
+    winner: 'Value bet命中! 巴拉圭+0.5✓'
   }
 ]
 
