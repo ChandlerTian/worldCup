@@ -1,4 +1,4 @@
-import type { MatchResult, MatchPrediction, ModelVsActual, GoalDistribution, TournamentStats } from '../types'
+import type { MatchResult, MatchPrediction, ModelVsActual, GoalDistribution, TournamentStats, CommercialAnalysis, ModelArchitecture } from '../types'
 
 // ====== 历史赛果 ======
 export const matchResults: MatchResult[] = [
@@ -272,4 +272,93 @@ export const tournamentStats: TournamentStats = {
   awayWins: 6,
   biggestWin: { match: '德国 7-1 库拉索', date: '6/14' },
   latestGoal: { match: '巴拉圭 1-0 土耳其', scorer: '进球者', date: '6/19' }
+}
+
+// ====== 商业盘口精算分析 (6/20) ======
+export const commercialAnalyses: Record<string, CommercialAnalysis> = {
+  '德国vs科特迪瓦': {
+    summary: '市场因德国7-1心理冲击过度反应(+10pp)。科特迪瓦是2023非洲杯冠军,非鱼腩。Value在客队方向但edge不够厚。',
+    approvedPicks: [
+      { pick: 'Over 2.5', odds: '@1.95', verdict: 'approved', edge: '+3.7pp', reasoning: '模型54.7%>需51.3%。德国进攻维度高+科有Amad Diallo反击能力。双方都能进球结构清晰', category: 'core' },
+      { pick: '科特迪瓦+1.0', odds: '@2.03', verdict: 'marginal', edge: '-1.0pp(边缘)', reasoning: '模型科不败48% vs需49%。逻辑正确但edge不够。7-1虚假繁荣(Elo1427对手)→实际科不败可能>50%', category: 'value' }
+    ],
+    rejectedPicks: [
+      { pick: '平局', odds: '@4.69', verdict: 'rejected', edge: '+4.3pp(模型误差范围内)', reasoning: '泊松模型天然高估平局概率。+4.3pp在3-5pp标准误差内=噪音。平局是庄家利润盘口(overround集中)', category: 'trap' },
+      { pick: '波胆2-1', odds: '@8.0', verdict: 'rejected', edge: '9.8%概率', reasoning: '波胆是庄家利润率最高盘口(overround 15-25%)。任何单一比分概率极低且方差极大。散户长期不可能在波胆上获得正EV', category: 'entertainment' }
+    ],
+    marketBehavior: '市场被德国7-1库拉索的"印象分"拉偏。Elo1427的库拉索≠Elo1743的科特迪瓦。Public Money导致德国方向overpriced。Pinnacle虽更理性但世界杯大赛中也受大量公众投注影响。',
+    kellyNote: 'Over 2.5建议1-2%仓位(edge薄但方向明确)。科特迪瓦+1.0观望或0.5%试探仓(edge不足)。'
+  },
+  '厄瓜多尔vs库拉索': {
+    summary: '本轮最明确的碾压场。Elo差463=本轮最大。库拉索1-7后士气崩盘+厄瓜多尔must-win追净胜球。跟市场走,已有巴西3-0验证同模式。',
+    approvedPicks: [
+      { pick: '厄瓜多尔-2.25', odds: '@1.98', verdict: 'approved', edge: '跟市场(模型保守已被验证)', reasoning: '巴西-2.5昨天命中(半场3-0)。完全相同结构:碾压Elo差463+必须大胜+对手1-7后崩盘。模型在碾压场系统性保守→跟市场', category: 'core' },
+      { pick: 'Over 3.0', odds: '@1.93', verdict: 'approved', edge: '+2.8pp', reasoning: '厄瓜多尔必须大胜追分+库拉索防线被打穿7球。λ_home=2.18暗示3+球高概率', category: 'core' }
+    ],
+    rejectedPicks: [
+      { pick: '波胆3-0', odds: '@7.0', verdict: 'rejected', edge: '11.2%概率', reasoning: '波胆任何单一比分=高方差赌博。即使模式对(巴西3-0),2-0/4-0/4-1的概率合计远高于精确3-0。已有-2.25覆盖', category: 'entertainment' },
+      { pick: '平局(防冷)', odds: '@9.50', verdict: 'rejected', edge: '自标"风险极大"', reasoning: '自己都标了VALUE陷阱还列入推荐=典型散户心态。精算师逻辑:认定是陷阱→直接不列入。"防冷"不是投注逻辑', category: 'trap' }
+    ],
+    marketBehavior: '模型74.2% vs 市场85.6%→市场比模型激进11.4pp。与巴西vs海地结构完全相同(模型72%市场86%→实际3-0命中-2.5)。碾压场模型已被反复验证为保守→信任市场定价。',
+    kellyNote: '厄瓜多尔-2.25建议2-3%仓位(高信心+前日验证)。Over 3.0建议1.5-2%。这是今天最核心的仓位。'
+  },
+  '荷兰vs瑞典': {
+    summary: '本轮最佳大球场!两队首轮合计9球(荷兰2-2+瑞典5-1)。攻强于守的结构性大球格局。平局edge过薄不构成可下注信号。',
+    approvedPicks: [
+      { pick: 'Over 2.5', odds: '@1.89', verdict: 'approved', edge: '+2.0pp(本轮最强信号)', reasoning: '模型55%>需53%。荷兰高线被日本打穿(2-2)+瑞典Isak/Gyökeres双前锋反击=几乎必然互相进球。两队首轮攻守比极度失衡。', category: 'core' }
+    ],
+    rejectedPicks: [
+      { pick: '平局', odds: '@4.06', verdict: 'rejected', edge: '+1.1pp=纯噪音', reasoning: '+1.1pp完全在模型标准误差(3-5pp)内。不构成任何可下注的edge。泊松模型高估平局的已知偏差在这里放大了效果', category: 'trap' },
+      { pick: '瑞典+0.75', odds: '@1.93', verdict: 'rejected', edge: '-1.0pp(微亏)', reasoning: '模型瑞典不败48% vs需52%=实际负EV。首轮5-1的对手突尼斯太弱(Elo1585),瑞典防守能力未被真正检验', category: 'trap' },
+      { pick: '波胆2-2', odds: '@12.0', verdict: 'rejected', edge: '5.5%概率', reasoning: '5.5%概率×@12.0=EV -34%。波胆在高overround下几乎必亏。纯娱乐', category: 'entertainment' }
+    ],
+    marketBehavior: '模型52.0% vs 市场55.1%→分歧极小(3pp)。双方都认为荷兰微优但不碾压。价格已经很"公平",没有明显的信息不对称可供利用。唯一的alpha在大小球方向(结构性大球)。',
+    kellyNote: 'Over 2.5建议1.5-2%仓位(结构性大球信号强但赔率不高)。其他方向全部观望。'
+  },
+  '突尼斯vs日本': {
+    summary: '今天唯一模型>市场的强队方向(+3.4pp)。日本2-2荷兰证明顶级实力,突尼斯1-5后心态崩盘。微弱正EV但方向确定性强。',
+    approvedPicks: [
+      { pick: '日本胜', odds: '@1.61', verdict: 'approved', edge: '+1.2pp(微弱但方向明确)', reasoning: '模型63.3%>需62.1%。今天唯一强队有value的场次。日本2-2荷兰证明绝对实力→面对1-5崩盘的突尼斯更从容', category: 'value' },
+      { pick: 'Over 2.25', odds: '@1.88', verdict: 'approved', edge: '+2.0pp', reasoning: '日本λ=1.94(本轮所有队伍最高!)。即使突尼斯摆铁桶,日本技术密度也能创造足够机会。突尼斯防线1-5后信心归零', category: 'core' }
+    ],
+    rejectedPicks: [
+      { pick: '波胆0-2', odds: '@7.0', verdict: 'rejected', edge: '12.1%概率', reasoning: '同理波胆逻辑。已有日本胜@1.61覆盖方向。精确比分是庄家的利润池', category: 'entertainment' }
+    ],
+    marketBehavior: '模型63.3% vs 市场59.9%→模型比市场更看好日本。这是极少见的"模型>市场"在强队方向的case。通常market更准,但突尼斯1-5的心理崩盘可能被市场低估(市场可能过度相信北非球队5-4-1防守纪律)。',
+    kellyNote: '日本胜建议1-1.5%仓位(edge薄@1.61赔率)。Over 2.25建议1%。低赔率场不宜重仓。'
+  }
+}
+
+// ====== 模型架构 ======
+export const modelArchitecture: ModelArchitecture = {
+  name: 'Poisson-Elo Multi-Agent System',
+  version: '3.0',
+  coreEngine: '双泊松分布(Bivariate Poisson) + Dixon-Coles修正(ρ=0.08)',
+  dimensions: [
+    { name: 'Elo实力评估', icon: '📊', description: '基于历史比赛结果的球队相对实力量化。Elo差值驱动泊松λ参数,决定预期进球数', weight: '核心(40%)', dataSource: 'eloratings.net/2026_World_Cup.tsv' },
+    { name: '泊松进球建模', icon: '⚽', description: '将Elo差转化为双泊松λ(主队/客队期望进球)。计算所有比分概率(0-0到7-7)的联合概率矩阵', weight: '核心(30%)', dataSource: 'model_agent.py — λ = f(Elo_diff)' },
+    { name: '市场隐含概率', icon: '💹', description: '从Pinnacle/William Hill等尖盘提取decimal odds→反推fair probability。作为模型校准的参照系', weight: '参照(15%)', dataSource: 'The Odds API (reports/app/odds_api.py)' },
+    { name: '小组博弈动机', icon: '🎯', description: '淘汰赛路径分析: R32对阵表固定→计算1st vs 2nd path的对手Elo差→量化争头名动力', weight: '调节(5%)', dataSource: 'context_agent.py — knockout_path_analysis()' },
+    { name: '战术克制分析', icon: '⚔️', description: '阵型匹配度、球风相克(高位逼抢vs身体对抗、反击速度vs高防线)、定位球优势', weight: '定性(5%)', dataSource: '人工标注 + 首轮表现' },
+    { name: '心理/士气因子', icon: '🧠', description: '首轮大胜/大败后的心理状态、must-win压力、北美主场buff(+80-100 Elo等效)', weight: '定性(5%)', dataSource: 'context_agent.py — qual_pressure + 经验规则' }
+  ],
+  pipeline: [
+    '1. Elo数据获取 → eloratings.net每日更新',
+    '2. model_agent.py → 纯数学: Elo→λ→双泊松→1X2/波胆/进球差分布',
+    '3. context_agent.py → 情境: 休息天/出线形势/淘汰赛路径/动力评估',
+    '4. Pinnacle赔率获取 → The Odds API (3 quota/call)',
+    '5. handicap_agent.py → 体彩让球胜平负概率 + EV计算',
+    '6. Value分析 → model_prob vs 1/decimal_odds → 正EV才推荐',
+    '7. 商业盘口审核 → 精算师视角过滤: 砍波胆/砍噪音edge/砍平局陷阱',
+    '8. Kelly仓位 → 按edge厚度分配1-3%仓位'
+  ],
+  limitations: [
+    'Elo不含阵容/伤病权重 — 虽列了阵容但未数学化纳入模型λ',
+    '双泊松假设两队进球独立 — 实际存在相关性(落后方加强进攻)',
+    '模型在碾压场系统性保守 — Elo差>400时,市场定价通常比模型准',
+    '平局概率系统性偏高 — 泊松分布的已知特性,需Dixon-Coles修正但仍有残差',
+    '无主场优势修正 — 北美主场buff(+80-100 Elo)未内置到λ计算中',
+    '世界杯样本稀缺 — 4年一次+48队新赛制,历史参照有限'
+  ],
+  calibration: '每日回测前一天推荐 vs 实际结果。6/18验证:模型方向3/4正确(专家0/4)。6/19验证:Value bet 2/4命中(50%)。碾压场跟市场方向,中性场信任模型edge。'
 }

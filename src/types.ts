@@ -112,6 +112,7 @@ export interface MatchPrediction {
   predictions: ScorePrediction[]
   recommendations: BetRecommendation[]
   analysis?: MatchAnalysis
+  commercialAnalysis?: CommercialAnalysis
   confidence: Confidence
 }
 
@@ -140,4 +141,43 @@ export interface TournamentStats {
   awayWins: number
   biggestWin: { match: string; date: string }
   latestGoal: { match: string; scorer: string; date: string }
+}
+
+// ====== 商业盘口精算分析 ======
+export type CommercialVerdict = 'approved' | 'rejected' | 'marginal'
+
+export interface CommercialPick {
+  pick: string              // 推荐内容
+  odds: string              // 赔率
+  verdict: CommercialVerdict // 精算师判定：approved通过/rejected否决/marginal边缘
+  edge: string              // 正EV边际描述 (e.g. "+4.3pp" or "噪音级别")
+  reasoning: string         // 商业逻辑原因
+  category: 'core' | 'value' | 'trap' | 'entertainment' // 分类
+}
+
+export interface CommercialAnalysis {
+  summary: string           // 精算师整体评语
+  approvedPicks: CommercialPick[]   // 通过商业逻辑审核的推荐
+  rejectedPicks: CommercialPick[]   // 不符合商业逻辑的推荐
+  marketBehavior: string    // 市场行为学分析
+  kellyNote: string         // 资金管理建议
+}
+
+// ====== 模型架构 ======
+export interface ModelDimension {
+  name: string
+  icon: string
+  description: string
+  weight: string
+  dataSource: string
+}
+
+export interface ModelArchitecture {
+  name: string
+  version: string
+  coreEngine: string
+  dimensions: ModelDimension[]
+  pipeline: string[]        // 流水线步骤
+  limitations: string[]     // 已知局限性
+  calibration: string       // 校准方法
 }

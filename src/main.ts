@@ -1,5 +1,5 @@
-import { matchResults, todayPredictions, modelVsActual, modelVsActualDay19, goalDistributions } from './data/matches'
-import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend, renderModelAccuracy } from './charts/index'
+import { matchResults, todayPredictions, modelVsActualDay19, goalDistributions, commercialAnalyses, modelArchitecture } from './data/matches'
+import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
 import type { ECharts } from 'echarts'
 
@@ -155,6 +155,61 @@ function renderTodayMatch(idx: number): void {
         </div>
       `).join('')}
     </div>
+
+    <!-- Commercial Analysis (精算师审核) -->
+    ${(() => {
+      const key = `${p.team1}vs${p.team2}`
+      const ca = commercialAnalyses[key]
+      if (!ca) return ''
+      return `
+    <div class="section-divider">🎯 商业盘口精算审核</div>
+    <div class="commercial-analysis">
+      <div class="commercial-summary">${ca.summary}</div>
+
+      <div class="commercial-section">
+        <h5 class="commercial-heading approved-heading">✅ 通过审核 — 符合商业逻辑</h5>
+        <div class="commercial-picks">
+          ${ca.approvedPicks.map(pick => `
+            <div class="commercial-pick-card pick-${pick.verdict}">
+              <div class="pick-header">
+                <span class="pick-name">${pick.pick}</span>
+                <span class="pick-odds">${pick.odds}</span>
+                <span class="pick-verdict verdict-${pick.verdict}">${pick.verdict === 'approved' ? '✓ 通过' : '⚠ 边缘'}</span>
+              </div>
+              <div class="pick-edge">Edge: ${pick.edge}</div>
+              <div class="pick-reasoning">${pick.reasoning}</div>
+              <div class="pick-category cat-${pick.category}">${pick.category === 'core' ? '核心仓位' : pick.category === 'value' ? 'Value Bet' : pick.category === 'trap' ? '陷阱' : '娱乐'}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="commercial-section">
+        <h5 class="commercial-heading rejected-heading">❌ 否决 — 不符合商业逻辑</h5>
+        <div class="commercial-picks">
+          ${ca.rejectedPicks.map(pick => `
+            <div class="commercial-pick-card pick-rejected">
+              <div class="pick-header">
+                <span class="pick-name">${pick.pick}</span>
+                <span class="pick-odds">${pick.odds}</span>
+                <span class="pick-verdict verdict-rejected">✗ 否决</span>
+              </div>
+              <div class="pick-edge">Edge: ${pick.edge}</div>
+              <div class="pick-reasoning">${pick.reasoning}</div>
+              <div class="pick-category cat-${pick.category}">${pick.category === 'trap' ? '⚠️ 陷阱' : '🎲 娱乐注'}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="commercial-footer">
+        <div class="commercial-meta">
+          <div class="meta-item"><span class="meta-label">市场行为学:</span> ${ca.marketBehavior}</div>
+          <div class="meta-item"><span class="meta-label">Kelly仓位:</span> ${ca.kellyNote}</div>
+        </div>
+      </div>
+    </div>`
+    })()}
     ${p.analysis ? `
     <!-- Deep Analysis -->
     <div class="section-divider">深度分析</div>
@@ -214,11 +269,94 @@ function renderHistory(): void {
   container.innerHTML = html
 }
 
-// ====== Render Model Comparison ======
-function renderModelComparison(): void {
-  const container = document.getElementById('model-comparison')
+// ====== Render Model Architecture ======
+function renderModelArchitecture(): void {
+  const container = document.getElementById('model-architecture')
   if (!container) return
-  container.innerHTML = `<div class="card"><div class="card-header"><div class="card-title">6/18 模型 vs 专家修正 vs 实际</div><span class="stat-badge">模型方向 3/4 | 专家 0/4</span></div><div id="accuracy-chart" style="height:200px;margin-bottom:16px;"></div><table class="comparison-table"><tr><th>场次</th><th>模型推荐</th><th>专家修正</th><th>实际结果</th><th>判定</th></tr>${modelVsActual.map((m: MVA) => `<tr><td>${m.match}</td><td>${m.model.topPick}</td><td class="${m.expertCorrect ? 'correct' : 'wrong'}">${m.expertRevision}</td><td class="actual">${m.actual}</td><td class="${m.modelCorrect ? 'correct' : ''}">${m.winner}</td></tr>`).join('')}</table></div>`
+  const ma = modelArchitecture
+
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">${ma.name} v${ma.version}</div>
+        <span class="card-badge">${ma.coreEngine}</span>
+      </div>
+
+      <!-- Architecture Diagram -->
+      <div class="arch-diagram">
+        <div class="arch-coordinator">
+          <div class="arch-node arch-node-main">
+            <span class="arch-icon">🎛️</span>
+            <span class="arch-label">Coordinator 协调器</span>
+            <span class="arch-sublabel">合并所有Agent输出 + 商业审核</span>
+          </div>
+        </div>
+        <div class="arch-connectors">
+          <div class="arch-line"></div>
+          <div class="arch-line"></div>
+          <div class="arch-line"></div>
+        </div>
+        <div class="arch-agents">
+          <div class="arch-node arch-node-agent">
+            <span class="arch-icon">📊</span>
+            <span class="arch-label">Model Agent</span>
+            <span class="arch-sublabel">Poisson-Elo纯数学</span>
+          </div>
+          <div class="arch-node arch-node-agent">
+            <span class="arch-icon">🎯</span>
+            <span class="arch-label">Context Agent</span>
+            <span class="arch-sublabel">情境/动机/路径</span>
+          </div>
+          <div class="arch-node arch-node-agent">
+            <span class="arch-icon">💹</span>
+            <span class="arch-label">Handicap Agent</span>
+            <span class="arch-sublabel">盘口EV计算</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dimensions -->
+      <div class="section-divider">分析维度 (6维)</div>
+      <div class="dimensions-grid">
+        ${ma.dimensions.map(d => `
+          <div class="dimension-card">
+            <div class="dimension-header">
+              <span class="dimension-icon">${d.icon}</span>
+              <span class="dimension-name">${d.name}</span>
+              <span class="dimension-weight">${d.weight}</span>
+            </div>
+            <div class="dimension-desc">${d.description}</div>
+            <div class="dimension-source">数据源: ${d.dataSource}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Pipeline -->
+      <div class="section-divider">分析流水线 (Pipeline)</div>
+      <div class="pipeline-steps">
+        ${ma.pipeline.map((step, i) => `
+          <div class="pipeline-step ${i === 6 ? 'pipeline-highlight' : ''}">
+            <div class="pipeline-dot"></div>
+            <div class="pipeline-text">${step}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Limitations -->
+      <div class="section-divider">已知局限性</div>
+      <div class="limitations-list">
+        ${ma.limitations.map(l => `
+          <div class="limitation-item">
+            <span class="limitation-icon">⚠️</span>
+            <span class="limitation-text">${l}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Calibration -->
+      <div class="section-divider">校准方法</div>
+      <div class="calibration-box">${ma.calibration}</div>
+    </div>`
 }
 
 // ====== Charts ======
@@ -242,11 +380,6 @@ function renderAllCharts(): void {
   const trendEl = document.getElementById('goals-trend-chart')
   if (trendEl && trendEl.offsetParent !== null) {
     charts.push(renderGoalsTrend(trendEl, matchResults))
-  }
-
-  const accEl = document.getElementById('accuracy-chart')
-  if (accEl && accEl.offsetParent !== null) {
-    charts.push(renderModelAccuracy(accEl, modelVsActual))
   }
 }
 
@@ -293,7 +426,7 @@ function renderRecap(): void {
 document.addEventListener('DOMContentLoaded', () => {
   renderTodayMatch(0)
   renderHistory()
-  renderModelComparison()
+  renderModelArchitecture()
   renderRecap()
   setTimeout(renderAllCharts, 250)
   window.addEventListener('resize', () => charts.forEach(c => c.resize()))
