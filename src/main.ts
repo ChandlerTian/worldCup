@@ -1,4 +1,4 @@
-import { matchResults, todayPredictions, modelVsActual, goalDistributions } from './data/matches'
+import { matchResults, todayPredictions, modelVsActual, modelVsActualDay19, goalDistributions } from './data/matches'
 import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend, renderModelAccuracy } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
 import type { ECharts } from 'echarts'
@@ -251,10 +251,50 @@ function renderAllCharts(): void {
 }
 
 // ====== Init ======
+// ====== Render: Recap (6/19) ======
+function renderRecap(): void {
+  const container = document.getElementById('recap-content')
+  if (!container) return
+
+  const lessons = `
+    <div class="lesson-box" style="margin-bottom:16px;">
+      <h4 style="color:var(--accent-orange);margin-bottom:8px;">6/19 核心教训</h4>
+      <ul style="list-style:none;padding:0;color:var(--text-secondary);font-size:0.9rem;">
+        <li style="padding:4px 0;">✅ 巴西-2.5 命中 — 碾压场跟市场走(半场3-0)</li>
+        <li style="padding:4px 0;">✅ 巴拉圭+0.5 命中 — 中性场value逻辑有效(还赢了1-0!)</li>
+        <li style="padding:4px 0;">❌ 苏格兰受让0.75 — 摩洛哥2分钟闪击未能回应</li>
+        <li style="padding:4px 0;">❌ 澳大利亚+1 — 北美主场buff再次验证(美国2-0)</li>
+        <li style="padding:4px 0;color:var(--accent-yellow);font-weight:600;">→ 规则更新: 不要逆北美主场队下注!</li>
+      </ul>
+    </div>`
+
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Matchday 9 推荐 vs 实际 (6/19)</div>
+        <span class="stat-badge">战绩: 2/4 (50%)</span>
+      </div>
+      <table class="comparison-table">
+        <tr><th>场次</th><th>推荐</th><th>赔率</th><th>实际结果</th><th>判定</th></tr>
+        ${modelVsActualDay19.map((m: MVA) => `
+          <tr>
+            <td>${m.match}</td>
+            <td>${m.expertRevision}</td>
+            <td style="color:var(--text-muted);">-</td>
+            <td class="actual">${m.actual}</td>
+            <td class="${m.modelCorrect ? 'correct' : 'wrong'}">${m.winner}</td>
+          </tr>
+        `).join('')}
+      </table>
+      ${lessons}
+    </div>`
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderTodayMatch(0)
   renderHistory()
   renderModelComparison()
+  renderRecap()
   setTimeout(renderAllCharts, 250)
   window.addEventListener('resize', () => charts.forEach(c => c.resize()))
 })
