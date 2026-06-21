@@ -23,8 +23,8 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-15', group: 'H', team1: '沙特', team2: '乌拉圭', score1: 1, score2: 1, scorers1: ['Al-Amri 41\''], scorers2: ['Araújo 80\''], ground: '休斯顿' },
   { date: '2026-06-16', group: 'I', team1: '法国', team2: '塞内加尔', score1: 3, score2: 1, scorers1: ['Mbappé 66\'', 'Barcola 82\'', 'Mbappé 90+6\''], scorers2: ['Mbaye 90+5\''], ground: '纽约' },
   { date: '2026-06-16', group: 'I', team1: '伊拉克', team2: '挪威', score1: 1, score2: 4, scorers1: ['Hussein 39\''], scorers2: ['Haaland 29\'', 'Haaland 43\'', 'Østigard 76\'', 'Hussein OG 90+6\''], ground: '多伦多' },
-  { date: '2026-06-16', group: 'J', team1: '阿根廷', team2: '阿尔及利亚', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '迈阿密' },
-  { date: '2026-06-16', group: 'J', team1: '奥地利', team2: '约旦', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '费城' },
+  { date: '2026-06-16', group: 'J', team1: '阿根廷', team2: '阿尔及利亚', score1: 3, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '迈阿密' },
+  { date: '2026-06-16', group: 'J', team1: '奥地利', team2: '约旦', score1: 3, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '费城' },
   // Matchday 7 (6/17)
   { date: '2026-06-17', group: 'K', team1: '葡萄牙', team2: '刚果(金)', score1: 1, score2: 1, scorers1: ['J.Neves 6\''], scorers2: ['Wissa 45+5\''], ground: '纽约' },
   { date: '2026-06-17', group: 'K', team1: '乌兹别克', team2: '哥伦比亚', score1: 1, score2: 3, scorers1: ['Fayzullaev 60\''], scorers2: ['Muñoz 40\'', 'L.Díaz 65\'', 'Campaz 90+9\''], ground: '迈阿密' },
@@ -39,7 +39,7 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-19', group: 'C', team1: '苏格兰', team2: '摩洛哥', score1: 0, score2: 1, scorers1: [], scorers2: ['Saibari 2\''], ground: '波士顿' },
   { date: '2026-06-19', group: 'C', team1: '巴西', team2: '海地', score1: 3, score2: 0, scorers1: ['Cunha 23\'', 'Cunha 36\'', 'Vinícius Jr 45+3\''], scorers2: [], ground: '费城' },
   { date: '2026-06-19', group: 'D', team1: '美国', team2: '澳大利亚', score1: 2, score2: 0, scorers1: ['Burgess OG 11\'', 'Freeman 43\''], scorers2: [], ground: '西雅图' },
-  { date: '2026-06-19', group: 'D', team1: '土耳其', team2: '巴拉圭', score1: 0, score2: 1, scorers1: [], scorers2: ['进球者未知'], ground: '旧金山' },
+  { date: '2026-06-19', group: 'D', team1: '土耳其', team2: '巴拉圭', score1: 0, score2: 1, scorers1: [], scorers2: ['Enciso 52\''], ground: '旧金山' },
   // Matchday 10 (6/20)
   { date: '2026-06-20', group: 'E', team1: '德国', team2: '科特迪瓦', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '多伦多' },
   { date: '2026-06-20', group: 'E', team1: '厄瓜多尔', team2: '库拉索', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '堪萨斯城' },
@@ -315,14 +315,14 @@ export const goalDistributions: Record<string, GoalDistribution> = {
 
 // ====== 赛事统计 ======
 export const tournamentStats: TournamentStats = {
-  totalMatches: 32,
-  totalGoals: 75,
-  avgGoals: 2.34,
-  homeWins: 13,
-  draws: 13,
-  awayWins: 6,
+  totalMatches: 36,
+  totalGoals: 95,
+  avgGoals: 2.64,
+  homeWins: 16,
+  draws: 11,
+  awayWins: 9,
   biggestWin: { match: '德国 7-1 库拉索', date: '6/14' },
-  latestGoal: { match: '巴拉圭 1-0 土耳其', scorer: '进球者', date: '6/19' }
+  latestGoal: { match: '日本 4-0 突尼斯', scorer: '待补充', date: '6/21' }
 }
 
 // ====== 商业盘口精算分析 (6/20) ======
