@@ -133,7 +133,7 @@ export const todayPredictions: MatchPrediction[] = [
     predictions: [{score:'2-0', prob:12.1, reason:'乌拉圭进攻丰富但佛得角防守纪律限制大胜'},{score:'1-0', prob:11.2, reason:'佛得角铁桶阵仅被攻破1次'},{score:'2-1', prob:9.5, reason:'佛得角也有进球能力(反击质量虽低但团队配合好)'}],
     recommendations: [
       {type:'胜平负', pick:'乌拉圭胜', odds:'@1.55', modelProb:0.720, reason:'VALUE! 模型72.0% vs market 64.5% → +7.5pp正EV! 今日唯一模型>市场的强队场次。乌拉圭实力碾压佛得角'},
-      {type:'大小球', pick:'Under 2.5 观望', odds:'@1.90', modelProb:0.404, reason:'模型40.4%<need 53%→数学无value。但佛得角0-0西班牙+乌拉圭首轮仅1球→结构性小球'},
+      {type:'大小球', pick:'Under 2.5 观望', odds:'@1.90', modelProb:0.404, reason:'模型40.4% 需53%→数学无value。但佛得角0-0西班牙+乌拉圭首轮仅1球→结构性小球'},
       {type:'让球', pick:'乌拉圭-1.5 拒绝!', odds:'@2.30', modelProb:0.380, reason:'⚠️ 厄瓜多尔0-0教训! 佛得角防守已证明(0-0西班牙!),不追碾压让球'},
       {type:'波胆', pick:'1-0', odds:'@6.00', modelProb:0.112, reason:'佛得角铁桶阵限制乌拉圭进球数。比尔萨高压可能只够破防1次'}
     ],
@@ -187,7 +187,7 @@ export const todayPredictions: MatchPrediction[] = [
     recommendations: [
       {type:'让球', pick:'新西兰+1.0', odds:'@2.02', modelProb:0.715, reason:'VALUE! 模型新西兰不输超1球71.5% > 需49.5% → +22pp巨大value! 真实盘口埃及-1.0, NZ+1.0是今天最佳value'},
       {type:'大小球', pick:'Under 2.5', odds:'@1.96', modelProb:0.484, reason:'模型48.4% vs 需51%→边缘。G组must-win可能推高总球数。观望'},
-      {type:'胜平负', pick:'拒绝埃及胜', odds:'@1.84', modelProb:0.485, reason:'模型48.5%<需54.3%→无value。埃及被高估,Salah虽强但团队一般'},
+      {type:'胜平负', pick:'拒绝埃及胜', odds:'@1.84', modelProb:0.485, reason:'模型48.5% 需54.3%→无value。埃及被高估,Salah虽强但团队一般'},
       {type:'波胆', pick:'1-1', odds:'@6.50', modelProb:0.109, reason:'G组均衡格局最自然比分。但波胆仅供参考'}
     ],
     analysis: {
