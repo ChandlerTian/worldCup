@@ -26,10 +26,10 @@ export const todayPredictions: MatchPrediction[] = [
     overUnder: [{line:3.5, over:0.342, under:0.658, marketOver:'@1.92', marketUnder:'@1.94'},{line:3.0, over:0.342, under:0.658, marketOver:'@2.10', marketUnder:'@1.78'}],
     predictions: [{score:'1-0', prob:11.6, reason:'西班牙控球但破密集效率低,可能仅1球小胜'},{score:'2-0', prob:11.2, reason:'西班牙若早进球则沙特被迫出击,二次打击'},{score:'2-1', prob:9.9, reason:'沙特有反击1球能力(Al-Dawsari)'}],
     recommendations: [
-      {type:'让球', pick:'沙特+2.5', odds:'@1.91', modelProb:99.6, reason:'VALUE! 模型沙特输3球以上概率仅0.4%, +2.5水0.91几乎是免费送。西班牙破密集能力存疑(首轮0-0佛得角)'},
-      {type:'大小球', pick:'Under 3.5', odds:'@1.94', modelProb:65.8, reason:'VALUE: 模型小球65.8% > 需51.5% → +14.3pp正EV! 西班牙首轮0-0+沙特曼奇尼防守=结构性小球'},
-      {type:'让球', pick:'拒绝西班牙-2.5', odds:'@1.92', modelProb:99.6, reason:'模型西班牙赢3+球仅0.4%概率。首轮0-0佛得角证明破密集无力。追深盘=送钱'},
-      {type:'波胆', pick:'1-0', odds:'@6.50', modelProb:11.6, reason:'最高概率比分。西班牙艰难1球小胜最可能'}
+      {type:'让球', pick:'沙特+2.5', odds:'@1.91', modelProb:0.996, reason:'VALUE! 模型沙特输3球以上概率仅0.4%, +2.5水0.91几乎是免费送。西班牙破密集能力存疑(首轮0-0佛得角)'},
+      {type:'大小球', pick:'Under 3.5', odds:'@1.94', modelProb:0.658, reason:'VALUE: 模型小球65.8% > 需51.5% → +14.3pp正EV! 西班牙首轮0-0+沙特曼奇尼防守=结构性小球'},
+      {type:'让球', pick:'拒绝西班牙-2.5', odds:'@1.92', modelProb:0.996, reason:'模型西班牙赢3+球仅0.4%概率。首轮0-0佛得角证明破密集无力。追深盘=送钱'},
+      {type:'波胆', pick:'1-0', odds:'@6.50', modelProb:0.116, reason:'最高概率比分。西班牙艰难1球小胜最可能'}
     ],
     analysis: {
       groupSituation: '**H组第2轮形势**\n\n西班牙1分(0-0佛得角,爆冷!) vs 沙特1分(1-1乌拉圭,不错)。乌拉圭1分,佛得角1分。四队全平!\n\n**淘汰赛路径:** H1打最佳第3(~Elo1600) vs H2对G2(~Elo1750)。差距150 Elo,争头名有动力但不极端。\n\n**关键:** 西班牙首轮0-0暴露了对低位防守的无力。今天面对同样紧凑的沙特,能否调整?',
@@ -79,10 +79,10 @@ export const todayPredictions: MatchPrediction[] = [
     overUnder: [{line:2.5, over:0.514, under:0.486, marketOver:'@1.88', marketUnder:'@1.94'},{line:2.75, over:0.514, under:0.486, marketOver:'@2.15', marketUnder:'@1.75'}],
     predictions: [{score:'1-0', prob:11.3, reason:'比利时经验微优,但进球效率可能不高'},{score:'1-1', prob:10.9, reason:'双方都有进球能力但也都不稳定'},{score:'2-1', prob:9.4, reason:'开放式打法下比利时De Bruyne关键传球制胜'}],
     recommendations: [
-      {type:'让球', pick:'伊朗+1.5', odds:'@1.85', modelProb:74.7, reason:'VALUE! 模型伊朗不输超1球74.7% > 需54% → +20.7pp巨大value! 真实盘口比利时-1.25,伊朗方向深度value'},
-      {type:'大小球', pick:'Over 2.5', odds:'@1.88', modelProb:51.4, reason:'微弱正EV: 模型51.4%>需53.2%→边缘。但双方must-win开放打法加强Over逻辑'},
-      {type:'让球', pick:'拒绝比利时-1.5', odds:'@2.25', modelProb:25.3, reason:'模型仅25.3%→负EV。市场-1.25已经很激进,更大盘口没有支撑'},
-      {type:'波胆', pick:'1-1', odds:'@6.00', modelProb:10.9, reason:'最高概率比分但波胆overround高,仅供参考'}
+      {type:'让球', pick:'伊朗+1.5', odds:'@1.85', modelProb:0.747, reason:'VALUE! 模型伊朗不输超1球74.7% > 需54% → +20.7pp巨大value! 真实盘口比利时-1.25,伊朗方向深度value'},
+      {type:'大小球', pick:'Over 2.5', odds:'@1.88', modelProb:0.514, reason:'微弱正EV: 模型51.4%>需53.2%→边缘。但双方must-win开放打法加强Over逻辑'},
+      {type:'让球', pick:'拒绝比利时-1.5', odds:'@2.25', modelProb:0.253, reason:'模型仅25.3%→负EV。市场-1.25已经很激进,更大盘口没有支撑'},
+      {type:'波胆', pick:'1-1', odds:'@6.00', modelProb:0.109, reason:'最高概率比分但波胆overround高,仅供参考'}
     ],
     analysis: {
       groupSituation: '**G组极度均衡!**\n\n比利时1分(1-1埃及) | 伊朗1分(2-2新西兰) | 埃及1分(1-1比利时) | 新西兰1分(2-2伊朗)\n\n四队全平!!! 这意味着第2轮就是淘汰赛——输球的队伍第3轮将陷入极度被动。\n\n**博弈论:** 双方都知道平局=灾难(第3轮面对另一个1分对手仍需拼)。MUST-WIN动力极强→预期开放式打法。',
@@ -129,13 +129,13 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'H组第2轮。乌拉圭1分(1-1沙特,不佳) vs 佛得角1分(0-0西班牙,超级爆冷!)。佛得角是本届最大黑马候选——Elo1490逼平Elo1975的西班牙!\n\n⚠️ 6/20教训: 厄瓜多尔0-0库拉索(Elo差463)。碾压场不等于大胜!佛得角比库拉索强得多(逼平西班牙!)。',
     handicaps: [{line:-1.5, win:0.380, draw:0, lose:0.620},{line:-1, win:0.380, draw:0.195, lose:0.425},{line:-0.5, win:0.720, draw:0, lose:0.280}],
-    overUnder: [{line:2.5, over:0.597, under:0.403, marketOver:'@1.87', marketUnder:'@1.99'},{line:2.25, over:0.597, under:0.403, marketOver:'@2.05', marketUnder:'@1.80'}],
+    overUnder: [{line:2.5, over:0.597, under:0.403, marketOver:'@1.87', marketUnder:'@1.99'},{line:2.25, over:0.623, under:0.377, marketOver:'@2.05', marketUnder:'@1.80'}],
     predictions: [{score:'2-0', prob:12.1, reason:'乌拉圭进攻丰富但佛得角防守纪律限制大胜'},{score:'1-0', prob:11.2, reason:'佛得角铁桶阵仅被攻破1次'},{score:'2-1', prob:9.5, reason:'佛得角也有进球能力(反击质量虽低但团队配合好)'}],
     recommendations: [
-      {type:'胜平负', pick:'乌拉圭胜', odds:'@1.55', modelProb:72.0, reason:'VALUE! 模型72.0% vs market 64.5% → +7.5pp正EV! 今日唯一模型>市场的强队场次。乌拉圭实力碾压佛得角'},
-      {type:'大小球', pick:'Under 2.5 观望', odds:'@1.90', modelProb:40.4, reason:'模型40.4%<need 53%→数学无value。但佛得角0-0西班牙+乌拉圭首轮仅1球→结构性小球'},
-      {type:'让球', pick:'乌拉圭-1.5 拒绝!', odds:'@2.30', modelProb:38.0, reason:'⚠️ 厄瓜多尔0-0教训! 佛得角防守已证明(0-0西班牙!),不追碾压让球'},
-      {type:'波胆', pick:'1-0', odds:'@6.00', modelProb:11.2, reason:'佛得角铁桶阵限制乌拉圭进球数。比尔萨高压可能只够破防1次'}
+      {type:'胜平负', pick:'乌拉圭胜', odds:'@1.55', modelProb:0.720, reason:'VALUE! 模型72.0% vs market 64.5% → +7.5pp正EV! 今日唯一模型>市场的强队场次。乌拉圭实力碾压佛得角'},
+      {type:'大小球', pick:'Under 2.5 观望', odds:'@1.90', modelProb:0.404, reason:'模型40.4%<need 53%→数学无value。但佛得角0-0西班牙+乌拉圭首轮仅1球→结构性小球'},
+      {type:'让球', pick:'乌拉圭-1.5 拒绝!', odds:'@2.30', modelProb:0.380, reason:'⚠️ 厄瓜多尔0-0教训! 佛得角防守已证明(0-0西班牙!),不追碾压让球'},
+      {type:'波胆', pick:'1-0', odds:'@6.00', modelProb:0.112, reason:'佛得角铁桶阵限制乌拉圭进球数。比尔萨高压可能只够破防1次'}
     ],
     analysis: {
       groupSituation: '**H组第2轮 — 佛得角是本届最大黑马!**\n\n乌拉圭1分(1-1沙特) | 佛得角1分(0-0西班牙!) | 西班牙1分(0-0佛得角) | 沙特1分(1-1乌拉圭)\n\nH组四队全平!佛得角Elo1490逼平Elo1975西班牙是本届至今最大冷门。\n\n**⚠️ 6/20教训:** 厄瓜多尔(Elo1890) 0-0 库拉索(Elo1427)!!! Elo差463都无法转化为进球。佛得角(Elo1490)已经证明了比库拉索强得多(逼平西班牙!)。不能盲目追乌拉圭碾压。',
@@ -182,13 +182,13 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'G组第2轮。新西兰首轮2-2伊朗(惊人!Just梅开二度)。埃及首轮1-1比利时(不错)。G组4队全平(都是1分)。\n\n新西兰Matthew Just是本届黑马新星——大洋洲球队首轮梅开二度震惊世界。',
     handicaps: [{line:1.0, win:0.715, draw:0.165, lose:0.120},{line:0.5, win:0.285, draw:0, lose:0.715},{line:0, win:0.285, draw:0.230, lose:0.485}],
-    overUnder: [{line:2.5, over:0.516, under:0.484, marketOver:'@1.86', marketUnder:'@1.96'},{line:2.25, over:0.516, under:0.484, marketOver:'@2.05', marketUnder:'@1.82'}],
+    overUnder: [{line:2.5, over:0.516, under:0.484, marketOver:'@1.86', marketUnder:'@1.96'},{line:2.25, over:0.637, under:0.363, marketOver:'@2.05', marketUnder:'@1.82'}],
     predictions: [{score:'0-1', prob:11.2, reason:'埃及Salah个人能力制胜。新西兰可能攻不破埃及后防'},{score:'1-1', prob:10.9, reason:'双方都有进球能力。G组均衡格局延续'},{score:'1-2', prob:9.4, reason:'新西兰先进球但埃及经验逆转'}],
     recommendations: [
-      {type:'让球', pick:'新西兰+1.0', odds:'@2.02', modelProb:71.5, reason:'VALUE! 模型新西兰不输超1球71.5% > 需49.5% → +22pp巨大value! 真实盘口埃及-1.0, NZ+1.0是今天最佳value'},
-      {type:'大小球', pick:'Under 2.5', odds:'@1.96', modelProb:48.4, reason:'模型48.4% vs 需51%→边缘。G组must-win可能推高总球数。观望'},
-      {type:'胜平负', pick:'拒绝埃及胜', odds:'@1.84', modelProb:48.5, reason:'模型48.5%<需54.3%→无value。埃及被高估,Salah虽强但团队一般'},
-      {type:'波胆', pick:'1-1', odds:'@6.50', modelProb:10.9, reason:'G组均衡格局最自然比分。但波胆仅供参考'}
+      {type:'让球', pick:'新西兰+1.0', odds:'@2.02', modelProb:0.715, reason:'VALUE! 模型新西兰不输超1球71.5% > 需49.5% → +22pp巨大value! 真实盘口埃及-1.0, NZ+1.0是今天最佳value'},
+      {type:'大小球', pick:'Under 2.5', odds:'@1.96', modelProb:0.484, reason:'模型48.4% vs 需51%→边缘。G组must-win可能推高总球数。观望'},
+      {type:'胜平负', pick:'拒绝埃及胜', odds:'@1.84', modelProb:0.485, reason:'模型48.5%<需54.3%→无value。埃及被高估,Salah虽强但团队一般'},
+      {type:'波胆', pick:'1-1', odds:'@6.50', modelProb:0.109, reason:'G组均衡格局最自然比分。但波胆仅供参考'}
     ],
     analysis: {
       groupSituation: '**G组四队全平——第2轮就是淘汰赛!**\n\n新西兰1分(2-2伊朗) | 埃及1分(1-1比利时) | 比利时1分(1-1埃及) | 伊朗1分(2-2新西兰)\n\n四队1分并列!第2轮结果直接决定出线命运。输球方第3轮将面临极大压力。\n\n**新西兰黑马叙事:** Matthew Just首轮梅开二度是本届最惊喜的个人表演之一。大洋洲球队从来不是鱼腩——但从来没有在世界杯进这么多球!',
