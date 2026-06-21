@@ -1,4 +1,4 @@
-import { matchResults, modelVsActualDay19, modelArchitecture } from './data/matches'
+import { matchResults, modelVsActualDay19, modelVsActualDay20, modelArchitecture } from './data/matches'
 import { todayPredictions, goalDistributions, commercialAnalyses } from './data/today-predictions'
 import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
@@ -255,7 +255,7 @@ function renderHistory(): void {
   matchResults.forEach(m => { if (!dateGroups[m.date]) dateGroups[m.date] = []; dateGroups[m.date].push(m) })
 
   let html = ''
-  Object.keys(dateGroups).sort().forEach(date => {
+  Object.keys(dateGroups).sort().reverse().forEach(date => {
     const matches = dateGroups[date]
     const totalGoals = matches.reduce((s, m) => s + m.score1 + m.score2, 0)
     const avgG = (totalGoals / matches.length).toFixed(1)
@@ -385,12 +385,24 @@ function renderAllCharts(): void {
 }
 
 // ====== Init ======
-// ====== Render: Recap (6/19) ======
+// ====== Render: Recap (6/19 + 6/20) ======
 function renderRecap(): void {
   const container = document.getElementById('recap-content')
   if (!container) return
 
-  const lessons = `
+  const lessons20 = `
+    <div class="lesson-box" style="margin-bottom:16px;">
+      <h4 style="color:var(--accent-orange);margin-bottom:8px;">6/20 核心教训</h4>
+      <ul style="list-style:none;padding:0;color:var(--text-secondary);font-size:0.9rem;">
+        <li style="padding:4px 0;">✅ 波胆2-1精准命中 (德国vs科特迪瓦)</li>
+        <li style="padding:4px 0;">✅ Over 2.5 命中3/4场 (大球信号最强)</li>
+        <li style="padding:4px 0;">✅ 日本胜+Over 2.25 双命中 (唯一模型>市场场次)</li>
+        <li style="padding:4px 0;">❌ 厄瓜多尔-2.25 爆冷全输 (0-0! 碾压场不等于大胜)</li>
+        <li style="padding:4px 0;color:var(--accent-yellow);font-weight:600;">→ 规则更新: 已淘汰弱队全力摆烂防守时,碾压让球失效!</li>
+      </ul>
+    </div>`
+
+  const lessons19 = `
     <div class="lesson-box" style="margin-bottom:16px;">
       <h4 style="color:var(--accent-orange);margin-bottom:8px;">6/19 核心教训</h4>
       <ul style="list-style:none;padding:0;color:var(--text-secondary);font-size:0.9rem;">
@@ -404,6 +416,25 @@ function renderRecap(): void {
 
   container.innerHTML = `
     <div class="card">
+      <div class="card-header">
+        <div class="card-title">Matchday 10 推荐 vs 实际 (6/20)</div>
+        <span class="stat-badge">战绩: 4✅ 2❌ 1⬜ | 盈利+1.33u</span>
+      </div>
+      <table class="comparison-table">
+        <tr><th>场次</th><th>推荐</th><th>赔率</th><th>实际结果</th><th>判定</th></tr>
+        ${modelVsActualDay20.map((m: MVA) => `
+          <tr>
+            <td>${m.match}</td>
+            <td>${m.expertRevision}</td>
+            <td style="color:var(--text-muted);">-</td>
+            <td class="actual">${m.actual}</td>
+            <td class="${m.modelCorrect ? 'correct' : 'wrong'}">${m.winner}</td>
+          </tr>
+        `).join('')}
+      </table>
+      ${lessons20}
+    </div>
+    <div class="card" style="margin-top:16px;">
       <div class="card-header">
         <div class="card-title">Matchday 9 推荐 vs 实际 (6/19)</div>
         <span class="stat-badge">战绩: 2/4 (50%)</span>
@@ -420,7 +451,7 @@ function renderRecap(): void {
           </tr>
         `).join('')}
       </table>
-      ${lessons}
+      ${lessons19}
     </div>`
 }
 
