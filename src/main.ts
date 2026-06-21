@@ -1,4 +1,5 @@
-import { matchResults, todayPredictions, modelVsActualDay19, goalDistributions, commercialAnalyses, modelArchitecture } from './data/matches'
+import { matchResults, modelVsActualDay19, modelArchitecture } from './data/matches'
+import { todayPredictions, goalDistributions, commercialAnalyses } from './data/today-predictions'
 import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
 import type { ECharts } from 'echarts'

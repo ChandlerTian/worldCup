@@ -40,6 +40,12 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-19', group: 'C', team1: '巴西', team2: '海地', score1: 3, score2: 0, scorers1: ['Cunha 23\'', 'Cunha 36\'', 'Vinícius Jr 45+3\''], scorers2: [], ground: '费城' },
   { date: '2026-06-19', group: 'D', team1: '美国', team2: '澳大利亚', score1: 2, score2: 0, scorers1: ['Burgess OG 11\'', 'Freeman 43\''], scorers2: [], ground: '西雅图' },
   { date: '2026-06-19', group: 'D', team1: '土耳其', team2: '巴拉圭', score1: 0, score2: 1, scorers1: [], scorers2: ['进球者未知'], ground: '旧金山' },
+  // Matchday 10 (6/20)
+  { date: '2026-06-20', group: 'E', team1: '德国', team2: '科特迪瓦', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '多伦多' },
+  { date: '2026-06-20', group: 'E', team1: '厄瓜多尔', team2: '库拉索', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '堪萨斯城' },
+  { date: '2026-06-20', group: 'F', team1: '荷兰', team2: '瑞典', score1: 5, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '休斯顿' },
+  // Matchday 11 (6/21 早场)
+  { date: '2026-06-21', group: 'F', team1: '突尼斯', team2: '日本', score1: 0, score2: 4, scorers1: [], scorers2: ['待补充'], ground: '蒙特雷' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
@@ -122,8 +128,53 @@ export const modelVsActualDay19: ModelVsActual[] = [
   }
 ]
 
-// ====== 6/20 今日预测 (Matchday 10) ======
-export const todayPredictions: MatchPrediction[] = [
+// ====== 6/20 模型 vs 实际 ======
+export const modelVsActualDay20: ModelVsActual[] = [
+  {
+    match: '德国 vs 科特迪瓦',
+    model: { home: 0.5255, draw: 0.2555, away: 0.219, topPick: '2-1 ✓' },
+    expertRevision: 'Over 2.5 + 科+1.0',
+    actual: '2-1',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '波胆精准命中! Over 2.5✓ 科+1走水'
+  },
+  {
+    match: '厄瓜多尔 vs 库拉索',
+    model: { home: 0.7421, draw: 0.1837, away: 0.0742, topPick: '2-0 / 3-0' },
+    expertRevision: '厄-2.25 + Over 3.0',
+    actual: '0-0',
+    modelCorrect: false,
+    expertCorrect: false,
+    winner: '爆冷! 碾压预期完全落空'
+  },
+  {
+    match: '荷兰 vs 瑞典',
+    model: { home: 0.5196, draw: 0.2565, away: 0.2239, topPick: '1-1 / 2-1' },
+    expertRevision: 'Over 2.5',
+    actual: '5-1',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: 'Over 2.5大球命中! 方向正确但低估幅度'
+  },
+  {
+    match: '突尼斯 vs 日本',
+    model: { home: 0.1399, draw: 0.227, away: 0.6332, topPick: '0-2 / 0-1' },
+    expertRevision: '日本胜 + Over 2.25',
+    actual: '0-4',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '日本胜✓ Over 2.25✓ 碾压度再被低估'
+  }
+]
+
+// ====== 6/21 今日预测 — 从 today-predictions.ts 导入 ======
+// todayPredictions, goalDistributions, tournamentStats, commercialAnalyses
+// 已迁移至 ./today-predictions.ts (6/21 Matchday 11)
+// 保留下方为6/20历史预测数据存档
+
+// ====== 6/20 历史预测存档 (Matchday 10) ======
+export const day20Predictions: MatchPrediction[] = [
   {
     team1: '德国', team2: '科特迪瓦', group: 'E', ground: '多伦多', time: '16:00 UTC-4',
     elo1: 1939, elo2: 1743, eloDiff: 196,
