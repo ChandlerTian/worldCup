@@ -44,7 +44,7 @@ function renderTodayMatch(idx: number): void {
   container.innerHTML = `
   <div class="card match-card ${confClass}">
     <div class="card-header">
-      <div class="card-title">${p.team1} vs ${p.team2}</div>
+      <div class="card-title"><span class="team-name-home">${p.team1}</span><span class="vs-divider">vs</span><span class="team-name-away">${p.team2}</span></div>
       <div style="display:flex;gap:8px;align-items:center;">
         <span class="confidence-tag ${p.confidence}">${confLabel}信心</span>
         <span class="card-badge">${p.group} | ${p.ground} ${p.time}</span>
@@ -54,8 +54,8 @@ function renderTodayMatch(idx: number): void {
     <!-- Key Stats -->
     <div class="stats-grid">
       <div class="stat-item"><div class="stat-label">Elo差</div><div class="stat-value ${p.eloDiff > 200 ? 'green' : p.eloDiff < -50 ? 'red' : ''}">${p.eloDiff > 0 ? '+' : ''}${p.eloDiff}</div></div>
-      <div class="stat-item"><div class="stat-label">${p.team1} λ</div><div class="stat-value blue">${p.lambda.home}</div></div>
-      <div class="stat-item"><div class="stat-label">${p.team2} λ</div><div class="stat-value">${p.lambda.away}</div></div>
+      <div class="stat-item" style="border-bottom:2px solid var(--team-home);"><div class="stat-label">${p.team1} λ</div><div class="stat-value blue">${p.lambda.home}</div></div>
+      <div class="stat-item" style="border-bottom:2px solid var(--team-away);"><div class="stat-label">${p.team2} λ</div><div class="stat-value away-blue">${p.lambda.away}</div></div>
       <div class="stat-item"><div class="stat-label">总期望进球</div><div class="stat-value">${p.lambda.total}</div></div>
       <div class="stat-item"><div class="stat-label">模型vs市场Gap</div><div class="stat-value ${Math.abs(p.gap.value) > 10 ? 'yellow' : ''}">${p.gap.value > 0 ? '+' : ''}${p.gap.value}pp</div></div>
       <div class="stat-item"><div class="stat-label">Gap方向</div><div class="stat-value" style="font-size:0.85rem;">${p.gap.direction === 'model_higher' ? '模型更看好' + p.gap.team : '市场更看好' + p.gap.team}</div></div>
@@ -70,13 +70,13 @@ function renderTodayMatch(idx: number): void {
     <!-- Tactics -->
     <div class="section-divider">阵容 & 战术</div>
     <div class="tactics-grid">
-      <div class="tactics-box">
+      <div class="tactics-box team-home">
         <h5>${p.team1} <span class="formation-tag">${p.formation1}</span> <span style="color:var(--text-muted);font-size:0.8rem;">${p.coach1}</span></h5>
         <p class="style-desc">${p.style1}</p>
         <p class="lineup">${p.lineup1}</p>
         <p class="injury-note">${p.injuries1}</p>
       </div>
-      <div class="tactics-box">
+      <div class="tactics-box team-away">
         <h5>${p.team2} <span class="formation-tag">${p.formation2}</span> <span style="color:var(--text-muted);font-size:0.8rem;">${p.coach2}</span></h5>
         <p class="style-desc">${p.style2}</p>
         <p class="lineup">${p.lineup2}</p>
@@ -135,14 +135,16 @@ function renderTodayMatch(idx: number): void {
     <!-- Betting Recommendations -->
     <div class="section-divider">综合推荐</div>
     <div class="recommendations-grid">
-      ${(p.recommendations || []).filter(r => r.type !== '波胆').map(r => `
-        <div class="rec-card rec-${r.type === '让球' ? 'handicap' : 'total'}">
+      ${(p.recommendations || []).filter(r => r.type !== '波胆').map(r => {
+        const teamDir = r.pick.includes(p.team1) ? 'rec-home' : r.pick.includes(p.team2) ? 'rec-away' : ''
+        return `
+        <div class="rec-card ${teamDir} rec-${r.type === '让球' ? 'handicap' : 'total'}">
           <div class="rec-type">${r.type}</div>
           <div class="rec-pick">${r.pick}</div>
           <div class="rec-prob">${(r.modelProb * 100).toFixed(1)}%</div>
           <div class="rec-reason">${r.reason}</div>
-        </div>
-      `).join('')}
+        </div>`
+      }).join('')}
     </div>
 
     <!-- Commercial Analysis (精算师审核) -->

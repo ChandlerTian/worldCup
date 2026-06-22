@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026世界杯预测Dashboard</title>
-  <script src="./assets/index-Ckp5SPId.js"></script>
-  <link rel="stylesheet" href="./assets/style-0Ox2fORM.css">
+  <script src="./assets/index-f5XBspca.js"></script>
+  <link rel="stylesheet" href="./assets/style-6zZ9S-mx.css">
 </head>
 <body>
     <div class="container">
@@ -18,6 +18,63 @@
                 <span class="model-badge">48 Teams</span>
             </div>
         </header>
+        
+        <div class="page-layout">
+            <!-- Glossary Sidebar -->
+            <aside class="glossary-sidebar">
+                <div class="glossary-title">📖 术语解释</div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Elo</div>
+                    <div class="glossary-def">球队实力评分系统，源自国际象棋。数值越高=实力越强。2100+为世界顶级。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">λ (Lambda)</div>
+                    <div class="glossary-def">泊松分布中的期望进球数。λ=2.0意味着该队预期进2球。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Dixon-Coles</div>
+                    <div class="glossary-def">经典足球概率模型，在泊松基础上修正低比分(0-0, 1-0等)的概率偏差。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">ρ (Rho)</div>
+                    <div class="glossary-def">Dixon-Coles的相关性参数。控制两队进球之间的关联强度(如0.08表示弱正相关)。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">让球/盘口</div>
+                    <div class="glossary-def">庄家给弱队的虚拟进球。如-2.75表示强队需赢3球以上才算赢盘。+0.25表示弱队不败即赢盘。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">大小球</div>
+                    <div class="glossary-def">预测全场总进球数。Over 2.5=总进球≥3。Under 2.5=总进球≤2。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">EV (Expected Value)</div>
+                    <div class="glossary-def">期望价值。模型概率×赔率-1。正EV=长期盈利的数学信号。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">pp (百分点)</div>
+                    <div class="glossary-def">Percentage Point。模型概率与市场概率之差。+8pp=模型比市场多看好8个百分点。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Kelly仓位</div>
+                    <div class="glossary-def">凯利公式计算的最优下注比例。Edge越大→仓位越大，但通常取1/4 Kelly降低波动。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Value Bet</div>
+                    <div class="glossary-def">当模型概率>市场隐含概率时的投注机会。长期正EV的核心策略。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">GD (Goal Difference)</div>
+                    <div class="glossary-def">净胜球=进球-失球。小组赛同分时先比GD再比进球数。</div>
+                </div>
+                <div class="glossary-item">
+                    <div class="glossary-term">Pinnacle</div>
+                    <div class="glossary-def">全球最高效博彩公司。其赔率被视为"真实概率"的最佳近似(抽水仅2-3%)。</div>
+                </div>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="main-content">
         
         <nav class="tab-nav">
             <button class="tab-btn active" onclick="switchTab('today')">今日推荐 (6/22)</button>
@@ -63,6 +120,8 @@
             <h2 class="section-header">模型架构 — Poisson-Elo Multi-Agent System</h2>
             <div id="model-architecture"></div>
         </section>
+            </main>
+        </div>
     </div>
     
 </body>
