@@ -1,4 +1,4 @@
-import { matchResults, modelVsActualDay19, modelVsActualDay20, modelArchitecture } from './data/matches'
+import { matchResults, modelVsActualDay19, modelVsActualDay20, modelVsActualDay21, modelArchitecture } from './data/matches'
 import { todayPredictions, goalDistributions, commercialAnalyses } from './data/today-predictions'
 import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
@@ -416,6 +416,23 @@ function renderRecap(): void {
 
   container.innerHTML = `
     <div class="card">
+      <div class="card-header">
+        <div class="card-title">Matchday 11 推荐 vs 实际 (6/21)</div>
+        <span class="stat-badge">战绩: 3✅ 2❌ | 伊朗方向双中!</span>
+      </div>
+      <table class="comparison-table">
+        <tr><th>场次</th><th>推荐</th><th>实际结果</th><th>判定</th></tr>
+        ${modelVsActualDay21.map((m: MVA) => `
+          <tr>
+            <td>${m.match}</td>
+            <td>${m.expertRevision}</td>
+            <td class="actual">${m.actual}</td>
+            <td class="${m.modelCorrect ? 'correct' : 'wrong'}">${m.winner}</td>
+          </tr>
+        `).join('')}
+      </table>
+    </div>
+    <div class="card" style="margin-top:16px;">
       <div class="card-header">
         <div class="card-title">Matchday 10 推荐 vs 实际 (6/20)</div>
         <span class="stat-badge">战绩: 4✅ 2❌ 1⬜ | 盈利+1.33u</span>
