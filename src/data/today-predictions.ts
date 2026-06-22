@@ -236,14 +236,14 @@ export const goalDistributions: Record<string, GoalDistribution> = {
   }
 }
 
-// ====== 赛事统计 (更新至6/21早场后) ======
+// ====== 赛事统计 (更新至6/21全部完赛) ======
 export const tournamentStats: TournamentStats = {
-  totalMatches: 36,
-  totalGoals: 88,
-  avgGoals: 2.44,
-  homeWins: 15,
-  draws: 14,
-  awayWins: 7,
+  totalMatches: 41,
+  totalGoals: 104,
+  avgGoals: 2.54,
+  homeWins: 16,
+  draws: 16,
+  awayWins: 9,
   biggestWin: { match: '德国 7-1 库拉索', date: '6/14' },
   latestGoal: { match: '日本 4-0 突尼斯', scorer: '待补充', date: '6/21' }
 }

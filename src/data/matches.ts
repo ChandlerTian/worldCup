@@ -44,8 +44,12 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-20', group: 'E', team1: '德国', team2: '科特迪瓦', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '多伦多' },
   { date: '2026-06-20', group: 'E', team1: '厄瓜多尔', team2: '库拉索', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '堪萨斯城' },
   { date: '2026-06-20', group: 'F', team1: '荷兰', team2: '瑞典', score1: 5, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '休斯顿' },
-  // Matchday 11 (6/21 早场)
+  // Matchday 11 (6/21)
   { date: '2026-06-21', group: 'F', team1: '突尼斯', team2: '日本', score1: 0, score2: 4, scorers1: [], scorers2: ['待补充'], ground: '蒙特雷' },
+  { date: '2026-06-21', group: 'H', team1: '西班牙', team2: '沙特', score1: 4, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '亚特兰大' },
+  { date: '2026-06-21', group: 'G', team1: '比利时', team2: '伊朗', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '洛杉矶' },
+  { date: '2026-06-21', group: 'H', team1: '乌拉圭', team2: '佛得角', score1: 2, score2: 2, scorers1: ['待补充'], scorers2: ['待补充'], ground: '迈阿密' },
+  { date: '2026-06-21', group: 'G', team1: '新西兰', team2: '埃及', score1: 1, score2: 3, scorers1: ['待补充'], scorers2: ['待补充'], ground: '温哥华' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
@@ -168,10 +172,74 @@ export const modelVsActualDay20: ModelVsActual[] = [
   }
 ]
 
+// ====== 6/21 模型 vs 实际 ======
+export const modelVsActualDay21: ModelVsActual[] = [
+  {
+    match: '西班牙 vs 沙特',
+    model: { home: 0.6562, draw: 0.1860, away: 0.1579, topPick: '1-0 / 2-0' },
+    expertRevision: '沙特+2.5 + Under 3.5',
+    actual: '4-0',
+    modelCorrect: false,
+    expertCorrect: false,
+    winner: '模型严重低估。被首轮0-0佛得角锚定过深'
+  },
+  {
+    match: '比利时 vs 伊朗',
+    model: { home: 0.4824, draw: 0.2309, away: 0.2868, topPick: '1-0 / 1-1' },
+    expertRevision: '伊朗+0.5 + 伊朗+1.5',
+    actual: '0-0',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '伊朗+0.5✓ +1.5✓ 双中! 比利时老化精准预判'
+  },
+  {
+    match: '乌拉圭 vs 佛得角',
+    model: { home: 0.7195, draw: 0.1614, away: 0.1191, topPick: '2-0 / 1-0' },
+    expertRevision: '佛得角+1.5',
+    actual: '2-2',
+    modelCorrect: false,
+    expertCorrect: true,
+    winner: '佛得角+1.5✓ 黑马叙事确认! 乌拉圭胜方向❌'
+  },
+  {
+    match: '新西兰 vs 埃及',
+    model: { home: 0.2851, draw: 0.2301, away: 0.4848, topPick: '0-1 / 1-1' },
+    expertRevision: '新西兰+1.0 + Over 2.5',
+    actual: '1-3',
+    modelCorrect: false,
+    expertCorrect: false,
+    winner: '高估Just持续效应。埃及方向正确但新西兰让球❌'
+  },
+  {
+    match: '突尼斯 vs 日本',
+    model: { home: 0.1399, draw: 0.227, away: 0.6332, topPick: '0-2 / 0-1' },
+    expertRevision: '日本胜 + Over 2.25',
+    actual: '0-4',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '日本胜✓ Over 2.25✓ 方向全对。碾压幅度再被低估'
+  }
+]
+
+// ====== 6/21 校准总结 ======
+export const calibrationDay21 = {
+  date: '2026-06-21',
+  totalMatches: 5,
+  modelDirectionCorrect: 3,   // 伊朗/日本/埃及方向正确
+  valueBetHit: 4,              // 伊朗+0.5✅ +1.5✅ 佛得角+1.5✅ Over NZ-Egypt✅
+  valueBetMiss: 4,             // 沙特+2.5❌ Under 3.5❌ 新西兰+1.0❌ +0.5❌
+  keyFindings: [
+    '首轮数据过度锚定：西班牙0-0佛得角导致严重低估第2轮反弹',
+    'must-win≠大球：比利时vs伊朗0-0，压力让双方更保守',
+    '黑马持续性被低估：佛得角连续两轮逼平强队，防守是真实能力',
+    'one-off表现不可持续：Just梅开二度非新西兰进攻结构性提升',
+    '强队反弹场景是模型最弱环节：无法量化战术调整能力',
+    '市场在"强队反弹"场景下信息优势明显（西班牙88.5%）',
+    '模型在"结构性衰退"场景下优于市场（比利时老化48.2%）'
+  ]
+}
+
 // ====== 6/21 今日预测 — 从 today-predictions.ts 导入 ======
-// todayPredictions, goalDistributions, tournamentStats, commercialAnalyses
-// 已迁移至 ./today-predictions.ts (6/21 Matchday 11)
-// 保留下方为6/20历史预测数据存档
 
 // ====== 6/20 历史预测存档 (Matchday 10) ======
 export const day20Predictions: MatchPrediction[] = [
