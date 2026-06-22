@@ -132,23 +132,11 @@ function renderTodayMatch(idx: number): void {
       </div>
     </div>
 
-    <!-- Score Predictions -->
-    <div class="section-divider">波胆推荐</div>
-    <div class="prediction-card">
-      ${p.predictions.map(pred => `
-        <div class="prediction-row">
-          <div class="prediction-score">${pred.score}</div>
-          <div class="prediction-prob">${pred.prob}%</div>
-          <div class="prediction-reason">${pred.reason}</div>
-        </div>
-      `).join('')}
-    </div>
-
     <!-- Betting Recommendations -->
     <div class="section-divider">综合推荐</div>
     <div class="recommendations-grid">
-      ${(p.recommendations || []).map(r => `
-        <div class="rec-card rec-${r.type === '让球' ? 'handicap' : r.type === '大小球' ? 'total' : r.type === '波胆' ? 'score' : 'result'}">
+      ${(p.recommendations || []).filter(r => r.type !== '波胆').map(r => `
+        <div class="rec-card rec-${r.type === '让球' ? 'handicap' : 'total'}">
           <div class="rec-type">${r.type}</div>
           <div class="rec-pick">${r.pick}</div>
           <div class="rec-prob">${(r.modelProb * 100).toFixed(1)}%</div>

@@ -32,11 +32,6 @@ export const todayPredictions: MatchPrediction[] = [
       {line:3.5, over:0.213, under:0.787, marketOver:'@1.87', marketUnder:'@2.02'},
       {line:2.5, over:0.399, under:0.601}
     ],
-    predictions: [
-      {score:'2-0', prob:18.9, reason:'法国控制节奏，2-0是最可能比分'},
-      {score:'1-0', prob:15.7, reason:'若伊拉克死守成功，法国可能仅1球小胜'},
-      {score:'3-0', prob:15.0, reason:'若早进球，法国可扩大比分'}
-    ],
     recommendations: [
       {type:'让球', pick:'伊拉克+2.75', odds:'@1.95', modelProb:0.73, reason:'模型伊拉克输3球内概率73% > 需51% → +22pp! 但模型λ压缩可能低估碾压场。谨慎仓位'},
       {type:'大小球', pick:'Under 3.5', odds:'@2.02', modelProb:0.787, reason:'VALUE: 模型小球78.7% > 需49.5% → +29.2pp正EV! 法国不一定能大开杀戒'},
@@ -49,15 +44,14 @@ export const todayPredictions: MatchPrediction[] = [
       styleAnalysis: '**法国:** 4-3-3以Mbappé左路为第一爆破点。Griezmann回撤组织+定位球(世界级)。Dembélé右路内切提供宽度。整体攻守均衡——后防Saliba+Upamecano世界级中卫组合。\n\n**伊拉克:** 4-2-3-1理论上偏传控但面对强队变5-4-1大巴。首轮对挪威尝试进攻→被反击打爆4球。今天大概率全线退守。',
       tacticalNarrative: '**核心: 法国碾压但能否大胜?**\n\nElo差456是世界级vs亚洲中游。但世界杯历史上超大Elo差不一定产生大比分——弱队全线退守可限制比分。\n\n**对比**: 法国首轮3-1塞内加尔(Elo差203)→但塞内加尔有进攻能力所以比分开放。伊拉克-256更弱但会全线防守→可能小比分。\n\n**关键:** 若法国15分钟内进球→伊拉克被迫出击→3-0/4-0。若前30分钟0-0→伊拉克越守越有信心→1-0/2-0。',
       modelInterpretation: '**模型83.3% vs 市场89.6%** — 市场比模型更看好法国(+6.4pp)。\n\n差距在模型误差带内(3-5pp)，属于TYPE_D_NOISE。市场-2.75深盘说明预期碾压——但模型认为法国赢3+球概率仅36%。\n\n⚠️ 模型λ=2.38过于保守? 对比: Elo差456的历史匹配常产生4+总球。但模型ρ=0.02(极端差距时最弱draw correction)是合理的。\n\n**结论**: 方向(法国胜)市场与模型一致。幅度有分歧但差距不大。观察型场次。',
-      betReasoning: '**结论: 不追碾压场深盘**\n\n1. Under 3.5@2.02: 模型78.7%小球→大value但需要验证模型λ是否过于压缩。同类Elodiff456→首轮挪威4-1伊拉克(Elo差~300)→4球。所以模型可能低估总进球。\n\n2. 伊拉克+2.75@1.95: 受模型支持但首轮1-4vs挪威提示防线脆弱。\n\n3. 波胆2-0@6.50: 最高概率18.9%。可作为娱乐注。\n\n**⚠️ 遵循碾压场纪律**: 6/20厄瓜多尔0-0库拉索教训→碾压预期可完全落空。不重注。'
+      betReasoning: '**结论: 不追碾压场深盘**\n\n1. Under 3.5@2.02: 模型78.7%小球→大value但需要验证模型λ是否过于压缩。同类Elodiff456→首轮挪威4-1伊拉克(Elo差~300)→4球。所以模型可能低估总进球。\n\n2. 伊拉克+2.75@1.95: 受模型支持但首轮1-4vs挪威提示防线脆弱。\n\n可作为娱乐注。\n\n**⚠️ 遵循碾压场纪律**: 6/20厄瓜多尔0-0库拉索教训→碾压预期可完全落空。不重注。'
     },
     commercialAnalysis: {
       summary: '法国@1.09超级热门。Elo差456碾压场。市场-2.75深盘。模型方向一致(83%)但幅度分歧(模型仅27%覆盖-2.75)。无明确value——观察型场次。',
       approvedPicks: [],
       rejectedPicks: [
-        { pick: '法国-2.75', odds: '@1.93', verdict: 'rejected', edge: '-23pp(模型27%<需52%)', reasoning: '模型巨大负EV。法国可能碾压但市场已完全定价。厄瓜多尔0-0库里索同类教训', category: 'trap' },
-        { pick: '波胆2-0', odds: '@6.50', verdict: 'rejected', edge: '18.9%概率', reasoning: '波胆高overround。娱乐注不建议超过0.3%仓位', category: 'entertainment' }
-      ],
+        { pick: '法国-2.75', odds: '@1.93', verdict: 'rejected', edge: '-23pp(模型27%<需52%)', reasoning: '模型巨大负EV。法国可能碾压但市场已完全定价。厄瓜多尔0-0库里索同类教训', category: 'trap' }
+    ],
       marketBehavior: '法国\"品牌溢价\"存在但不会过分(Pinnacle最理性)。@1.09反映真实碾压概率(~90%)。盘口-2.75说明市场预期至少3球差距。模型保守可能因λ压缩。',
       kellyNote: '本场建议0仓位。Under 3.5@2.02有模型支撑但需验证λ压缩→最大0.5%试探仓。'
     },
@@ -92,15 +86,9 @@ export const todayPredictions: MatchPrediction[] = [
     overUnder: [
       {line:2.5, over:0.363, under:0.637, marketOver:'@1.90', marketUnder:'@2.01'}
     ],
-    predictions: [
-      {score:'1-1', prob:12.8, reason:'实力接近+双方都有进球能力=最可能1-1'},
-      {score:'1-0', prob:10.6, reason:'挪威Haaland关键一击1球制胜'},
-      {score:'2-1', prob:8.8, reason:'开放对攻下挪威主场微优'}
-    ],
     recommendations: [
       {type:'让球', pick:'塞内加尔+0.25', odds:'@2.03', modelProb:0.577, reason:'模型塞内加尔不败57.7% > 需49.3% → +8.4pp正EV! 塞背水一战+实力接近'},
-      {type:'大小球', pick:'Under 2.5', odds:'@2.01', modelProb:0.637, reason:'模型小球63.7% > 需49.8% → +13.9pp! 战术大战可能保守开场'},
-      {type:'波胆', pick:'1-1', odds:'@6.50', modelProb:0.128, reason:'最高概率比分。双方都有进球力'}
+      {type:'大小球', pick:'Under 2.5', odds:'@2.01', modelProb:0.637, reason:'模型小球63.7% > 需49.8% → +13.9pp! 战术大战可能保守开场'}
     ],
     analysis: {
       groupSituation: '**I组生死战!**\n\n挪威3分(GD+3) vs 塞内加尔0分(GD-2)\n\n塞内加尔MUST-WIN——输则0分垫底+GD劣势等于100%出局。平局也不够(只1分,末轮需大胜伊拉克并看别人脸色)。\n\n挪威赢则6分→若法国也胜→挪威法国末轮争头名(已锁定出线)。放松心态优于塞内加尔。\n\n**博弈论**: 塞内加尔必须赢→开场便会猛攻→挪威反击Haaland单刀→进球大战概率高。',
@@ -109,7 +97,7 @@ export const todayPredictions: MatchPrediction[] = [
       styleAnalysis: '**挪威:** 4-3-3围绕Haaland设计——Ødegaard的through ball+Haaland的跑位是世界级。Sørloth(马竞)提供第二点。边路Nusa速度补充。防守端4后卫偏重体型对抗。\n\n**塞内加尔:** 4-3-3偏直接——Mané左路内切+I.Sarr右路爆点。中场P.M.Sarr(热刺)+Gueye(埃弗顿)有英超身体对抗能力。整体风格:身体碾压+速度转换。',
       tacticalNarrative: '**核心: Haaland vs Koulibaly = 世纪对决**\n\nHaaland速度+力量vs Koulibaly经验+位置感。2020-2023两人多次交手(多特/曼城vs那不勒斯/切尔西)→Haaland占优但未碾压。\n\n**Mané vs Ryerson**: 塞内加尔左路是最大优势对位。Ryerson(多特替补)面对Mané(巅峰金球第二)可能被爆。\n\n**节奏预测**: 塞内加尔开场猛攻10-15分钟→若进球则控制节奏→若不进球则挪威Ødegaard开始组织→半场0-0或1-0。',
       modelInterpretation: '**模型42.3% vs 市场44.5%** — 差距仅-2.2pp，TYPE_D_NOISE。模型和市场基本一致。\n\n**但模型看到Value方向: 塞内加尔+0.25**\n- 模型塞内加尔不败57.7% > 市场49.3% → +8.4pp正EV\n- 逻辑: Elo仅差54=实力几乎无差距。市场给挪威-0.25是微偏。\n\nUnder 2.5: 模型63.7% >> 市场49.8% → 模型强烈看小球。但must-win语境对Over有利。**这是模型vs情境矛盾的典型——模型倾向Under,情境倾向Over**→观察。',
-      betReasoning: '**核心推荐: 塞内加尔+0.25@2.03**\n\n数学: +8.4pp正EV是今天第二清晰value(仅次于约旦+1.0)。\n\n逻辑: \n1. Elo差54=实力无差距。市场给挪威-0.25是\"Haaland效应\"。\n2. 塞内加尔背水一战=战力100%输出,挪威放松心态可能掉以轻心。\n3. Koulibaly领衔防线有大赛经验。\n\n**辅助: Under 2.5@2.01 (边缘)**\n+13.9pp模型edge但情境不支持→建议0.5-1%试探。\n\n**波胆1-1@6.50 (娱乐)** 最高概率比分。含在+0.25内。'
+      betReasoning: '**核心推荐: 塞内加尔+0.25@2.03**\n\n数学: +8.4pp正EV是今天第二清晰value(仅次于约旦+1.0)。\n\n逻辑: \n1. Elo差54=实力无差距。市场给挪威-0.25是\"Haaland效应\"。\n2. 塞内加尔背水一战=战力100%输出,挪威放松心态可能掉以轻心。\n3. Koulibaly领衔防线有大赛经验。\n\n**辅助: Under 2.5@2.01 (边缘)**\n+13.9pp模型edge但情境不支持→建议0.5-1%试探。\n\n含在+0.25内。'
     },
     commercialAnalysis: {
       summary: 'Elo差仅54→实力极度接近。市场微偏挪威(Haaland效应)。塞内加尔+0.25@2.03有+8.4pp正EV——今日第二value信号。双方must-win语境潜在开放对攻但模型倾向Under 2.5。',
@@ -117,9 +105,8 @@ export const todayPredictions: MatchPrediction[] = [
         { pick: '塞内加尔+0.25', odds: '@2.03', verdict: 'approved', edge: '+8.4pp', reasoning: 'Elo差54=完全均势。市场因Haaland名气偏挪威3pp。塞内加尔背水一战+AFCoN冠军底蕴', category: 'value' }
       ],
       rejectedPicks: [
-        { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' },
-        { pick: '波胆1-1', odds: '@6.50', verdict: 'rejected', edge: '12.8%概率', reasoning: '波胆结构性负EV。塞内加尔+0.25已覆盖含1-1的不败方向', category: 'entertainment' }
-      ],
+        { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' }
+    ],
       marketBehavior: '挪威有\"Haaland溢价\"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
       kellyNote: '塞内加尔+0.25建议1.5-2%仓位(edge厚+.逻辑清晰)。Under 2.5建议0.5%试探(数学好但情境矛盾)。这是今天第二大仓位。'
     },
@@ -154,11 +141,6 @@ export const todayPredictions: MatchPrediction[] = [
     overUnder: [
       {line:2.5, over:0.403, under:0.597, marketOver:'@1.96', marketUnder:'@1.94'}
     ],
-    predictions: [
-      {score:'2-0', prob:13.0, reason:'阿根廷经验+技术优势最可能2-0'},
-      {score:'1-0', prob:12.8, reason:'首球后控制节奏，1-0足以'},
-      {score:'1-1', prob:9.7, reason:'奥地利高位压迫制造混乱，平局可接受'}
-    ],
     recommendations: [
       {type:'胜平负', pick:'阿根廷胜', odds:'@1.49', modelProb:0.673, reason:'微小value: 模型67.3% > 需67.1% → +0.2pp。几乎无edge但方向确认'},
       {type:'让球', pick:'拒绝阿根廷-1.0', odds:'@1.83', modelProb:0.423, reason:'模型42.3% < 需54.7% → -12.4pp。让1球负EV'},
@@ -179,9 +161,8 @@ export const todayPredictions: MatchPrediction[] = [
         { pick: 'Under 2.5', odds: '@1.94', verdict: 'approved', edge: '+8.2pp', reasoning: '模型59.7%>需51.5%。头名争夺战可能保守开场+双方防守质量高', category: 'value' }
       ],
       rejectedPicks: [
-        { pick: '阿根廷-1.0', odds: '@1.83', verdict: 'rejected', edge: '-12.4pp(模型42.3%<需55%)', reasoning: '模型严重不支持覆盖-1.0。奥地利3-1约旦证明进攻力不弱', category: 'trap' },
-        { pick: '波胆2-0', odds: '@7.00', verdict: 'rejected', edge: '13.0%概率', reasoning: '波胆结构性负EV。含在Under 2.5范围内', category: 'entertainment' }
-      ],
+        { pick: '阿根廷-1.0', odds: '@1.83', verdict: 'rejected', edge: '-12.4pp(模型42.3%<需55%)', reasoning: '模型严重不支持覆盖-1.0。奥地利3-1约旦证明进攻力不弱', category: 'trap' }
+    ],
       marketBehavior: 'Pinnacle定价极其精准——1x2几乎与模型完全一致。这是市场效率最高的标志。奥地利的Rangnick体系让市场不敢高估阿根廷(Messi外其他球员对欧洲市场知名度不高)。',
       kellyNote: 'Under 2.5建议1%仓位(edge温和)。阿根廷胜有微小正EV(+0.2pp)可配1%仓位作为方向确认。这是今天最保守仓位配置。'
     },
@@ -216,11 +197,6 @@ export const todayPredictions: MatchPrediction[] = [
     overUnder: [
       {line:2.5, over:0.340, under:0.660, marketOver:'@1.94', marketUnder:'@1.96'}
     ],
-    predictions: [
-      {score:'1-1', prob:12.8, reason:'双方都有进球力但都不稳定→1-1是自然结果'},
-      {score:'0-1', prob:12.1, reason:'阿尔及利亚个体质量微优但仅1球小胜'},
-      {score:'1-2', prob:9.0, reason:'开放对攻下阿尔及利亚把握机会能力更强'}
-    ],
     recommendations: [
       {type:'让球', pick:'约旦+1.0', odds:'@1.96', modelProb:0.540, reason:'今日BEST VALUE! 模型约旦+1体彩胜53.9% > 需51% → 但真实价值在AH: 模型约旦不输2+球77.8% > 需50% → +27.8pp!!! TYPE_B_BRAND'},
       {type:'胜平负', pick:'约旦胜(1X2)', odds:'@6.38', modelProb:0.266, reason:'爆炸value: 模型26.6% > 市场15.3% → +11.4pp。市场严重低估约旦'},
@@ -243,9 +219,8 @@ export const todayPredictions: MatchPrediction[] = [
       ],
       rejectedPicks: [
         { pick: '阿尔及利亚-1.0', odds: '@2.40', verdict: 'rejected', edge: '-17pp+(模型仅9.9%)', reasoning: '⚠️ 最大陷阱! 市场63%赢球→让1球后胜率暴跌至9.9%。绝对不碰', category: 'trap' },
-        { pick: 'Over 2.5', odds: '@1.94', verdict: 'rejected', edge: '-16.3pp(模型34%<需51%)', reasoning: '深渊负EV。双方都可能紧张→小球概率高', category: 'trap' },
-        { pick: '波胆1-1', odds: '@6.00', verdict: 'rejected', edge: '12.8%概率', reasoning: '波胆结构性负EV。约旦+1.0已覆盖所有不败结果', category: 'entertainment' }
-      ],
+        { pick: 'Over 2.5', odds: '@1.94', verdict: 'rejected', edge: '-16.3pp(模型34%<需51%)', reasoning: '深渊负EV。双方都可能紧张→小球概率高', category: 'trap' }
+    ],
       marketBehavior: '阿尔及利亚是TYPE_B_BRAND的教科书案例——AFCON 2019冠军光环让市场自动+16pp。但过去3年的衰退(世界杯缺席+AFCON首轮出局+首轮0-3)未被消化。市场用\"7年前的历史\"定价今天的实力。约旦方向是Smart Money。',
       kellyNote: '约旦+1.0是本日核心仓位→建议2.5-3%仓位(edge最大+27.8pp+TYPE_B逻辑清晰)。约旦胜@6.38→建议0.5%额外试探。这是今天最重要的下注。'
     },
@@ -280,7 +255,6 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     approvedPicks: [],
     rejectedPicks: [
       { pick: '法国-2.75', odds: '@1.93', verdict: 'rejected', edge: '-23pp(模型27%<需52%)', reasoning: '模型巨大负EV。法国可能碾压但市场已完全定价。碾压场纪律:不追深盘', category: 'trap' },
-      { pick: '波胆2-0', odds: '@6.50', verdict: 'rejected', edge: '18.9%概率', reasoning: '波胆高overround。娱乐注不建议超0.3%仓位', category: 'entertainment' }
     ],
     marketBehavior: '法国\"品牌溢价\"存在但合理(Pinnacle定价)。@1.09反映真实碾压概率(~90%)。盘口-2.75说明市场预期至少3球差距。模型保守可能因λ压缩机制。',
     kellyNote: '建议0仓位。Under 3.5@2.02有模型支撑(78.7%)但需验证λ压缩→最大0.5%试探。'
@@ -292,7 +266,6 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     ],
     rejectedPicks: [
       { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' },
-      { pick: '波胆1-1', odds: '@6.50', verdict: 'rejected', edge: '12.8%概率', reasoning: '波胆结构性负EV。塞内加尔+0.25已覆盖含1-1的不败方向', category: 'entertainment' }
     ],
     marketBehavior: '挪威有\"Haaland溢价\"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
     kellyNote: '塞内加尔+0.25建议1.5-2%仓位(edge厚+.逻辑清晰)。这是今天第二大仓位。'
@@ -304,7 +277,6 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     ],
     rejectedPicks: [
       { pick: '阿根廷-1.0', odds: '@1.83', verdict: 'rejected', edge: '-12.4pp(模型42.3%<需55%)', reasoning: '模型严重不支持覆盖-1.0。奥地利3-1约旦证明进攻力不弱', category: 'trap' },
-      { pick: '波胆2-0', odds: '@7.00', verdict: 'rejected', edge: '13.0%概率', reasoning: '波胆结构性负EV。含在Under 2.5范围内', category: 'entertainment' }
     ],
     marketBehavior: 'Pinnacle定价极其精准——1x2几乎与模型完全一致。这是市场效率最高的标志。',
     kellyNote: 'Under 2.5建议1%仓位(edge温和)。阿根廷胜有微小正EV(+0.2pp)可配1%作为方向确认。'
@@ -318,7 +290,6 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     rejectedPicks: [
       { pick: '阿尔及利亚-1.0', odds: '@2.40', verdict: 'rejected', edge: '-17pp+(模型仅9.9%)', reasoning: '⚠️ 最大陷阱! 市场63%赢球→让1球后胜率暴跌至9.9%。绝对不碰', category: 'trap' },
       { pick: 'Over 2.5', odds: '@1.94', verdict: 'rejected', edge: '-16.3pp(模型34%<需51%)', reasoning: '深渊负EV。双方都可能紧张→小球概率高', category: 'trap' },
-      { pick: '波胆1-1', odds: '@6.00', verdict: 'rejected', edge: '12.8%概率', reasoning: '波胆结构性负EV。约旦+1.0已覆盖所有不败结果', category: 'entertainment' }
     ],
     marketBehavior: 'TYPE_B_BRAND教科书案例——AFCON 2019冠军光环让市场自动+16pp。过去3年衰退未被消化。市场用\"7年前的历史\"定价今天的实力。约旦方向是Smart Money。',
     kellyNote: '约旦+1.0是本日核心仓位→建议2.5-3%仓位(edge最大+27.8pp+TYPE_B逻辑清晰)。约旦胜@6.38→建议0.5%额外试探。这是今天最重要的下注。'

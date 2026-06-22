@@ -109,7 +109,7 @@ export interface MatchPrediction {
   groupContext: string
   handicaps?: HandicapLine[]
   overUnder?: OverUnder[]
-  predictions: ScorePrediction[]
+  predictions?: ScorePrediction[]   // 已移除波胆, 保留字段兼容旧数据
   recommendations: BetRecommendation[]
   analysis?: MatchAnalysis
   commercialAnalysis?: CommercialAnalysis
