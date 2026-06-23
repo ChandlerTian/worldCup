@@ -1,309 +1,262 @@
 import type { MatchPrediction, GoalDistribution, TournamentStats, CommercialAnalysis } from '../types'
 
-// ====== 6/22 今日预测 (Matchday 12) ======
+// ====== 6/23 今日预测 (Matchday 13 — K/L组首轮) ======
 export const todayPredictions: MatchPrediction[] = [
   {
-    team1: '法国', team2: '伊拉克', group: 'I', ground: '费城', time: '17:00 UTC-4',
-    elo1: 2063, elo2: 1607, eloDiff: 456,
-    model: { home: 0.8265, draw: 0.1274, away: 0.0462 },
-    market: { home: 0.896, draw: 0.075, away: 0.029 },
-    lambda: { home: 2.57, away: 0.46, total: 3.03 },
-    gap: { team: '法国', value: -7.0, direction: 'market_higher' },
-    formation1: '4-3-3', formation2: '4-2-3-1', coach1: '德尚', coach2: '卡萨斯',
-    style1: '快速反击+技术控制。Mbappé左路速度核心，Griezmann组织串联。首轮3-1塞内加尔展现攻击火力',
-    style2: '防守紧凑+有限反击。亚洲杯2023曾进8强但首轮1-4惨败挪威暴露防线质量问题',
-    lineup1: 'Maignan; Koundé, Saliba, Upamecano, T.Hernandez; Tchouaméni, Camavinga, Griezmann; Dembélé, Mbappé, Thuram',
-    lineup2: 'Hassan; Al-Ammari, Natiq, Sulaka, Adnan; Rashid, Amari; Hussein, Bayesh, Ali; Aymen Hussein',
+    team1: '葡萄牙', team2: '乌兹别克', group: 'K', ground: '休斯顿', time: '13:00 UTC-5',
+    elo1: 1989, elo2: 1714, eloDiff: 275,
+    model: { home: 0.6625, draw: 0.2076, away: 0.13 },
+    market: { home: 0.83, draw: 0.25, away: 0.01 },
+    lambda: { home: 1.99, away: 0.75, total: 2.74 },
+    gap: { team: '葡萄牙', value: -16.8, direction: 'market_higher' },
+    formation1: '4-3-3', formation2: '4-2-3-1', coach1: '马丁内斯', coach2: '卡塔内茨',
+    style1: 'Ronaldo核心+快速边路。B费+B席中场双核创造力世界级。首轮首战需快速进入状态。',
+    style2: '防守紧凑+有限反击。亚洲杯2023曾进8强。Fayzullaev(中央陆军)是进攻核心。首战大概率5后卫死守。',
+    lineup1: 'Diogo Costa; Dalot, R Dias, Inacio, N Mendes; B Fernandes, Palhinha, B Silva; P Neto, Ronaldo, R Leao',
+    lineup2: 'Ergashev; Alijonov, Khusanov, Ashurmatov, Abdullaev; Fayzullaev, Khamrobekov, Shukurov, Urunov; Sergeev',
     injuries1: '全员健康', injuries2: '无重大伤情',
     tacticalMatchup: [
-      { area: 'Mbappé速度vs伊拉克右路', advantage: '法国(碾压)', reason: 'Mbappé世界级速度+盘带。伊拉克右后卫Al-Ammari无法单防。首轮被挪威边路打爆(丢4球)' },
-      { area: '中场控制', advantage: '法国(碾压)', reason: 'Tchouaméni+Cama双后腰覆盖+拦截。伊拉克中场创造力有限' },
-      { area: '反击速度', advantage: '伊拉克(微)', reason: 'Aymen Hussein是伊拉克唯一威胁点但法国Saliba+Upamecano中卫组合速度足够' },
-      { area: '定位球', advantage: '法国', reason: 'Griezmann主罚+Upamecano头球。伊拉克定位球防守存疑' }
+
+      { area: 'Ronaldo vs 乌兹别克防线', advantage: '葡萄牙(碾压)', reason: 'Ronaldo历史最佳之一。乌兹别克中卫缺乏对世界级前锋经验' },
+      { area: '中场控制', advantage: '葡萄牙(碾压)', reason: 'B费+B席+Pallhinha=曼联+曼城+拜仁级别' },
+      { area: '反击速度', advantage: '乌兹别克(微)', reason: 'Fayzullaev俄超技术最好之一。葡萄牙高位防线有暴露空间' },
+      { area: '定位球', advantage: '葡萄牙', reason: 'Ronaldo头球+R Dias定位球威胁' },
     ],
-    groupContext: 'I组第2轮。法国3分(GD+2,3-1胜塞内加尔)，挪威3分(GD+3,4-1胜伊拉克)。伊拉克0分(GD-3)。法国赢则6分几乎锁定出线，伊拉克输则基本出局。伊拉克必须死守求1分延续希望。',
-    handicaps: [
-      {line:-2, win:0.381, draw:0.233, lose:0.386},
-      {line:-1.5, win:0.613, draw:0, lose:0.387},
-      {line:-1, win:0.614, draw:0.213, lose:0.174},
-      {line:0, win:0.826, draw:0.127, lose:0.046}
-    ],
-    overUnder: [
-      {line:3.5, over:0.354, under:0.646, marketOver:'@1.87', marketUnder:'@2.02'},
-      {line:2.5, over:0.531, under:0.469}
-    ],
-    predictions: [
-      {score:'2-0', prob:18.9, reason:'法国控制节奏，2-0是最可能比分'},
-      {score:'1-0', prob:15.7, reason:'若伊拉克死守成功，法国可能仅1球小胜'},
-      {score:'3-0', prob:15.0, reason:'若早进球，法国可扩大比分'}
-    ],
-    recommendations: [
-      {type:'让球', pick:'伊拉克+2.75', odds:'@1.95', modelProb:0.73, reason:'模型伊拉克输3球内概率73% > 需51% → +22pp! 但模型λ压缩可能低估碾压场。谨慎仓位'},
-      {type:'大小球', pick:'Under 3.5', odds:'@2.02', modelProb:0.787, reason:'VALUE: 模型小球78.7% > 需49.5% → +29.2pp正EV! 法国不一定能大开杀戒'}
-    ],
+    groupContext: 'K组首轮。葡萄牙(Elo1989)vs乌兹别克(1714)。淘汰赛路径: K1对best 3rd(~1700)vs K2对L2(~1912克)。争头名动力极强(差距200+Elo)。',
+    handicaps: [{line:-2, win:0.208, draw:0.204, lose:0.587}, {line:-1.5, win:0.413, draw:0.000, lose:0.587}, {line:-1, win:0.413, draw:0.250, lose:0.338}, {line:-0.5, win:0.662, draw:0.000, lose:0.338}, {line:0, win:0.662, draw:0.208, lose:0.130}, {line:0.5, win:0.963, draw:0.000, lose:0.037}, {line:1, win:0.870, draw:0.093, lose:0.037}],
+    overUnder: [{line:1.5, over:0.992, under:0.008}],
+    predictions: [],
+    recommendations: [{type:'让球', pick:'乌兹别克+2', odds:'@1.93', modelProb:0.587, reason:'模型输2球内58.7%>需51.8%→+6.9pp。首战谨慎+乌兹别克亚洲杯防守纪律'}],
     analysis: {
-      groupSituation: '**I组第2轮形势**\n\n法国3分(GD+2,3-1塞内加尔) | 挪威3分(GD+3,4-1伊拉克) | 塞内加尔0分(GD-2) | 伊拉克0分(GD-3)\n\n法国vs伊拉克、挪威vs塞内加尔同天开打。法国胜则6分几乎锁定小组头名(末轮vs挪威)。伊拉克输则0分基本出局(末轮vs塞内加尔)。\n\n**淘汰赛路径**: I1对J2(~1715-1830 Elo) vs I2对J1(~2115 Elo阿根廷)。差距300-400 Elo，争头名动力极强。',
-      lineup1Detail: '**法国 (4-3-3) — 德尚**\n\n2022世界杯亚军+2024欧洲杯四强。Mbappé(25岁,皇马)是当今世界最佳球员之一。Griezmann(35岁)仍是组织核心但体能下降。中场Tchouaméni+Camavinga双后腰控制力强。首轮3-1塞内加尔展现攻击力(Dembélé 2助攻)。\n\n**关键**: 法国已进7届大赛半决赛——大赛经验无人能及。',
-      lineup2Detail: '**伊拉克 (4-2-3-1) — 卡萨斯(西班牙人)**\n\n2023亚洲杯8强有一定实力但首轮1-4惨败挪威暴露防线漏洞——面对北欧高大前锋完全被动。卡萨斯(前西班牙助教)尝试4-2-3-1传控但球员执行困难。\n\n**核心问题**: 首轮被挪威灌4球→防线信心可能崩溃。今天面对更强的法国...',
-      styleAnalysis: '**法国:** 4-3-3以Mbappé左路为第一爆破点。Griezmann回撤组织+定位球(世界级)。Dembélé右路内切提供宽度。整体攻守均衡——后防Saliba+Upamecano世界级中卫组合。\n\n**伊拉克:** 4-2-3-1理论上偏传控但面对强队变5-4-1大巴。首轮对挪威尝试进攻→被反击打爆4球。今天大概率全线退守。',
-      tacticalNarrative: '**核心: 法国碾压但能否大胜?**\n\nElo差456是世界级vs亚洲中游。但世界杯历史上超大Elo差不一定产生大比分——弱队全线退守可限制比分。\n\n**对比**: 法国首轮3-1塞内加尔(Elo差203)→但塞内加尔有进攻能力所以比分开放。伊拉克-256更弱但会全线防守→可能小比分。\n\n**关键:** 若法国15分钟内进球→伊拉克被迫出击→3-0/4-0。若前30分钟0-0→伊拉克越守越有信心→1-0/2-0。',
-      modelInterpretation: '**模型83.3% vs 市场89.6%** — 市场比模型更看好法国(+6.4pp)。\n\n差距在模型误差带内(3-5pp)，属于TYPE_D_NOISE。市场-2.75深盘说明预期碾压——但模型认为法国赢3+球概率仅36%。\n\n⚠️ 模型λ=2.38过于保守? 对比: Elo差456的历史匹配常产生4+总球。但模型ρ=0.02(极端差距时最弱draw correction)是合理的。\n\n**结论**: 方向(法国胜)市场与模型一致。幅度有分歧但差距不大。观察型场次。',
-      betReasoning: '**结论: 不追碾压场深盘**\n\n1. Under 3.5@2.02: 模型78.7%小球→大value但需要验证模型λ是否过于压缩。同类Elodiff456→首轮挪威4-1伊拉克(Elo差~300)→4球。所以模型可能低估总进球。\n\n2. 伊拉克+2.75@1.95: 受模型支持但首轮1-4vs挪威提示防线脆弱。\n\n**⚠️ 遵循碾压场纪律**: 6/20厄瓜多尔0-0库拉索教训→碾压预期可完全落空。不重注。'
+      groupSituation: 'K组首轮。葡萄牙(Elo1989)vs乌兹别克(1714)。淘汰赛路径: K1对best 3rd(~1700)vs K2对L2(~1912克)。争头名动力极强(差距200+Elo)。',
+      lineup1Detail: `葡萄牙 (4-3-3) — 马丁内斯\n\nRonaldo核心+快速边路。B费+B席中场双核创造力世界级。首轮首战需快速进入状态。\n\n首发: Diogo Costa; Dalot, R Dias, Inacio, N Mendes; B Fernandes, Palhinha, B Silva; P Neto, Ronaldo, R Leao`,
+      lineup2Detail: `乌兹别克 (4-2-3-1) — 卡塔内茨\n\n防守紧凑+有限反击。亚洲杯2023曾进8强。Fayzullaev(中央陆军)是进攻核心。首战大概率5后卫死守。\n\n首发: Ergashev; Alijonov, Khusanov, Ashurmatov, Abdullaev; Fayzullaev, Khamrobekov, Shukurov, Urunov; Sergeev`,
+      styleAnalysis: `**葡萄牙**: Ronaldo核心+快速边路。B费+B席中场双核创造力世界级。首轮首战需快速进入状态。\n\n**乌兹别克**: 防守紧凑+有限反击。亚洲杯2023曾进8强。Fayzullaev(中央陆军)是进攻核心。首战大概率5后卫死守。`,
+      tacticalNarrative: `首轮首战。双方均无积分→无压力→开放对攻概率高。淘汰赛路径争头名动力明确。`,
+      modelInterpretation: `模型66.2% vs 市场83.0%\n\n差距-16.8pp。Elo差275。lambda=1.99/0.75(total=2.74)。Form因子未激活(首轮无历史数据)`,
+      betReasoning: `首轮首战=信息最少阶段→不确定性最大→仓位应偏保守。`
     },
     commercialAnalysis: {
-      summary: '法国@1.09超级热门。Elo差456碾压场。市场-2.75深盘。模型方向一致(83%)但幅度保守(仅27%覆盖-2.75)。无明确value——观察型场次。',
-      approvedPicks: [],
-      rejectedPicks: [
-        { pick: '法国-2.75', odds: '@1.93', verdict: 'rejected', edge: '-23pp(模型27%<需52%)', reasoning: '模型巨大负EV。法国可能碾压但市场已完全定价。碾压场纪律:不追深盘', category: 'trap' }
+      summary: '葡萄牙大热门。Elo275。首轮首战—葡萄牙慢热传统。乌兹别克亚洲杯8强防守能力(淘汰赛2零封)。无明确value。',
+      approvedPicks: [
+
+        { pick: '乌兹别克+2', odds: '@1.93', verdict: 'approved', edge: '+6.9pp', reasoning: '防守型弱队+2天然优势。葡萄牙首战慢热+乌兹别克亚洲杯防守韧性', category: 'value' },
       ],
-      marketBehavior: '法国"品牌溢价"存在但合理(Pinnacle定价)。@1.09反映真实碾压概率(~90%)。盘口-2.75说明市场预期至少3球差距。模型保守可能因λ压缩机制。',
-      kellyNote: '建议0仓位。Under 3.5@2.02有模型支撑(78.7%)但需验证λ压缩→最大0.5%试探。'
+      rejectedPicks: [
+        { pick: '葡萄牙-1.5', odds: '@1.75', verdict: 'rejected', edge: '-13pp(模型41%<需57%)', reasoning: '葡萄牙赢2+球仅41%→显著负EV。首战不追深盘', category: 'trap' },
+      ],
+      marketBehavior: '葡萄牙\'Ronaldo效应\'+品牌溢价。市场-1.5深盘说明预期轻松取胜但模型不认同。',
+      kellyNote: '建议0.5%试探仓。首轮比赛→信息最少→不确定性最大。'
     },
     confidence: 'high'
   },
   {
-    team1: '挪威', team2: '塞内加尔', group: 'I', ground: '费城', time: '20:00 UTC-4',
-    elo1: 1914, elo2: 1860, eloDiff: 54,
-    model: { home: 0.5065, draw: 0.2376, away: 0.2560 },
-    market: { home: 0.445, draw: 0.275, away: 0.280 },
-    lambda: { home: 1.78, away: 1.20, total: 2.98 },
-    gap: { team: '挪威', value: 6.2, direction: 'model_higher' },
-    formation1: '4-3-3', formation2: '4-3-3', coach1: '索尔巴肯', coach2: '西塞',
-    style1: 'Haaland核心高效进攻。Ødegaard创造+Haaland终结世界级连线。首轮4-1碾压伊拉克展现火力',
-    style2: '身体对抗+速度反击。AFCON 2021冠军底蕴。Mané/Sarr边路爆破。但首轮1-3法国暴露与顶级差距',
-    lineup1: 'Nyland; Pedersen, Ajer, Østigård, Bjørkan; Ødegaard, Berge, Solbakken; Nusa, Haaland, Sørloth',
-    lineup2: 'E.Mendy; Sabaly, Koulibaly, A.Diallo, Jakobs; Gueye, P.M.Sarr, N.Mendy; I.Sarr, Jackson, Mané',
+    team1: '哥伦比亚', team2: '刚果(金)', group: 'K', ground: '瓜达拉哈拉', time: '16:00 UTC-6',
+    elo1: 1982, elo2: 1652, eloDiff: 330,
+    model: { home: 0.7177, draw: 0.1866, away: 0.0957 },
+    market: { home: 0.87, draw: 0.25, away: 0.01 },
+    lambda: { home: 2.11, away: 0.63, total: 2.74 },
+    gap: { team: '哥伦比亚', value: -15.2, direction: 'market_higher' },
+    formation1: '4-2-3-1', formation2: '4-3-3', coach1: '洛伦索', coach2: '德萨布雷',
+    style1: '技术型传控+快速转换。Luis Diaz(利物浦)是进攻核心。2024美洲杯亚军证明实力。',
+    style2: '身体对抗+速度反击。2024 AFCON表现不俗。Wissa(布伦特福德)+Bakambu(贝蒂斯)双核。防守组织一般但反击极快。',
+    lineup1: 'Vargas; Munoz, Cuesta, Lucumi, Mojica; Lerma, Uribe; Arias, James, L Diaz; J Duran',
+    lineup2: 'M\'Pasi; Kalulu, Mbemba, Inonga, Masuaku; Pickel, Moutoussamy; Wissa, Kakuta, Bongonda; Bakambu',
     injuries1: '全员健康', injuries2: '无重大伤情',
     tacticalMatchup: [
-      { area: 'Haaland vs Koulibaly', advantage: '挪威(微)', reason: 'Haaland世界最佳9号但Koulibaly经验丰富。巅峰对决!' },
-      { area: '中场创造力', advantage: '挪威', reason: 'Ødegaard(阿森纳队长)传球想象力远超塞内加尔中场' },
-      { area: '边路速度', advantage: '塞内加尔', reason: 'Mané(利雅得胜利)+I.Sarr双翼齐飞。挪威边后卫Pedersen/Bjørkan防守有隐患' },
-      { area: '身体对抗', advantage: '均衡', reason: '挪威北欧体格vs塞内加尔非洲力量。双方都不会被压垮' }
+
+      { area: 'Luis Diaz vs DR Congo右路', advantage: '哥伦比亚(碾压)', reason: 'Diaz(利物浦)世界级左边锋。Kalulu法甲级无法单防' },
+      { area: '中场组织', advantage: '哥伦比亚', reason: 'James(33岁)大赛创造力仍在。Lerma(水晶宫)防守覆盖' },
+      { area: '反击速度', advantage: '刚果(金)', reason: 'Wissa(英超)+Bakambu(西甲)反击双核。哥伦比亚高防线有暴露空间' },
+      { area: '身体对抗', advantage: '刚果(金)', reason: '非洲球队天然身体优势。Mbemba(马赛)法甲顶级中卫' },
     ],
-    groupContext: 'I组第2轮关键战!挪威3分(GD+3) vs 塞内加尔0分(GD-2)。塞内加尔MUST-WIN——输则99%出局。挪威赢则6分几乎出线。双方都必须主动进攻(平局对塞不够,对挪威浪费)。预期开放对攻。',
-    handicaps: [
-      {line:0, win:0.506, draw:0.238, lose:0.256},
-      {line:-0.5, win:0.506, draw:0, lose:0.494},
-      {line:0.5, win:0.744, draw:0, lose:0.256},
-      {line:-1, win:0.281, draw:0.226, lose:0.494}
-    ],
-    overUnder: [
-      {line:2.5, over:0.542, under:0.458, marketOver:'@1.90', marketUnder:'@2.01'}
-    ],
-    predictions: [
-      {score:'1-1', prob:12.8, reason:'实力接近+双方都有进球能力=最可能1-1'},
-      {score:'1-0', prob:10.6, reason:'挪威Haaland关键一击1球制胜'},
-      {score:'2-1', prob:8.8, reason:'开放对攻下挪威主场微优'}
-    ],
-    recommendations: [
-      {type:'胜平负', pick:'挪威胜', odds:'@2.10', modelProb:0.507, reason:'Form因子修正: λ=1.78(首轮4球火力)。但差距仅+6.2pp+CI跨度30pp→轻仓或观望'}
-    ],
+    groupContext: 'K组首轮关键战。哥伦比亚(Elo1982)vs刚果(金)(1652)—Delta330碾压场。胜者小组头名主动。淘汰赛路径: K1对best 3rd(~1700)vs K2对L2(~1912克)。争头名动力极强。',
+    handicaps: [{line:-2, win:0.251, draw:0.219, lose:0.530}, {line:-1.5, win:0.470, draw:0.000, lose:0.530}, {line:-1, win:0.470, draw:0.248, lose:0.282}, {line:-0.5, win:0.718, draw:0.000, lose:0.282}, {line:0, win:0.718, draw:0.187, lose:0.096}, {line:0.5, win:0.977, draw:0.000, lose:0.024}, {line:1, win:0.904, draw:0.072, lose:0.024}],
+    overUnder: [{line:1.5, over:0.996, under:0.004}],
+    predictions: [],
+    recommendations: [{type:'大小球', pick:'Over 2.5', odds:'@1.90', modelProb:0.52, reason:'lambda=2.74→预期~3球。首战无积分压力→开放对攻概率高'},{type:'胜平负', pick:'哥伦比亚胜', odds:'@1.55', modelProb:0.718, reason:'模型71.8%>需64.5%→+7.3pp。Elo330+美洲杯亚军底蕴'}],
     analysis: {
-      groupSituation: '**I组生死战!**\n\n挪威3分(GD+3) vs 塞内加尔0分(GD-2)\n\n塞内加尔MUST-WIN——输则0分垫底+GD劣势等于100%出局。平局也不够(只1分,末轮需大胜伊拉克并看别人脸色)。\n\n挪威赢则6分→若法国也胜→挪威法国末轮争头名(已锁定出线)。放松心态优于塞内加尔。\n\n**博弈论**: 塞内加尔必须赢→开场便会猛攻→挪威反击Haaland单刀→进球大战概率高。',
-      lineup1Detail: '**挪威 (4-3-3) — 索尔巴肯**\n\nHaaland(25岁,曼城)是世界最佳9号。Ødegaard(27岁,阿森纳队长)创造力世界级。首轮4-1伊拉克帽子戏法→状态火热。Pedersen右后卫+Bjørkan左后卫提供宽度。中场Solbakken提供体能覆盖。\n\n**挪威核心问题**: 防线一般(Ajer/Østigård非顶级)。面对Mané级别边锋有被爆破风险。',
-      lineup2Detail: '**塞内加尔 (4-3-3) — 西塞(执教7年)**\n\n2021 AFCON冠军底蕴仍在。Mané(33岁)虽欧洲顶级告别但仍具杀伤力。Koulibaly(35岁)后防领袖。Nicolas Jackson(切尔西)中锋速度型支点。Sabaly(贝蒂斯)右后卫提供稳定性。N.Mendy防守中场扫荡。首轮1-3法国展现了进攻组织度。\n\n**关键**: 背水一战心理素质将是决定性因素。',
-      styleAnalysis: '**挪威:** 4-3-3围绕Haaland设计——Ødegaard的through ball+Haaland的跑位是世界级。Sørloth(马竞)提供第二点。边路Nusa速度补充。防守端4后卫偏重体型对抗。\n\n**塞内加尔:** 4-3-3偏直接——Mané左路内切+I.Sarr右路爆点。中场Gueye(埃弗顿)+P.M.Sarr(热刺)有英超身体对抗能力。整体风格:身体碾压+速度转换。',
-      tacticalNarrative: '**核心: Haaland vs Koulibaly = 世纪对决**\n\nHaaland速度+力量vs Koulibaly经验+位置感。2020-2023两人多次交手→Haaland占优但未碾压。\n\n**Mané vs Pedersen**: 塞内加尔左路是最大优势对位。Pedersen面对Mané可能被爆。\n\n**Jackson vs Østigård**: Jackson的跑动和速度会是挪威中卫的额外考验。\n\n**节奏预测**: 塞内加尔开场猛攻15分钟→若进球则控制节奏→若不进球则挪威Ødegaard开始组织→半场0-0或1-0。',
-      modelInterpretation: '**模型50.7% vs 市场44.5%** — 模型比市场更看好挪威(+6.2pp)。TYPE_C_STRUCTURAL。\n\n**Form因子关键修正**: 挪威首轮4-1大胜伊拉克，近期场均4.0球 → λ从1.45→1.78(+23%)。这是form因子最大的贡献场次。\n\n**Value方向翻转**: 旧模型(无form)给挪威42.3%→推荐塞内加尔+0.25。新模型50.7%→挪威方向反而有value。Elo差仅54，form因子让挪威从"微劣"变为"微优"。',
-      betReasoning: '**⚠️ Form因子方向翻转 — 谨慎解读**\n\n新模型(form因子)给挪威50.7%→推荐挪威方向。但Elo差仅54=Coin Flip级别，CI区间[35.8%-65.4%]跨度30pp→极高不确定性。\n\n**逻辑**: \n1. 挪威首轮4-1伊拉克展现真实进攻火力(Haaland帽子戏法)。form因子捕捉到这个信号。\n2. 但塞内加尔背水一战+AFCoN冠军底蕴不容低估。\n3. 这场本质是50/50的比赛——模型给的50.7%不应被过度解读。\n\n**结论: 观望型场次。不重注任何方向。**'
+      groupSituation: 'K组首轮关键战。哥伦比亚(Elo1982)vs刚果(金)(1652)—Delta330碾压场。胜者小组头名主动。淘汰赛路径: K1对best 3rd(~1700)vs K2对L2(~1912克)。争头名动力极强。',
+      lineup1Detail: `哥伦比亚 (4-2-3-1) — 洛伦索\n\n技术型传控+快速转换。Luis Diaz(利物浦)是进攻核心。2024美洲杯亚军证明实力。\n\n首发: Vargas; Munoz, Cuesta, Lucumi, Mojica; Lerma, Uribe; Arias, James, L Diaz; J Duran`,
+      lineup2Detail: `刚果(金) (4-3-3) — 德萨布雷\n\n身体对抗+速度反击。2024 AFCON表现不俗。Wissa(布伦特福德)+Bakambu(贝蒂斯)双核。防守组织一般但反击极快。\n\n首发: M'Pasi; Kalulu, Mbemba, Inonga, Masuaku; Pickel, Moutoussamy; Wissa, Kakuta, Bongonda; Bakambu`,
+      styleAnalysis: `**哥伦比亚**: 技术型传控+快速转换。Luis Diaz(利物浦)是进攻核心。2024美洲杯亚军证明实力。\n\n**刚果(金)**: 身体对抗+速度反击。2024 AFCON表现不俗。Wissa(布伦特福德)+Bakambu(贝蒂斯)双核。防守组织一般但反击极快。`,
+      tacticalNarrative: `首轮首战。双方均无积分→无压力→开放对攻概率高。淘汰赛路径争头名动力明确。`,
+      modelInterpretation: `模型71.8% vs 市场87.0%\n\n差距-15.2pp。Elo差330。lambda=2.11/0.63(total=2.74)。Form因子未激活(首轮无历史数据)`,
+      betReasoning: `首轮首战=信息最少阶段→不确定性最大→仓位应偏保守。`
     },
     commercialAnalysis: {
-      summary: 'Elo差仅54→Coin Flip。Form因子修正: 挪威λ=1.78(首轮4球)。模型微偏挪威50.7%但CI极宽[36%-65%]→建议观望。',
+      summary: '哥伦比亚优势明显。Elo差330碾压场。核心value:哥伦比亚胜@1.55(+7.3pp)。',
       approvedPicks: [
-        { pick: '塞内加尔+0.25', odds: '@2.03', verdict: 'approved', edge: '+8.4pp', reasoning: 'Elo差54=完全均势。市场因Haaland名气偏挪威。塞内加尔背水一战+AFCoN冠军底蕴', category: 'value' }
+
+        { pick: '哥伦比亚胜', odds: '@1.55', verdict: 'approved', edge: '+7.3pp', reasoning: '模型71.8%>需64.5%。Elo330+美洲杯亚军+争头名动力', category: 'core' },
       ],
       rejectedPicks: [
-        { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' }
+        { pick: '哥伦比亚-1.5', odds: '@2.10', verdict: 'rejected', edge: '-5pp(47%<48%)', reasoning: '让1.5球覆盖仅47%→边缘负EV。首战不追深盘', category: 'trap' },
       ],
-      marketBehavior: '挪威有"Haaland溢价"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
-      kellyNote: '挪威胜建议≤0.5%试探仓。Elo差54+CI跨度30pp→信号强度不足以支撑常规仓位。'
-    },
-    confidence: 'mid'
-  },
-  {
-    team1: '阿根廷', team2: '奥地利', group: 'J', ground: '达拉斯(阿灵顿)', time: '12:00 UTC-5',
-    elo1: 2115, elo2: 1830, eloDiff: 285,
-    model: { home: 0.6703, draw: 0.2012, away: 0.1285 },
-    market: { home: 0.656, draw: 0.222, away: 0.122 },
-    lambda: { home: 2.06, away: 0.78, total: 2.83 },
-    gap: { team: '阿根廷', value: 1.4, direction: 'model_higher' },
-    formation1: '4-3-3', formation2: '4-2-2-2', coach1: '斯卡洛尼', coach2: '朗尼克',
-    style1: 'Messi核心传控+快速转换。2022世界杯冠军。首轮3-0阿尔及利亚展现统治力。团队默契极高(7年体系)',
-    style2: 'Rangnick高位压迫+快速垂直进攻。首轮3-1约旦表现不俗。Sabitzer+Baumgartner组成德式双核',
-    lineup1: 'E.Martínez; Molina, Romero, Otamendi, Tagliafico; De Paul, Mac Allister, Enzo Fernández; Messi, Lautaro, Álvarez',
-    lineup2: 'Pentz; Posch, Lienhart, Daniliuc, Mwene; Seiwald, Sabitzer; Laimer, Baumgartner; Gregoritsch, Arnautović',
-    injuries1: '全员健康', injuries2: '无重大伤情',
-    tacticalMatchup: [
-      { area: 'Messi vs Rangnick体系', advantage: '阿根廷', reason: 'Messi(38岁但仍是世界级)穿透高位压迫的能力独一无二。Rangnick体系对他有漏洞' },
-      { area: '中场对抗', advantage: '均衡', reason: 'Mac Allister/Enzo vs Sabitzer/Laimer=英超vs德甲顶级中场。精彩对决' },
-      { area: '高位压迫效果', advantage: '奥地利(微)', reason: '朗尼克体系以强度著称。阿根廷后场出球可能被逼抢制造失误' },
-      { area: '大赛经验', advantage: '阿根廷(碾压)', reason: '世界杯冠军+美洲杯冠军。奥地利队缺乏同级别大赛硬仗经验' }
-    ],
-    groupContext: 'J组第2轮——小组头名争夺战!阿根廷3分(GD+3,3-0阿尔及利亚) vs 奥地利3分(GD+2,3-1约旦)。胜者基本锁定小组头名。两队都不愿平局(头名对晋级路径重要)。高质量对决。',
-    handicaps: [
-      {line:-1, win:0.425, draw:0.245, lose:0.330},
-      {line:-2, win:0.220, draw:0.206, lose:0.575},
-      {line:0, win:0.670, draw:0.201, lose:0.129},
-      {line:1, win:0.872, draw:0.091, lose:0.037}
-    ],
-    overUnder: [
-      {line:2.5, over:0.436, under:0.564, marketOver:'@1.96', marketUnder:'@1.94'}
-    ],
-    predictions: [
-      {score:'2-0', prob:13.0, reason:'阿根廷经验+技术优势最可能2-0'},
-      {score:'1-0', prob:12.8, reason:'首球后控制节奏，1-0足以'},
-      {score:'1-1', prob:9.7, reason:'奥地利高位压迫制造混乱，平局可接受'}
-    ],
-    recommendations: [
-      {type:'大小球', pick:'Under 2.5', odds:'@1.94', modelProb:0.597, reason:'模型小球59.7% > 需51.5% → +8.2pp正EV。头名争夺战可能保守开场'}
-    ],
-    analysis: {
-      groupSituation: '**J组头名争夺战!**\n\n阿根廷3分(GD+3,3-0阿尔及利亚) | 奥地利3分(GD+2,3-1约旦) | 阿尔及利亚0分 | 约旦0分\n\n胜者基本锁定小组头名→R32打I2(法国或挪威)位置有利。\n\n**淘汰赛路径重要性**: J1对I2(~1860-1914 Elo) vs J2对I1(~2063法国)。差距150-200 Elo——头名明显更有优势。争头名动力明确。',
-      lineup1Detail: '**阿根廷 (4-3-3) — 斯卡洛尼(执教7年)**\n\n2022世界杯冠军+2024美洲杯冠军——世界最佳国家队之一。Messi(38岁)虽年龄偏大但决定性能力仍在。Lautaro(国米)+Álvarez(曼城)提供双前锋选项。中场Mac Allister(利物浦)+Enzo(切尔西)英超级别。首轮3-0阿尔及利亚稳如泰山。\n\n**关键**: 体系稳定(7年不变)+球员默契度世界第一。',
-      lineup2Detail: '**奥地利 (4-2-2-2) — 朗尼克(执教3年)**\n\n朗尼克体系以高强度压迫闻名。Sabitzer(多特)+Baumgartner(莱比锡)组成攻击双核。Arnautović(35岁)经验丰富但速度下降。首轮3-1约旦展现攻击力但防守有漏洞(丢1球)。\n\n**奥地利核心问题**: 高位压迫对Messi级别出球者效果存疑。后卫线Lienhart/Daniliuc非世界级。',
-      styleAnalysis: '**阿根廷:** 4-3-3传控+快速转换。Messi回撤组织→Lautaro/Álvarez跑身后。De Paul+Mac Allister+Enzo中场三人组技术/体能/战术纪律兼备。防守端Romero+Otamendi经验丰富。\n\n**奥地利:** Rangnick 4-2-2-2 = 极小间距+高强度压迫+快速垂直进攻。球员不断奔跑补位。但面对Messi级大脑,高强度压迫可能瞬间被一个传球瓦解。',
-      tacticalNarrative: '**核心: Messi能否破解Rangnick体系?**\n\nRangnick高位压迫对普通后场出球有效。但Messi有"一个传球杀死压迫"的能力。2022世界杯阿根廷面对高位压迫(荷兰/克罗地亚)都成功突围。\n\n**关键对位:**\n1. Sabitzer/Laimer双中场压迫Enzo/Mac Allister——英超级别技术vs德甲强度。\n2. Arnautović vs Romero——35岁老将对33岁老将。经验vs经验的硬仗。\n3. 奥地利左右卫Posch/Mwene vs Álvarez/Lautaro跑位——Rangnick体系边后卫助攻后身后空间大。',
-      modelInterpretation: '**模型67.3% vs 市场65.6%** — 几乎完全一致(+1.7pp)。TYPE_D_NOISE。\n\n这是今天模型与市场最一致的一场比赛!说明:\n- 市场理性定价阿根廷(无品牌溢价)\n- 模型准确捕获实力差距\n\n**Value发现: Under 2.5@1.94**\n- 模型59.7% > 需51.5% → +8.2pp\n- 两队都有防守质量(阿根廷世界杯冠军级防守+奥地利体系纪律)\n- 头名争夺可能战术保守开场',
-      betReasoning: '**结论: 高质量无value比赛**\n\nUnder 2.5@1.94: 模型59.7% > 需51.5%→+8.2pp正EV——今天唯一的阿根廷方向value。\n\n阿根廷-1.0@1.83: 模型42.3% << 需54.7%→拒绝。\n\n**⚠️ Messi 38岁:** 年龄是因数但他仍是大赛关键先生。不因年龄低估。'
-    },
-    commercialAnalysis: {
-      summary: '今日最理性定价场次。模型67.3%≈市场65.6%(+1.7pp)→完全一致。唯一微弱value: Under 2.5@1.94(+8.2pp)。高质量观察场。',
-      approvedPicks: [
-        { pick: 'Under 2.5', odds: '@1.94', verdict: 'approved', edge: '+8.2pp', reasoning: '模型59.7%>需51.5%。头名争夺战可能保守开场+双方防守质量高', category: 'value' }
-      ],
-      rejectedPicks: [
-        { pick: '阿根廷-1.0', odds: '@1.83', verdict: 'rejected', edge: '-12.4pp(模型42.3%<需55%)', reasoning: '模型严重不支持覆盖-1.0。奥地利3-1约旦证明进攻力不弱', category: 'trap' }
-      ],
-      marketBehavior: 'Pinnacle定价极其精准——1x2几乎与模型完全一致。这是市场效率最高的标志。',
-      kellyNote: 'Under 2.5建议1%仓位(edge温和)。奥地利有Rangnick体系加持,不宜低估。'
+      marketBehavior: '市场定价理性—哥伦比亚@1.55反映合理胜率(~65%)。模型71.8%略高于市场。刚果(金)被合理低估。',
+      kellyNote: '哥伦比亚胜建议2%仓位(+7.3pp edge)。Elo330+争头名=高概率碾压。'
     },
     confidence: 'high'
   },
   {
-    team1: '约旦', team2: '阿尔及利亚', group: 'J', ground: '旧金山湾区(圣克拉拉)', time: '20:00 UTC-7',
-    elo1: 1680, elo2: 1772, eloDiff: -92,
-    model: { home: 0.2709, draw: 0.2644, away: 0.4647 },
-    market: { home: 0.153, draw: 0.223, away: 0.624 },
-    lambda: { home: 1.07, away: 1.49, total: 2.56 },
-    gap: { team: '阿尔及利亚', value: -15.9, direction: 'market_higher' },
-    formation1: '4-4-2', formation2: '4-3-3', coach1: '阿穆塔', coach2: '佩特科维奇',
-    style1: '防守反击+身体对抗。2024亚洲杯亚军(意外)。首轮1-3奥地利暴露与欧洲差距但韧性可嘉',
-    style2: '技术型传控。2019 AFCON冠军但近年衰退。首轮0-3惨败阿根廷暴露防守漏洞',
-    lineup1: 'Al-Fakhouri; Al-Hadid, Al-Arab, Nasib, Al-Mardi; Al-Rawabdeh, Rateb, Al-Taamari, Olwan; Al-Naimat, Haddad',
-    lineup2: 'Mandrea; Atal, Mandi, Tougai, Aït-Nouri; Bennacer, Bentaleb, Aouar; Mahrez, Slimani, Amoura',
-    injuries1: '无重大伤情', injuries2: 'Mahrez体能管理(35岁)',
+    team1: '英格兰', team2: '加纳', group: 'L', ground: '波士顿', time: '17:00 UTC-4',
+    elo1: 2024, elo2: 1510, eloDiff: 514,
+    model: { home: 0.8589, draw: 0.1133, away: 0.0277 },
+    market: { home: 0.951, draw: 0.25, away: 0.01 },
+    lambda: { home: 2.55, away: 0.3, total: 2.85 },
+    gap: { team: '英格兰', value: -9.2, direction: 'market_higher' },
+    formation1: '4-2-3-1', formation2: '4-3-3', coach1: '图赫尔', coach2: '阿多',
+    style1: '控球型传控+边路爆破。Bellingham(皇马)+Kane(拜仁)世界级双核。2024欧洲杯亚军+2022世界杯8强。图赫尔体系强调宽度+高位压迫。',
+    style2: '身体对抗+速度反击。2022世界杯曾胜韩国、逼平乌拉圭。Kudus(西汉姆)+J.Ayew(水晶宫)英超经验。防守组织较差但反击极具威胁。',
+    lineup1: 'Pickford; TAA, Stones, Guehi, Shaw; Rice, Bellingham; Saka, Foden, Grealish; Kane',
+    lineup2: 'Ati-Zigi; Seidu, Djiku, Salisu, Mensah; Samed, Abdul Samed; Kudus, J Ayew, Sulemana; I Williams',
+    injuries1: '全员健康', injuries2: '无重大伤情',
     tacticalMatchup: [
-      { area: 'Al-Taamari创造力 vs 阿尔及利亚左路', advantage: '约旦(微)', reason: 'Al-Taamari(蒙彼利埃)是约旦最有威胁球员。阿尔及利亚Aït-Nouri前插后身后空间大' },
-      { area: 'Mahrez经验 vs 约旦经验不足', advantage: '阿尔及利亚', reason: 'Mahrez(35岁,前曼城)仍有一脚关键传球。约旦后防线世界杯经验为0' },
-      { area: '防守纪律', advantage: '约旦', reason: '约旦亚洲杯亚军靠的就是防守纪律(淘汰赛2场零封)。阿尔及利亚防线频繁失误(首轮0-3)' },
-      { area: '心态/斗志', advantage: '约旦', reason: '约旦不被看好(下狗心态)=无压力反而能超常发挥。阿尔及利亚是"必须赢"的心理包袱' }
+
+      { area: 'Kane vs 加纳中卫', advantage: '英格兰(碾压)', reason: 'Kane(32岁,拜仁)世界最佳9号之一。加纳Djiku/Salisu法甲级但无法单防' },
+      { area: '中场控制', advantage: '英格兰(碾压)', reason: 'Rice(阿森纳)+Bellingham(皇马)=世界级双中场' },
+      { area: '反击速度', advantage: '加纳(微)', reason: 'Kudus(西汉姆)英超最具爆发力边锋之一。Sulemana速度极快' },
+      { area: '个体天赋', advantage: '英格兰(碾压)', reason: 'Kane+Bellingham+Foden+Saka=6亿欧攻击线。加纳无世界级防守者' },
     ],
-    groupContext: 'J组第2轮——输者出局战!约旦0分(GD-2,1-3奥地利) vs 阿尔及利亚0分(GD-3,0-3阿根廷)。双方输则0分垫底+巨大GD劣势=100%出局。双方都必须赢——淘汰赛级别压力。',
-    handicaps: [
-      {line:1, win:0.535, draw:0.232, lose:0.233},
-      {line:0, win:0.271, draw:0.264, lose:0.465},
-      {line:-1, win:0.104, draw:0.167, lose:0.729},
-      {line:-2, win:0.031, draw:0.073, lose:0.896}
-    ],
-    overUnder: [
-      {line:2.5, over:0.356, under:0.644, marketOver:'@1.94', marketUnder:'@1.96'}
-    ],
-    predictions: [
-      {score:'1-1', prob:12.8, reason:'双方都有进球力但都不稳定→1-1是自然结果'},
-      {score:'0-1', prob:12.1, reason:'阿尔及利亚个体质量微优但仅1球小胜'},
-      {score:'1-2', prob:9.0, reason:'开放对攻下阿尔及利亚把握机会能力更强'}
-    ],
-    recommendations: [
-      {type:'让球', pick:'约旦+1.0', odds:'@1.96', modelProb:0.540, reason:'今日BEST VALUE! 模型约旦+1体彩胜53.9% > 需51%。AH: 模型不输2+球77.8% > 需50% → +27.8pp!! TYPE_B_BRAND'}
-    ],
+    groupContext: 'L组首轮。英格兰(Elo2024)是头号种子。同组克罗地亚(1912)/加纳(1510)/巴拿马(1730)。淘汰赛路径: L1对best 3rd(~1700)vs L2对K2(~1982哥伦比亚)。争头名极强(差距280+Elo)。',
+    handicaps: [{line:-2, win:0.406, draw:0.241, lose:0.352}, {line:-1.5, win:0.647, draw:0.000, lose:0.353}, {line:-1, win:0.648, draw:0.211, lose:0.141}, {line:-0.5, win:0.858, draw:0.000, lose:0.142}, {line:0, win:0.859, draw:0.113, lose:0.028}, {line:0.5, win:0.996, draw:0.000, lose:0.004}, {line:1, win:0.972, draw:0.024, lose:0.004}],
+    overUnder: [{line:1.5, over:1.000, under:0.000}],
+    predictions: [],
+    recommendations: [{type:'让球', pick:'加纳+2', odds:'@1.95', modelProb:0.648, reason:'模型输2球内64.8%>需51.3%→+13.5pp! 英格兰首战慢热+加纳世界杯韧性'},{type:'大小球', pick:'Under 2.5', odds:'@1.98', modelProb:0.58, reason:'首轮传统保守+图赫尔首战磨合不足→总进球偏低'}],
     analysis: {
-      groupSituation: '**J组淘汰战——输者出局!**\n\n约旦0分(GD-2,1-3奥地利) | 阿尔及利亚0分(GD-3,0-3阿根廷) | 阿根廷3分 | 奥地利3分\n\n**场景分析:**\n- 约旦输→0分+GD劣势→末轮vs阿根廷=99%出局\n- 阿尔及利亚输→0分+GD劣势→末轮vs奥地利=99%出局\n- 平局→双方都是1分→末轮需大赢+看别人脸色→虽未死但概率极低\n\n**因此: 双方都必须全力争胜!**',
-      lineup1Detail: '**约旦 (4-4-2) — 阿穆塔**\n\n2024亚洲杯亚军(在卡塔尔击败韩国→历史性成就!)。虽然最终0-4输东道主卡塔尔但整届赛事表现惊艳。Al-Taamari(蒙彼利埃,法甲)是球队核心——盘带/传中/射门兼备。首轮1-3奥地利展现了韧性(78分钟仍1-2)。\n\n**关键**: 约旦下狗心理=无压力。亚洲杯亚军证明他们可以超常发挥。',
-      lineup2Detail: '**阿尔及利亚 (4-3-3) — 佩特科维奇**\n\n2019 AFCON冠军但近年严重衰退——2022世界杯预选被喀麦隆绝杀、2024 AFCON首轮出局。Mahrez(35岁,吉达国民)虽有技术但体能下降明显。首轮0-3阿根廷暴露防线组织混乱(3个失球全是防守失误)。\n\n**核心问题**: 阿尔及利亚"名气大于实力"——AFCON 2019光环已过去7年。当前Elo仅1772(与约旦差92=微优)。',
-      styleAnalysis: '**约旦:** 4-4-2紧凑防守+快速反击。亚洲杯亚军靠防守纪律(淘汰赛零封伊拉克/塔吉克斯坦)。Al-Taamari左路是进攻发起点。整体风格: 不控球(35-40%)但每次反击有质量。\n\n**阿尔及利亚:** 4-3-3技术型传控但近年失效。Mahrez(35岁)右路内切组织是唯一创造力源。中场Bennacer(米兰)+Bentaleb(里尔)应能控制中场但防守贡献不匹配。整体: 有球控制好但无球时脆弱。',
-      tacticalNarrative: '**核心: 约旦下狗逆袭剧本**\n\n1. **市场严重高估阿尔及利亚** — 给62.4%获胜概率相当于Elo+330差距,但实际仅+92。TYPE_B_BRAND分类: 市场为"AFCON冠军"品牌付费,模型看到实际衰退。\n\n2. **阿尔及利亚首轮0-3暴露的结构性问题:**\n   - 防线组织混乱(3失球均来自防守失误)\n   - Mahrez体能无法支撑90分钟高强度\n   - 中场对回防贡献不足\n\n3. **约旦的亚洲杯剧本可以复制:**\n   - 不被看好→下狗心态→超常发挥\n   - 防守纪律(亚洲杯淘汰赛2场零封)\n   - Al-Taamari(法甲级别)是真实的进攻威胁',
-      modelInterpretation: '**⚠️ 今日最大模型-市场分歧! -16.1pp**\n\n模型46.3% vs 市场62.4% → 阿尔及利亚被市场严重高估!\n\n**分类: TYPE_B_BRAND** — "遗产溢价"(Legacy Premium)\n- 阿尔及利亚有2019 AFCON冠军光环→市场自动+16pp\n- 但实际2020-2026年间: 2022世界杯缺席、2024 AFCON首轮出局、首轮0-3惨败\n- 约旦在亚洲杯证明实力→亚洲亚军绝不是鱼腩\n\n**这是本日最清晰的value信号。** 遵循模型方向,逆市场而行。',
-      betReasoning: '**🔥 本日最佳推荐: 约旦+1.0@1.96 (TYPE_B_BRAND核心仓位!)**\n\n**数学:**\n- AH +1.0: 模型约旦不输2+球 = 77.8% → 市场仅给50% → 差距+27.8pp!\n- 体彩 +1: 模型约旦不败 = 53.9% > 需51% → +2.9pp\n\n**逻辑:**\n1. 市场为"阿尔及利亚品牌"支付16pp溢价=系统性错误定价\n2. 阿尔及利亚首轮0-3证明衰退是结构性的,不是暂时性\n3. 约旦亚洲杯亚军证明大赛发挥能力\n4. 双方0分=输者出局→约旦背水一战有心理优势(下狗心理)\n\n**仓位: 约旦+1.0@1.96 → 2.5-3%仓位。**'
+      groupSituation: 'L组首轮。英格兰(Elo2024)是头号种子。同组克罗地亚(1912)/加纳(1510)/巴拿马(1730)。淘汰赛路径: L1对best 3rd(~1700)vs L2对K2(~1982哥伦比亚)。争头名极强(差距280+Elo)。',
+      lineup1Detail: `英格兰 (4-2-3-1) — 图赫尔\n\n控球型传控+边路爆破。Bellingham(皇马)+Kane(拜仁)世界级双核。2024欧洲杯亚军+2022世界杯8强。图赫尔体系强调宽度+高位压迫。\n\n首发: Pickford; TAA, Stones, Guehi, Shaw; Rice, Bellingham; Saka, Foden, Grealish; Kane`,
+      lineup2Detail: `加纳 (4-3-3) — 阿多\n\n身体对抗+速度反击。2022世界杯曾胜韩国、逼平乌拉圭。Kudus(西汉姆)+J.Ayew(水晶宫)英超经验。防守组织较差但反击极具威胁。\n\n首发: Ati-Zigi; Seidu, Djiku, Salisu, Mensah; Samed, Abdul Samed; Kudus, J Ayew, Sulemana; I Williams`,
+      styleAnalysis: `**英格兰**: 控球型传控+边路爆破。Bellingham(皇马)+Kane(拜仁)世界级双核。2024欧洲杯亚军+2022世界杯8强。图赫尔体系强调宽度+高位压迫。\n\n**加纳**: 身体对抗+速度反击。2022世界杯曾胜韩国、逼平乌拉圭。Kudus(西汉姆)+J.Ayew(水晶宫)英超经验。防守组织较差但反击极具威胁。`,
+      tacticalNarrative: `首轮首战。双方均无积分→无压力→开放对攻概率高。淘汰赛路径争头名动力明确。`,
+      modelInterpretation: `模型85.9% vs 市场95.1%\n\n差距-9.2pp。Elo差514。lambda=2.55/0.3(total=2.85)。Form因子未激活(首轮无历史数据)`,
+      betReasoning: `首轮首战=信息最少阶段→不确定性最大→仓位应偏保守。`
     },
     commercialAnalysis: {
-      summary: '⚠️ 今日最大定价错误! 阿尔及利亚市场62.4% vs 模型46.3% = 差距-16.1pp。TYPE_B_BRAND — AFCON 2019冠军光环已过7年,首轮0-3阿根廷证明结构性问题。约旦+1.0@1.96是本日核心仓位(模型+27.8pp edge)。',
+      summary: '英格兰巨大热门。Elo差514本届最大之一。加纳+2是本日最佳value信号(+13.5pp)。首轮首战→不追深盘。',
       approvedPicks: [
-        { pick: '约旦+1.0(亚盘)', odds: '@1.96', verdict: 'approved', edge: '+27.8pp(今日最大!)', reasoning: '模型约旦不输2+球77.8%>需50%。阿尔及利亚"品牌溢价"TYPE_B_BRAND。核心仓位', category: 'core' }
+
+        { pick: '加纳+2', odds: '@1.95', verdict: 'approved', edge: '+13.5pp(本日最大!)', reasoning: '加纳输2球内64.8%>51.3%。英格兰首战慢热+加纳世界杯韧性。TYPE_B_BRAND', category: 'core' },
       ],
       rejectedPicks: [
-        { pick: '阿尔及利亚-1.0', odds: '@2.40', verdict: 'rejected', edge: '-17pp+(模型仅9.9%)', reasoning: '⚠️ 最大陷阱! 市场63%赢球→让1球后胜率暴跌至9.9%。绝对不碰', category: 'trap' },
-        { pick: 'Over 2.5', odds: '@1.94', verdict: 'rejected', edge: '-16.3pp(模型34%<需51%)', reasoning: '深渊负EV。双方都可能紧张→小球概率高', category: 'trap' }
+        { pick: '英格兰-2.5', odds: '@2.45', verdict: 'rejected', edge: '-22pp(41%<41%)', reasoning: '首战追深盘=赌博。英格兰赢3+球仅41%', category: 'trap' },
       ],
-      marketBehavior: 'TYPE_B_BRAND教科书案例——AFCON 2019冠军光环让市场自动+16pp。过去3年衰退未被消化。市场用"7年前的历史"定价今天的实力。约旦方向是Smart Money。',
-      kellyNote: '约旦+1.0是本日核心仓位→建议2.5-3%仓位(edge最大+27.8pp+TYPE_B逻辑清晰)。这是今天最重要的下注。'
+      marketBehavior: 'TYPE_B_BRAND—英格兰\'黄金一代\'品牌=市场自动溢价。2024欧洲杯亚军≠碾压。加纳世界杯历史证明韧性。',
+      kellyNote: '加纳+2建议2.5-3%仓位(+13.5pp edge本日最大!)。英格兰大胜概率仅41%。'
     },
-    confidence: 'mid'
-  }
+    confidence: 'high'
+  },
+  {
+    team1: '巴拿马', team2: '克罗地亚', group: 'L', ground: '多伦多', time: '20:00 UTC-4',
+    elo1: 1730, elo2: 1912, eloDiff: -182,
+    model: { home: 0.1959, draw: 0.2395, away: 0.5646 },
+    market: { home: 0.26, draw: 0.25, away: 0.49 },
+    lambda: { home: 0.93, away: 1.75, total: 2.67 },
+    gap: { team: '巴拿马', value: -6.4, direction: 'market_higher' },
+    formation1: '5-3-2', formation2: '4-3-3', coach1: '克里斯蒂安森', coach2: '达利奇',
+    style1: '防守型5后卫+有限反击。2026预选赛侥幸晋级。整体实力有限但防守纪律尚可。全线退守是唯一策略。',
+    style2: 'Modric核心传控+经验制胜。2022世界杯季军+2024欧洲杯16强。黄金一代老化但大赛经验丰富。Gvardiol(曼城)世界级中卫。',
+    lineup1: 'Mejia; Murillo, Escobar, Cordoba, Andrade, Davis; Godoy, Carrasquilla, Barcenas; Fajardo, Diaz',
+    lineup2: 'Livakovic; Stanisic, Sutalo, Gvardiol, Sosa; Modric, Brozovic, Kovacic; Pasalic, Kramaric, Perisic',
+    injuries1: '无重大伤情', injuries2: '全员健康(Modric体能管理/40岁)',
+    tacticalMatchup: [
+
+      { area: 'Modric组织vs巴拿马中场', advantage: '克罗地亚(碾压)', reason: 'Modric(40岁,皇马)仍是世界最佳组织者之一。巴拿马无法限制' },
+      { area: '巴拿马5后卫防守', advantage: '巴拿马(微)', reason: '5-3-2=全线退守。2023金杯赛曾逼平墨西哥。能顶60-70分钟' },
+      { area: '边路宽度', advantage: '克罗地亚', reason: 'Perisic(35岁)+Sosa双翼提供持续传中。巴拿马翼卫防守有漏洞' },
+      { area: '大赛经验', advantage: '克罗地亚(碾压)', reason: '2022世界杯季军+2018世界杯亚军。巴拿马世界杯经验为0' },
+    ],
+    groupContext: 'L组首轮。克罗地亚(Elo1912)vs巴拿马(1730)—Delta182可控优势。淘汰赛路径:同英格兰组→争头名至关重要。',
+    handicaps: [{line:-2, win:0.017, draw:0.049, lose:0.934}, {line:-1.5, win:0.066, draw:0.000, lose:0.934}, {line:-1, win:0.066, draw:0.130, lose:0.804}, {line:-0.5, win:0.196, draw:0.000, lose:0.804}, {line:0, win:0.196, draw:0.239, lose:0.565}, {line:0.5, win:0.682, draw:0.000, lose:0.318}, {line:1, win:0.435, draw:0.246, lose:0.318}],
+    overUnder: [{line:1.5, over:0.856, under:0.144}],
+    predictions: [],
+    recommendations: [{type:'让球', pick:'巴拿马+1.5', odds:'@1.90', modelProb:0.804, reason:'模型输2球内80.4%>需52.6%→+27.8pp! 巴5后卫死守+克老化→大概率小比分'},{type:'大小球', pick:'Under 2.5', odds:'@1.85', modelProb:0.68, reason:'lambda=2.67→预期2-3球。巴全线退守+克进攻老化→小球概率高'}],
+    analysis: {
+      groupSituation: 'L组首轮。克罗地亚(Elo1912)vs巴拿马(1730)—Delta182可控优势。淘汰赛路径:同英格兰组→争头名至关重要。',
+      lineup1Detail: `巴拿马 (5-3-2) — 克里斯蒂安森\n\n防守型5后卫+有限反击。2026预选赛侥幸晋级。整体实力有限但防守纪律尚可。全线退守是唯一策略。\n\n首发: Mejia; Murillo, Escobar, Cordoba, Andrade, Davis; Godoy, Carrasquilla, Barcenas; Fajardo, Diaz`,
+      lineup2Detail: `克罗地亚 (4-3-3) — 达利奇\n\nModric核心传控+经验制胜。2022世界杯季军+2024欧洲杯16强。黄金一代老化但大赛经验丰富。Gvardiol(曼城)世界级中卫。\n\n首发: Livakovic; Stanisic, Sutalo, Gvardiol, Sosa; Modric, Brozovic, Kovacic; Pasalic, Kramaric, Perisic`,
+      styleAnalysis: `**巴拿马**: 防守型5后卫+有限反击。2026预选赛侥幸晋级。整体实力有限但防守纪律尚可。全线退守是唯一策略。\n\n**克罗地亚**: Modric核心传控+经验制胜。2022世界杯季军+2024欧洲杯16强。黄金一代老化但大赛经验丰富。Gvardiol(曼城)世界级中卫。`,
+      tacticalNarrative: `首轮首战。双方均无积分→无压力→开放对攻概率高。淘汰赛路径争头名动力明确。`,
+      modelInterpretation: `模型19.6% vs 市场26.0%\n\n差距-6.4pp。Elo差-182。lambda=0.93/1.75(total=2.67)。Form因子未激活(首轮无历史数据)`,
+      betReasoning: `首轮首战=信息最少阶段→不确定性最大→仓位应偏保守。`
+    },
+    commercialAnalysis: {
+      summary: '克罗地亚老化但实力碾压。巴拿马+1.5有+27.8pp巨大正EV(巴5后卫死守+克老化)。本日第二value信号。',
+      approvedPicks: [
+
+        { pick: '巴拿马+1.5', odds: '@1.90', verdict: 'approved', edge: '+27.8pp(本日第二!)', reasoning: '巴5后卫死守80.4%>52.6%。克罗地亚黄金一代老化→进攻效率下降', category: 'core' },
+      ],
+      rejectedPicks: [
+        { pick: '克罗地亚-1.5', odds: '@2.30', verdict: 'rejected', edge: '-31pp(6.6%<43%)', reasoning: '最大陷阱! 克赢2+球仅6.6%→史诗级负EV', category: 'trap' },
+      ],
+      marketBehavior: '克罗地亚\'2022季军\'光环→市场给-1.5深盘。实际Elo差仅182+阵容严重老化→碾压力远不及2022。',
+      kellyNote: '巴拿马+1.5建议2%仓位(+27.8pp edge)。本日第二大value(仅次于加纳+2)。克老化+巴防守纪律=核心逻辑。'
+    },
+    confidence: 'high'
+  },
 ]
 
-// ====== 进球差分布 ======
 export const goalDistributions: Record<string, GoalDistribution> = {
-  '法国vs伊拉克': { team1: '法国', team2: '伊拉克', diffs: {'0':0.1274,'1':0.2217,'2':0.2348,'3':0.1793,'4':0.1048,'5':0.0505,'6':0.0207,'7':0.0074,'8':0.0023} },
-  '挪威vs塞内加尔': { team1: '挪威', team2: '塞内加尔', diffs: {'-3':0.0113,'-2':0.0471,'-1':0.137,'0':0.2376,'1':0.2685,'2':0.1788,'3':0.0801,'4':0.0267,'5':0.0071} },
-  '阿根廷vs奥地利': { team1: '阿根廷', team2: '奥地利', diffs: {'-3':0.0055,'-2':0.0251,'-1':0.084,'0':0.2012,'1':0.2531,'2':0.2107,'3':0.1231,'4':0.0562,'5':0.0208,'6':0.0065,'7':0.0018} },
-  '约旦vs阿尔及利亚': { team1: '约旦', team2: '阿尔及利亚', diffs: {'-4':0.0166,'-3':0.054,'-2':0.1318,'-1':0.2295,'0':0.2644,'1':0.1811,'2':0.0792,'3':0.0263,'4':0.0069} },
+  '葡萄牙vs乌兹别克': { team1: '葡萄牙', team2: '乌兹别克', diffs: {'-8':0.0,'-7':0.0,'-6':0.0,'-5':0.0002,'-4':0.0011,'-3':0.0065,'-2':0.0291,'-1':0.093,'0':0.2076,'1':0.2496,'2':0.2045,'3':0.1214,'4':0.0563,'5':0.0214,'6':0.0068,'7':0.0019,'8':0.0005} },
+  '哥伦比亚vs刚果(金)': { team1: '哥伦比亚', team2: '刚果(金)', diffs: {'-8':0.0,'-7':0.0,'-6':0.0,'-5':0.0001,'-4':0.0005,'-3':0.0036,'-2':0.0193,'-1':0.0722,'0':0.1866,'1':0.2476,'2':0.2194,'3':0.1399,'4':0.0694,'5':0.0281,'6':0.0096,'7':0.0028,'8':0.0007} },
+  '英格兰vs加纳': { team1: '英格兰', team2: '加纳', diffs: {'-8':0.0,'-7':0.0,'-6':0.0,'-5':0.0,'-4':0.0,'-3':0.0003,'-2':0.0033,'-1':0.0241,'0':0.1133,'1':0.211,'2':0.2409,'3':0.1928,'4':0.1183,'5':0.0588,'6':0.0245,'7':0.0088,'8':0.0028} },
+  '巴拿马vs克罗地亚': { team1: '巴拿马', team2: '克罗地亚', diffs: {'-8':0.0002,'-7':0.0008,'-6':0.0034,'-5':0.0122,'-4':0.0366,'-3':0.0904,'-2':0.1748,'-1':0.2461,'0':0.2395,'1':0.1296,'2':0.0493,'3':0.0135,'4':0.0029,'5':0.0005,'6':0.0001,'7':0.0,'8':0.0} },
 }
 
-// ====== 赛事统计 (更新至6/22赛前) ======
 export const tournamentStats: TournamentStats = {
   totalMatches: 48,
   totalGoals: 118,
   avgGoals: 2.46,
-  homeWins: 19,
-  draws: 14,
+  homeWins: 21,
+  draws: 15,
   awayWins: 12,
   biggestWin: { match: '加拿大 6-0 卡塔尔', date: '2026-06-18' },
   latestGoal: { match: '西班牙 4-0 沙特', scorer: '待补充', date: '2026-06-21' }
 }
 
-// ====== 商业盘口精算分析 (6/22) ======
 export const commercialAnalyses: Record<string, CommercialAnalysis> = {
-  '法国vs伊拉克': {
-    summary: '法国@1.09超级热门。Elo差456碾压场。市场-2.75深盘。模型方向一致(83%)但幅度保守(仅27%覆盖-2.75)。无明确value——观察型场次。',
-    approvedPicks: [],
-    rejectedPicks: [
-      { pick: '法国-2.75', odds: '@1.93', verdict: 'rejected', edge: '-23pp(模型27%<需52%)', reasoning: '模型巨大负EV。法国可能碾压但市场已完全定价。碾压场纪律:不追深盘', category: 'trap' }
-    ],
-    marketBehavior: '法国"品牌溢价"存在但合理(Pinnacle定价)。@1.09反映真实碾压概率(~90%)。盘口-2.75说明市场预期至少3球差距。模型保守可能因λ压缩机制。',
-    kellyNote: '建议0仓位。Under 3.5@2.02有模型支撑(78.7%)但需验证λ压缩→最大0.5%试探。'
-  },
-  '挪威vs塞内加尔': {
-    summary: 'Elo差仅54→Coin Flip。Form因子修正: 挪威λ=1.78(首轮4球)。模型微偏挪威50.7%但CI极宽[36%-65%]→建议观望。',
+  '葡萄牙vs乌兹别克': {
+    summary: '葡萄牙大热门。Elo275。首轮首战—葡萄牙慢热传统。乌兹别克亚洲杯8强防守能力(淘汰赛2零封)。无明确value。',
     approvedPicks: [
-      { pick: '挪威胜', odds: '@2.10', verdict: 'marginal', edge: '+6.2pp(form修正)', reasoning: 'Form因子修正后挪威50.7%>需47.6%。但Elo差仅54+CI极宽→边缘信号不宜重仓', category: 'value' }
+      { pick: '乌兹别克+2', odds: '@1.93', verdict: 'approved', edge: '+6.9pp', reasoning: '防守型弱队+2天然优势。葡萄牙首战慢热+乌兹别克亚洲杯防守韧性', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' }
+      { pick: '葡萄牙-1.5', odds: '@1.75', verdict: 'rejected', edge: '-13pp(模型41%<需57%)', reasoning: '葡萄牙赢2+球仅41%→显著负EV。首战不追深盘', category: 'trap' },
     ],
-    marketBehavior: '挪威有"Haaland溢价"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
-    kellyNote: '挪威胜建议≤0.5%试探仓。Elo差54+CI跨度30pp→信号强度不足以支撑常规仓位。'
+    marketBehavior: '葡萄牙\'Ronaldo效应\'+品牌溢价。市场-1.5深盘说明预期轻松取胜但模型不认同。',
+    kellyNote: '建议0.5%试探仓。首轮比赛→信息最少→不确定性最大。'
   },
-  '阿根廷vs奥地利': {
-    summary: '今日最理性定价场次。模型67.3%≈市场65.6%(+1.7pp)→完全一致。唯一微弱value: Under 2.5@1.94(+8.2pp)。高质量观察场。',
+  '哥伦比亚vs刚果(金)': {
+    summary: '哥伦比亚优势明显。Elo差330碾压场。核心value:哥伦比亚胜@1.55(+7.3pp)。',
     approvedPicks: [
-      { pick: 'Under 2.5', odds: '@1.94', verdict: 'approved', edge: '+8.2pp', reasoning: '模型59.7%>需51.5%。头名争夺战可能保守开场+双方防守质量高', category: 'value' }
+      { pick: '哥伦比亚胜', odds: '@1.55', verdict: 'approved', edge: '+7.3pp', reasoning: '模型71.8%>需64.5%。Elo330+美洲杯亚军+争头名动力', category: 'core' },
     ],
     rejectedPicks: [
-      { pick: '阿根廷-1.0', odds: '@1.83', verdict: 'rejected', edge: '-12.4pp(模型42.3%<需55%)', reasoning: '模型严重不支持覆盖-1.0。奥地利3-1约旦证明进攻力不弱', category: 'trap' }
+      { pick: '哥伦比亚-1.5', odds: '@2.10', verdict: 'rejected', edge: '-5pp(47%<48%)', reasoning: '让1.5球覆盖仅47%→边缘负EV。首战不追深盘', category: 'trap' },
     ],
-    marketBehavior: 'Pinnacle定价极其精准——1x2几乎与模型完全一致。这是市场效率最高的标志。',
-    kellyNote: 'Under 2.5建议1%仓位(edge温和)。奥地利有Rangnick体系加持,不宜低估。'
+    marketBehavior: '市场定价理性—哥伦比亚@1.55反映合理胜率(~65%)。模型71.8%略高于市场。刚果(金)被合理低估。',
+    kellyNote: '哥伦比亚胜建议2%仓位(+7.3pp edge)。Elo330+争头名=高概率碾压。'
   },
-  '约旦vs阿尔及利亚': {
-    summary: '⚠️ 今日最大定价错误! 阿尔及利亚市场62.4% vs 模型46.3% = 差距-16.1pp。TYPE_B_BRAND — AFCON 2019冠军光环已过7年。约旦+1.0@1.96是本日核心仓位(模型+27.8pp edge)。',
+  '英格兰vs加纳': {
+    summary: '英格兰巨大热门。Elo差514本届最大之一。加纳+2是本日最佳value信号(+13.5pp)。首轮首战→不追深盘。',
     approvedPicks: [
-      { pick: '约旦+1.0(亚盘)', odds: '@1.96', verdict: 'approved', edge: '+27.8pp(今日最大!)', reasoning: '模型约旦不输2+球77.8%>需50%。阿尔及利亚"品牌溢价"TYPE_B_BRAND。核心仓位', category: 'core' }
+      { pick: '加纳+2', odds: '@1.95', verdict: 'approved', edge: '+13.5pp(本日最大!)', reasoning: '加纳输2球内64.8%>51.3%。英格兰首战慢热+加纳世界杯韧性。TYPE_B_BRAND', category: 'core' },
     ],
     rejectedPicks: [
-      { pick: '阿尔及利亚-1.0', odds: '@2.40', verdict: 'rejected', edge: '-17pp+(模型仅9.9%)', reasoning: '⚠️ 最大陷阱! 市场63%赢球→让1球后胜率暴跌至9.9%。绝对不碰', category: 'trap' },
-      { pick: 'Over 2.5', odds: '@1.94', verdict: 'rejected', edge: '-16.3pp(模型34%<需51%)', reasoning: '深渊负EV。双方都可能紧张→小球概率高', category: 'trap' }
+      { pick: '英格兰-2.5', odds: '@2.45', verdict: 'rejected', edge: '-22pp(41%<41%)', reasoning: '首战追深盘=赌博。英格兰赢3+球仅41%', category: 'trap' },
     ],
-    marketBehavior: 'TYPE_B_BRAND教科书案例——AFCON 2019冠军光环让市场自动+16pp。过去3年衰退未被消化。市场用"7年前的历史"定价今天的实力。约旦方向是Smart Money。',
-    kellyNote: '约旦+1.0是本日核心仓位→建议2.5-3%仓位(edge最大+27.8pp+TYPE_B逻辑清晰)。这是今天最重要的下注。'
-  }
+    marketBehavior: 'TYPE_B_BRAND—英格兰\'黄金一代\'品牌=市场自动溢价。2024欧洲杯亚军≠碾压。加纳世界杯历史证明韧性。',
+    kellyNote: '加纳+2建议2.5-3%仓位(+13.5pp edge本日最大!)。英格兰大胜概率仅41%。'
+  },
+  '巴拿马vs克罗地亚': {
+    summary: '克罗地亚老化但实力碾压。巴拿马+1.5有+27.8pp巨大正EV(巴5后卫死守+克老化)。本日第二value信号。',
+    approvedPicks: [
+      { pick: '巴拿马+1.5', odds: '@1.90', verdict: 'approved', edge: '+27.8pp(本日第二!)', reasoning: '巴5后卫死守80.4%>52.6%。克罗地亚黄金一代老化→进攻效率下降', category: 'core' },
+    ],
+    rejectedPicks: [
+      { pick: '克罗地亚-1.5', odds: '@2.30', verdict: 'rejected', edge: '-31pp(6.6%<43%)', reasoning: '最大陷阱! 克赢2+球仅6.6%→史诗级负EV', category: 'trap' },
+    ],
+    marketBehavior: '克罗地亚\'2022季军\'光环→市场给-1.5深盘。实际Elo差仅182+阵容严重老化→碾压力远不及2022。',
+    kellyNote: '巴拿马+1.5建议2%仓位(+27.8pp edge)。本日第二大value(仅次于加纳+2)。克老化+巴防守纪律=核心逻辑。'
+  },
 }
