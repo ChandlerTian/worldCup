@@ -1,15 +1,15 @@
 import type { MatchPrediction, GoalDistribution, TournamentStats, CommercialAnalysis } from '../types'
 
 // ====== 6/23 (K/L组R2 — Form因子激活) ======
-// ⚠️ market数据为模型估算(基于Elo)，非真实盘口。真实赔率待获取后更新。
+// ✅ market数据来源: The Odds API (betrivers, 实时盘口)
 export const todayPredictions: MatchPrediction[] = [
   {
     team1: '葡萄牙', team2: '乌兹别克', group: 'K', ground: '休斯顿', time: '13:00 UTC-5',
     elo1: 1989, elo2: 1714, eloDiff: 275,
     model: { home: 0.6434, draw: 0.2138, away: 0.1427 },
-    market: { home: 0.83, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
+    market: { home: 0.8427, draw: 0.112, away: 0.0453, _note: 'The Odds API (betrivers)' },
     lambda: { home: 1.95, away: 0.79, total: 2.74 },
-    gap: { team: '葡萄牙', value: -18.7, direction: 'market_higher' },
+    gap: { team: '葡萄牙', value: -20.0, direction: 'market_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1', coach1: '马丁内斯', coach2: '卡塔内茨',
     style1: 'Ronaldo核心+快速边路。首轮1-1平刚果(金)表现低于预期。', style2: '首轮1-3负哥伦比亚但Fayzullaev进球。今天必全力防守求1分。',
     lineup1: 'Diogo Costa; Dalot, R Dias, Inacio, N Mendes; B Fernandes, Palhinha, B Silva; P Neto, Ronaldo, R Leao', lineup2: 'Ergashev; Alijonov, Khusanov, Ashurmatov, Abdullaev; Fayzullaev, Khamrobekov, Shukurov, Urunov; Sergeev',
@@ -49,9 +49,9 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '哥伦比亚', team2: '刚果(金)', group: 'K', ground: '瓜达拉哈拉', time: '16:00 UTC-6',
     elo1: 1982, elo2: 1652, eloDiff: 330,
     model: { home: 0.7192, draw: 0.1811, away: 0.0997 },
-    market: { home: 0.87, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
+    market: { home: 0.6147, draw: 0.2442, away: 0.1411, _note: 'The Odds API (betrivers)' },
     lambda: { home: 2.2, away: 0.68, total: 2.88 },
-    gap: { team: '哥伦比亚', value: -15.1, direction: 'market_higher' },
+    gap: { team: '哥伦比亚', value: 10.4, direction: 'model_higher' },
     formation1: '4-2-3-1', formation2: '4-3-3', coach1: '洛伦索', coach2: '德萨布雷',
     style1: '首轮3-1胜乌兹别克→Luis Diaz状态火热。赢则6分锁定出线。', style2: '首轮1-1逼平葡萄牙=最大冷门! Wissa进球证明攻击力。',
     lineup1: 'Vargas; Munoz, Cuesta, Lucumi, Mojica; Lerma, Uribe; Arias, James, L Diaz; J Duran', lineup2: 'M\'Pasi; Kalulu, Mbemba, Inonga, Masuaku; Pickel, Moutoussamy; Wissa, Kakuta, Bongonda; Bakambu',
@@ -90,9 +90,9 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '英格兰', team2: '加纳', group: 'L', ground: '波士顿', time: '17:00 UTC-4',
     elo1: 2024, elo2: 1510, eloDiff: 514,
     model: { home: 0.8447, draw: 0.1166, away: 0.0387 },
-    market: { home: 0.951, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
+    market: { home: 0.8117, draw: 0.1356, away: 0.0527, _note: 'The Odds API (betrivers)' },
     lambda: { home: 2.65, away: 0.43, total: 3.08 },
-    gap: { team: '英格兰', value: -10.6, direction: 'market_higher' },
+    gap: { team: '英格兰', value: 3.3, direction: 'model_higher' },
     formation1: '4-2-3-1', formation2: '4-3-3', coach1: '图赫尔', coach2: '阿多',
     style1: '首轮4-2胜克罗地亚→攻击力全开(4球!)。赢则6分锁定出线。', style2: '首轮1-0胜巴拿马→3分! Kudus是关键。防守需大幅提升vs英4球线。',
     lineup1: 'Pickford; TAA, Stones, Guehi, Shaw; Rice, Bellingham; Saka, Foden, Grealish; Kane', lineup2: 'Ati-Zigi; Seidu, Djiku, Salisu, Mensah; Samed, Abdul Samed; Kudus, J Ayew, Sulemana; I Williams',
@@ -131,9 +131,9 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '巴拿马', team2: '克罗地亚', group: 'L', ground: '多伦多', time: '20:00 UTC-4',
     elo1: 1730, elo2: 1912, eloDiff: -182,
     model: { home: 0.1952, draw: 0.2367, away: 0.5681 },
-    market: { home: 0.26, draw: 0.25, away: 0.49, _note: '模型估算(非真实盘口)' },
+    market: { home: 0.1407, draw: 0.2209, away: 0.6384, _note: 'The Odds API (betrivers)' },
     lambda: { home: 0.94, away: 1.78, total: 2.72 },
-    gap: { team: '巴拿马', value: -6.5, direction: 'market_higher' },
+    gap: { team: '巴拿马', value: 5.4, direction: 'market_higher' },
     formation1: '5-3-2', formation2: '4-3-3', coach1: '克里斯蒂安森', coach2: '达利奇',
     style1: '首轮0-1负加纳→未进球但仅丢1球→防守纪律尚可。', style2: '首轮2-4负英格兰→进2球但防守老化暴露。必须赢否则0分垫底。',
     lineup1: 'Mejia; Murillo, Escobar, Cordoba, Andrade, Davis; Godoy, Carrasquilla, Barcenas; Fajardo, Diaz', lineup2: 'Livakovic; Stanisic, Sutalo, Gvardiol, Sosa; Modric, Brozovic, Kovacic; Pasalic, Kramaric, Perisic',
