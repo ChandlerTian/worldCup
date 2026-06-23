@@ -1,12 +1,13 @@
 import type { MatchPrediction, GoalDistribution, TournamentStats, CommercialAnalysis } from '../types'
 
 // ====== 6/23 (K/L组R2 — Form因子激活) ======
+// ⚠️ market数据为模型估算(基于Elo)，非真实盘口。真实赔率待获取后更新。
 export const todayPredictions: MatchPrediction[] = [
   {
     team1: '葡萄牙', team2: '乌兹别克', group: 'K', ground: '休斯顿', time: '13:00 UTC-5',
     elo1: 1989, elo2: 1714, eloDiff: 275,
     model: { home: 0.6434, draw: 0.2138, away: 0.1427 },
-    market: { home: 0.83, draw: 0.25, away: 0.01 },
+    market: { home: 0.83, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
     lambda: { home: 1.95, away: 0.79, total: 2.74 },
     gap: { team: '葡萄牙', value: -18.7, direction: 'market_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1', coach1: '马丁内斯', coach2: '卡塔内茨',
@@ -48,7 +49,7 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '哥伦比亚', team2: '刚果(金)', group: 'K', ground: '瓜达拉哈拉', time: '16:00 UTC-6',
     elo1: 1982, elo2: 1652, eloDiff: 330,
     model: { home: 0.7192, draw: 0.1811, away: 0.0997 },
-    market: { home: 0.87, draw: 0.25, away: 0.01 },
+    market: { home: 0.87, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
     lambda: { home: 2.2, away: 0.68, total: 2.88 },
     gap: { team: '哥伦比亚', value: -15.1, direction: 'market_higher' },
     formation1: '4-2-3-1', formation2: '4-3-3', coach1: '洛伦索', coach2: '德萨布雷',
@@ -89,7 +90,7 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '英格兰', team2: '加纳', group: 'L', ground: '波士顿', time: '17:00 UTC-4',
     elo1: 2024, elo2: 1510, eloDiff: 514,
     model: { home: 0.8447, draw: 0.1166, away: 0.0387 },
-    market: { home: 0.951, draw: 0.25, away: 0.01 },
+    market: { home: 0.951, draw: 0.25, away: 0.01, _note: '模型估算(非真实盘口)' },
     lambda: { home: 2.65, away: 0.43, total: 3.08 },
     gap: { team: '英格兰', value: -10.6, direction: 'market_higher' },
     formation1: '4-2-3-1', formation2: '4-3-3', coach1: '图赫尔', coach2: '阿多',
@@ -130,7 +131,7 @@ export const todayPredictions: MatchPrediction[] = [
     team1: '巴拿马', team2: '克罗地亚', group: 'L', ground: '多伦多', time: '20:00 UTC-4',
     elo1: 1730, elo2: 1912, eloDiff: -182,
     model: { home: 0.1952, draw: 0.2367, away: 0.5681 },
-    market: { home: 0.26, draw: 0.25, away: 0.49 },
+    market: { home: 0.26, draw: 0.25, away: 0.49, _note: '模型估算(非真实盘口)' },
     lambda: { home: 0.94, away: 1.78, total: 2.72 },
     gap: { team: '巴拿马', value: -6.5, direction: 'market_higher' },
     formation1: '5-3-2', formation2: '4-3-3', coach1: '克里斯蒂安森', coach2: '达利奇',

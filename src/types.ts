@@ -21,6 +21,7 @@ export interface ModelProb {
   home: number
   draw: number
   away: number
+  _note?: string  // '模型估算(非真实盘口)' when market is estimated, absent for real data
 }
 
 export interface Lambda {
