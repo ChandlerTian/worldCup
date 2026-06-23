@@ -5,10 +5,10 @@ export const todayPredictions: MatchPrediction[] = [
   {
     team1: '法国', team2: '伊拉克', group: 'I', ground: '费城', time: '17:00 UTC-4',
     elo1: 2063, elo2: 1607, eloDiff: 456,
-    model: { home: 0.8325, draw: 0.1319, away: 0.0356 },
+    model: { home: 0.8265, draw: 0.1274, away: 0.0462 },
     market: { home: 0.896, draw: 0.075, away: 0.029 },
-    lambda: { home: 2.38, away: 0.33, total: 2.71 },
-    gap: { team: '法国', value: -6.4, direction: 'market_higher' },
+    lambda: { home: 2.57, away: 0.46, total: 3.03 },
+    gap: { team: '法国', value: -7.0, direction: 'market_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1', coach1: '德尚', coach2: '卡萨斯',
     style1: '快速反击+技术控制。Mbappé左路速度核心，Griezmann组织串联。首轮3-1塞内加尔展现攻击火力',
     style2: '防守紧凑+有限反击。亚洲杯2023曾进8强但首轮1-4惨败挪威暴露防线质量问题',
@@ -23,14 +23,14 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'I组第2轮。法国3分(GD+2,3-1胜塞内加尔)，挪威3分(GD+3,4-1胜伊拉克)。伊拉克0分(GD-3)。法国赢则6分几乎锁定出线，伊拉克输则基本出局。伊拉克必须死守求1分延续希望。',
     handicaps: [
-      {line:-2.75, win:0.27, draw:0, lose:0.73},
-      {line:-2, win:0.374, draw:0.252, lose:0.374},
-      {line:-1, win:0.626, draw:0.237, lose:0.137},
-      {line:0, win:0.863, draw:0.137, lose:0.0}
+      {line:-2, win:0.381, draw:0.233, lose:0.386},
+      {line:-1.5, win:0.613, draw:0, lose:0.387},
+      {line:-1, win:0.614, draw:0.213, lose:0.174},
+      {line:0, win:0.826, draw:0.127, lose:0.046}
     ],
     overUnder: [
-      {line:3.5, over:0.213, under:0.787, marketOver:'@1.87', marketUnder:'@2.02'},
-      {line:2.5, over:0.399, under:0.601}
+      {line:3.5, over:0.354, under:0.646, marketOver:'@1.87', marketUnder:'@2.02'},
+      {line:2.5, over:0.531, under:0.469}
     ],
     predictions: [
       {score:'2-0', prob:18.9, reason:'法国控制节奏，2-0是最可能比分'},
@@ -64,10 +64,10 @@ export const todayPredictions: MatchPrediction[] = [
   {
     team1: '挪威', team2: '塞内加尔', group: 'I', ground: '费城', time: '20:00 UTC-4',
     elo1: 1914, elo2: 1860, eloDiff: 54,
-    model: { home: 0.4228, draw: 0.2687, away: 0.3085 },
+    model: { home: 0.5065, draw: 0.2376, away: 0.2560 },
     market: { home: 0.445, draw: 0.275, away: 0.280 },
-    lambda: { home: 1.40, away: 1.16, total: 2.56 },
-    gap: { team: '挪威', value: -2.2, direction: 'market_higher' },
+    lambda: { home: 1.78, away: 1.20, total: 2.98 },
+    gap: { team: '挪威', value: 6.2, direction: 'model_higher' },
     formation1: '4-3-3', formation2: '4-3-3', coach1: '索尔巴肯', coach2: '西塞',
     style1: 'Haaland核心高效进攻。Ødegaard创造+Haaland终结世界级连线。首轮4-1碾压伊拉克展现火力',
     style2: '身体对抗+速度反击。AFCON 2021冠军底蕴。Mané/Sarr边路爆破。但首轮1-3法国暴露与顶级差距',
@@ -82,13 +82,13 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'I组第2轮关键战!挪威3分(GD+3) vs 塞内加尔0分(GD-2)。塞内加尔MUST-WIN——输则99%出局。挪威赢则6分几乎出线。双方都必须主动进攻(平局对塞不够,对挪威浪费)。预期开放对攻。',
     handicaps: [
-      {line:-0.25, win:0.312, draw:0, lose:0.688},
-      {line:-1, win:0.203, draw:0.224, lose:0.574},
-      {line:0, win:0.426, draw:0.272, lose:0.302},
-      {line:1, win:0.698, draw:0.184, lose:0.117}
+      {line:0, win:0.506, draw:0.238, lose:0.256},
+      {line:-0.5, win:0.506, draw:0, lose:0.494},
+      {line:0.5, win:0.744, draw:0, lose:0.256},
+      {line:-1, win:0.281, draw:0.226, lose:0.494}
     ],
     overUnder: [
-      {line:2.5, over:0.363, under:0.637, marketOver:'@1.90', marketUnder:'@2.01'}
+      {line:2.5, over:0.542, under:0.458, marketOver:'@1.90', marketUnder:'@2.01'}
     ],
     predictions: [
       {score:'1-1', prob:12.8, reason:'实力接近+双方都有进球能力=最可能1-1'},
@@ -123,10 +123,10 @@ export const todayPredictions: MatchPrediction[] = [
   {
     team1: '阿根廷', team2: '奥地利', group: 'J', ground: '达拉斯(阿灵顿)', time: '12:00 UTC-5',
     elo1: 2115, elo2: 1830, eloDiff: 285,
-    model: { home: 0.6728, draw: 0.2041, away: 0.1231 },
+    model: { home: 0.6703, draw: 0.2012, away: 0.1285 },
     market: { home: 0.656, draw: 0.222, away: 0.122 },
-    lambda: { home: 2.01, away: 0.73, total: 2.73 },
-    gap: { team: '阿根廷', value: 1.7, direction: 'model_higher' },
+    lambda: { home: 2.06, away: 0.78, total: 2.83 },
+    gap: { team: '阿根廷', value: 1.4, direction: 'model_higher' },
     formation1: '4-3-3', formation2: '4-2-2-2', coach1: '斯卡洛尼', coach2: '朗尼克',
     style1: 'Messi核心传控+快速转换。2022世界杯冠军。首轮3-0阿尔及利亚展现统治力。团队默契极高(7年体系)',
     style2: 'Rangnick高位压迫+快速垂直进攻。首轮3-1约旦表现不俗。Sabitzer+Baumgartner组成德式双核',
@@ -141,13 +141,13 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'J组第2轮——小组头名争夺战!阿根廷3分(GD+3,3-0阿尔及利亚) vs 奥地利3分(GD+2,3-1约旦)。胜者基本锁定小组头名。两队都不愿平局(头名对晋级路径重要)。高质量对决。',
     handicaps: [
-      {line:-1, win:0.423, draw:0.250, lose:0.327},
-      {line:-2, win:0.215, draw:0.208, lose:0.577},
-      {line:0, win:0.673, draw:0.204, lose:0.122},
-      {line:1, win:0.878, draw:0.089, lose:0.033}
+      {line:-1, win:0.425, draw:0.245, lose:0.330},
+      {line:-2, win:0.220, draw:0.206, lose:0.575},
+      {line:0, win:0.670, draw:0.201, lose:0.129},
+      {line:1, win:0.872, draw:0.091, lose:0.037}
     ],
     overUnder: [
-      {line:2.5, over:0.403, under:0.597, marketOver:'@1.96', marketUnder:'@1.94'}
+      {line:2.5, over:0.436, under:0.564, marketOver:'@1.96', marketUnder:'@1.94'}
     ],
     predictions: [
       {score:'2-0', prob:13.0, reason:'阿根廷经验+技术优势最可能2-0'},
@@ -182,10 +182,10 @@ export const todayPredictions: MatchPrediction[] = [
   {
     team1: '约旦', team2: '阿尔及利亚', group: 'J', ground: '旧金山湾区(圣克拉拉)', time: '20:00 UTC-7',
     elo1: 1680, elo2: 1772, eloDiff: -92,
-    model: { home: 0.2662, draw: 0.2704, away: 0.4634 },
+    model: { home: 0.2709, draw: 0.2644, away: 0.4647 },
     market: { home: 0.153, draw: 0.223, away: 0.624 },
-    lambda: { home: 1.02, away: 1.44, total: 2.46 },
-    gap: { team: '阿尔及利亚', value: -16.1, direction: 'market_higher' },
+    lambda: { home: 1.07, away: 1.49, total: 2.56 },
+    gap: { team: '阿尔及利亚', value: -15.9, direction: 'market_higher' },
     formation1: '4-4-2', formation2: '4-3-3', coach1: '阿穆塔', coach2: '佩特科维奇',
     style1: '防守反击+身体对抗。2024亚洲杯亚军(意外)。首轮1-3奥地利暴露与欧洲差距但韧性可嘉',
     style2: '技术型传控。2019 AFCON冠军但近年衰退。首轮0-3惨败阿根廷暴露防守漏洞',
@@ -200,13 +200,13 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'J组第2轮——输者出局战!约旦0分(GD-2,1-3奥地利) vs 阿尔及利亚0分(GD-3,0-3阿根廷)。双方输则0分垫底+巨大GD劣势=100%出局。双方都必须赢——淘汰赛级别压力。',
     handicaps: [
-      {line:1, win:0.540, draw:0.238, lose:0.223},
-      {line:0, win:0.267, draw:0.273, lose:0.460},
-      {line:-1, win:0.099, draw:0.168, lose:0.733},
-      {line:-2, win:0.027, draw:0.072, lose:0.901}
+      {line:1, win:0.535, draw:0.232, lose:0.233},
+      {line:0, win:0.271, draw:0.264, lose:0.465},
+      {line:-1, win:0.104, draw:0.167, lose:0.729},
+      {line:-2, win:0.031, draw:0.073, lose:0.896}
     ],
     overUnder: [
-      {line:2.5, over:0.340, under:0.660, marketOver:'@1.94', marketUnder:'@1.96'}
+      {line:2.5, over:0.356, under:0.644, marketOver:'@1.94', marketUnder:'@1.96'}
     ],
     predictions: [
       {score:'1-1', prob:12.8, reason:'双方都有进球力但都不稳定→1-1是自然结果'},
@@ -243,17 +243,17 @@ export const todayPredictions: MatchPrediction[] = [
 
 // ====== 进球差分布 ======
 export const goalDistributions: Record<string, GoalDistribution> = {
-  '法国vs伊拉克': { team1: '法国', team2: '伊拉克', diffs: {'0':0.1319,'1':0.2282,'2':0.2431,'3':0.1814,'4':0.104,'5':0.0482,'6':0.0188,'7':0.0063,'8':0.0019} },
-  '挪威vs塞内加尔': { team1: '挪威', team2: '塞内加尔', diffs: {'-3':0.0297,'-2':0.0864,'-1':0.1823,'0':0.2687,'1':0.221,'2':0.1264,'3':0.0525,'4':0.0171,'5':0.0046} },
-  '阿根廷vs奥地利': { team1: '阿根廷', team2: '奥地利', diffs: {'-3':0.0059,'-2':0.0271,'-1':0.089,'0':0.2041,'1':0.2498,'2':0.2075,'3':0.1247,'4':0.0585,'5':0.0224,'6':0.0073,'7':0.002} },
-  '约旦vs阿尔及利亚': { team1: '约旦', team2: '阿尔及利亚', diffs: {'-4':0.0202,'-3':0.0603,'-2':0.1402,'-1':0.2355,'0':0.2704,'1':0.1669,'2':0.0711,'3':0.0218,'4':0.0052} },
+  '法国vs伊拉克': { team1: '法国', team2: '伊拉克', diffs: {'0':0.1274,'1':0.2217,'2':0.2348,'3':0.1793,'4':0.1048,'5':0.0505,'6':0.0207,'7':0.0074,'8':0.0023} },
+  '挪威vs塞内加尔': { team1: '挪威', team2: '塞内加尔', diffs: {'-3':0.0113,'-2':0.0471,'-1':0.137,'0':0.2376,'1':0.2685,'2':0.1788,'3':0.0801,'4':0.0267,'5':0.0071} },
+  '阿根廷vs奥地利': { team1: '阿根廷', team2: '奥地利', diffs: {'-3':0.0055,'-2':0.0251,'-1':0.084,'0':0.2012,'1':0.2531,'2':0.2107,'3':0.1231,'4':0.0562,'5':0.0208,'6':0.0065,'7':0.0018} },
+  '约旦vs阿尔及利亚': { team1: '约旦', team2: '阿尔及利亚', diffs: {'-4':0.0166,'-3':0.054,'-2':0.1318,'-1':0.2295,'0':0.2644,'1':0.1811,'2':0.0792,'3':0.0263,'4':0.0069} },
 }
 
 // ====== 赛事统计 (更新至6/22赛前) ======
 export const tournamentStats: TournamentStats = {
-  totalMatches: 45,
-  totalGoals: 108,
-  avgGoals: 2.40,
+  totalMatches: 48,
+  totalGoals: 118,
+  avgGoals: 2.46,
   homeWins: 19,
   draws: 14,
   awayWins: 12,
