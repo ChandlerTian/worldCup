@@ -74,6 +74,7 @@ export interface OverUnder {
   under: number
   marketOver?: string
   marketUnder?: string
+  isMarketLine?: boolean
 }
 
 export interface MatchAnalysis {
