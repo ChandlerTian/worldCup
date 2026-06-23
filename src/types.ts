@@ -63,6 +63,9 @@ export interface HandicapLine {
   win: number
   draw: number
   lose: number
+  marketWin?: string   // 真实市场赔率 e.g. '@1.71'
+  marketLose?: string  // 真实市场赔率 e.g. '@2.15'
+  isMarketLine?: boolean // true=这是市场实际盘口线
 }
 
 export interface OverUnder {

@@ -20,7 +20,7 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '反击速度', advantage: '乌兹别克(微)', reason: 'Fayzullaev首轮进球状态火热' },
     ],
     groupContext: 'K组R2。葡萄牙1分(1-1DRC)、哥伦比亚3分。葡必须赢否则落后→末轮压力巨大。淘汰赛路径争头名极强。',
-    handicaps: [{line:-2, win:0.195, draw:0.199, lose:0.606},{line:-1.5, win:0.394, draw:0.000, lose:0.606},{line:-1, win:0.394, draw:0.249, lose:0.356},{line:-0.5, win:0.643, draw:0.000, lose:0.357},{line:0, win:0.643, draw:0.214, lose:0.143},{line:0.5, win:0.958, draw:0.000, lose:0.042},{line:1, win:0.857, draw:0.100, lose:0.042}],
+    handicaps: [{line:-2, win:0.195, draw:0.199, lose:0.606, marketWin:'@1.71', marketLose:'@2.15', isMarketLine:true},{line:-1.5, win:0.394, draw:0.000, lose:0.606},{line:-1, win:0.394, draw:0.249, lose:0.356},{line:-0.5, win:0.643, draw:0.000, lose:0.357},{line:0, win:0.643, draw:0.214, lose:0.143},{line:0.5, win:0.958, draw:0.000, lose:0.042},{line:1, win:0.857, draw:0.100, lose:0.042}],
     overUnder: [{line:1.5, over:0.991, under:0.009}],
     predictions: [],
     recommendations: [{type:'让球', pick:'乌兹别克+1.5', odds:'@1.90', modelProb:0.606, reason:'输2球内60.6%>需52.6%→+8pp。乌兹别克R1仅输哥伦比亚2球'}],
