@@ -96,7 +96,7 @@ export const todayPredictions: MatchPrediction[] = [
       {score:'2-1', prob:8.8, reason:'开放对攻下挪威主场微优'}
     ],
     recommendations: [
-      {type:'让球', pick:'塞内加尔+0.25', odds:'@2.03', modelProb:0.577, reason:'模型塞内加尔不败57.7% > 需49.3% → +8.4pp正EV! 塞背水一战+实力接近'}
+      {type:'胜平负', pick:'挪威胜', odds:'@2.10', modelProb:0.507, reason:'Form因子修正: λ=1.78(首轮4球火力)。但差距仅+6.2pp+CI跨度30pp→轻仓或观望'}
     ],
     analysis: {
       groupSituation: '**I组生死战!**\n\n挪威3分(GD+3) vs 塞内加尔0分(GD-2)\n\n塞内加尔MUST-WIN——输则0分垫底+GD劣势等于100%出局。平局也不够(只1分,末轮需大胜伊拉克并看别人脸色)。\n\n挪威赢则6分→若法国也胜→挪威法国末轮争头名(已锁定出线)。放松心态优于塞内加尔。\n\n**博弈论**: 塞内加尔必须赢→开场便会猛攻→挪威反击Haaland单刀→进球大战概率高。',
@@ -104,11 +104,11 @@ export const todayPredictions: MatchPrediction[] = [
       lineup2Detail: '**塞内加尔 (4-3-3) — 西塞(执教7年)**\n\n2021 AFCON冠军底蕴仍在。Mané(33岁)虽欧洲顶级告别但仍具杀伤力。Koulibaly(35岁)后防领袖。Nicolas Jackson(切尔西)中锋速度型支点。Sabaly(贝蒂斯)右后卫提供稳定性。N.Mendy防守中场扫荡。首轮1-3法国展现了进攻组织度。\n\n**关键**: 背水一战心理素质将是决定性因素。',
       styleAnalysis: '**挪威:** 4-3-3围绕Haaland设计——Ødegaard的through ball+Haaland的跑位是世界级。Sørloth(马竞)提供第二点。边路Nusa速度补充。防守端4后卫偏重体型对抗。\n\n**塞内加尔:** 4-3-3偏直接——Mané左路内切+I.Sarr右路爆点。中场Gueye(埃弗顿)+P.M.Sarr(热刺)有英超身体对抗能力。整体风格:身体碾压+速度转换。',
       tacticalNarrative: '**核心: Haaland vs Koulibaly = 世纪对决**\n\nHaaland速度+力量vs Koulibaly经验+位置感。2020-2023两人多次交手→Haaland占优但未碾压。\n\n**Mané vs Pedersen**: 塞内加尔左路是最大优势对位。Pedersen面对Mané可能被爆。\n\n**Jackson vs Østigård**: Jackson的跑动和速度会是挪威中卫的额外考验。\n\n**节奏预测**: 塞内加尔开场猛攻15分钟→若进球则控制节奏→若不进球则挪威Ødegaard开始组织→半场0-0或1-0。',
-      modelInterpretation: '**模型42.3% vs 市场44.5%** — 差距仅-2.2pp，TYPE_D_NOISE。模型和市场基本一致。\n\n**但模型看到Value方向: 塞内加尔+0.25**\n- 模型塞内加尔不败57.7% > 市场49.3% → +8.4pp正EV\n- 逻辑: Elo仅差54=实力几乎无差距。市场给挪威-0.25是"Haaland效应"微偏。',
-      betReasoning: '**核心推荐: 塞内加尔+0.25@2.03**\n\n数学: +8.4pp正EV是今天第二清晰value(仅次于约旦+1.0)。\n\n逻辑: \n1. Elo差54=实力无差距。市场因Haaland名气偏挪威3pp。\n2. 塞内加尔背水一战=战力100%输出,挪威放松心态可能掉以轻心。\n3. Koulibaly领衔防线有大赛经验。Jackson/Mané/Sarr三叉戟有破防能力。'
+      modelInterpretation: '**模型50.7% vs 市场44.5%** — 模型比市场更看好挪威(+6.2pp)。TYPE_C_STRUCTURAL。\n\n**Form因子关键修正**: 挪威首轮4-1大胜伊拉克，近期场均4.0球 → λ从1.45→1.78(+23%)。这是form因子最大的贡献场次。\n\n**Value方向翻转**: 旧模型(无form)给挪威42.3%→推荐塞内加尔+0.25。新模型50.7%→挪威方向反而有value。Elo差仅54，form因子让挪威从"微劣"变为"微优"。',
+      betReasoning: '**⚠️ Form因子方向翻转 — 谨慎解读**\n\n新模型(form因子)给挪威50.7%→推荐挪威方向。但Elo差仅54=Coin Flip级别，CI区间[35.8%-65.4%]跨度30pp→极高不确定性。\n\n**逻辑**: \n1. 挪威首轮4-1伊拉克展现真实进攻火力(Haaland帽子戏法)。form因子捕捉到这个信号。\n2. 但塞内加尔背水一战+AFCoN冠军底蕴不容低估。\n3. 这场本质是50/50的比赛——模型给的50.7%不应被过度解读。\n\n**结论: 观望型场次。不重注任何方向。**'
     },
     commercialAnalysis: {
-      summary: 'Elo差仅54→实力极度接近。市场微偏挪威(Haaland效应)。塞内加尔+0.25@2.03有+8.4pp正EV——今日第二value信号。',
+      summary: 'Elo差仅54→Coin Flip。Form因子修正: 挪威λ=1.78(首轮4球)。模型微偏挪威50.7%但CI极宽[36%-65%]→建议观望。',
       approvedPicks: [
         { pick: '塞内加尔+0.25', odds: '@2.03', verdict: 'approved', edge: '+8.4pp', reasoning: 'Elo差54=完全均势。市场因Haaland名气偏挪威。塞内加尔背水一战+AFCoN冠军底蕴', category: 'value' }
       ],
@@ -116,7 +116,7 @@ export const todayPredictions: MatchPrediction[] = [
         { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' }
       ],
       marketBehavior: '挪威有"Haaland溢价"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
-      kellyNote: '塞内加尔+0.25建议1.5-2%仓位(edge厚+逻辑清晰)。这是今天第二大仓位。'
+      kellyNote: '挪威胜建议≤0.5%试探仓。Elo差54+CI跨度30pp→信号强度不足以支撑常规仓位。'
     },
     confidence: 'mid'
   },
@@ -273,15 +273,15 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     kellyNote: '建议0仓位。Under 3.5@2.02有模型支撑(78.7%)但需验证λ压缩→最大0.5%试探。'
   },
   '挪威vs塞内加尔': {
-    summary: 'Elo差仅54→实力极度接近。市场微偏挪威(Haaland效应)。塞内加尔+0.25@2.03有+8.4pp正EV——今日第二value信号。',
+    summary: 'Elo差仅54→Coin Flip。Form因子修正: 挪威λ=1.78(首轮4球)。模型微偏挪威50.7%但CI极宽[36%-65%]→建议观望。',
     approvedPicks: [
-      { pick: '塞内加尔+0.25', odds: '@2.03', verdict: 'approved', edge: '+8.4pp', reasoning: 'Elo差54=完全均势。市场因Haaland名气偏挪威。塞内加尔背水一战+AFCoN冠军底蕴', category: 'value' }
+      { pick: '挪威胜', odds: '@2.10', verdict: 'marginal', edge: '+6.2pp(form修正)', reasoning: 'Form因子修正后挪威50.7%>需47.6%。但Elo差仅54+CI极宽→边缘信号不宜重仓', category: 'value' }
     ],
     rejectedPicks: [
       { pick: '平局(1X2)', odds: '@3.56', verdict: 'rejected', edge: '-0.6pp(噪音级)', reasoning: 'Model 26.9% vs 市场27.5%→差距仅0.6pp=无信号。泊松平局偏高不可靠', category: 'trap' }
     ],
     marketBehavior: '挪威有"Haaland溢价"——Haaland的存在让市场自动+2-3pp给挪威方向。但Elo实际差距极小(54)。Pinnacle-0.25是对这个溢价的最理性表达。塞内加尔方向是Smart Money。',
-    kellyNote: '塞内加尔+0.25建议1.5-2%仓位(edge厚+逻辑清晰)。这是今天第二大仓位。'
+    kellyNote: '挪威胜建议≤0.5%试探仓。Elo差54+CI跨度30pp→信号强度不足以支撑常规仓位。'
   },
   '阿根廷vs奥地利': {
     summary: '今日最理性定价场次。模型67.3%≈市场65.6%(+1.7pp)→完全一致。唯一微弱value: Under 2.5@1.94(+8.2pp)。高质量观察场。',
