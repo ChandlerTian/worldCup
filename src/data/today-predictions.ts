@@ -20,8 +20,8 @@ export const todayPredictions: MatchPrediction[] = [
       { area: '反击速度', advantage: '乌兹别克(微)', reason: 'Fayzullaev首轮进球状态火热' },
     ],
     groupContext: 'K组R2。葡萄牙1分(1-1DRC)、哥伦比亚3分。葡必须赢否则落后→末轮压力巨大。淘汰赛路径争头名极强。',
-    handicaps: [{line:-2, win:0.195, draw:0.199, lose:0.606, marketWin:'@1.71', marketLose:'@2.15', isMarketLine:true},{line:-1.5, win:0.394, draw:0.000, lose:0.606},{line:-1, win:0.394, draw:0.249, lose:0.356},{line:-0.5, win:0.643, draw:0.000, lose:0.357},{line:0, win:0.643, draw:0.214, lose:0.143},{line:0.5, win:0.958, draw:0.000, lose:0.042},{line:1, win:0.857, draw:0.100, lose:0.042}],
-    overUnder: [{line:1.5, over:0.991, under:0.009}],
+    handicaps: [{line:-2, win:0.195, draw:0.199, lose:0.606, marketWin:'@1.71', marketLose:'@2.23', isMarketLine:true},{line:-1.5, win:0.394, draw:0.000, lose:0.606},{line:-1, win:0.394, draw:0.249, lose:0.356},{line:-0.5, win:0.643, draw:0.000, lose:0.357},{line:0, win:0.643, draw:0.214, lose:0.143},{line:0.5, win:0.958, draw:0.000, lose:0.042},{line:1, win:0.857, draw:0.100, lose:0.042}],
+    overUnder: [{line:1.5, over:0.759, under:0.241},{line:2.5, over:0.516, under:0.484},{line:3.0, over:0.295, under:0.705, marketOver:'@1.77', marketUnder:'@2.14'}],
     predictions: [],
     recommendations: [{type:'让球', pick:'乌兹别克+1.5', odds:'@1.90', modelProb:0.606, reason:'输2球内60.6%>需52.6%→+8pp。乌兹别克R1仅输哥伦比亚2球'}],
     analysis: {
@@ -61,8 +61,8 @@ export const todayPredictions: MatchPrediction[] = [
       { area: 'DRC反击vs哥伦比亚高线', advantage: '刚果(金)(微)', reason: 'Wissa首轮进球+1-1平葡萄牙证明能力' },
     ],
     groupContext: 'K组R2。哥伦比亚3分、DRC1分。哥胜则6分出线。淘汰赛路径争头名极强。',
-    handicaps: [{line:-2, win:0.261, draw:0.217, lose:0.521},{line:-1.5, win:0.478, draw:0.000, lose:0.521},{line:-1, win:0.479, draw:0.240, lose:0.281},{line:-0.5, win:0.719, draw:0.000, lose:0.281},{line:0, win:0.719, draw:0.181, lose:0.100},{line:0.5, win:0.974, draw:0.000, lose:0.026},{line:1, win:0.900, draw:0.074, lose:0.026}],
-    overUnder: [{line:1.5, over:0.995, under:0.005}],
+    handicaps: [{line:-2, win:0.261, draw:0.217, lose:0.521},{line:-1.5, win:0.478, draw:0.000, lose:0.521},{line:-1, win:0.479, draw:0.240, lose:0.281, marketWin:'@1.97', marketLose:'@1.88', isMarketLine:true},{line:-0.5, win:0.719, draw:0.000, lose:0.281},{line:0, win:0.719, draw:0.181, lose:0.100},{line:0.5, win:0.974, draw:0.000, lose:0.026},{line:1, win:0.900, draw:0.074, lose:0.026}],
+    overUnder: [{line:1.5, over:0.782, under:0.218},{line:2.5, over:0.549, under:0.451, marketOver:'@2.25', marketUnder:'@1.70'},{line:3.5, over:0.326, under:0.674}],
     predictions: [],
     recommendations: [{type:'胜平负', pick:'哥伦比亚胜', odds:'@1.50', modelProb:0.719, reason:'71.9%>66.7%→+5.2pp。Elo330+首轮3-1'},{type:'大小球', pick:'Over 2.5', odds:'@1.85', modelProb:0.52, reason:'两者R1都进球→λ=2.88。开放对攻'}],
     analysis: {
@@ -102,8 +102,8 @@ export const todayPredictions: MatchPrediction[] = [
       { area: 'Kudus反击', advantage: '加纳(微)', reason: '加纳唯一威胁。英高防线有暴露可能' },
     ],
     groupContext: 'L组R2。英格兰3分(GD+2)、加纳3分(GD+1)。胜者6分出线+争头名。淘汰赛路径争头名极强。',
-    handicaps: [{line:-2, win:0.408, draw:0.232, lose:0.360},{line:-1.5, win:0.639, draw:0.000, lose:0.361},{line:-1, win:0.640, draw:0.204, lose:0.156},{line:-0.5, win:0.844, draw:0.000, lose:0.156},{line:0, win:0.844, draw:0.117, lose:0.039},{line:0.5, win:0.993, draw:0.000, lose:0.007},{line:1, win:0.961, draw:0.032, lose:0.007}],
-    overUnder: [{line:1.5, over:0.999, under:0.001}],
+    handicaps: [{line:-2, win:0.408, draw:0.232, lose:0.360, marketWin:'@1.93', marketLose:'@1.88', isMarketLine:true},{line:-1.5, win:0.639, draw:0.000, lose:0.361},{line:-1, win:0.640, draw:0.204, lose:0.156},{line:-0.5, win:0.844, draw:0.000, lose:0.156},{line:0, win:0.844, draw:0.117, lose:0.039},{line:0.5, win:0.993, draw:0.000, lose:0.007},{line:1, win:0.961, draw:0.032, lose:0.007}],
+    overUnder: [{line:1.5, over:0.813, under:0.187},{line:2.5, over:0.595, under:0.405},{line:3.0, over:0.371, under:0.629, marketOver:'@1.95', marketUnder:'@1.90'}],
     predictions: [],
     recommendations: [{type:'让球', pick:'加纳+2', odds:'@1.95', modelProb:0.64, reason:'输2球内64%>51.3%→+12.7pp! 加纳R1零封巴拿马'},{type:'大小球', pick:'Over 2.5', odds:'@1.80', modelProb:0.55, reason:'英R1 4球+加纳有进球→λ=3.08'}],
     analysis: {
@@ -145,7 +145,7 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     groupContext: 'L组R2生死战。双方0分→输者基本出局。克必须赢否则黄金一代谢幕。',
     handicaps: [{line:-2, win:0.017, draw:0.049, lose:0.933},{line:-1.5, win:0.067, draw:0.000, lose:0.933},{line:-1, win:0.067, draw:0.129, lose:0.805},{line:-0.5, win:0.195, draw:0.000, lose:0.805},{line:0, win:0.195, draw:0.237, lose:0.568},{line:0.5, win:0.677, draw:0.000, lose:0.323},{line:1, win:0.432, draw:0.245, lose:0.323}],
-    overUnder: [{line:1.5, over:0.852, under:0.148}],
+    overUnder: [{line:1.5, over:0.755, under:0.245},{line:2.5, over:0.511, under:0.489, marketOver:'@1.68', marketUnder:'@2.12'},{line:3.5, over:0.290, under:0.710}],
     predictions: [],
     recommendations: [{type:'让球', pick:'巴拿马+1.5', odds:'@1.85', modelProb:0.805, reason:'输2球内80.5%>54%→+26.5pp! R1仅丢1球+克丢4球'},{type:'大小球', pick:'Under 2.5', odds:'@1.88', modelProb:0.67, reason:'生死战可能保守→小球'}],
     analysis: {
