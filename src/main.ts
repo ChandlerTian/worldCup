@@ -99,25 +99,26 @@ function renderTodayMatch(idx: number): void {
     <!-- Group Context -->
     <div class="context-box">${p.groupContext}</div>
 
-    <!-- Handicap & Over/Under -->
+    <!-- Handicap & Over/Under — 模型 vs 市场对比 -->
     <div class="section-divider">让球 & 大小球</div>
     <div class="bet-tables">
       <div class="bet-table-wrap">
-        <h5>让球胜平负</h5>
+        <h5>让球胜平负 <span style="font-weight:400;font-size:0.75rem;color:var(--accent-yellow);">— 市场盘口高亮</span></h5>
         <table class="bet-table">
-          <tr><th>盘口</th><th>胜</th><th>平</th><th>负</th></tr>
+          <tr><th>盘口</th><th>胜</th><th>平</th><th>负</th><th>市场赔率</th></tr>
           ${(p.handicaps || []).map(h => `
-            <tr>
-              <td>${h.line > 0 ? '+' : ''}${h.line}</td>
+            <tr class="${h.isMarketLine ? 'market-line-row' : ''}" style="${h.isMarketLine ? 'background:rgba(255,193,7,0.08);border-left:3px solid var(--accent-yellow);' : ''}">
+              <td>${h.line > 0 ? '+' : ''}${h.line}${h.isMarketLine ? ' ★' : ''}</td>
               <td class="${h.win > 0.45 ? 'highlight-green' : ''}">${(h.win * 100).toFixed(1)}%</td>
               <td>${(h.draw * 100).toFixed(1)}%</td>
               <td class="${h.lose > 0.45 ? 'highlight-red' : ''}">${(h.lose * 100).toFixed(1)}%</td>
+              <td style="font-size:0.8rem;${h.isMarketLine ? 'color:var(--accent-yellow);font-weight:600;' : 'color:var(--text-muted);'}">${h.marketWin || '-'} / ${h.marketLose || '-'}</td>
             </tr>
           `).join('')}
         </table>
       </div>
       <div class="bet-table-wrap">
-        <h5>大小球</h5>
+        <h5>大小球 <span style="font-weight:400;font-size:0.75rem;color:var(--accent-yellow);">— 市场O/U线高亮</span></h5>
         <table class="bet-table">
           <tr><th>盘口</th><th>大</th><th>小</th><th>市场赔率</th></tr>
           ${(p.overUnder || []).map(ou => `
