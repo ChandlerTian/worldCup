@@ -250,6 +250,127 @@ export const todayPredictions: MatchPrediction[] = [
     },
     confidence: 'mid'
   },
+  {
+    team1: '捷克', team2: '墨西哥', group: 'A', ground: '瓜达拉哈拉', time: '21:00 UTC-5',
+    elo1: 1712, elo2: 1881, eloDiff: -169,
+    model: { home: 0.1496, draw: 0.2411, away: 0.6049 },
+    market: { home: 0.2552, draw: 0.2449, away: 0.4999, _note: 'Pinnacle (3.78/3.94/1.93, vig-removed)' },
+    lambda: { home: 0.68, away: 1.65, total: 2.34 },
+    gap: { team: '墨西哥', value: 10.5, direction: 'model_higher' },
+    formation1: '4-2-3-1', formation2: '4-3-3', coach1: '哈谢克', coach2: '洛萨诺',
+    style1: 'R1 1-2负韩国,R2 1-1平南非(被83分钟扳平!)→1分MUST-WIN。Sadílek有进球。攻守平衡但质量有限。',
+    style2: 'R1 2-0胜南非,R2 1-0胜韩国→6分已出线!本届全胜。瓜达拉哈拉主场(北美host buff!)。但已锁定头名→大概率轮休。',
+    lineup1: 'Staněk; Coufal, Holeš, Krejčí, Zelený; Sadílek, Souček; Provod, Barák, Černý; Schick',
+    lineup2: 'Ochoa(轮休?); Arteaga, Montes, Vasquez, Sanchez; Alvarez(轮休?), Romo, Pineda; Antuna, Gimenez, Vega',
+    injuries1: '全员健康', injuries2: '预计轮休多名主力(已出线)',
+    tacticalMatchup: [
+      { area: '墨西哥轮休影响', advantage: '捷克(提升)', reason: '墨西哥6分已锁头名→预计轮休Lozano/Alvarez等主力。替补实力下降' },
+      { area: 'Souček定位球', advantage: '捷克', reason: 'Souček(西汉姆)头球威胁。定位球是捷克核心武器' },
+      { area: '主场因素', advantage: '墨西哥', reason: '瓜达拉哈拉=墨西哥主场(北美host buff +80-100 Elo)。即使轮休,主场球迷支持仍在' },
+    ],
+    groupContext: `A组R3。墨西哥6分(已出线+锁头名!)→纯dead rubber。捷克1分(必须赢+看南非结果)。韩国3分(另一场对南非)。\n\n捷克赢=3分+可能最佳第3出线。输=确定淘汰。动力极强。`,
+    handicaps: [
+      {line:-1, win:0.0224, draw:0.0639, lose:0.9105},
+      {line:-0.5, win:0.1496, draw:0, lose:0.8461, marketWin:'@1.96', marketLose:'@1.94', isMarketLine:true},
+      {line:0, win:0.1496, draw:0.2411, lose:0.6049},
+      {line:0.5, win:0.3907, draw:0, lose:0.6049},
+      {line:1, win:0.3907, draw:0.2550, lose:0.3499},
+      {line:1.5, win:0.6457, draw:0, lose:0.3499},
+    ],
+    overUnder: [
+      {line:1.5, over:0.6207, under:0.3793},
+      {line:2.0, over:0.4525, under:0.3793},
+      {line:2.5, over:0.4132, under:0.5824, marketOver:'@2.07', marketUnder:'@1.83', isMarketLine:true},
+      {line:3.5, over:0.1872, under:0.8128},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Under 2.5', odds:'@1.83', modelProb:0.5824, reason:'⚠️ 模型edge不足(58.2%但需54.6%→仅+3.6pp)。但结构逻辑强:墨西哥轮休(攻击力下降)+捷克防守型→R3低节奏延续'},
+      {type:'胜平负', pick:'观望(不推)', odds:'-', modelProb:0, reason:'模型vs市场分歧巨大(+10.5pp MX)但模型不含轮休因子和主场buff→模型不可靠。市场更接近真实→无可靠edge'},
+    ],
+    analysis: {
+      groupSituation: `**A组R3**\n\n墨西哥6分(已出线+锁头名!) | 韩国3分 | 捷克1分 | 南非1分\n\n捷克MUST-WIN(赢=2分,平=2分→看最佳第3。如果赢且南非不赢韩国→捷克出线)。墨西哥无任何动力,纯dead rubber。`,
+      lineup1Detail: `**捷克 (4-2-3-1) — 哈谢克**\n\nR1 1-2负韩国(Krejcí进球),R2 1-1平南非(Sadílek 6分钟进球但被83分钟扳平!)→1分MUST-WIN。Souček+Schick是核心。全力以赴。`,
+      lineup2Detail: `**墨西哥 (4-3-3) — 洛萨诺**\n\n6分已出线+锁头名!瓜达拉哈拉主场。预计大面积轮休:Lozano/Alvarez/Jimenez可能都不上。替补阵容仍有实力但明显下降。\n\n⚠️ 北美主场buff仍在(+80-100 Elo等效),即使轮休。`,
+      styleAnalysis: `**捷克**: 东欧力量+定位球型。Souček(西汉姆)头球+Schick(勒沃库森)冲击力。R2被南非83分钟扳平说明比赛管理有问题。今天全力输出。\n\n**墨西哥**: 本届全胜(2-0, 1-0)展现极强控制力。但今天轮休→攻击力明显下降。瓜达拉哈拉主场球迷仍会热情支持。可能派出年轻球员练兵。`,
+      tacticalNarrative: `核心矛盾:捷克MUST-WIN vs 墨西哥dead rubber轮休。\n\n⚠️ 模型限制:模型给墨西哥60.5%但不含轮休因子(实际应为45-50%)。市场@1.93(50%)已合理定价轮休。\n\n⚠️ 北美主场限制:墨西哥在瓜达拉哈拉=真正主场。即使轮休,替补+主场≈正常客场实力。\n\n不推荐做方向判断。Under是最可靠信号(轮休=低节奏+捷克防守型)。`,
+      modelInterpretation: `模型墨西哥60.5% vs Pinnacle市场50.0%\n\nGap=+10.5pp(model_higher)。但模型不含:①轮休(墨西哥已出线)②北美主场buff。调整后模型应≈市场50%→无可靠alpha。\n\n唯一可靠信号:Under 2.5(λ=2.34+轮休进一步降低→实际total≈1.8-2.0)。`,
+      betReasoning: `Under 2.5 @1.83是本场唯一推荐(边缘但逻辑强):\n1. 墨西哥轮休→攻击力下降(λ从1.65降至~1.0-1.2)\n2. 捷克R2仅进1球(且对弱队南非)→进攻能力有限\n3. R3整体低节奏趋势(6/23 avg=1.75)\n4. 墨西哥无动力追分→可能接受0-0/1-0\n\n不推方向:模型不可靠(不含轮休+主场),市场分歧来自模型盲区而非真实alpha。`
+    },
+    commercialAnalysis: {
+      summary: '墨西哥dead rubber轮休→模型不可靠(不含轮休因子)。Under 2.5(@1.83,+3.6pp)是唯一边缘pick。方向观望。',
+      approvedPicks: [
+        { pick: 'Under 2.5', odds: '@1.83', verdict: 'marginal', edge: '+3.6pp(边缘)', reasoning: '轮休+R3低节奏+捷克防守型。结构逻辑>模型数字', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '墨西哥胜', odds: '@1.93', verdict: 'rejected', edge: '模型不可靠', reasoning: '模型不含轮休。市场已定价。无真实alpha', category: 'trap' },
+        { pick: '捷克+0.5', odds: '@1.96', verdict: 'rejected', edge: '-29pp(模型) / 观望(调整后)', reasoning: '模型严重高估MX(不含轮休)→捷克+0.5模型概率22%太低。调整后可能40-45%但仍<51%→无value', category: 'trap' },
+      ],
+      marketBehavior: '市场墨西哥@1.93反映轮休+仍有主场实力的平衡。捷克@3.78=26%合理(MUST-WIN但实力差)。市场定价高效,无明显错误定价。',
+      kellyNote: 'Under 2.5建议0.5-1%仓位(边缘edge,低信心)。方向不参与。'
+    },
+    confidence: 'low'
+  },
+  {
+    team1: '南非', team2: '韩国', group: 'A', ground: '亚特兰大', time: '21:00 UTC-5',
+    elo1: 1511, elo2: 1786, eloDiff: -275,
+    model: { home: 0.0577, draw: 0.1376, away: 0.8013 },
+    market: { home: 0.1810, draw: 0.2457, away: 0.5733, _note: 'Pinnacle (5.32/3.92/1.68, vig-removed)' },
+    lambda: { home: 0.46, away: 2.43, total: 2.90 },
+    gap: { team: '韩国', value: 22.8, direction: 'model_higher' },
+    formation1: '4-3-3', formation2: '4-2-3-1', coach1: '布鲁斯', coach2: '洪明甫',
+    style1: 'R1 0-2负墨西哥,R2 1-1平捷克(Mokoena 83分钟扳平!)→1分MUST-WIN。Mokoena关键时刻进球。',
+    style2: 'R1 2-1胜捷克(Hwang In-Beom+Oh Hyeon-Gyu),R2 0-1负墨西哥→3分,赢或平即出线。稳健即可。',
+    lineup1: 'Williams; Modiba, De Reuck, Xulu, Mashego; Mokoena, Mokwana, Tau; Zwane, Foster, Shalulile',
+    lineup2: 'Kim Seung-gyu; Kim Moon-hwan, Kim Min-jae, Cho Yu-min, Kim Jin-su; Hwang In-beom, Lee Kang-in; Lee Jae-sung, Son Heung-min(C), Hwang Hee-chan; Oh Hyeon-gyu',
+    injuries1: '全员健康', injuries2: '全员健康',
+    tacticalMatchup: [
+      { area: 'Son Heung-min vs 南非防线', advantage: '韩国(碾压)', reason: 'Son世界级。南非Elo1511无法匹配个人能力' },
+      { area: '南非MUST-WIN精神', advantage: '南非(微)', reason: 'R2 83分钟扳平=永不放弃精神。MUST-WIN动力' },
+      { area: '韩国"平局即可"', advantage: '降低韩国攻击性', reason: '韩国3分→平局即出线!大概率不冒险' },
+    ],
+    groupContext: `A组R3。韩国3分(赢/平即出线)。南非1分(必须赢+其他结果配合)。同时进行捷克vs墨西哥。\n\n韩国平局即可→可能保守。南非MUST-WIN但Elo差275→质量碾压难以逆转。\n\n⚠️ "3分铁桶"规则:韩国有3分+面对弱队→但这里是韩国强队面对弱南非,不是弱队面对强队!规则不适用。`,
+    handicaps: [
+      {line:1.5, win:0.4139, draw:0, lose:0.5826},
+      {line:1, win:0.1893, draw:0.2246, lose:0.5826},
+      {line:0.75, win:0.3016, draw:0, lose:0.6949, marketWin:'@2.02', marketLose:'@1.89', isMarketLine:true},
+      {line:0.5, win:0.1893, draw:0, lose:0.8072},
+      {line:0, win:0.0577, draw:0.1376, lose:0.8013},
+    ],
+    overUnder: [
+      {line:1.5, over:0.7808, under:0.2192},
+      {line:2.5, over:0.5522, under:0.4444, marketOver:'@2.06', marketUnder:'@1.84', isMarketLine:true},
+      {line:3.0, over:0.4404, under:0.5562},
+      {line:3.5, over:0.3285, under:0.6680},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Under 2.5', odds:'@1.84', modelProb:0.4444, reason:'⚠️ 模型不支持(44.4%<54.3%→负EV!)。但新规则:韩国"平局即出线"→可能保守+R3低节奏。结构性Under但模型反对→观望'},
+      {type:'胜平负', pick:'韩国胜', odds:'@1.68', modelProb:0.8013, reason:'TYPE_C(+22.8pp)。模型80%>市场57%。但⚠️模型在Elo差>250时系统性过度→实际edge可能仅+5-10pp。韩国@1.68需59.5%→调整后仍有value'},
+    ],
+    analysis: {
+      groupSituation: `**A组R3**\n\n墨西哥6分(出线) | 韩国3分 | 捷克1分 | 南非1分\n\n韩国赢或平即出线!平局=安全→可能保守。南非1分MUST-WIN但Elo差275=质量碾压。\n\n同时进行:捷克vs墨西哥(轮休)。南非赢+捷克不赢=南非出线(理论可能但实际很难)。`,
+      lineup1Detail: `**南非 (4-3-3) — 布鲁斯**\n\nR1 0-2负墨西哥(正常),R2 1-1平捷克(Mokoena 83分钟扳平!)→展现永不放弃精神。Elo1511(48队第45)。MUST-WIN但质量差距巨大。`,
+      lineup2Detail: `**韩国 (4-2-3-1) — 洪明甫**\n\nR1 2-1胜捷克,R2 0-1负墨西哥→3分。Son Heung-min(热刺)+Lee Kang-in(PSG)=亚洲最强攻击线。平局即出线→可能控制节奏,不冒险。`,
+      styleAnalysis: `**南非**: 非洲力量+速度型。Mokoena是关键(R2关键进球)。整体质量有限但精神力强。MUST-WIN会全力输出→但能力上限低。\n\n**韩国**: 亚洲技术流。Son+Lee Kang-in+Hwang Hee-chan技术密度高。平局即出线→今天大概率60%控球+不冒险。如果领先→立刻收缩保结果。`,
+      tacticalNarrative: `韩国"平局即出线"=会保守? 不一定!\n\n⚠️ "3分铁桶"规则不适用(那是弱队面对强队摆铁桶)。这里韩国是强队(Elo+275)面对弱队——即使保守也会自然碾压(技术差距+Son个人能力)。\n\n更可能剧本:韩国正常发挥→自然领先→然后收缩。不需要冒险就能赢1-2球。南非MUST-WIN但能力不足以突破Kim Min-jae等世界级后卫。`,
+      modelInterpretation: `模型韩国80.1% vs Pinnacle市场57.3%\n\nGap=+22.8pp(model_higher)。⚠️ 模型在Elo差>250时系统性过高(已知limitation)。市场57%可能因:①韩国保守倾向②南非MUST-WIN精神③世界杯高方差。\n\n调整后合理估计:韩国~65-70%。@1.68需59.5%→仍有+5-10pp正EV。`,
+      betReasoning: `韩国胜@1.68是本场推荐(调整后edge约+5-10pp):\n1. Elo差275=结构性碾压(即使保守也自然占优)\n2. Son+Lee Kang-in个人能力碾压南非后防\n3. 韩国保守≠不进球——只是不追分\n4. 南非Mokoena精神可嘉但能力上限低(对捷克才平)\n\nUnder观望:逻辑对(韩国保守)但模型不支持(44.4%<54.3%)且韩国λ=2.43说明自然就能进2-3球。不硬推Under。`
+    },
+    commercialAnalysis: {
+      summary: 'TYPE_C(+22.8pp,调整后+5-10pp)。韩国胜@1.68有value(调整后仍>59.5%需求)。Under逻辑对但模型反对→观望。',
+      approvedPicks: [
+        { pick: '韩国胜', odds: '@1.68', verdict: 'approved', edge: '+5-10pp(Elo校准后)', reasoning: 'Elo差275+Son世界级。即使保守也自然碾压。@1.68需59.5%→调整后65-70%仍有value', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '韩国-0.75', odds: '@1.89', verdict: 'rejected', edge: '模型过高不可靠', reasoning: '模型90%但Elo差>250系统性过估。市场-0.75→穿盘需韩国赢1球以上(保守韩国可能只赢1-0)→风险大', category: 'trap' },
+        { pick: 'Under 2.5', odds: '@1.84', verdict: 'rejected', edge: '-10pp(44.4%<54.3%)', reasoning: '韩国λ=2.43(自然进球能力强)。保守≠低总球——只是不追第3球', category: 'trap' },
+      ],
+      marketBehavior: '市场韩国@1.68=59.5%合理反映"平局即出线"保守倾向。但Elo差275的结构性碾压被低估(市场可能被南非R2 83分钟进球"精神力"叙事影响)。',
+      kellyNote: '韩国胜建议1%仓位(低赔率+Elo过估风险→保守)。'
+    },
+    confidence: 'mid'
+  },
 ]
 
 export const goalDistributions: Record<string, GoalDistribution> = {
@@ -257,6 +378,8 @@ export const goalDistributions: Record<string, GoalDistribution> = {
   '瑞士vs加拿大': { team1: '瑞士', team2: '加拿大', diffs: {'-3':0.011,'-2':0.044,'-1':0.131,'0':0.241,'1':0.255,'2':0.180,'3':0.090,'4':0.033,'5':0.010} },
   '苏格兰vs巴西': { team1: '苏格兰', team2: '巴西', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.138,'1':0.052,'2':0.014,'3':0.003} },
   '摩洛哥vs海地': { team1: '摩洛哥', team2: '海地', diffs: {'-1':0.003,'0':0.041,'1':0.050,'2':0.141,'3':0.172,'4':0.185,'5':0.165,'6':0.121,'7':0.072,'8':0.036} },
+  '捷克vs墨西哥': { team1: '捷克', team2: '墨西哥', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.241,'1':0.090,'2':0.033,'3':0.010} },
+  '南非vs韩国': { team1: '南非', team2: '韩国', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.138,'1':0.052,'2':0.014,'3':0.003} },
 }
 
 export const tournamentStats: TournamentStats = {
@@ -314,5 +437,27 @@ export const commercialAnalyses: Record<string, CommercialAnalysis> = {
     ],
     marketBehavior: '市场已定价轮休。模型(即使0.75衰减)仍远高于市场→结构性alpha。',
     kellyNote: 'Over 3.0建议1.5%仓位。摩洛哥-2.0建议1%仓位(轮休降仓)。'
+  },
+  '捷克vs墨西哥': {
+    summary: '墨西哥dead rubber轮休→模型不可靠。Under 2.5(@1.83,+3.6pp)唯一边缘pick。方向观望。',
+    approvedPicks: [
+      { pick: 'Under 2.5', odds: '@1.83', verdict: 'marginal', edge: '+3.6pp(边缘)', reasoning: '轮休+R3低节奏+捷克防守型', category: 'value' },
+    ],
+    rejectedPicks: [
+      { pick: '墨西哥胜', odds: '@1.93', verdict: 'rejected', edge: '模型不可靠(不含轮休)', reasoning: '模型不含轮休。市场已定价。无真实alpha', category: 'trap' },
+    ],
+    marketBehavior: '市场墨西哥@1.93反映轮休+仍有主场实力的平衡。市场定价高效。',
+    kellyNote: 'Under 2.5建议0.5-1%仓位(边缘,低信心)。方向不参与。'
+  },
+  '南非vs韩国': {
+    summary: 'TYPE_C(+22.8pp,调整后+5-10pp)。韩国胜@1.68有value。Under逻辑对但模型反对→观望。',
+    approvedPicks: [
+      { pick: '韩国胜', odds: '@1.68', verdict: 'approved', edge: '+5-10pp(Elo校准后)', reasoning: 'Elo差275+Son世界级。即使保守也碾压', category: 'value' },
+    ],
+    rejectedPicks: [
+      { pick: '韩国-0.75', odds: '@1.89', verdict: 'rejected', edge: '模型过高不可靠', reasoning: '保守韩国可能只赢1-0→深盘风险', category: 'trap' },
+    ],
+    marketBehavior: '市场韩国@1.68=59.5%合理。Elo差275碾压被"韩国保守"叙事部分低估。',
+    kellyNote: '韩国胜建议1%仓位(低赔率+保守)。'
   },
 }
