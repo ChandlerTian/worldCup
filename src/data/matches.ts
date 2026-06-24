@@ -50,6 +50,16 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-21', group: 'G', team1: '比利时', team2: '伊朗', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '洛杉矶' },
   { date: '2026-06-21', group: 'H', team1: '乌拉圭', team2: '佛得角', score1: 2, score2: 2, scorers1: ['待补充'], scorers2: ['待补充'], ground: '迈阿密' },
   { date: '2026-06-21', group: 'G', team1: '新西兰', team2: '埃及', score1: 1, score2: 3, scorers1: ['待补充'], scorers2: ['待补充'], ground: '温哥华' },
+  // Matchday 14 (6/22)
+  { date: '2026-06-22', group: 'I', team1: '法国', team2: '伊拉克', score1: 3, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '纽约' },
+  { date: '2026-06-22', group: 'I', team1: '挪威', team2: '塞内加尔', score1: 1, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '多伦多' },
+  { date: '2026-06-22', group: 'J', team1: '阿根廷', team2: '奥地利', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '迈阿密' },
+  { date: '2026-06-22', group: 'J', team1: '约旦', team2: '阿尔及利亚', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '费城' },
+  // Matchday 15 (6/23 — K/L组R2)
+  { date: '2026-06-23', group: 'K', team1: '葡萄牙', team2: '乌兹别克', score1: 5, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '休斯顿' },
+  { date: '2026-06-23', group: 'K', team1: '哥伦比亚', team2: '刚果(金)', score1: 1, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '瓜达拉哈拉' },
+  { date: '2026-06-23', group: 'L', team1: '英格兰', team2: '加纳', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '波士顿' },
+  { date: '2026-06-23', group: 'L', team1: '巴拿马', team2: '克罗地亚', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '多伦多' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
