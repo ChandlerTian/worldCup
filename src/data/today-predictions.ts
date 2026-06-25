@@ -1,385 +1,414 @@
 import type { MatchPrediction, GoalDistribution, TournamentStats, CommercialAnalysis } from '../types'
 
-// ====== 6/24 (B/C组R3 — 生死战+已出线,λ衰减0.85/0.75) ======
-// ✅ market数据来源: Pinnacle (The Odds API, 实时盘口) — 6/24实时
-// ✅ 6/23校准规则已应用: TYPE_A禁止逆向/3分铁桶/R3 λ衰减
+// ====== 6/25 (D/E/F组R3 — 小组收官战,6场同时开球) ======
+// ✅ market数据来源: Pinnacle (The Odds API, 实时盘口) — 6/25实时
+// ✅ D组: 美国锁第1(主场不放水) | 巴拉圭vs澳大利亚=出线生死战
+// ✅ E组: 德国锁第1(路径优势214 HIGH) | 科特迪瓦vs库拉索=科特胜即出线
+// ✅ F组: 荷兰/日本4分,瑞典3分 — 三队争两个直接出线名额
 export const todayPredictions: MatchPrediction[] = [
   {
-    team1: '波黑', team2: '卡塔尔', group: 'B', ground: '多伦多', time: '15:00 UTC-4',
-    elo1: 1616, elo2: 1447, eloDiff: 169,
-    model: { home: 0.7766, draw: 0.1561, away: 0.0639 },
-    market: { home: 0.6841, draw: 0.1830, away: 0.1329, _note: 'Pinnacle (1.41/5.27/7.26, vig-removed)' },
-    lambda: { home: 2.27, away: 0.50, total: 2.77 },
-    gap: { team: '波黑', value: -9.3, direction: 'model_higher' },
-    formation1: '4-3-3', formation2: '4-5-1', coach1: '巴比奇', coach2: '洛佩斯',
-    style1: 'R1平加拿大1-1(还行),R2惨败瑞士1-4(崩溃)。Džeko核心但阵容质量有限。今天必须赢否则出局。',
-    style2: 'R1 90+4扳平瑞士1-1(精神力!),R2惨败加拿大0-6(士气崩盘)。Elo1447=48队最弱之二。已基本淘汰。',
-    lineup1: 'Vasilj; Kolašinac, Ahmedhodžić, Katic; Gazibegovic, Pjanic, Krunic, Civic; Dzeko, Demirovic, Gigovic',
-    lineup2: 'Al-Sheeb; Pedro Miguel, Al-Rawi, Khoukhi, Hassan; Madibo, Boudiaf; Al-Haydos, Afif, Ali; Almoez',
-    injuries1: '无重大伤情', injuries2: '无重大伤情(士气极低)',
+    team1: '土耳其', team2: '美国', group: 'D', ground: '西雅图', time: '15:00 UTC-4',
+    elo1: 1849, elo2: 1780, eloDiff: 69,
+    model: { home: 0.2915, draw: 0.2617, away: 0.4467 },
+    market: { home: 0.2620, draw: 0.2315, away: 0.5064, _note: 'Pinnacle (3.71/4.20/1.92, vig-removed)' },
+    lambda: { home: 1.16, away: 1.49, total: 2.65 },
+    gap: { team: '美国', value: -6.0, direction: 'market_higher' },
+    formation1: '4-2-3-1', formation2: '4-3-3', coach1: '蒙特拉', coach2: '贝尔哈特',
+    style1: 'R1负澳大利亚0-2(off_residual=-1.35,进攻乏力),R2负巴拉圭0-1(彻底哑火!)→0进球2场。MUST-WIN但进攻完全失灵。防守有韧性(def_residual=+0.25)。',
+    style2: 'R1 4-1血洗巴拉圭(Pulisic+Balogun齐爆),R2 2-0击败澳大利亚(稳健)。6分锁定D组第1!主场西雅图(温带海洋性气候,美国堡垒)。off_residual=+1.81进攻火热,def_residual=-0.75(密不透风)。',
+    lineup1: 'Çakır; Çelik, Demiral, Kabak, Kadıoğlu; Çalhanoğlu, Özcan; Güler, Yıldız, Aktürkoğlu; Yılmaz',
+    lineup2: 'Turner; Dest, Richards, Ream, A.Robinson; Musah, McKennie, Reyna; Pulisic, Balogun, Weah',
+    injuries1: '无重大伤情(但攻击力=0)', injuries2: '无重大伤情(可能轻微轮换)',
     tacticalMatchup: [
-      { area: 'Džeko vs 卡塔尔防线', advantage: '波黑', reason: '卡塔尔R2丢6球→防线已完全崩塌' },
-      { area: '中场控制', advantage: '波黑', reason: 'Pjanić技术型中场。卡塔尔Madibo/Boudiaf对抗力不足' },
-      { area: '心理状态', advantage: '波黑(微)', reason: '波黑MUST-WIN有动力。但卡塔尔R1 90+4证明仍有精神力' },
+      { area: '进攻火力', advantage: '美国(大)', reason: '美国off_residual=+1.81(2场6球) vs 土耳其2场0球。土耳其进攻=完全哑火' },
+      { area: '主场因素', advantage: '美国(大)', reason: '西雅图Lumen Field(美式足球场馆,67,000人)。北美主场+80-100 Elo等效' },
+      { area: '比赛动力', advantage: '土耳其', reason: '土耳其0分MUST-WIN(理论出线可能)。美国锁定#1,但北美主场不放水(规则5)' },
+      { area: '中场控制', advantage: '美国', reason: 'McKennie+Musah+Reyna跑动覆盖远强于土耳其。Çalhanoğlu单核难支撑' },
     ],
-    groupContext: `B组R3。波黑1分(平加拿大+负瑞士)→必须赢且看其他结果。卡塔尔1分(平瑞士+0-6惨败)→几乎淘汰。波黑动力远强于卡塔尔。`,
+    groupContext: `D组R3。美国6分(锁#1,GD+5) | 澳大利亚3分(GD0) | 巴拉圭3分(GD-2) | 土耳其0分(GD-3)。\n\n土耳其必须赢+盼巴拉圭vs澳大利亚平局 → 3队3分拼GD(土耳其-3最差→几乎不可能)。美国锁定#1但北美主场不放水(规则5:墨西哥/美国/加拿大主场不出dead rubber)。\n\n淘汰赛路径:D1→3B/E/F/I/J(Elo≈1700) vs D2→2G(Elo≈1772),差距72(MEDIUM)→美国有动力保持不败记录但非生死攸关。`,
     handicaps: [
-      {line:-2, win:0.3938, draw:0.2411, lose:0.3649},
-      {line:-1.5, win:0.6349, draw:0, lose:0.3649},
-      {line:-1.25, win:0.5980, draw:0, lose:0.3986, marketWin:'@1.88', marketLose:'@2.02', isMarketLine:true},
-      {line:-1, win:0.5384, draw:0.2411, lose:0.2200},
-      {line:-0.5, win:0.7795, draw:0, lose:0.2205},
-      {line:0, win:0.7766, draw:0.1561, lose:0.0639},
+      {line:1.5, win:0.8125, draw:0, lose:0.1875},
+      {line:1.0, win:0.7082, draw:0.2245, lose:0.0673},
+      {line:0.5, win:0.5532, draw:0, lose:0.4467, marketWin:'@1.99', marketLose:'@1.92', isMarketLine:true},
+      {line:0, win:0.2915, draw:0.2617, lose:0.4467},
+      {line:-0.5, win:0.2915, draw:0, lose:0.7085},
+      {line:-1.0, win:0.1180, draw:0.1735, lose:0.7085},
     ],
     overUnder: [
-      {line:1.5, over:0.7410, under:0.2590},
-      {line:2.5, over:0.5227, under:0.4739},
-      {line:3.0, over:0.4117, under:0.5849, marketOver:'@1.95', marketUnder:'@1.93', isMarketLine:true},
-      {line:3.5, over:0.2855, under:0.7145},
+      {line:1.5, over:0.7482, under:0.2518},
+      {line:2.0, over:0.5855, under:0.4145},
+      {line:2.5, over:0.4940, under:0.5060, marketOver:'@1.89', marketUnder:'@2.00', isMarketLine:false},
+      {line:2.75, over:0.3838, under:0.6162, marketOver:'@1.89', marketUnder:'@2.00', isMarketLine:true},
+      {line:3.0, over:0.2745, under:0.7255},
+      {line:3.5, over:0.1860, under:0.8140},
     ],
     predictions: [],
     recommendations: [
-      {type:'让球', pick:'波黑-1.25', odds:'@1.88', modelProb:0.5980, reason:'TYPE_C(模型>市场+9.3pp)。波黑MUST-WIN vs 卡塔尔0-6崩盘。模型59.8%>需53.2%→+6.6pp'},
-      {type:'大小球', pick:'Under 3.0', odds:'@1.93', modelProb:0.5849, reason:'R3 λ衰减后total=2.77。卡塔尔无进攻动力+波黑可能1-2球解决→小球'},
+      {type:'大小球', pick:'Under 2.75', odds:'@2.00', modelProb:0.6162, reason:'土耳其2场0球(攻击哑火)+美国锁#1可能适度轮换→小球。模型61.6%>需50.0%→+11.6pp'},
+      {type:'让球', pick:'土耳其+0.5', odds:'@1.99', modelProb:0.5532, reason:'土耳其+0.5=不败即赢。模型55.3%>需50.3%→+5.0pp。美国锁#1后可能留力→土耳其不败概率实际更高'},
     ],
     analysis: {
-      groupSituation: `**B组R3积分形势**\n\n瑞士4分(GD+3) | 加拿大4分(GD+6) | 波黑1分(GD-3) | 卡塔尔1分(GD-5)\n\n本场同时进行瑞士vs加拿大(头名战)。波黑必须赢+看瑞加结果才有出线希望(最佳第三)。卡塔尔GD-5几乎淘汰。`,
-      lineup1Detail: `**波黑 (4-3-3) — 巴比奇**\n\nR1平加拿大1-1尚可,R2惨败瑞士1-4暴露防守问题。Džeko领衔攻击线。Pjanić控节奏。今天MUST-WIN全力以赴。`,
-      lineup2Detail: `**卡塔尔 (4-5-1) — 洛佩斯**\n\nR1 90+4扳平瑞士1-1展现精神力!但R2 0-6加拿大完全崩盘。Elo1447(48队倒数第二)。已淘汰但亚洲杯冠军底子仍在。可能求体面结束。`,
-      styleAnalysis: `**波黑**: 中东欧力量+技术混合。Džeko支点+Pjanić分球。R2 1-4暴露高位被反击问题。今天预计更稳健,不会高位冒险。\n\n**卡塔尔**: 2023亚洲杯冠军底子。Afif+Almoez有个人能力。但R2 0-6后心理层面崩塌。可能出于尊严防守但无法持续90分钟。`,
-      tacticalNarrative: `B组R3生死战。波黑MUST-WIN(否则1分出局) vs 卡塔尔已淘汰(0-6后无动力)。结构上波黑碾压(Elo+169,动力+100),但卡塔尔R1 90+4证明有"末路反扑"能力→不宜追深盘。\n\n关键:卡塔尔是"已淘汰但R1有亮点"型→不同于纯摆烂(如库拉索0-0)。波黑预计2球以内解决。`,
-      modelInterpretation: `模型77.7% vs Pinnacle市场68.4%\n\nGap=-9.3pp(model_higher=TYPE_C)。λ=2.27/0.50(total=2.77)。波黑Form: R1进1球(对加拿大还行)+R2进1球丢4球(瑞士太强)。卡塔尔Form: R1进1球(90+4!)+R2进0丢6。\n\nCI95: 波黑胜[62%-89%]`,
-      betReasoning: `TYPE_C(模型>市场)→核心alpha区。波黑-1.25(+6.6pp)是今日最核心推荐。\n\n为何不推-1.5?模型穿2球仅63.5%→赔率需>@1.57才有value,市场不会给。-1.25是最佳性价比。\n\nUnder 3.0: R3 λ衰减(0.85)→total仅2.77。卡塔尔无动力进攻+波黑可能早早进球后控节奏。6/23四场avg=1.75球验证R2/R3低节奏趋势。`
+      groupSituation: `**D组R3积分形势**\n\n美国6分(GD+5,锁定#1) | 澳大利亚3分(GD 0) | 巴拉圭3分(GD-2) | 土耳其0分(GD-3)\n\n土耳其必须赢+巴拉圭vs澳大利亚打平→3队3分拼GD(土耳其-3最差→需净胜3球以上!)。现实是几乎出局。美国锁定#1,但北美主场不出dead rubber(规则5)。\n\n同时进行:巴拉圭vs澳大利亚(生死战!胜者出线)。D组#2出线路径:D2→2G(Elo≈1772,伊朗/阿尔及利亚层面),中等难度。`,
+      lineup1Detail: `**土耳其 (4-2-3-1) — 蒙特拉**\n\nR1 0-2负澳大利亚→R2 0-1负巴拉圭。2场0球! off_residual=-1.35(对澳大利亚预期1.2球→0球)和-0.85(对巴拉圭)→进攻完全失灵。Çalhanoğlu(国米)中场组织核心但前场终结能力为零。Yılmaz(38岁)已过巅峰。Arda Güler(皇马)天赋但经验不足。今天MUST-WIN但信心全无。`,
+      lineup2Detail: `**美国 (4-3-3) — 贝尔哈特**\n\nR1 4-1巴拉圭(Pulisic 1球2助!Balogun梅开二度)→R2 2-0澳大利亚(稳定碾压)。6分锁定D组第1! off_residual=+1.81(进攻超预期),def_residual=-0.75(防守超预期)。主场西雅图Lumen Field→6.7万球迷。美国可能轮换2-3名主力(为淘汰赛留力)但主场观众面前不会\"放水\"。`,
+      styleAnalysis: `**土耳其**: 4-2-3-1技术型,但本次赛事进攻端完全崩塌(0球)。Çalhanoğlu+Arda Güler有创造力但缺终结者。心理层面:MUST-WIN但0分+0进球→士气可能已崩。\n\n**美国**: 4-3-3高节奏转换型。Pulisic(米兰)+Balogun(摩纳哥)+Weah(尤文)攻击线个人能力碾压土耳其。McKennie+Musah中场跑动覆盖极大。可能有轮换但主场观众+不败记录=动力仍在。`,
+      tacticalNarrative: `D组末轮,结构上美国碾压(主场+Elo虽仅+69但实际差距远超)。\n\n但两个关键因素限制美国大胜预期:\n1. 美国锁定#1→可能轮换2-3名主力(但北美主场不放水=不会大轮换)\n2. 土耳其0球进攻=即使美国轮换后防,土耳其也未必能进球\n\n预期:美国1-2球小胜或1-1平。土耳其进攻为零→难以威胁Turner。美国可能70%控球但不会全力进攻(避免受伤+消耗)。\n\n⚠️ 土耳其0球并非对手太强——澳大利亚(Elo1839)和巴拉圭(Elo1780)都是中游队。土耳其off_residual=-1.35说明是自身问题而非对手压制。`,
+      modelInterpretation: `模型:美国44.7% vs Pinnacle市场50.6%\n\nGap=-6.0pp(market_higher)。市场更看好美国→合理(主场+进攻火热+土耳其0球)。\n\nλ=1.16/1.49(total=2.65)。土耳其λ仅1.16(off_residual=-1.35拖累→实际0球2场验证)。美国λ=1.49(off_residual=+1.81加成)。\n\nCI95:美国胜[30.4%-59.9%]→模型对美国的支持未达显著。市场50.6%在95CI内→市场定价合理。\n\n方向无value→不推胜平负。让球+大小球找机会。`,
+      betReasoning: `方向无value(美国@1.92→需52.1%,模型仅44.7%→-7.4pp负EV)。\n\n🎯 **土耳其+0.5(@1.99,+5.0pp)**: 土耳其不败即赢盘。模型55.3%>需50.3%。美国锁#1+可能轮换→土耳其不败概率实际更高。土耳其防守有韧性(def_residual=+0.25,2场仅丢3球)。\n\n🎯 **Under 2.75(@2.00,+11.6pp)**: 今日最强Under信号。土耳其0球攻击+美国可能轮换→总进球2球概率48%,3球仅22%。模型Under=61.6%>需50%→显著正EV。\n\n⚠️ 不做土耳其胜(29.2%<26.2%→仅+3pp,POISSON噪声级别)。`
     },
     commercialAnalysis: {
-      summary: 'TYPE_C(+9.3pp)→波黑-1.25核心alpha。Under 3.0(+6.7pp)辅助。卡塔尔R1有亮点不宜追深盘-2.0。',
+      summary: '美国锁#1轮换+土耳其0球→Under 2.75(+11.6pp)今日最强Under。土耳其+0.5(+5.0pp)辅助。方向无value。',
       approvedPicks: [
-        { pick: '波黑-1.25', odds: '@1.88', verdict: 'approved', edge: '+6.6pp', reasoning: '模型59.8%>需53.2%。TYPE_C结构性alpha+MUST-WIN动力+卡塔尔0-6崩盘', category: 'core' },
-        { pick: 'Under 3.0', odds: '@1.93', verdict: 'approved', edge: '+6.7pp', reasoning: 'R3 λ=2.77(衰减后)。卡塔尔无进攻动力。6/23四场avg1.75球验证低节奏', category: 'value' },
+        { pick: 'Under 2.75', odds: '@2.00', verdict: 'approved', edge: '+11.6pp', reasoning: '土耳其2场0球+美国锁#1轮换→结构性小球。模型61.6%>市场48.6%', category: 'core' },
+        { pick: '土耳其+0.5', odds: '@1.99', verdict: 'approved', edge: '+5.0pp', reasoning: '美国锁定#1→轮换2-3主力。土耳其防守韧性(def_residual=+0.25)。不败概率55%>50%', category: 'value' },
       ],
       rejectedPicks: [
-        { pick: '波黑-2', odds: '@2.20', verdict: 'rejected', edge: '-6pp(39.4%<45.5%)', reasoning: '卡塔尔R1 90+4证明有末路反扑力。穿2球仅39.4%→负EV', category: 'trap' },
+        { pick: '美国胜', odds: '@1.92', verdict: 'rejected', edge: '-7.4pp(44.7%<52.1%)', reasoning: '模型不支持。即使美国赢,轮换后@1.92没有value', category: 'trap' },
+        { pick: '美国-0.5', odds: '@1.92', verdict: 'rejected', edge: '-7.4pp', reasoning: '同上。土耳其+0.5才是value方向', category: 'trap' },
       ],
-      marketBehavior: '市场波黑@1.41反映MUST-WIN+Elo差。但-1.25盘口@1.88/2.02→市场认为穿盘仅50%。模型认为60%→+6.6pp差额源自卡塔尔0-6后进攻彻底消亡。',
-      kellyNote: '波黑-1.25建议2%仓位(+6.6pp,TYPE_C核心)。Under 3.0建议1.5%仓位。'
+      marketBehavior: '市场美国@1.92→50.6%合理。已充分定价主场+进攻优势。但因锁#1→市场可能未充分计入轮换影响。Under 2.75是最佳信息不对称方向。',
+      kellyNote: 'Under 2.75建议1.5%仓位(+11.6pp,结构性小球)。土耳其+0.5建议1%仓位。'
+    },
+    confidence: 'mid'
+  },
+  {
+    team1: '巴拉圭', team2: '澳大利亚', group: 'D', ground: '旧金山', time: '15:00 UTC-4',
+    elo1: 1780, elo2: 1839, eloDiff: -59,
+    model: { home: 0.3001, draw: 0.2673, away: 0.4325 },
+    market: { home: 0.3518, draw: 0.4206, away: 0.2276, _note: 'Pinnacle (2.75/2.30/4.25, vig-removed)' },
+    lambda: { home: 1.15, away: 1.43, total: 2.57 },
+    gap: { team: '澳大利亚', value: 20.5, direction: 'model_higher' },
+    formation1: '4-4-2', formation2: '4-2-3-1', coach1: '谢洛托', coach2: '阿诺德',
+    style1: 'R1惨败美国1-4(防守崩溃),R2 1-0胜土耳其(Enciso关键球)→3分。def_residual=+0.75(防线漏风,4球丢给美国→但对手E1780级进攻)。今天MUST-WIN才能掌控出线。Enciso(布莱顿)是唯一威胁点。',
+    style2: 'R1 2-0胜土耳其(稳健),R2 0-2负美国(被碾压)。def_residual=-0.25(防守尚可→对阵美国仅丢2球实际不错)。平局即出线(GD 0 vs巴拉圭GD-2)→战术将偏向保守。Goodwin(边路)+Duke(支点)是反击武器。',
+    lineup1: 'Morínigo; Rojas, Balbuena, Gómez, Alonso; Villasanti, Cubas, Enciso, Almirón; González, Sanabria',
+    lineup2: 'Ryan; Karacic, Souttar, Rowles, Behich; Mooy, Irvine; Goodwin, Hrustic, McGree; Duke',
+    injuries1: '无重大伤情', injuries2: '无重大伤情',
+    tacticalMatchup: [
+      { area: '比赛动力/策略', advantage: '澳大利亚', reason: '澳大利亚平局即出线→可安心退守反击。巴拉圭必须赢→被迫压上→给澳大利亚反击空间' },
+      { area: '防守组织', advantage: '澳大利亚(微)', reason: 'def_residual=-0.25(R2对美国仅丢2球=尚可)。Souttar+Rowles英超/英冠级别中卫组合' },
+      { area: '进攻爆发力', advantage: '巴拉圭', reason: 'Enciso(布莱顿)个人突破能力是本场最大X因子。Almirón(纽卡)速度可撕裂澳防线' },
+      { area: '心理稳定', advantage: '澳大利亚', reason: '平局即出线=心态放松。巴拉圭MUST-WIN=压力巨大→可能急躁犯错' },
+    ],
+    groupContext: `D组R3生死战! 美国6分(锁定#1)。澳大利亚3分(GD 0) vs 巴拉圭3分(GD-2)。\n\n澳大利亚平局即出线(GD优势),巴拉圭必须赢。如果巴拉圭赢:巴拉圭6分出线#2,澳大利亚3分离场(除非土耳其狂胜美国→3队3分比GD→澳大利亚GD至少-1,大概率出局)。\n\n同时进行:土耳其vs美国。D2→2G(Elo≈1772)淘汰赛首轮。`,
+    handicaps: [
+      {line:1.0, win:0.5644, draw:0.1787, lose:0.2569},
+      {line:0.5, win:0.4793, draw:0, lose:0.5207},
+      {line:0.25, win:0.5668, draw:0, lose:0.4332},
+      {line:0, win:0.3001, draw:0.2673, lose:0.4325},
+      {line:-0.25, win:0.3001, draw:0, lose:0.6999, marketWin:'@2.16', marketLose:'@1.76', isMarketLine:true},
+      {line:-0.5, win:0.3001, draw:0, lose:0.6999},
+      {line:-1.0, win:0.1214, draw:0.1787, lose:0.6999},
+    ],
+    overUnder: [
+      {line:1.5, over:0.7238, under:0.2762},
+      {line:1.75, over:0.6006, under:0.3994, marketOver:'@1.87', marketUnder:'@2.00', isMarketLine:true},
+      {line:2.0, over:0.5258, under:0.4742},
+      {line:2.5, over:0.4583, under:0.5417},
+      {line:3.0, over:0.2544, under:0.7456},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Over 1.75', odds:'@1.87', modelProb:0.6006, reason:'巴拉圭MUST-WIN倾巢而出+澳大利亚反击→开放对攻。模型60.1%>需53.5%→+6.6pp。R3生死战≠小球!'},
+      {type:'让球', pick:'澳大利亚+0.25', odds:'@1.76', modelProb:0.6999, reason:'澳大利亚平局即出线→退守反击。巴拉圭2场进1球(攻击乏力)→难以穿盘。模型70%vs需56.8%→+13.2pp'},
+    ],
+    analysis: {
+      groupSituation: `**D组R3积分形势**\n\n美国6分(锁定#1) | 澳大利亚3分(GD 0) | 巴拉圭3分(GD-2) | 土耳其0分(GD-3)\n\n澳大利亚平局→4分(GD 0)→出线#2。巴拉圭必须赢→6分出线#2。如果巴拉圭平→4分,但澳大利亚也是4分→澳大利亚凭GD(0 vs -2)出线。\n\n同时进行:土耳其vs美国。土耳其需赢+本场平+GD反超(不可能)→实际只影响本场赛果和可能的第三名积分。`,
+      lineup1Detail: `**巴拉圭 (4-4-2) — 谢洛托**\n\nR1惨败美国1-4(def_residual=+2.75→对美国丢4球非灾难,是顶级对手),R2 1-0胜土耳其(Enciso关键进球)。3分,进攻输出不足(2场1球,off_residual=-0.19)。Enciso(布莱顿)是唯一爆点。Almirón(纽卡)速度仍在线。今天MUST-WIN→预计积极进攻。`,
+      lineup2Detail: `**澳大利亚 (4-2-3-1) — 阿诺德**\n\nR1 2-0胜土耳其(Goodwin+Duke进球),R2 0-2负美国(被完全压制但防守未崩溃)。3分,GD0。平局即出线→战术核心=不输球。Souttar(莱斯特城)+Rowles(哈茨)中卫组合防空能力强。Mooy(前英超)组织中场。Goodwin+McGree边路反击速度快。`,
+      styleAnalysis: `**巴拉圭**: 传统南美防守反击→但今天必须攻出去。4-4-2阵型,Enciso左侧内切+Almirón右侧突破。问题是创造机会能力弱(2场仅xG约1.5)。攻出去=防线暴露。\n\n**澳大利亚**: 4-2-3-1稳守反击型。阿诺德杯赛经验丰富→\"不输=出线\"心态下必摆大巴。Goodwin+McGree两翼速度→反击中一箭封喉。Duke支点能力强。`,
+      tacticalNarrative: `R3经典结构:\"一方MUST-WIN攻出去 vs 一方平局即出线守回来\"\n\n⚠️ 这不是小球场! 巴拉圭被迫进攻(even if attack is weak)→后防空虚→澳大利亚反击得分。同时澳大利亚退守=巴拉圭进攻次数增加→进球概率上升(虽然每次进攻质量低)。\n\n🔴 关键假设:澳大利亚不会完全龟缩——平局即出线但被压着打90分钟风险太大。阿诺德可能打\"安全反击\"而非\"纯大巴\"。\n\n模型vs市场最大分歧:澳大利亚胜43.3% vs 市场22.8%(+20.5pp!)→市场巨幅低估澳大利亚。但需谨慎:市场42.1%平局概率反映了\"澳大利亚平局策略\"的现实。模型POISSON画不出\"保守战术→平局概率飙升\"。→澳大利亚+0.25是更安全的value表达。`,
+      modelInterpretation: `模型:澳大利亚43.3% vs Pinnacle市场22.8%\n\nGap=+20.5pp(model_higher)→今日最大分歧! ⚠️ 但需区分:是模型正确还是结构盲点?\n\n澳大利亚Elo1839>巴拉圭1780(+59)。模型λ=1.15 vs 1.43(澳大利亚进攻更强)。模型认为澳大利亚是更好的球队→给43%胜率。\n\n市场:平局42.1%=\"澳大利亚保守战术\"定价。这是典型的R3信息不对称——市场知道澳大利亚会防守,模型不知道。\n\n🔴 结论:澳大利亚胜@4.25的+20pp可能部分为\"保守战术==高平局\"的结构性模型盲点。澳洲+0.25(@1.76,+13.2pp)更安全。`,
+      betReasoning: `🎯 **Over 1.75(@1.87,+6.6pp)**: \n1. 巴拉圭MUST-WIN→被迫进攻→给澳大利亚反击空间→双向得分概率上升\n2. 澳大利亚反击效率高(Goodwin/Duke对土耳其已验证)\n3. 总λ=2.57→P(≥2球)=72.4%→Over 1.75=模型60.1%>需53.5%\n4. 不适用R3小球逻辑(MUST-WIN vs 可平≠双方保守)\n\n🎯 **澳大利亚+0.25(@1.76,+13.2pp)**:\n1. 澳大利亚整体实力更强(Elo+59,防守更稳)\n2. 平局即出线→退守反击是最优策略\n3. 模型70%不败>需56.8%\n\n⚠️ 不做澳大利亚胜@4.25(结构盲点风险→实际概率可能低于模型43%)`
+    },
+    commercialAnalysis: {
+      summary: 'Model-Market最大分歧(+20.5pp)。澳洲+0.25(+13.2pp)是安全的value表达。Over 1.75(+6.6pp)基于MUST-WIN→开放对攻逻辑。澳洲胜@4.25有结构盲点风险→谨慎。',
+      approvedPicks: [
+        { pick: '澳大利亚+0.25', odds: '@1.76', verdict: 'approved', edge: '+13.2pp', reasoning: 'Elo+59+平局即出线退守。模型70%不败>需56.8%。+0.25=输0球全赢/输0.5球半赢→安全', category: 'core' },
+        { pick: 'Over 1.75', odds: '@1.87', verdict: 'approved', edge: '+6.6pp', reasoning: 'MUST-WIN方必须进攻→开放对攻结构。模型60.1%>需53.5%', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '澳大利亚胜', odds: '@4.25', verdict: 'rejected', edge: '结构盲点(模型不知保守战术→平局概率被低估)', reasoning: '+20.5pp可能为POISSON盲点。澳洲+0.25是更安全的表达', category: 'trap' },
+        { pick: '巴拉圭胜', odds: '@2.75', verdict: 'rejected', edge: '-5.2pp(30%<35.2%)', reasoning: '巴拉圭进攻乏力+面对退守大巴→破门更难', category: 'trap' },
+      ],
+      marketBehavior: '市场平局@2.30→42.1%=巨幅高于模型26.7%。市场在\"澳大利亚保守战术→高平局\"上定价正确。澳洲胜被结构性低估但澳洲+0.25绕过此问题。',
+      kellyNote: '澳大利亚+0.25建议1.5%仓位(+13.2pp,安全边界)。Over 1.75建议1%仓位。'
+    },
+    confidence: 'mid'
+  },
+  {
+    team1: '库拉索', team2: '科特迪瓦', group: 'E', ground: '迈阿密', time: '20:00 UTC-4',
+    elo1: 1427, elo2: 1743, eloDiff: -316,
+    model: { home: 0.0899, draw: 0.1884, away: 0.7217 },
+    market: { home: 0.0613, draw: 0.1153, away: 0.8235, _note: 'Pinnacle (16.0/8.50/1.19, vig-removed)' },
+    lambda: { home: 0.58, away: 2.06, total: 2.64 },
+    gap: { team: '科特迪瓦', value: -10.2, direction: 'market_higher' },
+    formation1: '5-4-1', formation2: '4-3-3', coach1: '希多夫', coach2: '加塞特',
+    style1: 'R1惨败德国1-7(防线崩塌,def_residual=+3.50→历史级漏风),R2 0-0平厄瓜多尔(铁桶防守成功!def_residual=-0.75→证明有摆大巴能力)。1分,GD-7,已淘汰(需赢科特+厄瓜大败德国+追回GD→不可能)。但R2证明可以死守。',
+    style2: 'R1 1-0胜厄瓜多尔(高效),R2 1-2负德国(仅输1球=防守韧性好!def_residual=-0.25)。3分。赢即出线#2(平=4分→厄瓜需赢德国→大概率出线)。Fofana(朗斯)+Haller(前阿贾克斯)个人能力碾压库拉索。',
+    lineup1: 'Room; Gaari, Martina, Van Ewijk, Floranus, Maria; Bacuna, L.Bacuna, Anita; Janga, Hooi',
+    lineup2: 'Y.Fofana; Aurier, Boly, Ndicka, Konan; Kessie, S.Fofana, Seri; Pépé, Haller, Zaha',
+    injuries1: '无重大伤情(但整体实力48队垫底)', injuries2: '无重大伤情',
+    tacticalMatchup: [
+      { area: '个人能力', advantage: '科特迪瓦(碾压)', reason: 'Haller(Ajax)+Pépé+Zaha+ Kessie=全是五大联赛级别。库拉索最高级别=英冠/荷甲轮换' },
+      { area: '防守大巴能力', advantage: '库拉索(策略性)', reason: 'R2 0-0厄瓜证明能死守90分钟。但德国1-7→面对真正强队无抵抗力。科特介于两者之间' },
+      { area: '比赛动力', advantage: '科特迪瓦(大)', reason: '赢=出线#2。平=4分(大概率够)。库拉索已淘汰→\"荣誉之战\"但无法改变结局' },
+      { area: '空中威胁', advantage: '科特迪瓦', reason: 'Haller 190cm+Boly 195cm→定位球双塔。库拉索R2防住厄瓜0定位球→有防空能力但面对更强冲击' },
+    ],
+    groupContext: `E组R3。德国6分(锁定#1,GD+7) | 科特迪瓦3分(GD 0) | 厄瓜多尔1分(GD-1) | 库拉索1分(GD-7)。\n\n科特迪瓦赢=出线#2。平=4分→厄瓜需赢德国(难)→科特大概率出线。库拉索已淘汰(GD-7+需奇迹)→\"荣誉之战\"。德国vs厄瓜同时进行→德国锁#1但有路径优势(214Elo差HIGH动力!)。\n\n淘汰赛路径:E1→3A/B/C/D/F(Elo≈1700)优先,E2→2I(Elo≈1914挪威!)差距214→科特迪瓦即使只能争#2也要尽量多进球(万一德国轮休输厄瓜→科特有机会#1)。`,
+    handicaps: [
+      {line:2.5, win:0.7305, draw:0, lose:0.2695},
+      {line:2.25, win:0.7061, draw:0, lose:0.2939, marketWin:'@2.03', marketLose:'@1.87', isMarketLine:true},
+      {line:2.0, win:0.6641, draw:0.2524, lose:0.0835},
+      {line:1.5, win:0.4117, draw:0.2524, lose:0.3359},
+      {line:1.0, win:0.3126, draw:0.222, lose:0.4654},
+      {line:0, win:0.0899, draw:0.1884, lose:0.7217},
+    ],
+    overUnder: [
+      {line:1.5, over:0.7482, under:0.2518},
+      {line:2.0, over:0.5853, under:0.4147},
+      {line:2.5, over:0.4937, under:0.5063},
+      {line:3.0, over:0.4916, under:0.5084},
+      {line:3.25, over:0.3818, under:0.6182, marketOver:'@1.93', marketUnder:'@1.94', isMarketLine:true},
+      {line:3.5, over:0.2723, under:0.7277},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Under 3.25', odds:'@1.94', modelProb:0.6182, reason:'库拉索R2证明可死守0-0。科特攻击不算凶猛(2场2球)。已淘汰=\"尊严大巴\"。模型61.8%>需51.5%→+10.3pp'},
+      {type:'让球', pick:'库拉索+2.25', odds:'@2.03', modelProb:0.7061, reason:'科特R2对德国仅进1球→攻击力有限。库拉索R2 0-0证明能守。70.6%不输3球→+4.2pp'},
+    ],
+    analysis: {
+      groupSituation: `**E组R3积分形势**\n\n德国6分(GD+7,锁定#1) | 科特迪瓦3分(GD 0) | 厄瓜多尔1分(GD-1) | 库拉索1分(GD-7)\n\n科特迪瓦赢=出线#2。平=4分(厄瓜需赢德国→德国锁#1但有路径优势HIGH→不太可能输)。库拉索GD-7已淘汰。\n\nE1→3A/B/C/D/F(Elo≈1700)优先路径,E2→2I(Elo≈1914挪威)→差距214!科特即使只能争#2也要尽量多进球以防德国翻车。`,
+      lineup1Detail: `**库拉索 (5-4-1) — 希多夫**\n\nR1惨败德国1-7→def_residual=+3.50(历史级漏风,但对Elo1939德国→非完全意外)。R2 0-0厄瓜多尔→铁桶阵成功! 证明5-4-1低位防守有效(def_residual=-0.75→对厄瓜未丢球=远超预期)。1分已淘汰→今天为尊严而战。预计继续5-4-1铁桶。`,
+      lineup2Detail: `**科特迪瓦 (4-3-3) — 加塞特**\n\nR1 1-0厄瓜多尔(高效)→R2 1-2德国(只输1球!防守韧性好)。3分。off_residual=+0.07(攻击中规中矩)。Haller(前阿贾克斯)+Pépé(前阿森纳)+Zaha(水晶宫)→个人能力碾压库拉索。Kessie(巴萨)+S.Fofana(朗斯)中场碾压。赢=出线→动力充分。`,
+      styleAnalysis: `**库拉索**: 5-4-1低位大巴专家。R2 vs厄瓜证明可守90分钟。问题是德国1-7→强队能打穿。科特介于德国(碾压)和厄瓜(0进球)之间。\n\n**科特迪瓦**: 4-3-3进攻型但实际进球不多(2场2球)。依赖个人能力而非体系流畅。面对铁桶时可能创造力不足→需Kessie远射+Haller头球。`,
+      tacticalNarrative: `库拉索\"已淘汰铁桶\"模式。⚠️ 注意:库拉索R2 0-0≠库拉索防守好——厄瓜多尔攻击力为零(off_residual=-2.05,2场0球!)。库拉索确实能守但对手攻击力是变量。\n\n科特迪瓦攻击力(Fofana/Haller/Pépé/Zaha)远强于厄瓜多尔。但科特2场进2球也不算凶猛。且库拉索在被德国打穿后→调整了防守(R2丢0球)→有学习曲线。\n\n科特大概率1-0或2-0赢球。库拉索的\"尊严大巴\"不会轻易崩溃(已淘汰=零压力=纯防守享受)。追让球深盘(-2.25)风险大。Under 3.25是最佳方向。`,
+      modelInterpretation: `模型:科特72.2% vs Pinnacle市场82.4%\n\nGap=-10.2pp(market_higher,TYPE_A)。市场巨幅看好科特→合理(Elo差316+已淘汰对手)。\n\n⚠️ 但市场82.4%可能过激! 原因:①科特仅2场2球≠进球机器②库拉索R2证明能守③科特赢1-0/2-0也是赢→不穿盘。\n\nλ=0.58/2.06(total=2.64)。库拉索λ仅0.58(对厄瓜0进球+对德1球→进攻为零)。科特λ=2.06→预期进2球合理。\n\n方向:科特胜无value(72.2%<82.4%→-10.2pp)。让球+大小球找机会。`,
+      betReasoning: `🎯 **Under 3.25(@1.94,+10.3pp)**: \n1. 科特2场进2球→攻击力有限\n2. 库拉索R2 0-0证明大巴有效\n3. 库拉索已淘汰→零压力→全力防守无后顾之忧(类似库拉索0-0厄瓜)\n4. 总λ=2.64→3+球概率49.2%→3.25线含quarterball折扣\n5. 模型Under=61.8%>需51.5%→+10.3pp\n\n🎯 **库拉索+2.25(@2.03,+4.2pp)**: \n1. 科特R2对德国仅1球→攻击力有限\n2. 库拉索R2 0-0=\"大巴已校准\"\n3. +2.25=不输3球即赢盘。70.6%>需49.3%→超额\n4. 科特可能1-0/2-0(赢球不穿盘)→+2.25覆盖此情景\n\n⚠️ 不做科特胜(负EV)`
+    },
+    commercialAnalysis: {
+      summary: 'TYPE_A(市场>模型-10pp)。科特胜无value。Under 3.25(+10.3pp)最优。库拉索+2.25(+4.2pp)辅助。库拉索已淘汰=\'尊严大巴\'可复现R2 0-0模式。',
+      approvedPicks: [
+        { pick: 'Under 3.25', odds: '@1.94', verdict: 'approved', edge: '+10.3pp', reasoning: '科特2场2球+库拉索R2 0-0验证大巴+淘汰后零压力。模型61.8%>需51.5%', category: 'core' },
+        { pick: '库拉索+2.25', odds: '@2.03', verdict: 'approved', edge: '+4.2pp', reasoning: '科特攻击力有限→大概率1-0/2-0。库拉索大巴经过R2校准', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '科特迪瓦胜', odds: '@1.19', verdict: 'rejected', edge: '-10.2pp', reasoning: '模型72.2%<82.4%→负EV。超低赔率无价值', category: 'trap' },
+        { pick: 'Over 3.25', odds: '@1.93', verdict: 'rejected', edge: '-12pp', reasoning: '科特非进球机器。库拉索大巴+R2 0-0验证小球', category: 'trap' },
+        { pick: '科特迪瓦-2.25', odds: '@1.87', verdict: 'rejected', edge: '-5.9pp(70.6%>但含推),实际穿盘率更低', reasoning: '科特穿深盘能力存疑(对强队也仅1球)。库拉索有尊严大巴', category: 'trap' },
+      ],
+      marketBehavior: '市场科特@1.19→82.4%→极端定价。市场过度外推Elo差316(忽略库拉索R2防守调整+科特自身攻击力一般)。Under是最佳信息不对称方向。',
+      kellyNote: 'Under 3.25建议1.5%仓位(+10.3pp)。库拉索+2.25建议1%仓位。'
+    },
+    confidence: 'mid'
+  },
+  {
+    team1: '厄瓜多尔', team2: '德国', group: 'E', ground: '纽约', time: '20:00 UTC-4',
+    elo1: 1890, elo2: 1939, eloDiff: -49,
+    model: { home: 0.2297, draw: 0.2486, away: 0.5217 },
+    market: { home: 0.1780, draw: 0.1864, away: 0.6356, _note: 'Pinnacle (5.50/5.25/1.54, vig-removed)' },
+    lambda: { home: 1.02, away: 1.66, total: 2.68 },
+    gap: { team: '德国', value: -11.4, direction: 'market_higher' },
+    formation1: '4-3-3', formation2: '4-2-3-1', coach1: '桑切斯', coach2: '纳格尔斯曼',
+    style1: 'R1 0-1负科特(平淡),R2 0-0平库拉索(灾难!对Elo1427无法进球→off_residual=-2.05,2场0球!)。1分。MUST-WIN但攻击线完全失灵!Caicedo(切尔西)中场有创造力但前场Estupiñán/Pacho→无终结者。防守尚可(def_residual=-0.75)。',
+    style2: 'R1 7-1血洗库拉索(Musiala+Wirtz),R2 2-1胜科特(稳健)。6分,锁定#1。off_residual=+2.32(进攻超强!9球/2场)。lock #1+路径优势214(HIGH→保持状态=不轮休!)。可能小幅轮换1-2人但不影响体系。',
+    lineup1: 'Dominguez; Preciado, Torres, Pacho, Estupiñán; Caicedo, Cifuentes, Páez; M.Caicedo, Valencia, Sarmiento',
+    lineup2: 'ter Stegen; Kimmich, Tah, Schlotterbeck, Raum; Andrich, Gündoğan; Musiala, Wirtz, Sané; Havertz(或Füllkrug)',
+    injuries1: '无重大伤情(但攻击力=0是结构性问题)', injuries2: '无重大伤情(可能轮换1人)',
+    tacticalMatchup: [
+      { area: '进攻火力', advantage: '德国(碾压)', reason: '德国9球/2场(off_residual=+2.32)=场均4.5球。厄瓜多尔0球/2场=历史级哑火。Caicedo中路对德国Gündoğan/Musiala=全面下风' },
+      { area: '防守组织', advantage: '厄瓜多尔(微)', reason: 'def_residual=-0.75(2场仅丢1球→防守确实好)。但对手是科特(Lo1724)+库拉索(Lo1427)→含金量有限。面对德国攻击=真正考验' },
+      { area: '比赛动力', advantage: '厄瓜多尔(生死)', reason: '厄瓜MUST-WIN否则出局。德国锁#1但路径优势214(HIGH)→纳格尔斯曼不轮休→保持比赛节奏' },
+      { area: '战术纪律', advantage: '德国(大)', reason: '纳格尔斯曼体系成熟。德国即使小幅轮换→替补(Sané/Füllkrug)仍是世界级。厄瓜进攻失灵=即使拼命也未必能转化' },
+    ],
+    groupContext: `E组R3。德国6分(锁定#1,GD+7) | 科特迪瓦3分(GD 0) | 厄瓜多尔1分(GD-1) | 库拉索1分(GD-7)。\n\n厄瓜多尔必须赢才能出线! 如果科特胜库拉索→科特6分出线#2,厄瓜即使赢也最多4分(需最佳第三)。如果科特平→厄瓜赢=4分vs科特4分→比GD(厄瓜-1 vs科特0→厄瓜至少需赢2-0+科特平)。\n\n淘汰赛路径:E1→弱第3(Elo≈1700) vs E2→2I(Elo≈1914挪威)→差距214!德国有极强动力保持#1。`,
+    handicaps: [
+      {line:2.0, win:0.7726, draw:0, lose:0.2274},
+      {line:1.5, win:0.6374, draw:0.2393, lose:0.1233},
+      {line:1.0, win:0.4783, draw:0.2393, lose:0.2824, marketWin:'@1.98', marketLose:'@1.94', isMarketLine:true},
+      {line:0.5, win:0.2889, draw:0, lose:0.7111},
+      {line:0, win:0.2297, draw:0.2486, lose:0.5217},
+      {line:-0.5, win:0.2297, draw:0, lose:0.7703},
+    ],
+    overUnder: [
+      {line:1.5, over:0.7521, under:0.2479},
+      {line:2.0, over:0.5857, under:0.4143},
+      {line:2.5, over:0.4976, under:0.5024},
+      {line:2.75, over:0.3913, under:0.6087, marketOver:'@1.84', marketUnder:'@2.08', isMarketLine:true},
+      {line:3.0, over:0.2813, under:0.7187},
+      {line:3.5, over:0.1904, under:0.8096},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Under 2.75', odds:'@2.08', modelProb:0.6087, reason:'厄瓜0球攻击(off_residual=-2.05)+德国锁#1→非必须大胜。模型60.9%>需48.1%→+12.8pp。德国仅需控场不失即可保持#1'},
+      {type:'让球', pick:'厄瓜多尔+1.0', odds:'@1.98', modelProb:0.4783, reason:'厄瓜防守好(def_residual=-0.75,2场仅丢1球)+德国小胜即可。模型47.8%→需50.5%→薄edge但逻辑对'},
+    ],
+    analysis: {
+      groupSituation: `**E组R3积分形势**\n\n德国6分(锁定#1,GD+7) | 科特迪瓦3分(GD 0) | 厄瓜多尔1分(GD-1) | 库拉索1分(GD-7)\n\n厄瓜MUST-WIN否则出局!同时需要科特不赢(平或负)→厄瓜需至少赢德国2-0(追GD-1→+1)才能超科特(如果科特平则4分)。\n\n德国锁#1但E1→弱第3(Elo≈1700) vs E2→挪威(Elo≈1914)→差距214!纳格尔斯曼有极强动力保持#1(不轮休主力)。\n\n同时进行:库拉索vs科特迪瓦。`,
+      lineup1Detail: `**厄瓜多尔 (4-3-3) — 桑切斯**\n\nR1 0-1科特(R1正常,科特更强)→R2 0-0库拉索(灾难!对Elo1427无法进球→off_residual=-2.05,2场0球!)。Caicedo(切尔西,$146M)是中场唯一世界级。Estupiñán(Pacho)左路有冲击力。但前场终结者为零→Valencia(37岁,已过巅峰)。MUST-WIN→必须想办法进球。\n\n⚠️ 注意:厄瓜对库拉索0-0不是库拉索大巴强→是厄瓜攻击力太差(off_residual=-2.05,对Elo1427预期2.05球→实际0球!)。`,
+      lineup2Detail: `**德国 (4-2-3-1) — 纳格尔斯曼**\n\nR1 7-1库拉索(碾压),R2 2-1科特(控制性胜利)。6分,GD+7,锁定#1。off_residual=+2.32→9球/2场=攻击火热! Musiala+Wirtz双核创造力世界顶级。Gündoğan节拍器。Havertz伪9或Füllkrug支点。\n\n⚠️ 锁#1=有轮换可能?但E1路径(弱第3,Elo≈1700) vs E2路径(挪威,Elo≈1914)→差距214=HIGH动力保持状态。纳帅大概率不会大轮换(可能换1人如Sané替Wirtz轮休)。`,
+      styleAnalysis: `**厄瓜多尔**: 4-3-3控球型但最终产品为零(2场0球!)。Caicedo是唯一世界级中枢→但前场缺乏finisher。防守有组织(对科特丢1球+对库拉索0=2场丢1球)但含金量有限。今天面对德国真正攻击→防线将经受考验。\n\n**德国**: 4-2-3-1高压控球。Musiala+Wirtz创造力世界顶级。全队技术密度远高于厄瓜。不会大轮换(路径优势)→保持比赛节奏+控场风格。目标:1-2球领先→然后控局。非必须屠杀。`,
+      tacticalNarrative: `E组末轮。德国锁#1但E1 vs E2差距214(HIGH动力)→纳帅不会\"放水\"。但也不会全力进攻屠杀——风险是受伤+消耗→最可能:正常发挥→1-2球领先→控局到终场。\n\n厄瓜MUST-WIN=会全力进攻。但2场0球→即使面对德国轮换后防,也没有证据表明厄瓜能进球。\n\n🔴 核心矛盾:厄瓜必须赢→会进攻(理论带来开放对攻=大球)。但厄瓜攻击力为零→进攻=给德国反击机会(可能德国多进球=大球)。\n\n⚠️ 两种可能:\nA) 德国正常发挥(控球70%+反击得分)→2-0/3-0→Over\nB) 德国控场不全力进攻+厄瓜进攻无用→1-0/0-0→Under\n\n我倾向B:德国锁#1→\"不受伤\"优先于\"多进球\"。纳帅会打控制型比赛。厄瓜虽然有Caicedo但前场无法终结。`,
+      modelInterpretation: `模型:德国52.2% vs Pinnacle市场63.6%\n\nGap=-11.4pp(market_higher,TYPE_A)。市场巨幅看好德国。\n\nλ=1.02/1.66。厄瓜λ被off_residual=-2.05严重惩罚(lam1_raw=1.23→1.02)。德国λ=1.66(off_residual=+2.32加成后)。\n\n模型低估德国? 纳帅锁#1可能轮换→模型\"全主力\"假设可能高估德国实际输出。但市场63.6%可能也部分忽略轮换→实际概率可能在55-60%之间。\n\nCI95:德国胜[37.2%-66.8%]→市场63.6%在CI上限。方向不确定→不推胜平负。`,
+      betReasoning: `🎯 **Under 2.75(@2.08,+12.8pp)**今日第二强Under:\n1. 厄瓜攻击力为零(off_residual=-2.05,2场0球)→即使德国轮换后防也未必丢球\n2. 德国锁#1→不会全力进攻→\"不受伤\"优先于屠杀\n3. 纳帅控场风格→德国大概率60-70%控球→低节奏\n4. 总λ=2.68→3+球概率50%→Under 2.75(含quarter折扣)=60.9%\n5. 模型60.9%>需48.1%→+12.8pp\n\n🎯 **厄瓜+1.0(@1.98)**薄edge:\n1. 厄瓜防守好(def_residual=-0.75,2场仅丢1球)\n2. 德国锁#1+非全力→可能仅赢1球\n3. 模型47.8%vs需50.5%→仅-2.7pp→但在轮换情境下实际概率更高\n\n⚠️ 不做德国胜(负EV)。不推Over(厄瓜不进球)。`
+    },
+    commercialAnalysis: {
+      summary: 'TYPE_A(市场>模型-11.4pp)。德国锁#1→可能限功率。Under 2.75(+12.8pp)今日第二强。厄瓜+1.0薄edge但逻辑对。',
+      approvedPicks: [
+        { pick: 'Under 2.75', odds: '@2.08', verdict: 'approved', edge: '+12.8pp', reasoning: '厄瓜0球2场+德国锁#1控场不屠杀。模型60.9%>需48.1%', category: 'core' },
+        { pick: '厄瓜多尔+1.0', odds: '@1.98', verdict: 'marginal', edge: '-2.7pp(但轮换情境更优)', reasoning: '德国锁#1可能仅赢1球。厄瓜防守好。实际概率在轮换后>50.5%', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '德国胜', odds: '@1.54', verdict: 'rejected', edge: '-11.4pp', reasoning: '模型52.2%<63.6%→负EV。锁#1+可能轮换→更无value', category: 'trap' },
+        { pick: '德国-1.0', odds: '@1.94', verdict: 'rejected', edge: '-3.2pp', reasoning: '德国仅需小胜(控场非屠杀)。穿盘能力存疑→锁#1不必大胜', category: 'trap' },
+        { pick: 'Over 2.75', odds: '@1.84', verdict: 'rejected', edge: '-14pp(39.1%<53.1%)', reasoning: '厄瓜不进球。德国非必须屠杀。仅39.1%>需54.3%→巨幅负EV', category: 'trap' },
+      ],
+      marketBehavior: '市场德国@1.54→63.6%可能未充分计入轮换+赛程管理影响。德国E1路径优势214(HIGH)→不会消极但也不会100%全力。市场可能过度定价Germany brand name。',
+      kellyNote: 'Under 2.75建议1.5%仓位(+12.8pp,结构性强)。厄瓜+1.0建议0.5%仓位(薄edge但逻辑对)。'
+    },
+    confidence: 'mid'
+  },
+  {
+    team1: '日本', team2: '瑞典', group: 'F', ground: '洛杉矶', time: '15:00 UTC-4',
+    elo1: 1910, elo2: 1755, eloDiff: 155,
+    model: { home: 0.5404, draw: 0.2297, away: 0.2299 },
+    market: { home: 0.5109, draw: 0.2758, away: 0.2133, _note: 'Pinnacle (1.90/3.52/4.55, vig-removed)' },
+    lambda: { home: 1.87, away: 1.15, total: 3.02 },
+    gap: { team: '日本', value: 3.0, direction: 'model_higher' },
+    formation1: '4-2-3-1', formation2: '4-4-2', coach1: '森保一', coach2: '安德森',
+    style1: 'R1 2-2荷兰(Mitoma+Minamino→强强平局!),R2 4-0血洗突尼斯(碾压!off_residual=+1.36→攻击火热)。4分,GD+4。平局即出线(5分)→但F1路径(2C≈1840) vs F2(1C≈1978巴西!)→差距138→有动力争#1! def_residual=-0.25(防守稳固)。',
+    style2: 'R1 5-1血洗突尼斯(Isak爆发!),R2 1-5惨败荷兰(防线崩溃!def_residual=+4.25→对荷兰丢5球虽然荷兰强但仍是灾难)。3分。必须赢才能确保出线! off_residual=+1.70(攻击力强但防守是漏洞)。Isak+Gyökeres双锋=威胁极大。',
+    lineup1: 'Suzuki; Sugawara, Itakura, Taniguchi, H.Ito; Morita, Endo; Dōan, Minamino, Mitoma; Ueda',
+    lineup2: 'Olsen; Holm, Lindelöf, Hien, Augustinsson; Kulusevski, Cajuste, Larsson, Forsberg; Gyökeres, Isak',
+    injuries1: '无重大伤情', injuries2: '无重大伤情',
+    tacticalMatchup: [
+      { area: '进攻效率', advantage: '日本', reason: '日本off_residual=+1.36(Mitoma+Dōan+Minamino)。瑞典def_residual=+4.25(荷兰5球!防线崩塌)→日本将利用此漏洞' },
+      { area: '攻击威胁', advantage: '瑞典(微)', reason: 'Isak+Gyökeres双锋vs荷兰进1球→有质量。日本def_residual=-0.25→防守稳但瑞典攻击力非突尼斯级别' },
+      { area: '中场控制', advantage: '日本(大)', reason: 'Endo(利物浦)+Morita(葡体)→世界级双后腰。瑞典Cajuste+Larsson英冠级别→全面下风' },
+      { area: '比赛节奏', advantage: '日本', reason: '森保一体系强调控球+耐心。平局即出线→不会慌乱。瑞典必须赢→被迫压上→暴露防线' },
+      { area: '淘汰赛路径', advantage: '日本(中等)', reason: 'F1→2C(Elo≈1840摩洛哥) vs F2→1C(Elo≈1978巴西!)→争第1动力中等(+138Elo差距)' },
+    ],
+    groupContext: `F组R3! 荷兰4分(GD+4) | 日本4分(GD+4) | 瑞典3分(GD 0) | 突尼斯0分(GD-9)。\n\n日本平局→5分→出线(除非瑞典赢+荷兰大败突尼斯→3队5分)。日本赢→7分→争头名。瑞典必须赢→否则出局(除非荷兰输+比GD→但荷兰vs已淘汰突尼斯→荷兰几乎稳赢)。\n\nF1→2C(Elo≈1840摩洛哥) vs F2→1C(Elo≈1978巴西)。差距138(MEDIUM)→日本有动力争#1但非生死。\n\n同时进行:突尼斯vs荷兰。`,
+    handicaps: [
+      {line:-1.5, win:0.3115, draw:0, lose:0.6885},
+      {line:-1.0, win:0.3115, draw:0.2296, lose:0.4589},
+      {line:-0.75, win:0.4263, draw:0, lose:0.5737},
+      {line:-0.5, win:0.5404, draw:0, lose:0.4596, marketWin:'@1.90', marketLose:'@2.00', isMarketLine:true},
+      {line:0, win:0.5404, draw:0.2297, lose:0.2299},
+      {line:0.5, win:0.7703, draw:0, lose:0.2297},
+    ],
+    overUnder: [
+      {line:1.5, over:0.8009, under:0.1991},
+      {line:2.0, over:0.6573, under:0.3427},
+      {line:2.5, over:0.5812, under:0.4188, marketOver:'@1.93', marketUnder:'@1.96', isMarketLine:true},
+      {line:3.0, over:0.3586, under:0.6414},
+      {line:3.5, over:0.2693, under:0.7307},
+    ],
+    predictions: [],
+    recommendations: [
+      {type:'大小球', pick:'Over 2.5', odds:'@1.93', modelProb:0.5812, reason:'今日最高总λ=3.02! 日本攻击火热+瑞典防守漏洞(对荷兰丢5球)。双方都能进→开放对攻。模型58.1%>需51.8%→+6.3pp'},
+      {type:'胜平负', pick:'日本胜', odds:'@1.90', modelProb:0.5404, reason:'Elo+155+日本近期状态远优(endō/Mitoma世界级)。模型54.0%>需52.6%→+1.4pp(薄但正)'},
+    ],
+    analysis: {
+      groupSituation: `**F组R3积分形势**\n\n荷兰4分(GD+4) | 日本4分(GD+4) | 瑞典3分(GD 0) | 突尼斯0分(GD-9)\n\n日本平局=5分→出线(F1或F2取决于荷兰vs突尼斯结果)。日本赢=7分→大概率F1。瑞典必须赢→否则出局(荷兰vs突尼斯几乎稳赢→荷兰≥5分)。\n\nF1→2C(Elo≈1840) vs F2→1C(Elo≈1978巴西)→差距138(MEDIUM)。争#1有动力但非生死。\n\n同时进行:突尼斯vs荷兰(荷兰大概率赢→至少5分→日本平局即可出线F2)。`,
+      lineup1Detail: `**日本 (4-2-3-1) — 森保一**\n\nR1 2-2荷兰(Mitoma左脚世界波+Dōan→战平顶级强队!off_residual=+2.0!)→R2 4-0突尼斯(碾压)。4分,GD+4。off_residual=+1.36,def_residual=-0.25→攻守均衡且攻击火热! Endo(利物浦队长)+Morita(葡体)→世界级双后腰。Mitoma(布莱顿)+Dōan(弗赖堡)边路爆破。Minamino(摩纳哥)前腰串联。Ueda(费耶诺德)支点。\n\n森保一\"平局即出线但争#1\"→不会保守。日本世界杯淘汰赛经验丰富(2022胜德国/西班牙)。`,
+      lineup2Detail: `**瑞典 (4-4-2) — 安德森**\n\nR1 5-1突尼斯(Isak梅开二度!Kulusevski穿针引线),R2 1-5惨败荷兰(防线彻底崩塌!def_residual=+4.25→对荷兰丢5球虽荷兰强但5球是灾难)。3分。off_residual=+1.70(Isak+Gyökeres双锋有质量)。但def_residual=+1.75(防守大漏洞!对荷兰被任意撕扯)。必须赢→会全力进攻→防线更暴露。`,
+      styleAnalysis: `**日本**: 4-2-3-1控球+转换型。森保一体系成熟(2022世界杯验证)。Endo+Morita双后腰提供世界级屏障→解放前方四人组创造机会。Mitoma左路一对一世界顶级。弱点:防空(Ueda非高大中锋)。\n\n**瑞典**: 4-4-2北欧力量型。Isak(纽卡)+Gyökeres(葡体)双锋在世界杯合计已进3球→攻击力确实强。但防线被荷兰5球打穿→问题在体系而非个体(荷兰5球来自4次反击+1次定位球=体系性漏风)。面对日本传控→可能再次暴露。`,
+      tacticalNarrative: `今日最佳比赛!日本控球vs瑞典反击的经典对决。\n\n⚽ 双方攻击力历史级:\n- 日本:2场6球,off_residual=+1.36(对荷兰2球+对突尼斯4球)\n- 瑞典:2场6球(对荷兰5-1:只进1球但进攻端也确实有产出)。off_residual=+1.70\n\n🛡️ 双方防守:\n- 日本:def_residual=-0.25(仅丢2球=稳固)\n- 瑞典:def_residual=+1.75(丢6球=大漏洞!)\n\n🔴 关键:瑞典必须赢=会进攻→防线更暴露→日本反击+控球将惩罚瑞典防守漏洞。\n\n预期:开放对攻(>2.5球→概率高)。日本赢面大(Elo+155+攻防更均衡)。可能比分:日本2-1/3-1。`,
+      modelInterpretation: `模型:日本54.0% vs Pinnacle市场51.1%\n\nGap=+3.0pp(微弱model_higher)。模型与市场高度一致→定价有效。\n\nλ=1.87/1.15(total=3.02→今日最高!)。日本λ=1.87(off_residual=+1.36+Elo diff加成)。瑞典λ=1.15(off_residual=+1.70但被日本防守牵制)。\n\nCI95:日本胜[38.9-68.4%]→市场51.1%在CI内。\n\n⚠️ Gap仅+3pp=噪音级别。日本胜@1.90→需52.6%→模型54.0%→仅+1.4pp薄edge。\n\nDirection信号不强。大小球是更好方向。`,
+      betReasoning: `🎯 **Over 2.5(@1.93,+6.3pp)**今日最佳Over:\n1. 总λ=3.02→P(≥3球)=58.1%→今日最高\n2. 日本攻击火热(6球/2场) vs 瑞典防守漏洞(6球丢/2场)\n3. 瑞典必须赢→进攻=日本反击得分=≥3球高概率\n4. 双方都已展示世界杯进球能力(非0球死守型)\n5. F组唯一不适用R3小球规则的比赛(MUST-WIN vs争头名=开放)\n\n🎯 **日本胜(@1.90,+1.4pp)**:\n1. Elo+155+攻防更均衡\n2. 日本vs荷兰2-2证明能对顶级对手进球→对瑞典防守漏洞更轻松\n3. 森保一杯赛体系成熟→\"争#1\"会正常发挥\n4. 薄edge→适合做小注或组合过关\n\n⚠️ 不做日本-0.5(模型54.0% vs需52.6%→仅+1.4pp→handicap赔率更低→可能负EV)`
+    },
+    commercialAnalysis: {
+      summary: '今日最佳比赛! Over 2.5(+6.3pp,总λ=3.02最高)核心pick。日本胜(+1.4pp)薄edge。瑞典防守漏洞(def_residual=+1.75)是最强信号。',
+      approvedPicks: [
+        { pick: 'Over 2.5', odds: '@1.93', verdict: 'approved', edge: '+6.3pp', reasoning: 'λ=3.02今日最高。双方攻击火热+瑞典防守漏洞。MUST-WIN→开放对攻', category: 'core' },
+        { pick: '日本胜', odds: '@1.90', verdict: 'approved', edge: '+1.4pp(薄)', reasoning: 'Elo+155+攻防更均衡。对荷兰2-2验证质量。薄edge但方向正确→小注或组合', category: 'value' },
+      ],
+      rejectedPicks: [
+        { pick: '瑞典胜', odds: '@4.55', verdict: 'rejected', edge: '-1.3pp(23%<21.3%)', reasoning: '方向不符。瑞典防守漏洞+日本控球→瑞典赢概率实际可能更低', category: 'trap' },
+        { pick: 'Under 2.5', odds: '@1.96', verdict: 'rejected', edge: '-8pp(41.8%<49.6%)', reasoning: '最高λ比赛推Under=逆结构。MUST-WIN+双方攻击力=不适用小球', category: 'trap' },
+      ],
+      marketBehavior: '市场日本@1.90→51.1%定价有效。Over 2.5→定价50.4%=市场预期开放。双方攻击力被定价但瑞典防守漏洞(def_residual=+1.75)可能被低估。',
+      kellyNote: 'Over 2.5建议1.5%仓位(+6.3pp,核心)。日本胜建议0.5-1%仓位(+1.4pp薄,小注)。'
     },
     confidence: 'high'
   },
   {
-    team1: '瑞士', team2: '加拿大', group: 'B', ground: '温哥华', time: '15:00 UTC-4',
-    elo1: 1865, elo2: 1767, eloDiff: 98,
-    model: { home: 0.6049, draw: 0.2411, away: 0.1496 },
-    market: { home: 0.4051, draw: 0.3093, away: 0.2856, _note: 'Pinnacle (2.39/3.13/3.39, vig-removed)' },
-    lambda: { home: 1.65, away: 0.68, total: 2.34 },
-    gap: { team: '瑞士', value: -20.0, direction: 'model_higher' },
-    formation1: '3-4-2-1', formation2: '4-3-3', coach1: '亚金', coach2: '马施',
-    style1: 'R1 1-1卡塔尔(被90+4扳平!低迷),R2 4-1血洗波黑(强势反弹!Xhaka+Manzambi)。反弹已完成→R3正常状态。',
-    style2: 'R1 1-1波黑(平淡),R2 6-0血洗卡塔尔(Jonathan David帽子戏法!爆发)。GD+6领跑→平局即头名! 可能保守。温哥华主场。',
-    lineup1: 'Kobel; Elvedi, Akanji, Rodriguez; Widmer, Xhaka, Freuler, Aebischer; Ndoye, Shaqiri; Embolo',
-    lineup2: 'Crepeau; Johnston, David(E), Bombito, Davies; Eustaquio, Kone, Buchanan; Larin, J.David, Millar',
-    injuries1: '全员健康', injuries2: '全员健康',
+    team1: '突尼斯', team2: '荷兰', group: 'F', ground: '休斯顿', time: '15:00 UTC-4',
+    elo1: 1585, elo2: 1944, eloDiff: -359,
+    model: { home: 0.0592, draw: 0.1433, away: 0.7975 },
+    market: { home: 0.0316, draw: 0.0853, away: 0.8831, _note: 'Pinnacle (31.0/11.50/1.11, vig-removed)' },
+    lambda: { home: 0.53, away: 2.46, total: 2.98 },
+    gap: { team: '荷兰', value: -8.6, direction: 'market_higher' },
+    formation1: '5-3-2', formation2: '4-3-3', coach1: '卡德里', coach2: '科曼',
+    style1: 'R1 1-5惨败瑞典(防守崩溃),R2 0-4日本(再次被碾压)。0分,GD-9,已淘汰。def_residual=+3.25(历史级漏风,9球/2场!)。off_residual=-0.29(攻击也乏善)。今天\"荣誉之战\"→可能摆大巴避免更大耻辱。',
+    style2: 'R1 2-2日本(Gakpo+De Jong→强强对攻),R2 5-1血洗瑞典(Gakpo帽子戏法!off_residual=+1.96→火力全开)。4分,GD+4。赢=大概率F1(F1→2C vs F2→1C巴西→差距138→有动力争#1)。不会轮休。防线def_residual=+0.25(对日本丢2球=略有漏洞)。',
+    lineup1: 'Ben Said; Talbi, Meriah, Bronn; Abdi, Skhiri, Laïdouni, Dräger; Ben Romdhane, Msakn; Jaziri',
+    lineup2: 'Verbruggen; Dumfries, De Vrij, Van Dijk, Aké; De Jong, Koopmeiners, Gravenberch; Malen, Gakpo, Simons',
+    injuries1: '无重大伤情(但整体实力与荷兰差距巨大)', injuries2: '无重大伤情(可能小幅轮换1人)',
     tacticalMatchup: [
-      { area: '中场控制', advantage: '瑞士', reason: 'Xhaka(勒沃库森)+Freuler技术覆盖。加拿大中场偏工兵型' },
-      { area: '前场攻击力', advantage: '加拿大(微)', reason: 'J.David帽子戏法状态! Davies冲击力。但瑞士后防Akanji(曼城)稳健' },
-      { area: '比赛动力', advantage: '瑞士(大)', reason: '瑞士必须赢才能头名(GD-3 vs加拿大GD+6)。加拿大平局即头名→大概率保守' },
-      { area: '主场因素', advantage: '加拿大', reason: '温哥华主场(+80-100 Elo等效)。R2已在此6-0→主场加成已验证' },
+      { area: '综合实力', advantage: '荷兰(碾压)', reason: 'Elo差359=Dixon-Coles ρ=0.02已最小化draw。荷兰Gakpo(帽戏状态!)+Van Dijk=世界级' },
+      { area: '防守组织', advantage: '荷兰(碾压)', reason: '突尼斯def_residual=+3.25(9球/2场!)。荷兰5-1瑞典证明攻击力可任意撕扯弱队防线' },
+      { area: '比赛动力', advantage: '荷兰(大)', reason: '荷兰赢=大概率F1(有利淘汰赛路径)。突尼斯已淘汰→\"荣誉之战\"但0-9净胜球→心气全无' },
+      { area: '轮换影响', advantage: '突尼斯(微)', reason: '荷兰可能小幅轮换1-2人为淘汰赛留力→但不影响整体碾压' },
     ],
-    groupContext: `B组R3头名之争!瑞士4分(GD+3) vs 加拿大4分(GD+6)。加拿大平局凭GD夺头名→无需冒险!瑞士必须赢。\n\n淘汰赛:B1对弱第3(~1600) vs B2对I2(~1800)。争头名动力中等(+200差距)。`,
+    groupContext: `F组R3。荷兰4分(GD+4) | 日本4分(GD+4) | 瑞典3分(GD 0) | 突尼斯0分(GD-9)。\n\n荷兰赢=7分→F1(除非日本也赢且比GD→日本+4 vs荷兰当前+4)。荷兰平=5分→出线(瑞典最多6分但需赢日本)。突尼斯已淘汰(GD-9,+需瑞典输+比GD→实际上不可能)。\n\nF1→2C(Elo≈1840) vs F2→1C(Elo≈1978巴西)。差距138(MEDIUM)→荷兰有动力赢且多进球争#1。\n\n同时进行:日本vs瑞典。`,
     handicaps: [
-      {line:-1, win:0.3499, draw:0.2550, lose:0.3951},
-      {line:-0.5, win:0.6049, draw:0, lose:0.3951},
-      {line:-0.25, win:0.7254, draw:0, lose:0.2746, marketWin:'@2.03', marketLose:'@1.88', isMarketLine:true},
-      {line:0, win:0.6049, draw:0.2411, lose:0.1496},
-      {line:0.5, win:0.8460, draw:0, lose:0.1540},
+      {line:3.5, win:0.7462, draw:0, lose:0.2538},
+      {line:3.0, win:0.7462, draw:0.2229, lose:0.0309},
+      {line:2.75, win:0.6347, draw:0, lose:0.3653, marketWin:'@2.01', marketLose:'@1.88', isMarketLine:true},
+      {line:2.5, win:0.5233, draw:0.2229, lose:0.2538},
+      {line:2.0, win:0.4010, draw:0.2303, lose:0.3687},
+      {line:1.5, win:0.2776, draw:0.2229, lose:0.4995},
+      {line:0, win:0.0592, draw:0.1433, lose:0.7975},
     ],
     overUnder: [
-      {line:1.5, over:0.6207, under:0.3793},
-      {line:2.0, over:0.4525, under:0.3793},
-      {line:2.25, over:0.4786, under:0.5170, marketOver:'@1.87', marketUnder:'@2.02', isMarketLine:true},
-      {line:2.5, over:0.4132, under:0.5824},
-      {line:3.5, over:0.1872, under:0.8128},
+      {line:2.0, over:0.8354, under:0.1646},
+      {line:2.5, over:0.7355, under:0.2645},
+      {line:3.0, over:0.6089, under:0.3911},
+      {line:3.5, over:0.4679, under:0.5321, marketOver:'@2.02', marketUnder:'@1.85', isMarketLine:true},
+      {line:4.0, over:0.3469, under:0.6531},
+      {line:4.5, over:0.2394, under:0.7606},
     ],
     predictions: [],
     recommendations: [
-      {type:'胜平负', pick:'瑞士胜', odds:'@2.39', modelProb:0.6049, reason:'TYPE_C巨大alpha(+20pp!)。模型60.5%>需41.8%→+18.7pp。瑞士MUST-WIN+Elo+98→但加拿大主场+保守=不确定性大'},
-      {type:'大小球', pick:'Under 2.25', odds:'@2.02', modelProb:0.5170, reason:'加拿大平局即头名→大概率保守+R3低节奏。λ=2.34(衰减后)。微弱edge+2.2pp但方向逻辑强'},
+      {type:'大小球', pick:'Under 3.5', odds:'@1.85', modelProb:0.5321, reason:'突尼斯已淘汰→可能死守避免更大耻辱。荷兰赢球即可(不必屠杀)。3.5是深线。模型53.2%>需54.1%→薄但结构正确'},
+      {type:'让球', pick:'突尼斯+2.75', odds:'@2.01', modelProb:0.6347, reason:'荷兰大概率赢2-3球但突尼斯淘汰后死守→深盘风险。模型63.5%不输3球→需49.8%→+13.7pp'},
     ],
     analysis: {
-      groupSituation: `**B组R3头名争夺**\n\n瑞士4分(GD+3: 1-1平, 4-1胜) | 加拿大4分(GD+6: 1-1平, 6-0胜)\n\n加拿大GD领先3球→平局即头名!瑞士必须赢(且最好大比分)。加拿大在温哥华主场,R2已6-0证明主场加成。`,
-      lineup1Detail: `**瑞士 (3-4-2-1) — 亚金**\n\nR2 4-1血洗波黑后状态回升。Xhaka(阿森纳→勒沃库森)是中场引擎。Embolo中锋+Ndoye边路。Akanji(曼城)后防核心。必须赢。`,
-      lineup2Detail: `**加拿大 (4-3-3) — 马施**\n\nR2 6-0卡塔尔(J.David帽子戏法!)后信心爆棚。温哥华主场。Davies(拜仁)左路。GD+6领跑→平局即头名→大概率控制节奏不冒险。`,
-      styleAnalysis: `**瑞士**: 经典3-4-2-1控球体系。Xhaka+Freuler技术双核。Ndoye宽度。R2反弹完成→R3正常发挥。今天MUST-WIN会加大进攻投入。\n\n**加拿大**: 反击+身体对抗。J.David+Davies速度+力量。平局即头名→今天大概率5-4-1防守反击,控制比赛节奏,不冒险。主场优势明显。`,
-      tacticalNarrative: `核心矛盾: 瑞士MUST-WIN(会猛攻) vs 加拿大平局即头名(会保守)。这个结构=瑞士控球60%+但加拿大反击致命(J.David+Davies速度)。\n\n⚠️ 加拿大温哥华主场(+80-100 Elo等效)→模型不含此因子→实际加拿大强于模型显示。\n\n最可能剧本: 瑞士围攻→加拿大偷反击→最终1-0/1-1。大球概率低。`,
-      modelInterpretation: `模型60.5% vs Pinnacle市场40.5%\n\nGap=-20.0pp(model_higher=TYPE_C巨大分歧!)。但⚠️:模型不含主场因素(加拿大温哥华+80-100 Elo),调整后瑞士胜率≈45-50%→与市场接近。\n\n实际edge: 调整主场后仅+5-10pp。仍有value但需降低仓位。`,
-      betReasoning: `TYPE_C(+20pp)但有主场干扰→实际edge缩小。瑞士胜@2.39仍有value(调整后仍+5pp以上)。\n\nUnder 2.25: 加拿大"平局即头名"=铁桶防守模式。瑞士λ=1.65(R3衰减)+加拿大防守收缩=双低→Under逻辑成立。\n\n不推加拿大: 虽有主场但@3.39需29.5%→模型仅14.9%(即使+主场也不够)→无value。`
+      groupSituation: `**F组R3积分形势**\n\n荷兰4分(GD+4) | 日本4分(GD+4) | 瑞典3分(GD 0) | 突尼斯0分(GD-9)\n\n荷兰赢=7分→大概率F1(除非日本也赢且GD超→日本+4vs荷兰当前+4→都赢则比进球数→荷兰2场7球vs日本6球)。荷兰平=5分→F2(瑞典最多6分→需赢日本)。\n\n突尼斯GD-9已淘汰。\n\n淘汰赛:F1→2C(Elo≈1840) vs F2→1C(Elo≈1978巴西)。差距138→有动力争#1。`,
+      lineup1Detail: `**突尼斯 (5-3-2) — 卡德里**\n\nR1 1-5瑞典→R2 0-4日本→两场溃败! def_residual=+3.25(对瑞典丢5球+对日本丢4球=9球!)。没有一场是\"差点守住的\"(def_residual全部为正=每次都丢球超预期)。0分已淘汰→心理崩溃。可能摆大巴最保守的5-4-1,目标=避免输5+球。`,
+      lineup2Detail: `**荷兰 (4-3-3) — 科曼**\n\nR1 2-2日本(强强对攻,Gakpo+De Jong),R2 5-1血洗瑞典(Gakpo帽子戏法!off_residual=+1.96)。4分,GD+4。def_residual=+0.25(对日本丢2球→略有漏洞但对瑞典仅丢1球→防守在进步)。赢=大概率F1→有利淘汰赛路径。科曼不会大轮换→正常发挥即可。De Jong(巴萨)+Van Dijk(利物浦)+Gakpo(利物浦)=世界级中轴线。`,
+      styleAnalysis: `**突尼斯**: 5-3-2摆大巴但阵容质量不足以对抗世界级球队。两场溃败后信心全无。即使摆大巴→面对荷兰Gakpo+De Jong→可能仍是溃败。但\"荣誉之战\"至少会试图不丢5球。\n\n**荷兰**: 4-3-3全攻全守。科曼体系攻防均衡。Gakpo状态火热(帽戏!)=3场5球。De Jong控制节奏。Van Dijk防空+组织。目标是:上半场2-0→下半场控场→保存体力→净胜球+2或+3即可。不会追求屠杀(没意义+风险)。`,
+      tacticalNarrative: `最不均衡的比赛(Elo差359,Gakpo帽子戏法vs突尼斯2场9球丢)。\n\n🔴 核心问题:荷兰会屠杀吗?\n\nAn argument for Over:突尼斯防线崩溃(def_residual=+3.25),荷兰攻击火热(8球/2场)→5-0/6-0? \n\nAn argument for Under:荷兰赢球即可(不需屠杀→\"赢+保存体力\"优先)→2-0或3-0足矣。突尼斯可能死守5-4-1(输2-0好过输6-0)→降低节奏。\n\n⚠️ 6/24教训:TYPE_C中的碾压场→Over 3.0 ALL失败(波黑3-1+摩洛哥4-2=大球,但都是MUST-WIN/MUST-GD场景)。这里的结构不同:荷兰只需赢(不必追GD→日本vs瑞典结果未知)。\n\n倾向:荷兰2-0/3-0型胜利。Under 3.5是结构正确的方向。`,
+      modelInterpretation: `模型:荷兰79.8% vs Pinnacle市场88.3%\n\nGap=-8.6pp(market_higher)。市场巨幅看好荷兰→合理(Elo差359+状态差距)。\n\nλ=0.53/2.46(total=2.98)。突尼斯λ仅0.53(off_residual=-0.29→实际0球级)。荷兰λ=2.46(off_residual=+1.96→预期2.5球)。\n\nCI95:荷兰胜[65.0-89.3%]→市场88.3%接近CI上限。模型认为市场可能略高估→但差距小。\n\n方向:荷兰胜无value(79.8%<88.3%→-8.6pp负EV)。@1.11更是垃圾赔率。`,
+      betReasoning: `🎯 **突尼斯+2.75(@2.01,+13.7pp)**:\n1. 荷兰只需赢(不必屠杀)→2-0/3-0足够→+2.75覆盖\n2. 突尼斯淘汰后可能死守避免惨案→\"荣誉大巴\"\n3. 荷兰可能轮换(Gakpo踢60分钟)→下半场功率降低\n4. 模型63.5%不输3球→需49.8%→+13.7pp\n5. ⚠️ 风险:如果荷兰上半场3-0→下半场可能轻松加码\n\n🎯 **Under 3.5(@1.85)**薄edge:\n1. 3.5深线→需要4+球\n2. 荷兰2-0或3-0=Under 3.5\n3. 模型53.2%→需54.1%→仅-0.9pp(基本打平)\n4. 在\"荷兰不需屠杀\"情境下→实际Under概率更高\n\n⚠️ 不做荷兰方向(赔率垃圾+负EV)`
     },
     commercialAnalysis: {
-      summary: 'TYPE_C(+20pp)但加拿大温哥华主场(+80-100 Elo)缩小实际edge至~+5-10pp。瑞士胜@2.39仍有value。Under 2.25逻辑强(加拿大保守)。',
+      summary: '最悬殊比赛(Elo差359)。突尼斯+2.75(+13.7pp)核心pick(深盘价值)。Under 3.5薄edge。荷兰方向全负EV。',
       approvedPicks: [
-        { pick: '瑞士胜', odds: '@2.39', verdict: 'approved', edge: '+18.7pp(raw)/+5-10pp(主场调整)', reasoning: '模型60.5%>41.8%。主场调整后仍有正EV。瑞士MUST-WIN动力+Elo+98', category: 'value' },
-        { pick: 'Under 2.25', odds: '@2.02', verdict: 'approved', edge: '+2.2pp(边缘但逻辑强)', reasoning: '加拿大平局即头名→保守。R3 λ=2.34。结构性小球', category: 'value' },
+        { pick: '突尼斯+2.75', odds: '@2.01', verdict: 'approved', edge: '+13.7pp', reasoning: '荷兰只需赢不必屠杀。突尼斯淘汰后死守。模型63.5%>需49.8%', category: 'core' },
+        { pick: 'Under 3.5', odds: '@1.85', verdict: 'marginal', edge: '-0.9pp(但结构对)', reasoning: '3.5深线+荷兰非必须屠杀。模型/市场基本持平但在\"控场\"情境更优', category: 'value' },
       ],
       rejectedPicks: [
-        { pick: '加拿大胜', odds: '@3.39', verdict: 'rejected', edge: '-14pp(14.9%<29.5%)', reasoning: '模型给加拿大仅14.9%→即使加主场(+5-8pp)仍远低于需求', category: 'trap' },
-        { pick: '平局', odds: '@3.13', verdict: 'rejected', edge: '-7pp(24.1%<31.9%)', reasoning: '虽然加拿大有保守动机,但Poisson系统性高估平局+edge不够', category: 'trap' },
+        { pick: '荷兰胜', odds: '@1.11', verdict: 'rejected', edge: '-8.6pp', reasoning: '超低赔率+负EV。模型79.8%<88.3%。即使猜对也没钱赚', category: 'trap' },
+        { pick: '荷兰-2.75', odds: '@1.88', verdict: 'rejected', edge: '-17pp(25.8%<51.7%)', reasoning: '荷兰不必屠杀。+2.75才是value方向。穿深盘概率仅25.8%', category: 'trap' },
+        { pick: 'Over 3.5', odds: '@2.02', verdict: 'rejected', edge: '-1.1pp(46.8%<47.8%)', reasoning: '荷兰控场不需要4+球。突尼斯死守降低总球', category: 'trap' },
       ],
-      marketBehavior: '市场给瑞士仅40.5%=极度低估。原因:加拿大温哥华主场+R2 6-0心理冲击。但市场可能过度反应6-0(对手是Elo1447卡塔尔!)。瑞士4-1波黑的含金量远高于加拿大6-0卡塔尔。',
-      kellyNote: '瑞士胜建议1-1.5%仓位(主场不确定性→降低仓位)。Under 2.25建议1%仓位(边缘edge)。'
-    },
-    confidence: 'mid'
-  },
-  {
-    team1: '苏格兰', team2: '巴西', group: 'C', ground: '费城', time: '18:00 UTC-4',
-    elo1: 1794, elo2: 1978, eloDiff: -184,
-    model: { home: 0.0518, draw: 0.1376, away: 0.8072 },
-    market: { home: 0.0998, draw: 0.1774, away: 0.7228, _note: 'Pinnacle (9.63/5.42/1.33, vig-removed)' },
-    lambda: { home: 0.46, away: 2.43, total: 2.90 },
-    gap: { team: '巴西', value: 8.4, direction: 'model_higher' },
-    formation1: '5-3-2', formation2: '4-2-3-1', coach1: '克拉克', coach2: '多里瓦尔',
-    style1: 'R1 1-0胜海地(McGinn进球),R2 0-1负摩洛哥(Saibari 2分钟闪击)。苏格兰防守纪律型。3分出线仍有希望→不会完全摆烂。',
-    style2: 'R1 1-1摩洛哥(TYPE_A首轮异常!),R2 3-0海地(反弹完成:Cunha x2+Vinícius Jr)。R3正常状态。赢则6分确保出线+争头名。',
-    lineup1: 'Gunn; Ralston, Hendry, Hanley, Tierney, Robertson; McTominay, Gilmour, McGinn; Adams, Dykes',
-    lineup2: 'Alisson; Danilo, Marquinhos, Gabriel, Arana; Bruno G, André; Raphinha, Paquetá, Vinícius Jr; Cunha',
-    injuries1: '无重大伤情', injuries2: '全员健康',
-    tacticalMatchup: [
-      { area: 'Vinícius Jr vs 苏格兰右路', advantage: '巴西(碾压)', reason: 'Vinícius Jr世界级。苏格兰右后卫Ralston无法1v1防守' },
-      { area: '苏格兰5后卫密集防守', advantage: '苏格兰(微)', reason: '5-3-2铁桶。苏格兰对摩洛哥仅丢1球(2分钟闪击非防守系统问题)' },
-      { area: '定位球', advantage: '苏格兰', reason: 'McTominay+Hanley头球威胁。巴西历来定位球防守薄弱' },
-    ],
-    groupContext: `C组R3。摩洛哥6分(已出线!) | 巴西4分(赢即出线+可能头名) | 苏格兰3分(平即可能出线为最佳第三) | 海地0分(淘汰)\n\n苏格兰3分→平局有出线希望(最佳第3看其他组)→会努力保平,不会只挨打。但巴西质量碾压。`,
-    handicaps: [
-      {line:2, win:0.0518, draw:0.1376, lose:0.5826},
-      {line:1.5, win:0.4139, draw:0, lose:0.5826, marketWin:'@1.87', marketLose:'@2.04', isMarketLine:true},
-      {line:1, win:0.1893, draw:0.2246, lose:0.5826},
-      {line:0.5, win:0.4139, draw:0, lose:0.5826},
-      {line:0, win:0.0518, draw:0.1376, lose:0.8072},
-    ],
-    overUnder: [
-      {line:1.5, over:0.7808, under:0.2192},
-      {line:2.5, over:0.5522, under:0.4444, marketOver:'@1.87', marketUnder:'@2.02', isMarketLine:true},
-      {line:3.0, over:0.3285, under:0.6680},
-      {line:3.5, over:0.3285, under:0.6680},
-    ],
-    predictions: [],
-    recommendations: [
-      {type:'让球', pick:'巴西-1.5', odds:'@2.04', modelProb:0.5826, reason:'模型58.3%>需49.0%→+9.2pp。巴西R2已反弹(3-0海地)→R3正常碾压。苏格兰仅1进球(对海地)→进攻无力'},
-      {type:'大小球', pick:'Under 2.5', odds:'@2.02', modelProb:0.4444, reason:'⚠️ 边缘。苏格兰5后卫会全力防守(平局=出线希望!)→巴西可能被拖到只进1-2球。但模型44.4%<需49.5%→严格说无value。观望'},
-    ],
-    analysis: {
-      groupSituation: `**C组R3形势**\n\n摩洛哥6分(已出线!) | 巴西4分 | 苏格兰3分 | 海地0分\n\n巴西赢即出线。苏格兰平局有最佳第3出线希望(取决于其他组)。苏格兰不会摆烂——3分+平局有出线价值→会努力保平。`,
-      lineup1Detail: `**苏格兰 (5-3-2) — 克拉克**\n\nR1 1-0海地(McGinn进球),R2 0-1摩洛哥(仅丢1球=2分钟闪击非系统崩盘)。5后卫体系防守纪律可靠。进攻端仅1进球(对弱队)→面对巴西几乎不可能得分。`,
-      lineup2Detail: `**巴西 (4-2-3-1) — 多里瓦尔**\n\nR1 1-1平摩洛哥(TYPE_A首轮异常),R2 3-0海地(反弹完成!Cunha双响+Vinícius)。R3正常状态→世界顶级攻击力(Vinícius+Raphinha+Paquetá)。赢即出线。`,
-      styleAnalysis: `**苏格兰**: 英式防守纪律型。5-3-2最大化后防厚度。McTominay(曼联→那不勒斯)是进攻中最具威胁的。整体保平思路:拖时间+定位球偷1球。\n\n**巴西**: 世界顶级技术流。Vinícius Jr+Raphinha边路速度+Paquetá插上。R2已完成反弹→R3不存在TYPE_A效应。正常发挥=碾压苏格兰。`,
-      tacticalNarrative: `巴西R2已完成反弹(3-0)→R3不适用TYPE_A规则(反弹已发生)。正常碾压逻辑适用。\n\n但苏格兰有3分(平局=出线希望!)→不是"已淘汰摆烂"型(如卡塔尔/库拉索)。会全力保平→5后卫+低位防守+定位球偷袭。\n\n关键问题:苏格兰能顶多久?R2对摩洛哥仅丢1球(2分钟)→防守质量确认。但巴西≠摩洛哥,技术密度高一个档次。预计巴西1-0或2-0艰难取胜。`,
-      modelInterpretation: `模型巴西80.7% vs Pinnacle市场72.3%\n\nGap=-8.4pp(model_higher)。λ=0.46(苏)/2.43(巴)(total=2.90)。苏格兰λ=0.46=本轮最低→进攻几乎为零(2场仅1球且对海地)。巴西λ=2.43→预期2-3球。\n\n⚠️ 苏格兰"平局=出线"动机+5后卫→可能拖住巴西。Under方向有逻辑但模型不支持(44.4%<50%)。`,
-      betReasoning: `巴西-1.5 @2.04是今日次优推荐(+9.2pp)。逻辑:\n1. 巴西R2已反弹→R3正常碾压(不适用TYPE_A规则)\n2. 苏格兰进攻≈0(λ=0.46,仅1进球对海地)\n3. 巴西赢即出线→全力以赴\n\n⚠️ 风险:苏格兰"3分保平"动机强+5后卫→可能被拖成1-0。-1.5需巴西净胜2球。如果苏格兰70分钟后仍0-1→巴西可能不再冒险追。\n\nUnder观望:逻辑对(苏格兰防守)但模型44.4%<49.5%→严格无value。不硬推。`
-    },
-    commercialAnalysis: {
-      summary: '巴西R2已反弹(不适用TYPE_A)→正常碾压。-1.5(+9.2pp)核心pick。苏格兰"3分保平"是唯一不确定性。Under观望(无value)。',
-      approvedPicks: [
-        { pick: '巴西-1.5', odds: '@2.04', verdict: 'approved', edge: '+9.2pp', reasoning: '模型58.3%>49.0%。巴西反弹已完成→R3正常发挥。苏格兰λ=0.46(进攻为零)', category: 'core' },
-      ],
-      rejectedPicks: [
-        { pick: 'Under 2.5', odds: '@2.02', verdict: 'rejected', edge: '-5.1pp(44.4%<49.5%)', reasoning: '苏格兰保平逻辑对但模型不支持。巴西λ=2.43太高→Under模型概率不足', category: 'trap' },
-        { pick: '苏格兰+1.5', odds: '@1.87', verdict: 'rejected', edge: '-12.1pp(41.4%<53.5%)', reasoning: '⚠️ 6/23新规则: 不做巴西反弹后的逆向让球!苏格兰+1.5=赌巴西最多赢1球→概率仅41.4%', category: 'trap' },
-      ],
-      marketBehavior: '市场巴西@1.33=72.3%,模型80.7%。+8.4pp分歧不大。-1.5盘口@2.04/1.87→市场认为巴西赢2+球约49%。模型58.3%→有+9.2pp空间。',
-      kellyNote: '巴西-1.5建议1.5%仓位(+9.2pp)。Under不推荐(无value)。'
-    },
-    confidence: 'mid'
-  },
-  {
-    team1: '摩洛哥', team2: '海地', group: 'C', ground: '波士顿', time: '18:00 UTC-4',
-    elo1: 1840, elo2: 1536, eloDiff: 304,
-    model: { home: 0.9370, draw: 0.0410, away: 0.0080 },
-    market: { home: 0.8089, draw: 0.1279, away: 0.0632, _note: 'Pinnacle (1.18/7.46/15.11, vig-removed)' },
-    lambda: { home: 3.68, away: 0.24, total: 3.92 },
-    gap: { team: '摩洛哥', value: -12.8, direction: 'model_higher' },
-    formation1: '4-3-3', formation2: '5-4-1', coach1: '雷格拉吉', coach2: '科莱',
-    style1: 'R1 1-1平巴西(!),R2 1-0胜苏格兰(Saibari 2分钟!)→6分小组第一出线!可能轮休主力保护体能。Saibari是本届黑马核心。',
-    style2: 'R1 0-1负苏格兰,R2 0-3负巴西→0进球!已淘汰。Elo1536(48队倒数第4)。无任何出线希望,仅为荣誉而战。',
-    lineup1: 'Bounou; Hakimi, Aguerd, Saiss, Mazraoui; Amrabat, Ounahi, Saibari; Ziyech, En-Nesyri, Boufal',
-    lineup2: 'Duval; Pierrot, Romain, Bazile, Geffrard, Alceus; Gilles, Fedelin, Derilus; Péralte, Casimir',
-    injuries1: '可能轮休(已出线)', injuries2: '无重大伤情(士气极低)',
-    tacticalMatchup: [
-      { area: 'Saibari vs 海地防线', advantage: '摩洛哥(碾压)', reason: 'Saibari本届2球2助=C组最佳。海地丢4球0进→防守已崩' },
-      { area: '轮休影响', advantage: '减弱', reason: '摩洛哥已出线→可能轮休Hakimi/Ziyech等主力→攻击力下降' },
-      { area: '海地防守决心', advantage: '海地(微)', reason: '最后一场为荣誉而战。已淘汰=零压力=可能超常发挥' },
-    ],
-    groupContext: `C组R3。摩洛哥6分已出线!头名取决于是否赢球+巴西结果。但R32路径差异不大(C1对F2日本~1910 vs C2对F1荷兰~1944=仅34差)→轮休动力>争头名动力。\n\n海地0分已淘汰。纯荣誉战。`,
-    handicaps: [
-      {line:-3, win:0.5118, draw:0.1723, lose:0.3159},
-      {line:-2.5, win:0.6841, draw:0, lose:0.3159},
-      {line:-2, win:0.7380, draw:0.1412, lose:0.1208, marketWin:'@1.95', marketLose:'@1.93', isMarketLine:true},
-      {line:-1.5, win:0.8792, draw:0, lose:0.1208},
-      {line:-1, win:0.8792, draw:0.0498, lose:0.0710},
-      {line:-0.5, win:0.9290, draw:0, lose:0.0710},
-      {line:0, win:0.9370, draw:0.0410, lose:0.0080},
-    ],
-    overUnder: [
-      {line:2.0, over:0.7537, under:0.1212},
-      {line:2.5, over:0.6988, under:0.2916},
-      {line:3.0, over:0.6370, under:0.3534, marketOver:'@1.84', marketUnder:'@2.04', isMarketLine:true},
-      {line:3.5, over:0.4649, under:0.5255},
-    ],
-    predictions: [],
-    recommendations: [
-      {type:'大小球', pick:'Over 3.0', odds:'@1.84', modelProb:0.6370, reason:'λ=3.92(即使0.75衰减后仍3.68!)。摩洛哥进攻火力本届最强(3场4球!)。海地丢4球0进→防线洞开'},
-      {type:'让球', pick:'摩洛哥-2.0', odds:'@1.95', modelProb:0.7380, reason:'模型73.8%>需51.3%→+22.5pp! 但⚠️轮休因素=不确定性→降低仓位'},
-    ],
-    analysis: {
-      groupSituation: `**C组R3**\n\n摩洛哥6分(已出线!) | 巴西4分 | 苏格兰3分 | 海地0分(淘汰)\n\n摩洛哥已确保出线。头名取决于是否赢球+巴西-苏格兰结果。但C1对F2(日本1910) vs C2对F1(荷兰1944)=仅34 Elo差→争头名动力LOW。可能轮休。`,
-      lineup1Detail: `**摩洛哥 (4-3-3) — 雷格拉吉**\n\nSaibari本届2球2助=C组最佳球员!Hakimi+Mazraoui(拜仁)双翼卫。已出线→可能轮休主力(Hakimi/Ziyech/En-Nesyri),用替补练兵。\n\n⚠️ 轮休=λ实际可能更低。用0.75衰减更合理。`,
-      lineup2Detail: `**海地 (5-4-1) — 科莱**\n\n0进球! 2场0-1+0-3。Elo1536(48队倒数第4)。已淘汰。最后一场为加勒比足球的荣誉而战。可能全力防守保体面(类似库拉索0-0厄瓜多尔?)`,
-      styleAnalysis: `**摩洛哥**: 本届最大黑马! 1-1巴西+1-0苏格兰展现世界级实力。Saibari核心创造力+Hakimi冲击。战术纪律+技术能力兼备。\n\n**海地**: 加勒比弱旅。0进球说明进攻完全不存在。5-4-1全力防守。最后一场→可能"库拉索效应"(0-0厄瓜多尔),也可能像R2被巴西打穿。`,
-      tacticalNarrative: `核心疑问: 这是"碾压大胜"还是"dead rubber平淡"?\n\n⚠️ 6/23规则应用:\n- 摩洛哥已出线→λ用0.75衰减(dead rubber)\n- 海地已淘汰→可能库拉索效应(全摆烂防守)\n- 但! 摩洛哥R2对苏格兰仅派主力踢了全场(Saibari 2分钟进球)→教练可能R3继续用主力保持状态\n- 且! 海地防守质量远低于苏格兰/库拉索→即使摆烂也顶不住\n\n综合:即使轮休,摩洛哥替补阵容也碾压海地→2-3球大胜最可能。`,
-      modelInterpretation: `模型93.7% vs Pinnacle市场80.9%\n\nGap=-12.8pp(model_higher)。λ(0.75 dead rubber衰减)=3.68/0.24=total 3.92。即使重衰减,摩洛哥λ仍极高(Elo差304)。\n\n-2.0穿盘73.8%→即使打8折(轮休)仍~59%>51.3%。Over 3.0=63.7%→edge充足。`,
-      betReasoning: `双推Over 3.0(+9.4pp)+ 摩洛哥-2.0(+22.5pp,但轮休降低置信度):\n\nOver逻辑: λ_total=3.92即使0.75衰减仍然极高。海地0进球=不会"偷一个"拉低总球。单边碾压型大球。\n\n-2.0逻辑: 模型73.8%巨大正EV。但轮休不确定性=实际edge可能缩至+10-15pp(仍有value)。降低仓位管理风险。`
-    },
-    commercialAnalysis: {
-      summary: '摩洛哥已出线(dead rubber 0.75衰减)但即使轮休也碾压海地。Over 3.0(+9.4pp)和-2.0(+22.5pp)双core,但轮休降低仓位。',
-      approvedPicks: [
-        { pick: 'Over 3.0', odds: '@1.84', verdict: 'approved', edge: '+9.4pp', reasoning: 'λ=3.92(极高!)。海地0进球=单边碾压型大球。即使摩洛哥轮休,替补也碾压(Elo差304)', category: 'core' },
-        { pick: '摩洛哥-2.0', odds: '@1.95', verdict: 'approved', edge: '+22.5pp(轮休打折后~+10-15pp)', reasoning: '模型73.8%碾压。但轮休不确定性→降低仓位至1%', category: 'value' },
-      ],
-      rejectedPicks: [
-        { pick: '海地+2.0', odds: '@1.93', verdict: 'rejected', edge: '-27pp(24.8%<51.8%)', reasoning: '海地防守质量远低于苏格兰/库拉索。0进球=无反击威胁。摩洛哥即使轮休也穿2球', category: 'trap' },
-      ],
-      marketBehavior: '市场摩洛哥@1.18+穿盘-2.0@1.95/1.93。市场已定价轮休可能性。模型(即使用0.75衰减)仍远高于市场→结构性alpha。海地≠库拉索(海地R2被巴西3-0打穿=证明无法顶住)。',
-      kellyNote: 'Over 3.0建议1.5%仓位(+9.4pp,结构性大球)。摩洛哥-2.0建议1%仓位(轮休不确定性降仓)。'
-    },
-    confidence: 'mid'
-  },
-  {
-    team1: '捷克', team2: '墨西哥', group: 'A', ground: '瓜达拉哈拉', time: '21:00 UTC-5',
-    elo1: 1712, elo2: 1881, eloDiff: -169,
-    model: { home: 0.1496, draw: 0.2411, away: 0.6049 },
-    market: { home: 0.2552, draw: 0.2449, away: 0.4999, _note: 'Pinnacle (3.78/3.94/1.93, vig-removed)' },
-    lambda: { home: 0.68, away: 1.65, total: 2.34 },
-    gap: { team: '墨西哥', value: 10.5, direction: 'model_higher' },
-    formation1: '4-2-3-1', formation2: '4-3-3', coach1: '哈谢克', coach2: '洛萨诺',
-    style1: 'R1 1-2负韩国,R2 1-1平南非(被83分钟扳平!)→1分MUST-WIN。Sadílek有进球。攻守平衡但质量有限。',
-    style2: 'R1 2-0胜南非,R2 1-0胜韩国→6分已出线!本届全胜。瓜达拉哈拉主场(北美host buff!)。但已锁定头名→大概率轮休。',
-    lineup1: 'Staněk; Coufal, Holeš, Krejčí, Zelený; Sadílek, Souček; Provod, Barák, Černý; Schick',
-    lineup2: 'Ochoa(轮休?); Arteaga, Montes, Vasquez, Sanchez; Alvarez(轮休?), Romo, Pineda; Antuna, Gimenez, Vega',
-    injuries1: '全员健康', injuries2: '预计轮休多名主力(已出线)',
-    tacticalMatchup: [
-      { area: '墨西哥轮休影响', advantage: '捷克(提升)', reason: '墨西哥6分已锁头名→预计轮休Lozano/Alvarez等主力。替补实力下降' },
-      { area: 'Souček定位球', advantage: '捷克', reason: 'Souček(西汉姆)头球威胁。定位球是捷克核心武器' },
-      { area: '主场因素', advantage: '墨西哥', reason: '瓜达拉哈拉=墨西哥主场(北美host buff +80-100 Elo)。即使轮休,主场球迷支持仍在' },
-    ],
-    groupContext: `A组R3。墨西哥6分(已出线+锁头名!)→纯dead rubber。捷克1分(必须赢+看南非结果)。韩国3分(另一场对南非)。\n\n捷克赢=3分+可能最佳第3出线。输=确定淘汰。动力极强。`,
-    handicaps: [
-      {line:-1, win:0.0224, draw:0.0639, lose:0.9105},
-      {line:-0.5, win:0.1496, draw:0, lose:0.8461, marketWin:'@1.96', marketLose:'@1.94', isMarketLine:true},
-      {line:0, win:0.1496, draw:0.2411, lose:0.6049},
-      {line:0.5, win:0.3907, draw:0, lose:0.6049},
-      {line:1, win:0.3907, draw:0.2550, lose:0.3499},
-      {line:1.5, win:0.6457, draw:0, lose:0.3499},
-    ],
-    overUnder: [
-      {line:1.5, over:0.6207, under:0.3793},
-      {line:2.0, over:0.4525, under:0.3793},
-      {line:2.5, over:0.4132, under:0.5824, marketOver:'@2.07', marketUnder:'@1.83', isMarketLine:true},
-      {line:3.5, over:0.1872, under:0.8128},
-    ],
-    predictions: [],
-    recommendations: [
-      {type:'大小球', pick:'Under 2.5', odds:'@1.83', modelProb:0.5824, reason:'⚠️ 模型edge不足(58.2%但需54.6%→仅+3.6pp)。但结构逻辑强:墨西哥轮休(攻击力下降)+捷克防守型→R3低节奏延续'},
-      {type:'胜平负', pick:'观望(不推)', odds:'-', modelProb:0, reason:'模型vs市场分歧巨大(+10.5pp MX)但模型不含轮休因子和主场buff→模型不可靠。市场更接近真实→无可靠edge'},
-    ],
-    analysis: {
-      groupSituation: `**A组R3**\n\n墨西哥6分(已出线+锁头名!) | 韩国3分 | 捷克1分 | 南非1分\n\n捷克MUST-WIN(赢=2分,平=2分→看最佳第3。如果赢且南非不赢韩国→捷克出线)。墨西哥无任何动力,纯dead rubber。`,
-      lineup1Detail: `**捷克 (4-2-3-1) — 哈谢克**\n\nR1 1-2负韩国(Krejcí进球),R2 1-1平南非(Sadílek 6分钟进球但被83分钟扳平!)→1分MUST-WIN。Souček+Schick是核心。全力以赴。`,
-      lineup2Detail: `**墨西哥 (4-3-3) — 洛萨诺**\n\n6分已出线+锁头名!瓜达拉哈拉主场。预计大面积轮休:Lozano/Alvarez/Jimenez可能都不上。替补阵容仍有实力但明显下降。\n\n⚠️ 北美主场buff仍在(+80-100 Elo等效),即使轮休。`,
-      styleAnalysis: `**捷克**: 东欧力量+定位球型。Souček(西汉姆)头球+Schick(勒沃库森)冲击力。R2被南非83分钟扳平说明比赛管理有问题。今天全力输出。\n\n**墨西哥**: 本届全胜(2-0, 1-0)展现极强控制力。但今天轮休→攻击力明显下降。瓜达拉哈拉主场球迷仍会热情支持。可能派出年轻球员练兵。`,
-      tacticalNarrative: `核心矛盾:捷克MUST-WIN vs 墨西哥dead rubber轮休。\n\n⚠️ 模型限制:模型给墨西哥60.5%但不含轮休因子(实际应为45-50%)。市场@1.93(50%)已合理定价轮休。\n\n⚠️ 北美主场限制:墨西哥在瓜达拉哈拉=真正主场。即使轮休,替补+主场≈正常客场实力。\n\n不推荐做方向判断。Under是最可靠信号(轮休=低节奏+捷克防守型)。`,
-      modelInterpretation: `模型墨西哥60.5% vs Pinnacle市场50.0%\n\nGap=+10.5pp(model_higher)。但模型不含:①轮休(墨西哥已出线)②北美主场buff。调整后模型应≈市场50%→无可靠alpha。\n\n唯一可靠信号:Under 2.5(λ=2.34+轮休进一步降低→实际total≈1.8-2.0)。`,
-      betReasoning: `Under 2.5 @1.83是本场唯一推荐(边缘但逻辑强):\n1. 墨西哥轮休→攻击力下降(λ从1.65降至~1.0-1.2)\n2. 捷克R2仅进1球(且对弱队南非)→进攻能力有限\n3. R3整体低节奏趋势(6/23 avg=1.75)\n4. 墨西哥无动力追分→可能接受0-0/1-0\n\n不推方向:模型不可靠(不含轮休+主场),市场分歧来自模型盲区而非真实alpha。`
-    },
-    commercialAnalysis: {
-      summary: '墨西哥dead rubber轮休→模型不可靠(不含轮休因子)。Under 2.5(@1.83,+3.6pp)是唯一边缘pick。方向观望。',
-      approvedPicks: [
-        { pick: 'Under 2.5', odds: '@1.83', verdict: 'marginal', edge: '+3.6pp(边缘)', reasoning: '轮休+R3低节奏+捷克防守型。结构逻辑>模型数字', category: 'value' },
-      ],
-      rejectedPicks: [
-        { pick: '墨西哥胜', odds: '@1.93', verdict: 'rejected', edge: '模型不可靠', reasoning: '模型不含轮休。市场已定价。无真实alpha', category: 'trap' },
-        { pick: '捷克+0.5', odds: '@1.96', verdict: 'rejected', edge: '-29pp(模型) / 观望(调整后)', reasoning: '模型严重高估MX(不含轮休)→捷克+0.5模型概率22%太低。调整后可能40-45%但仍<51%→无value', category: 'trap' },
-      ],
-      marketBehavior: '市场墨西哥@1.93反映轮休+仍有主场实力的平衡。捷克@3.78=26%合理(MUST-WIN但实力差)。市场定价高效,无明显错误定价。',
-      kellyNote: 'Under 2.5建议0.5-1%仓位(边缘edge,低信心)。方向不参与。'
-    },
-    confidence: 'low'
-  },
-  {
-    team1: '南非', team2: '韩国', group: 'A', ground: '亚特兰大', time: '21:00 UTC-5',
-    elo1: 1511, elo2: 1786, eloDiff: -275,
-    model: { home: 0.0577, draw: 0.1376, away: 0.8013 },
-    market: { home: 0.1810, draw: 0.2457, away: 0.5733, _note: 'Pinnacle (5.32/3.92/1.68, vig-removed)' },
-    lambda: { home: 0.46, away: 2.43, total: 2.90 },
-    gap: { team: '韩国', value: 22.8, direction: 'model_higher' },
-    formation1: '4-3-3', formation2: '4-2-3-1', coach1: '布鲁斯', coach2: '洪明甫',
-    style1: 'R1 0-2负墨西哥,R2 1-1平捷克(Mokoena 83分钟扳平!)→1分MUST-WIN。Mokoena关键时刻进球。',
-    style2: 'R1 2-1胜捷克(Hwang In-Beom+Oh Hyeon-Gyu),R2 0-1负墨西哥→3分,赢或平即出线。稳健即可。',
-    lineup1: 'Williams; Modiba, De Reuck, Xulu, Mashego; Mokoena, Mokwana, Tau; Zwane, Foster, Shalulile',
-    lineup2: 'Kim Seung-gyu; Kim Moon-hwan, Kim Min-jae, Cho Yu-min, Kim Jin-su; Hwang In-beom, Lee Kang-in; Lee Jae-sung, Son Heung-min(C), Hwang Hee-chan; Oh Hyeon-gyu',
-    injuries1: '全员健康', injuries2: '全员健康',
-    tacticalMatchup: [
-      { area: 'Son Heung-min vs 南非防线', advantage: '韩国(碾压)', reason: 'Son世界级。南非Elo1511无法匹配个人能力' },
-      { area: '南非MUST-WIN精神', advantage: '南非(微)', reason: 'R2 83分钟扳平=永不放弃精神。MUST-WIN动力' },
-      { area: '韩国"平局即可"', advantage: '降低韩国攻击性', reason: '韩国3分→平局即出线!大概率不冒险' },
-    ],
-    groupContext: `A组R3。韩国3分(赢/平即出线)。南非1分(必须赢+其他结果配合)。同时进行捷克vs墨西哥。\n\n韩国平局即可→可能保守。南非MUST-WIN但Elo差275→质量碾压难以逆转。\n\n⚠️ "3分铁桶"规则:韩国有3分+面对弱队→但这里是韩国强队面对弱南非,不是弱队面对强队!规则不适用。`,
-    handicaps: [
-      {line:1.5, win:0.4139, draw:0, lose:0.5826},
-      {line:1, win:0.1893, draw:0.2246, lose:0.5826},
-      {line:0.75, win:0.3016, draw:0, lose:0.6949, marketWin:'@2.02', marketLose:'@1.89', isMarketLine:true},
-      {line:0.5, win:0.1893, draw:0, lose:0.8072},
-      {line:0, win:0.0577, draw:0.1376, lose:0.8013},
-    ],
-    overUnder: [
-      {line:1.5, over:0.7808, under:0.2192},
-      {line:2.5, over:0.5522, under:0.4444, marketOver:'@2.06', marketUnder:'@1.84', isMarketLine:true},
-      {line:3.0, over:0.4404, under:0.5562},
-      {line:3.5, over:0.3285, under:0.6680},
-    ],
-    predictions: [],
-    recommendations: [
-      {type:'大小球', pick:'Under 2.5', odds:'@1.84', modelProb:0.4444, reason:'⚠️ 模型不支持(44.4%<54.3%→负EV!)。但新规则:韩国"平局即出线"→可能保守+R3低节奏。结构性Under但模型反对→观望'},
-      {type:'胜平负', pick:'韩国胜', odds:'@1.68', modelProb:0.8013, reason:'TYPE_C(+22.8pp)。模型80%>市场57%。但⚠️模型在Elo差>250时系统性过度→实际edge可能仅+5-10pp。韩国@1.68需59.5%→调整后仍有value'},
-    ],
-    analysis: {
-      groupSituation: `**A组R3**\n\n墨西哥6分(出线) | 韩国3分 | 捷克1分 | 南非1分\n\n韩国赢或平即出线!平局=安全→可能保守。南非1分MUST-WIN但Elo差275=质量碾压。\n\n同时进行:捷克vs墨西哥(轮休)。南非赢+捷克不赢=南非出线(理论可能但实际很难)。`,
-      lineup1Detail: `**南非 (4-3-3) — 布鲁斯**\n\nR1 0-2负墨西哥(正常),R2 1-1平捷克(Mokoena 83分钟扳平!)→展现永不放弃精神。Elo1511(48队第45)。MUST-WIN但质量差距巨大。`,
-      lineup2Detail: `**韩国 (4-2-3-1) — 洪明甫**\n\nR1 2-1胜捷克,R2 0-1负墨西哥→3分。Son Heung-min(热刺)+Lee Kang-in(PSG)=亚洲最强攻击线。平局即出线→可能控制节奏,不冒险。`,
-      styleAnalysis: `**南非**: 非洲力量+速度型。Mokoena是关键(R2关键进球)。整体质量有限但精神力强。MUST-WIN会全力输出→但能力上限低。\n\n**韩国**: 亚洲技术流。Son+Lee Kang-in+Hwang Hee-chan技术密度高。平局即出线→今天大概率60%控球+不冒险。如果领先→立刻收缩保结果。`,
-      tacticalNarrative: `韩国"平局即出线"=会保守? 不一定!\n\n⚠️ "3分铁桶"规则不适用(那是弱队面对强队摆铁桶)。这里韩国是强队(Elo+275)面对弱队——即使保守也会自然碾压(技术差距+Son个人能力)。\n\n更可能剧本:韩国正常发挥→自然领先→然后收缩。不需要冒险就能赢1-2球。南非MUST-WIN但能力不足以突破Kim Min-jae等世界级后卫。`,
-      modelInterpretation: `模型韩国80.1% vs Pinnacle市场57.3%\n\nGap=+22.8pp(model_higher)。⚠️ 模型在Elo差>250时系统性过高(已知limitation)。市场57%可能因:①韩国保守倾向②南非MUST-WIN精神③世界杯高方差。\n\n调整后合理估计:韩国~65-70%。@1.68需59.5%→仍有+5-10pp正EV。`,
-      betReasoning: `韩国胜@1.68是本场推荐(调整后edge约+5-10pp):\n1. Elo差275=结构性碾压(即使保守也自然占优)\n2. Son+Lee Kang-in个人能力碾压南非后防\n3. 韩国保守≠不进球——只是不追分\n4. 南非Mokoena精神可嘉但能力上限低(对捷克才平)\n\nUnder观望:逻辑对(韩国保守)但模型不支持(44.4%<54.3%)且韩国λ=2.43说明自然就能进2-3球。不硬推Under。`
-    },
-    commercialAnalysis: {
-      summary: 'TYPE_C(+22.8pp,调整后+5-10pp)。韩国胜@1.68有value(调整后仍>59.5%需求)。Under逻辑对但模型反对→观望。',
-      approvedPicks: [
-        { pick: '韩国胜', odds: '@1.68', verdict: 'approved', edge: '+5-10pp(Elo校准后)', reasoning: 'Elo差275+Son世界级。即使保守也自然碾压。@1.68需59.5%→调整后65-70%仍有value', category: 'value' },
-      ],
-      rejectedPicks: [
-        { pick: '韩国-0.75', odds: '@1.89', verdict: 'rejected', edge: '模型过高不可靠', reasoning: '模型90%但Elo差>250系统性过估。市场-0.75→穿盘需韩国赢1球以上(保守韩国可能只赢1-0)→风险大', category: 'trap' },
-        { pick: 'Under 2.5', odds: '@1.84', verdict: 'rejected', edge: '-10pp(44.4%<54.3%)', reasoning: '韩国λ=2.43(自然进球能力强)。保守≠低总球——只是不追第3球', category: 'trap' },
-      ],
-      marketBehavior: '市场韩国@1.68=59.5%合理反映"平局即出线"保守倾向。但Elo差275的结构性碾压被低估(市场可能被南非R2 83分钟进球"精神力"叙事影响)。',
-      kellyNote: '韩国胜建议1%仓位(低赔率+Elo过估风险→保守)。'
+      marketBehavior: '市场荷兰@1.11=88.3%极端定价。荷兰-2.75→51.7%市场看好穿深盘。但模型仅25.8%穿盘→市场可能高估Gakpo\"帽子戏法\"的可持续性(帽子戏法不每天发生)。',
+      kellyNote: '突尼斯+2.75建议1-1.5%仓位(+13.7pp)。Under 3.5建议0.5%仓位(边缘)或不参与。'
     },
     confidence: 'mid'
   },
 ]
 
 export const goalDistributions: Record<string, GoalDistribution> = {
-  '波黑vs卡塔尔': { team1: '波黑', team2: '卡塔尔', diffs: {'-2':0.008,'-1':0.038,'0':0.156,'1':0.241,'2':0.241,'3':0.174,'4':0.092,'5':0.037,'6':0.012} },
-  '瑞士vs加拿大': { team1: '瑞士', team2: '加拿大', diffs: {'-3':0.011,'-2':0.044,'-1':0.131,'0':0.241,'1':0.255,'2':0.180,'3':0.090,'4':0.033,'5':0.010} },
-  '苏格兰vs巴西': { team1: '苏格兰', team2: '巴西', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.138,'1':0.052,'2':0.014,'3':0.003} },
-  '摩洛哥vs海地': { team1: '摩洛哥', team2: '海地', diffs: {'-1':0.003,'0':0.041,'1':0.050,'2':0.141,'3':0.172,'4':0.185,'5':0.165,'6':0.121,'7':0.072,'8':0.036} },
-  '捷克vs墨西哥': { team1: '捷克', team2: '墨西哥', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.241,'1':0.090,'2':0.033,'3':0.010} },
-  '南非vs韩国': { team1: '南非', team2: '韩国', diffs: {'-5':0.021,'-4':0.056,'-3':0.119,'-2':0.201,'-1':0.225,'0':0.138,'1':0.052,'2':0.014,'3':0.003} },
+  '土耳其vs美国': { team1: '土耳其', team2: '美国', diffs: {'-4':0.026,'-3':0.059,'-2':0.135,'-1':0.225,'0':0.262,'1':0.174,'2':0.081,'3':0.028,'4':0.007} },
+  '巴拉圭vs澳大利亚': { team1: '巴拉圭', team2: '澳大利亚', diffs: {'-4':0.023,'-3':0.055,'-2':0.130,'-1':0.223,'0':0.267,'1':0.179,'2':0.084,'3':0.028,'4':0.008} },
+  '库拉索vs科特迪瓦': { team1: '库拉索', team2: '科特迪瓦', diffs: {'-5':0.036,'-4':0.068,'-3':0.140,'-2':0.222,'-1':0.252,'0':0.188,'1':0.069,'2':0.017,'3':0.003} },
+  '厄瓜多尔vs德国': { team1: '厄瓜多尔', team2: '德国', diffs: {'-5':0.012,'-4':0.030,'-3':0.079,'-2':0.161,'-1':0.239,'0':0.249,'1':0.146,'2':0.060,'3':0.018} },
+  '日本vs瑞典': { team1: '日本', team2: '瑞典', diffs: {'-3':0.021,'-2':0.062,'-1':0.140,'0':0.230,'1':0.230,'2':0.166,'3':0.089,'4':0.038,'5':0.013} },
+  '突尼斯vs荷兰': { team1: '突尼斯', team2: '荷兰', diffs: {'-5':0.066,'-4':0.099,'-3':0.171,'-2':0.230,'-1':0.223,'0':0.143,'1':0.047,'2':0.011,'3':0.002} },
 }
 
 export const tournamentStats: TournamentStats = {
@@ -390,74 +419,78 @@ export const tournamentStats: TournamentStats = {
 }
 
 export const commercialAnalyses: Record<string, CommercialAnalysis> = {
-  '波黑vs卡塔尔': {
-    summary: 'TYPE_C(+9.3pp)→波黑-1.25核心alpha。Under 3.0(+6.7pp)辅助。卡塔尔R1有亮点不宜追深盘-2.0。',
+  '土耳其vs美国': {
+    summary: '美国锁#1轮换+土耳其0球→Under 2.75(+11.6pp)今日最强Under。土耳其+0.5(+5.0pp)辅助。方向无value。',
     approvedPicks: [
-      { pick: '波黑-1.25', odds: '@1.88', verdict: 'approved', edge: '+6.6pp', reasoning: '模型59.8%>需53.2%。TYPE_C结构性alpha+MUST-WIN动力+卡塔尔0-6崩盘', category: 'core' },
-      { pick: 'Under 3.0', odds: '@1.93', verdict: 'approved', edge: '+6.7pp', reasoning: 'R3 λ=2.77(衰减后)。卡塔尔无进攻动力。6/23四场avg1.75球验证低节奏', category: 'value' },
+      { pick: 'Under 2.75', odds: '@2.00', verdict: 'approved', edge: '+11.6pp', reasoning: '土耳其2场0球+美国锁#1轮换→结构性小球。61.6%>48.6%', category: 'core' },
+      { pick: '土耳其+0.5', odds: '@1.99', verdict: 'approved', edge: '+5.0pp', reasoning: '美国锁#1→轮换2-3主力。土耳其防守韧性(def_residual=+0.25)', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '波黑-2', odds: '@2.20', verdict: 'rejected', edge: '-6pp(39.4%<45.5%)', reasoning: '卡塔尔R1 90+4证明有末路反扑力。穿2球仅39.4%→负EV', category: 'trap' },
+      { pick: '美国胜', odds: '@1.92', verdict: 'rejected', edge: '-7.4pp', reasoning: '模型44.7%<52.1%→负EV', category: 'trap' },
     ],
-    marketBehavior: '市场波黑@1.41反映MUST-WIN+Elo差。-1.25盘口是最佳性价比位置。',
-    kellyNote: '波黑-1.25建议2%仓位。Under 3.0建议1.5%仓位。'
+    marketBehavior: '市场美国@1.92→50.6%已充分定价。但锁#1轮换影响未充分计入。Under 2.75是最佳信息不对称方向。',
+    kellyNote: 'Under 2.75建议1.5%仓位。土耳其+0.5建议1%仓位。'
   },
-  '瑞士vs加拿大': {
-    summary: 'TYPE_C(+20pp)但加拿大温哥华主场缩小edge。瑞士胜@2.39有value但需降仓。Under 2.25逻辑强。',
+  '巴拉圭vs澳大利亚': {
+    summary: 'Model-Market最大分歧(+20.5pp)。澳洲+0.25(+13.2pp)安全value表达。Over 1.75(+6.6pp)基于MUST-WIN→开放对攻。',
     approvedPicks: [
-      { pick: '瑞士胜', odds: '@2.39', verdict: 'approved', edge: '+18.7pp(raw)/+5-10pp(主场调整)', reasoning: '瑞士MUST-WIN+Elo+98。主场调整后仍有正EV', category: 'value' },
-      { pick: 'Under 2.25', odds: '@2.02', verdict: 'approved', edge: '+2.2pp(边缘)', reasoning: '加拿大平局即头名→保守。R3结构性小球', category: 'value' },
+      { pick: '澳大利亚+0.25', odds: '@1.76', verdict: 'approved', edge: '+13.2pp', reasoning: 'Elo+59+平局即出线退守。70%不败>56.8%', category: 'core' },
+      { pick: 'Over 1.75', odds: '@1.87', verdict: 'approved', edge: '+6.6pp', reasoning: 'MUST-WIN必须进攻→开放对攻。60.1%>53.5%', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '加拿大胜', odds: '@3.39', verdict: 'rejected', edge: '-14pp', reasoning: '即使加主场仍远低于需求概率', category: 'trap' },
+      { pick: '澳大利亚胜', odds: '@4.25', verdict: 'rejected', edge: '结构盲点风险', reasoning: '+20.5pp可能为POISSON保守战术盲点。+0.25更安全', category: 'trap' },
     ],
-    marketBehavior: '市场瑞士仅40.5%=低估。加拿大6-0心理冲击(但对手Elo1447)过度反应。',
-    kellyNote: '瑞士胜建议1-1.5%仓位(主场不确定性)。Under 2.25建议1%仓位。'
+    marketBehavior: '市场平局42.1%=巨幅高于模型26.7%。市场在保守战术定价上正确。澳洲+0.25绕过平局问题。',
+    kellyNote: '澳洲+0.25建议1.5%仓位。Over 1.75建议1%仓位。'
   },
-  '苏格兰vs巴西': {
-    summary: '巴西R2已反弹→不适用TYPE_A。-1.5(+9.2pp)核心。苏格兰3分保平动机是唯一风险。Under无value。',
+  '库拉索vs科特迪瓦': {
+    summary: 'TYPE_A(市场>模型-10pp)。科特胜无value。Under 3.25(+10.3pp)最优。库拉索+2.25(+4.2pp)辅助。',
     approvedPicks: [
-      { pick: '巴西-1.5', odds: '@2.04', verdict: 'approved', edge: '+9.2pp', reasoning: '巴西反弹完成→正常碾压。苏格兰λ=0.46(进攻为零)', category: 'core' },
+      { pick: 'Under 3.25', odds: '@1.94', verdict: 'approved', edge: '+10.3pp', reasoning: '科特2场2球+库拉索R2 0-0大巴。61.8%>51.5%', category: 'core' },
+      { pick: '库拉索+2.25', odds: '@2.03', verdict: 'approved', edge: '+4.2pp', reasoning: '科特攻击有限→1-0/2-0型胜利。大巴经过校准', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '苏格兰+1.5', odds: '@1.87', verdict: 'rejected', edge: '-12.1pp', reasoning: '6/23新规: 不做反弹后逆向让球', category: 'trap' },
-      { pick: 'Under 2.5', odds: '@2.02', verdict: 'rejected', edge: '-5.1pp', reasoning: '逻辑对但模型不支持(44.4%<49.5%)', category: 'trap' },
+      { pick: '科特迪瓦胜', odds: '@1.19', verdict: 'rejected', edge: '-10.2pp', reasoning: '超低赔率+负EV', category: 'trap' },
     ],
-    marketBehavior: '模型80.7% vs 市场72.3%。分歧不大。-1.5是最佳edge位置。',
-    kellyNote: '巴西-1.5建议1.5%仓位。'
+    marketBehavior: '市场科特@1.19→82.4%极端定价。过度外推Elo差316忽略了科特攻击力有限+库拉索R2防守调整。',
+    kellyNote: 'Under 3.25建议1.5%仓位。库拉索+2.25建议1%仓位。'
   },
-  '摩洛哥vs海地': {
-    summary: '摩洛哥已出线(dead rubber 0.75衰减)但即使轮休也碾压。Over 3.0+摩洛哥-2.0双推,轮休降仓。',
+  '厄瓜多尔vs德国': {
+    summary: 'TYPE_A。德国锁#1→限功率。Under 2.75(+12.8pp)今日第二强。厄瓜+1.0薄edge但逻辑对。',
     approvedPicks: [
-      { pick: 'Over 3.0', odds: '@1.84', verdict: 'approved', edge: '+9.4pp', reasoning: 'λ=3.92极高。海地0进球=单边碾压型大球', category: 'core' },
-      { pick: '摩洛哥-2.0', odds: '@1.95', verdict: 'approved', edge: '+22.5pp(轮休打折后~+10-15pp)', reasoning: '模型73.8%碾压。轮休不确定性降仓', category: 'value' },
+      { pick: 'Under 2.75', odds: '@2.08', verdict: 'approved', edge: '+12.8pp', reasoning: '厄瓜0球+德国锁#1控场不屠杀。60.9%>48.1%', category: 'core' },
+      { pick: '厄瓜多尔+1.0', odds: '@1.98', verdict: 'marginal', edge: '-2.7pp(轮换情境更优)', reasoning: '德国可能仅赢1球。厄瓜防守好。轮换后实际概率更高', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '海地+2.0', odds: '@1.93', verdict: 'rejected', edge: '-27pp', reasoning: '海地≠库拉索(R2被巴西打穿=证明无法顶住)', category: 'trap' },
+      { pick: '德国胜', odds: '@1.54', verdict: 'rejected', edge: '-11.4pp', reasoning: '锁#1+轮换→无value', category: 'trap' },
+      { pick: 'Over 2.75', odds: '@1.84', verdict: 'rejected', edge: '-14pp', reasoning: '厄瓜不进球+德国非屠杀', category: 'trap' },
     ],
-    marketBehavior: '市场已定价轮休。模型(即使0.75衰减)仍远高于市场→结构性alpha。',
-    kellyNote: 'Over 3.0建议1.5%仓位。摩洛哥-2.0建议1%仓位(轮休降仓)。'
+    marketBehavior: '德国@1.54→63.6%未充分计入轮换影响。市场可能过度定价German brand。',
+    kellyNote: 'Under 2.75建议1.5%仓位。厄瓜+1.0建议0.5%仓位。'
   },
-  '捷克vs墨西哥': {
-    summary: '墨西哥dead rubber轮休→模型不可靠。Under 2.5(@1.83,+3.6pp)唯一边缘pick。方向观望。',
+  '日本vs瑞典': {
+    summary: '今日最佳比赛! Over 2.5(+6.3pp,λ=3.02最高)核心pick。日本胜(+1.4pp)薄edge。瑞典防守漏洞是最大信号。',
     approvedPicks: [
-      { pick: 'Under 2.5', odds: '@1.83', verdict: 'marginal', edge: '+3.6pp(边缘)', reasoning: '轮休+R3低节奏+捷克防守型', category: 'value' },
+      { pick: 'Over 2.5', odds: '@1.93', verdict: 'approved', edge: '+6.3pp', reasoning: 'λ=3.02今日最高。双方攻击火热+瑞典防守漏洞。MUST-WIN→开放对攻', category: 'core' },
+      { pick: '日本胜', odds: '@1.90', verdict: 'approved', edge: '+1.4pp(薄)', reasoning: 'Elo+155+攻防更均衡。薄但方向正确→小注', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '墨西哥胜', odds: '@1.93', verdict: 'rejected', edge: '模型不可靠(不含轮休)', reasoning: '模型不含轮休。市场已定价。无真实alpha', category: 'trap' },
+      { pick: 'Under 2.5', odds: '@1.96', verdict: 'rejected', edge: '-8pp', reasoning: '最高λ比赛推Under=逆结构', category: 'trap' },
     ],
-    marketBehavior: '市场墨西哥@1.93反映轮休+仍有主场实力的平衡。市场定价高效。',
-    kellyNote: 'Under 2.5建议0.5-1%仓位(边缘,低信心)。方向不参与。'
+    marketBehavior: 'Over 2.5定价50.4%合理。双方攻击力被定价但瑞典防守漏洞(def_residual=+1.75)可能被低估。',
+    kellyNote: 'Over 2.5建议1.5%仓位。日本胜建议0.5-1%仓位。'
   },
-  '南非vs韩国': {
-    summary: 'TYPE_C(+22.8pp,调整后+5-10pp)。韩国胜@1.68有value。Under逻辑对但模型反对→观望。',
+  '突尼斯vs荷兰': {
+    summary: '最悬殊(Elo差359)。突尼斯+2.75(+13.7pp)核心pick。Under 3.5薄edge。荷兰方向全负EV。',
     approvedPicks: [
-      { pick: '韩国胜', odds: '@1.68', verdict: 'approved', edge: '+5-10pp(Elo校准后)', reasoning: 'Elo差275+Son世界级。即使保守也碾压', category: 'value' },
+      { pick: '突尼斯+2.75', odds: '@2.01', verdict: 'approved', edge: '+13.7pp', reasoning: '荷兰只需赢不必屠杀。63.5%不输3球>49.8%', category: 'core' },
+      { pick: 'Under 3.5', odds: '@1.85', verdict: 'marginal', edge: '-0.9pp(但结构对)', reasoning: '3.5深线+荷兰非必须屠杀', category: 'value' },
     ],
     rejectedPicks: [
-      { pick: '韩国-0.75', odds: '@1.89', verdict: 'rejected', edge: '模型过高不可靠', reasoning: '保守韩国可能只赢1-0→深盘风险', category: 'trap' },
+      { pick: '荷兰胜', odds: '@1.11', verdict: 'rejected', edge: '-8.6pp', reasoning: '超低赔率+负EV', category: 'trap' },
+      { pick: '荷兰-2.75', odds: '@1.88', verdict: 'rejected', edge: '-17pp', reasoning: '荷兰不必屠杀。25.8%穿盘', category: 'trap' },
     ],
-    marketBehavior: '市场韩国@1.68=59.5%合理。Elo差275碾压被"韩国保守"叙事部分低估。',
-    kellyNote: '韩国胜建议1%仓位(低赔率+保守)。'
+    marketBehavior: '荷兰@1.11极端定价。市场高估Gakpo帽子戏法可持续性。',
+    kellyNote: '突尼斯+2.75建议1-1.5%仓位。Under 3.5建议0.5%仓位或不参与。'
   },
 }
