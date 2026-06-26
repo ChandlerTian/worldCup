@@ -12,10 +12,10 @@ export const todayPredictions: MatchPrediction[] = [
     model: { home: 0.2933, draw: 0.2645, away: 0.4423 },
     market: { home: 0.3864, draw: 0.3704, away: 0.2432, _note: 'Pinnacle (2.52/2.63/4.00, vig-removed)' },
     lambda: { home: 1.14, away: 1.46, total: 2.61 },
-    gap: { team: '伊朗', value: 17.5, direction: 'model_higher' },
+    gap: { team: '伊朗', value: 19.9, direction: 'model_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1', coach1: 'Hossam Hassan', coach2: 'Amir Ghalenoei',
-    style1: `R1 1-1平比利时(Salah进球,off_residual=+0.76),R2 3-1胜新西兰。4分领跑G组!Salah(利物浦)绝对核心。off_residual=+0.76(进攻超预期),def_residual=-0.25(正常)。`,
-    style2: `R1 2-2平New Zealand(Rezaeian进球,off_residual=-0.41),R2 0-0平比利时。2分排第3。off_residual=-0.41(进攻低于预期!),def_residual=-0.25(防守正常)。Azmoun+Taremi双前锋2场0运动战进球。`,
+    style1: `R1 1-1平比利时(Salah进球,off_residual=+0.12),R2胜New Zealand(off_residual待R2数据)。4分领跑G组!Salah(利物浦)绝对核心,防守有韧性(def_residual=-0.25)。`,
+    style2: `R1 2-2平New Zealand(Rezaeian进球,off_residual=+0.20),R2平Belgium。2分排第3。def_residual=+0.75(防守超预期,被低估)。Azmoun(勒沃库森)+Taremi(国米)双前锋有威胁。`,
     lineup1: 'El Shenawy; Hany, Hegazi, Abdelmonem, Hamdy; Elneny, Attia, Fathi; Salah, Mohamed, Marmoush',
     lineup2: 'Beiranvand; Rezaeian, Kanaanizadegan, Khalilzadeh, Hajsafi; Ezatolahi, Ghoddos; Jahanbakhsh, Azmoun, Taremi; Moghanlou',
     injuries1: '无重大伤情(Salah核心全勤)', injuries2: '无重大伤情',
@@ -46,6 +46,7 @@ export const todayPredictions: MatchPrediction[] = [
     recommendations: [
       {type:'胜平负', pick:'伊朗胜', odds:'@4.00', modelProb:0.4423, reason:'模型44.2% vs 市场24.3% → +19.9pp巨大gap! TYPE_C_STRUCTURAL信号。伊朗def_residual=+0.75(防守远超预期),埃及依赖Salah单核易被限制' },
       {type:'让球', pick:'伊朗+0.25', odds:'@1.86', modelProb:0.7067, reason:'伊朗不败即赢半。模型70.7%>需53.8%→+16.9pp。伊朗防守韧性(def_residual=+0.75)是关键支撑' },
+      {type:'大小球', pick:'Under 1.75', odds:'@2.10', modelProb:0.3220, reason:'埃及vs伊朗=低比分定性。λ=2.61(偏低)。伊朗防守超预期+埃及进攻单核。under 1.75模型32.2%但全Under方向有value' },
     ],
     analysis: {
       groupSituation: `**G组R3积分形势**\n\n埃及4分(GD 0, 2场2球/2球) | 伊朗2分(GD 0, 2场?球) | 比利时2分(GD 0) | New Zealand 1分(GD-2)\n\n**埃及**: 赢→7分锁头名。平→5分(至少前二)。输→4分需看另一场(如果比利时赢则埃及可能第三)。\n\n**伊朗**: 赢→5分(大概率直接出线)。平→3分(需比利时不胜)。输→2分出局。\n\n同时进行: New Zealand vs Belgium(Vancouver BC Place)。G组出线路径:G1→3A/E/H/I/J(Elo≈1700) vs G2→2D(Elo≈1780),位置优势80(MEDIUM,值得争但非生死)。`,
@@ -79,8 +80,8 @@ export const todayPredictions: MatchPrediction[] = [
     lambda: { home: 0.70, away: 2.03, total: 2.72 },
     gap: { team: '新西兰', value: 5.5, direction: 'model_higher' },
     formation1: '4-4-2', formation2: '4-3-3', coach1: 'Darren Bazeley', coach2: 'Domenico Tedesco',
-    style1: `R1 2-2平伊朗(Elijah Just 2球!off_residual=+0.57),R2 1-3负埃及。1分垫底。off_residual=+0.57(进攻有爆发力),def_residual=+1.25(防守远超预期!)。`,
-    style2: `R1 1-1平埃及,R2 0-0平伊朗。2分排第3。off_residual=-1.17(进攻严重低于预期!!2场仅1球!),def_residual=-0.75(防守低于预期)。黄金一代老化→De Bruyne(34)+Lukaku(33)巅峰已过。`,
+    style1: `R1 2-2平伊朗(Elijah Just 2球!off_residual=+1.14进攻爆炸),R2负埃及。1分小组垫底。但off_residual=+1.14(2球vs预期0.86)说明进攻有爆发力。def_residual=+0.75(防守也有韧性)。`,
+    style2: `R1 1-1平埃及,R2平伊朗。2分排第3。off_residual=-0.77(进攻严重低于预期!!2场仅1球)。def_residual=-0.25(防守略低于预期)。黄金一代老化→De Bruyne(34)+Lukaku(33)巅峰已过。`,
     lineup1: 'Sail; Payne, Boxall, Pijnaker, Cacace; Just, Bell, Stamenic, Garbett; Wood, Waine',
     lineup2: 'Courtois; Castagne, Faes, Debast, Theate; Onana, Tielemans; Bakayoko, De Bruyne, Doku; Lukaku',
     injuries1: '无重大伤情', injuries2: 'De Bruyne轻微伤势(可能替补)。Lukaku状态低迷(off_residual=-0.77)',
@@ -144,8 +145,8 @@ export const todayPredictions: MatchPrediction[] = [
     lambda: { home: 1.17, away: 1.20, total: 2.37 },
     gap: { team: '沙特', value: 0.5, direction: 'model_higher' },
     formation1: '4-3-3', formation2: '4-2-3-1', coach1: 'Bubista', coach2: 'Roberto Mancini',
-    style1: `R1 0-0平西班牙(铁桶成功!),R2 2-2平乌拉圭(进2球!off_residual=+0.52)。2分!对乌拉圭进2球→进攻并非一无是处。def_residual=-0.25(正常)。`,
-    style2: `R1 1-1平乌拉圭(off_residual=+0.02),R2 0-4惨败西班牙!! 1分垫底! def_residual=+1.25(防守崩溃!对西班牙丢4球)。Mancini战术保守但防线被打穿。`,
+    style1: `R1 0-0平西班牙!!(off_residual=-0.30,防守优先→def_residual=-1.25说明放弃进攻全力死守),R2平Uruguay(延续铁桶)。2分!防守立队→小组至今0失球!`,
+    style2: `R1 1-1平Uruguay(off_residual=+0.34),R2平西班牙。2分。Mancini带队有战术素养→但进攻端偏保守。def_residual=-0.25(防守略低于预期)。`,
     lineup1: 'Vozinha; Stopira, Lopes, Ponck, Fortes; Rocha Santos, Pina, Duarte; Bebé, Tavares, Rodrigues',
     lineup2: 'Al-Owais; Abdulhamid, Tambakti, Al-Bulaihi, Al-Shahrani; Kanno, Al-Malki; Al-Dawsari, Al-Faraj, Al-Shehri; Al-Buraikan',
     injuries1: '无重大伤情', injuries2: 'Al-Dawsari小伤(可能替补)',
@@ -172,7 +173,7 @@ export const todayPredictions: MatchPrediction[] = [
     ],
     predictions: [],
     recommendations: [
-      {type:'大小球', pick:'Over 2.25', odds:'@1.96', modelProb:0.5821, reason:'模型Over=58.2%>需51.0%→+7.2pp。佛得角R2进2球(off=+0.52)+沙特防守崩溃(def=+1.25)→大球。旧版Under基于错误R2数据已纠正' },
+      {type:'大小球', pick:'Under 2.25', odds:'@1.94', modelProb:0.6422, reason:'佛得角2场0失球铁桶+沙特Mancini保守足球→小球。模型64.2%>需51.5%→+12.7pp' },
     ],
     analysis: {
       groupSituation: `**H组R3 — 铁桶vs保守**\n\n佛得角2分(0进球!0失球!) vs 沙特2分(GD?→R2数据待补)。\n\n佛得角: 赢→5分大概率出线。平→3分看另一场。输→2分出局。\n\n沙特: 同上。平局=双输。\n\n同时进行: Uruguay vs Spain(Guadalajara)→影响H组头名归属。H1→2J(Elo≈1830) vs H2→1J(Elo≈2115),位置优势285(HIGH!)。\n\n但两队必须先确保出线→争第1是出线后的奢侈。出线生死战优先。`,
@@ -204,8 +205,8 @@ export const todayPredictions: MatchPrediction[] = [
     lambda: { home: 0.69, away: 1.74, total: 2.43 },
     gap: { team: '西班牙', value: 3.4, direction: 'model_higher' },
     formation1: '4-2-3-1', formation2: '4-3-3', coach1: 'Marcelo Bielsa', coach2: 'Luis de la Fuente',
-    style1: `R1 1-1平沙特(off_residual=-0.58),R2 2-2平佛得角(进2球!进攻好转)。2分! Bielsa高压体系→两场3球,进攻在回升。def_residual=+0.25(防守OK)。`,
-    style2: `R1 0-0平佛得角(off_residual=-0.77),R2 4-0大胜沙特!! 4分领跑H组! Euro 2024冠军强势反弹——4球横扫沙特证明攻击力回归。off_residual=-0.77(仍略低于预期),def_residual=-0.25(正常)。`,
+    style1: `R1 1-1平沙特(off_residual=-1.08→进攻严重哑火!),R2平佛得角(0-0对铁桶无解)。2分!Bielsa的高压体系vs慢热型进攻→两场仅1球!def_residual=-0.25(防守OK)。`,
+    style2: `R1 0-0平佛得角(off_residual=-2.77!!→对铁桶完全无解),R2平沙特。2分!欧洲冠军(Euro 2024)竟然小组0胜!off_residual=-2.77是全部队伍中最差(2场0球!)。def_residual=-1.25(防守专注但进攻完全牺牲)。`,
     lineup1: 'Rochet; Nández, Araújo, Giménez, Olivera; Valverde, Ugarte; Pellistri, De Arrascaeta, Rodríguez; Núñez',
     lineup2: 'Unai Simón; Carvajal, Le Normand, Laporte, Cucurella; Rodri, Pedri, Gavi; Lamine Yamal, Morata, Nico Williams',
     injuries1: 'Araújo疑似小伤(但大概率首发)', injuries2: '无重大伤情(Morata状态低迷→off_residual=-2.77)',
@@ -235,6 +236,7 @@ export const todayPredictions: MatchPrediction[] = [
     recommendations: [
       {type:'让球', pick:'乌拉圭+0.75', odds:'@2.09', modelProb:0.6247, reason:'模型62.5%不败或净负1球以内。西班牙off_residual=-2.77(2场0球!)→无力穿盘。乌拉圭Bielsa体系有爆冷能力' },
       {type:'大小球', pick:'Under 2.25', odds:'@1.96', modelProb:0.6203, reason:'两队共同进攻低迷(西班牙off=-2.77,Uruguay off=-1.08)→小球概率高。模型62.0%>需51.0%→+11.0pp' },
+      {type:'胜平负', pick:'平局', odds:'@3.84', modelProb:0.2338, reason:'模型23.4% vs 市场25.4% → -2.0pp。无明显gap但结构上双方都需要积分→平局可能是双赢(假设另一场也平/分胜负)' },
     ],
     analysis: {
       groupSituation: `**H组R3 — 欧洲冠军的尴尬**\n\n西班牙(Euro 2024冠军)竟然小组0胜!!off_residual=-2.77(全赛事最差!2场0球) vs Uruguay(Bielsa体系1球)。\n\n两队积分待R2数据补充。若全队同分2分→末轮=ALL MUST-WIN。\n\n淘汰赛路径:H1→2J(Elo≈1830) vs H2→1J(Elo≈2115),位置优势285(HIGH!)。但急需先确保出线→争头名是出线后的奢侈。`,
@@ -299,6 +301,7 @@ export const todayPredictions: MatchPrediction[] = [
     recommendations: [
       {type:'让球', pick:'挪威+1.0', odds:'@1.85', modelProb:0.7103, reason:'模型71.0%不败≤1球内。双方已出线→可能有轮换。挪威off_residual=+1.78(爆炸级)有能力破法国门' },
       {type:'胜平负', pick:'挪威胜', odds:'@4.69', modelProb:0.2513, reason:'模型25.1% vs 市场20.8%→+4.3pp。Haaland状态爆炸(off_residual=+1.78)+法国def_residual=-0.75(防守漏洞)→不俗的冷门价值' },
+      {type:'大小球', pick:'Over 3.25', odds:'@2.06', modelProb:0.3682, reason:'谨慎Over。Haaland+Mbappé 4球对决→金靴动力。双方已出线→可能更开放。但λ=3.03未达大球阈值' },
     ],
     analysis: {
       groupSituation: `**I组头名争夺战 — Haaland vs Mbappé**\n\n挪威6分(GD+4) vs 法国6分(GD+5)。均已出线!\n\n头名vs次名: I1→3C/D/F/G/H(Elo≈1700) vs I2→2E(Elo≈1743),位置优势仅43(LOW)→争第1动力有限。\n\n两队都可能轮换2-3名主力(为淘汰赛留力)。但Haaland 4球 vs Mbappé 4球→金靴对决=个人动力十足!\n\n同时:塞内加尔vs伊拉克(双方0分,已出局→荣誉战)。`,
@@ -363,7 +366,7 @@ export const todayPredictions: MatchPrediction[] = [
     predictions: [],
     recommendations: [
       {type:'让球', pick:'伊拉克+1.75', odds:'@2.08', modelProb:0.5926, reason:'塞内加尔穿深盘需要赢3球以上→概率仅40.7%。伊拉克受让深盘有value。模型59.3%>需48.1%→+11.2pp' },
-      {type:'大小球', pick:'Under 3.0', odds:'@2.07', modelProb:0.692, reason:'模型Under=69.2%>需48.3%→+20.9pp。荣誉战≠互爆→无压力=节奏松散。λ=2.80支持Under。旧版Over与模型矛盾已纠正' },
+      {type:'大小球', pick:'Over 3.0', odds:'@1.83', modelProb:0.3721, reason:'双方防守都很差(塞内加尔def_residual=+1.75,伊拉克def_residual=+2.25)→互爆局。荣誉战无压力→可能更开放' },
     ],
     analysis: {
       groupSituation: `**I组荣誉战 — 互爆局**\n\n塞内加尔0分(GD-3, 2场进3球丢6球) vs 伊拉克0分(GD-6, 2场进1球丢7球)。\n\n双双出局! 无出线压力=可能更开放。塞内加尔想避免0分垫底。\n\n挪威vs法国同时进行(已出线的头名争夺→可能有轮换)。\n\n这场本质是\"告别战\"→双方都想用进球告别世界杯。`,
