@@ -5,6 +5,7 @@ import type { MatchPrediction, GoalDistribution, TournamentStats, CommercialAnal
 // J组: 阿根廷锁定#1(死球), 阿尔及利亚vs奥地利=赢者出线
 // K组: 哥伦比亚6分锁头名, 葡萄牙4分vs刚果(金)/乌兹别克争夺出线
 // L组: 英格兰/加纳4分→平局即出线, 克罗地亚3分MUST-WIN
+export const lastUpdated = '2026-06-27 23:00 CST (模型v3.0: Form重构+动态CI)'
 export const todayPredictions: MatchPrediction[] = [
 
   // ==================== 1. 阿尔及利亚 vs 奥地利 (J组R3) ====================

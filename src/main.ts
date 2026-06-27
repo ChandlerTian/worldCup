@@ -1,5 +1,5 @@
 import { matchResults, modelVsActualDay19, modelVsActualDay20, modelVsActualDay21, modelArchitecture } from './data/matches'
-import { todayPredictions, goalDistributions, commercialAnalyses } from './data/today-predictions'
+import { todayPredictions, goalDistributions, commercialAnalyses, lastUpdated } from './data/today-predictions'
 import { renderProbComparison, renderGoalDiffChart, renderGoalsTrend } from './charts/index'
 import type { MatchResult, ModelVsActual as MVA } from './types'
 import type { ECharts } from 'echarts'
@@ -464,6 +464,10 @@ function renderRecap(): void {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Set update timestamp
+  const el = document.getElementById('update-time')
+  if (el) el.textContent = `更新: ${lastUpdated}`
+  
   renderTodayMatch(0)
   renderHistory()
   renderModelArchitecture()
