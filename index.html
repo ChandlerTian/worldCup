@@ -76,24 +76,19 @@
             <main class="main-content">
         
         <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('today')">今日推荐 (6/26)</button>
-            <button class="tab-btn" onclick="switchTab('recap')">MD13复盘 (6/23)</button>
+            <button class="tab-btn active" onclick="switchTab('today')">🏆 淘汰赛 R32</button>
+            <button class="tab-btn" onclick="switchTab('recap')">小组复盘</button>
             <button class="tab-btn" onclick="switchTab('history')">历史赛果</button>
             <button class="tab-btn" onclick="switchTab('analysis')">模型架构</button>
         </nav>
         
         <section id="tab-today" class="tab-content active">
             <div class="section-title-row">
-                <h2 class="section-header">Matchday 17 — 6月27日推荐 (J/K/L组R3收官) <span id="update-time" style="font-size:0.7em;font-weight:400;color:#888;margin-left:8px;"></span></h2>
+                <h2 class="section-header">🏆 淘汰赛 R32 — 6月28日 <span id="update-time" style="font-size:0.7em;font-weight:400;color:#888;margin-left:8px;"></span></h2>
             </div>
             <!-- Match Sub-tabs -->
             <div class="match-tabs">
-                <button class="match-tab-btn active" onclick="switchMatch(0)">阿尔及利亚vs奥地利</button>
-                <button class="match-tab-btn" onclick="switchMatch(1)">约旦vs阿根廷</button>
-                <button class="match-tab-btn" onclick="switchMatch(2)">哥伦比亚vs葡萄牙</button>
-                <button class="match-tab-btn" onclick="switchMatch(3)">刚果(金)vs乌兹别克</button>
-                <button class="match-tab-btn" onclick="switchMatch(4)">巴拿马vs英格兰</button>
-                <button class="match-tab-btn" onclick="switchMatch(5)">克罗地亚vs加纳</button>
+                <button class="match-tab-btn active" onclick="switchMatch(0)">🇿🇦南非 vs 🇨🇦加拿大</button>
             </div>
             <div id="today-matches"></div>
         </section>
@@ -106,12 +101,12 @@
         <section id="tab-history" class="tab-content">
             <h2 class="section-header">全部赛果</h2>
             <div class="overview-stats">
-                <div class="stat-item"><div class="stat-label">总场次</div><div class="stat-value blue">32</div></div>
-                <div class="stat-item"><div class="stat-label">总进球</div><div class="stat-value">75</div></div>
-                <div class="stat-item"><div class="stat-label">场均</div><div class="stat-value green">2.34</div></div>
-                <div class="stat-item"><div class="stat-label">主胜</div><div class="stat-value">13 (41%)</div></div>
-                <div class="stat-item"><div class="stat-label">平局</div><div class="stat-value yellow">12 (38%)</div></div>
-                <div class="stat-item"><div class="stat-label">客胜</div><div class="stat-value red">7 (22%)</div></div>
+                <div class="stat-item"><div class="stat-label">总场次</div><div class="stat-value blue">72</div></div>
+                <div class="stat-item"><div class="stat-label">总进球</div><div class="stat-value">168</div></div>
+                <div class="stat-item"><div class="stat-label">场均</div><div class="stat-value green">2.33</div></div>
+                <div class="stat-item"><div class="stat-label">主胜</div><div class="stat-value">32 (44%)</div></div>
+                <div class="stat-item"><div class="stat-label">平局</div><div class="stat-value yellow">22 (31%)</div></div>
+                <div class="stat-item"><div class="stat-label">客胜</div><div class="stat-value red">18 (25%)</div></div>
             </div>
             <div id="goals-trend-chart" style="height:280px;margin-bottom:24px;background:var(--bg-card);border-radius:12px;padding:16px;"></div>
             <div id="history-matches"></div>
