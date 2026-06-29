@@ -241,8 +241,8 @@ export const modelVsActualR32: ModelVsActual[] = [
     expertRevision: '加拿大胜 + 南非+0.75 + Over 2.5',
     actual: '0-1',
     modelCorrect: true,
-    expertCorrect: true,
-    winner: '加拿大胜✓ 南非+0.75✓ 方向+让球双命中!'
+    expertCorrect: false,
+    winner: '加拿大胜✓ 南非+0.75(输半) Over2.5❌ — 方向对但对冲腿拖累'
   }
 ]
 
