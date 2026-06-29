@@ -60,6 +60,8 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-23', group: 'K', team1: '哥伦比亚', team2: '刚果(金)', score1: 1, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '瓜达拉哈拉' },
   { date: '2026-06-23', group: 'L', team1: '英格兰', team2: '加纳', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '波士顿' },
   { date: '2026-06-23', group: 'L', team1: '巴拿马', team2: '克罗地亚', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '多伦多' },
+  // ====== 淘汰赛 R32 ======
+  { date: '2026-06-28', group: 'R32', team1: '南非', team2: '加拿大', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '洛杉矶' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
@@ -228,6 +230,19 @@ export const modelVsActualDay21: ModelVsActual[] = [
     modelCorrect: true,
     expertCorrect: true,
     winner: '日本胜✓ Over 2.25✓ 方向全对。碾压幅度再被低估'
+  }
+]
+
+// ====== 6/28 淘汰赛 R32 模型 vs 实际 ======
+export const modelVsActualR32: ModelVsActual[] = [
+  {
+    match: '南非 vs 加拿大',
+    model: { home: 0.088, draw: 0.1895, away: 0.7225, topPick: '0-2 / 0-1' },
+    expertRevision: '加拿大胜 + 南非+0.75 + Over 2.5',
+    actual: '0-1',
+    modelCorrect: true,
+    expertCorrect: true,
+    winner: '加拿大胜✓ 南非+0.75✓ 方向+让球双命中!'
   }
 ]
 
