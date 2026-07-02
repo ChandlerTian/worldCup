@@ -23,7 +23,7 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-15', group: 'H', team1: '沙特', team2: '乌拉圭', score1: 1, score2: 1, scorers1: ['Al-Amri 41\''], scorers2: ['Araújo 80\''], ground: '休斯顿' },
   { date: '2026-06-16', group: 'I', team1: '法国', team2: '塞内加尔', score1: 3, score2: 1, scorers1: ['Mbappé 66\'', 'Barcola 82\'', 'Mbappé 90+6\''], scorers2: ['Mbaye 90+5\''], ground: '纽约' },
   { date: '2026-06-16', group: 'I', team1: '伊拉克', team2: '挪威', score1: 1, score2: 4, scorers1: ['Hussein 39\''], scorers2: ['Haaland 29\'', 'Haaland 43\'', 'Østigard 76\'', 'Hussein OG 90+6\''], ground: '多伦多' },
-  { date: '2026-06-16', group: 'J', team1: '阿根廷', team2: '阿尔及利亚', score1: 3, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '迈阿密' },
+  { date: '2026-06-16', group: 'J', team1: '阿根廷', team2: '阿尔及利亚', score1: 3, score2: 0, scorers1: ['Messi 17\'', 'Messi 60\'', 'Messi 76\''], scorers2: [], ground: '迈阿密' },
   { date: '2026-06-16', group: 'J', team1: '奥地利', team2: '约旦', score1: 3, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '费城' },
   // Matchday 7 (6/17)
   { date: '2026-06-17', group: 'K', team1: '葡萄牙', team2: '刚果(金)', score1: 1, score2: 1, scorers1: ['J.Neves 6\''], scorers2: ['Wissa 45+5\''], ground: '纽约' },
@@ -41,27 +41,62 @@ export const matchResults: MatchResult[] = [
   { date: '2026-06-19', group: 'D', team1: '美国', team2: '澳大利亚', score1: 2, score2: 0, scorers1: ['Burgess OG 11\'', 'Freeman 43\''], scorers2: [], ground: '西雅图' },
   { date: '2026-06-19', group: 'D', team1: '土耳其', team2: '巴拉圭', score1: 0, score2: 1, scorers1: [], scorers2: ['Enciso 52\''], ground: '旧金山' },
   // Matchday 10 (6/20)
-  { date: '2026-06-20', group: 'E', team1: '德国', team2: '科特迪瓦', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '多伦多' },
+  { date: '2026-06-20', group: 'E', team1: '德国', team2: '科特迪瓦', score1: 2, score2: 1, scorers1: ['Undav 68\'', 'Undav 90+4\''], scorers2: ['Kessié 30\''], ground: '多伦多' },
   { date: '2026-06-20', group: 'E', team1: '厄瓜多尔', team2: '库拉索', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '堪萨斯城' },
-  { date: '2026-06-20', group: 'F', team1: '荷兰', team2: '瑞典', score1: 5, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '休斯顿' },
+  { date: '2026-06-20', group: 'F', team1: '荷兰', team2: '瑞典', score1: 5, score2: 1, scorers1: ['Brobbey 5\'', 'Brobbey 17\'', 'Gakpo 47\'', 'Gakpo 54\'', 'Summerville 89\''], scorers2: ['Elanga 59\''], ground: '休斯顿' },
   // Matchday 11 (6/21)
-  { date: '2026-06-21', group: 'F', team1: '突尼斯', team2: '日本', score1: 0, score2: 4, scorers1: [], scorers2: ['待补充'], ground: '蒙特雷' },
-  { date: '2026-06-21', group: 'H', team1: '西班牙', team2: '沙特', score1: 4, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '亚特兰大' },
+  { date: '2026-06-21', group: 'F', team1: '突尼斯', team2: '日本', score1: 0, score2: 4, scorers1: [], scorers2: ['Kamada 4\'', 'Ueda 31\'', 'Ito 69\'', 'Ueda 83\''], ground: '蒙特雷' },
+  { date: '2026-06-21', group: 'H', team1: '西班牙', team2: '沙特', score1: 4, score2: 0, scorers1: ['Yamal 10\'', 'Oyarzabal 21\'', 'Oyarzabal 24\'', 'Al-Tambakti OG 49\''], scorers2: [], ground: '亚特兰大' },
   { date: '2026-06-21', group: 'G', team1: '比利时', team2: '伊朗', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '洛杉矶' },
-  { date: '2026-06-21', group: 'H', team1: '乌拉圭', team2: '佛得角', score1: 2, score2: 2, scorers1: ['待补充'], scorers2: ['待补充'], ground: '迈阿密' },
-  { date: '2026-06-21', group: 'G', team1: '新西兰', team2: '埃及', score1: 1, score2: 3, scorers1: ['待补充'], scorers2: ['待补充'], ground: '温哥华' },
+  { date: '2026-06-21', group: 'H', team1: '乌拉圭', team2: '佛得角', score1: 2, score2: 2, scorers1: ['Araújo 44\'', 'Canobbio 45+6\''], scorers2: ['Pina FK 21\'', 'Varela 61\''], ground: '迈阿密' },
+  { date: '2026-06-21', group: 'G', team1: '新西兰', team2: '埃及', score1: 1, score2: 3, scorers1: ['Surman 15\''], scorers2: ['Zico 58\'', 'Salah 67\'', 'Trézéguet 82\''], ground: '温哥华' },
   // Matchday 14 (6/22)
-  { date: '2026-06-22', group: 'I', team1: '法国', team2: '伊拉克', score1: 3, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '纽约' },
-  { date: '2026-06-22', group: 'I', team1: '挪威', team2: '塞内加尔', score1: 1, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '多伦多' },
-  { date: '2026-06-22', group: 'J', team1: '阿根廷', team2: '奥地利', score1: 2, score2: 1, scorers1: ['待补充'], scorers2: ['待补充'], ground: '迈阿密' },
-  { date: '2026-06-22', group: 'J', team1: '约旦', team2: '阿尔及利亚', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '费城' },
+  { date: '2026-06-22', group: 'I', team1: '法国', team2: '伊拉克', score1: 3, score2: 0, scorers1: ['Mbappé 14\'', 'Mbappé 54\'', 'Dembélé 66\''], scorers2: [], ground: '纽约' },
+  { date: '2026-06-22', group: 'I', team1: '挪威', team2: '塞内加尔', score1: 3, score2: 2, scorers1: ['Pedersen 43\'', 'Haaland 48\'', 'Haaland 58\''], scorers2: ['Sarr 53\'', 'Sarr 90+3\''], ground: '多伦多' },
+  { date: '2026-06-22', group: 'J', team1: '阿根廷', team2: '奥地利', score1: 2, score2: 0, scorers1: ['Messi 38\'', 'Messi 90+5\''], scorers2: [], ground: '迈阿密' },
+  { date: '2026-06-22', group: 'J', team1: '约旦', team2: '阿尔及利亚', score1: 1, score2: 2, scorers1: ['Al-Rashdan 36\''], scorers2: ['Benbouali 69\'', 'Gouiri 82\''], ground: '费城' },
   // Matchday 15 (6/23 — K/L组R2)
-  { date: '2026-06-23', group: 'K', team1: '葡萄牙', team2: '乌兹别克', score1: 5, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '休斯顿' },
-  { date: '2026-06-23', group: 'K', team1: '哥伦比亚', team2: '刚果(金)', score1: 1, score2: 0, scorers1: ['待补充'], scorers2: [], ground: '瓜达拉哈拉' },
+  { date: '2026-06-23', group: 'K', team1: '葡萄牙', team2: '乌兹别克', score1: 5, score2: 0, scorers1: ['Ronaldo 6\'', 'Mendes FK 17\'', 'Ronaldo 39\'', 'Nematov OG 60\'', 'Leão 87\''], scorers2: [], ground: '休斯顿' },
+  { date: '2026-06-23', group: 'K', team1: '哥伦比亚', team2: '刚果(金)', score1: 1, score2: 0, scorers1: ['Muñoz 76\''], scorers2: [], ground: '瓜达拉哈拉' },
   { date: '2026-06-23', group: 'L', team1: '英格兰', team2: '加纳', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '波士顿' },
-  { date: '2026-06-23', group: 'L', team1: '巴拿马', team2: '克罗地亚', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '多伦多' },
+  { date: '2026-06-23', group: 'L', team1: '巴拿马', team2: '克罗地亚', score1: 0, score2: 1, scorers1: [], scorers2: ['Budimir 54\''], ground: '多伦多' },
+  // ====== 小组赛 R3 (6/24-6/28) ======
+  { date: '2026-06-24', group: 'B', team1: '波黑', team2: '卡塔尔', score1: 3, score2: 1, scorers1: ['Alajbegovic 29\'', 'Abunada OG 34\'', 'Mahmic 80\''], scorers2: ['Al-Haydos 42\''], ground: '西雅图' },
+  { date: '2026-06-24', group: 'B', team1: '瑞士', team2: '加拿大', score1: 2, score2: 1, scorers1: ['Vargas 46\'', 'Manzambi 57\''], scorers2: ['David 76\''], ground: '温哥华' },
+  { date: '2026-06-24', group: 'C', team1: '摩洛哥', team2: '海地', score1: 4, score2: 2, scorers1: ['Hakimi 39\'', 'Saibari 45+1\'', 'Rahimi 78\'', 'Yassine 89\''], scorers2: ['Bounou OG 10\'', 'Isidor 43\''], ground: '亚特兰大' },
+  { date: '2026-06-24', group: 'C', team1: '苏格兰', team2: '巴西', score1: 0, score2: 3, scorers1: [], scorers2: ['Vinícius Jr 7\'', 'Vinícius Jr 45+3\'', 'Cunha 60\''], ground: '迈阿密' },
+  { date: '2026-06-24', group: 'K', team1: '哥伦比亚', team2: '刚果(金)', score1: 1, score2: 0, scorers1: ['Muñoz 76\''], scorers2: [], ground: '瓜达拉哈拉' },
+  { date: '2026-06-25', group: 'A', team1: '捷克', team2: '墨西哥', score1: 0, score2: 3, scorers1: [], scorers2: ['Chávez 55\'', 'Quiñones 61\'', 'Fidalgo 90+4\''], ground: '蒙特雷' },
+  { date: '2026-06-25', group: 'A', team1: '南非', team2: '韩国', score1: 1, score2: 0, scorers1: ['Maseko 63\''], scorers2: [], ground: '蒙特雷' },
+  { date: '2026-06-25', group: 'E', team1: '库拉索', team2: '科特迪瓦', score1: 0, score2: 2, scorers1: [], scorers2: ['Pépé 7\'', 'Pépé 64\''], ground: '费城' },
+  { date: '2026-06-25', group: 'E', team1: '厄瓜多尔', team2: '德国', score1: 2, score2: 1, scorers1: ['Angulo 9\'', 'Plata 77\''], scorers2: ['Sané 2\''], ground: '纽约' },
+  { date: '2026-06-25', group: 'F', team1: '日本', team2: '瑞典', score1: 1, score2: 1, scorers1: ['Maeda 56\''], scorers2: ['Elanga 62\''], ground: '达拉斯' },
+  { date: '2026-06-25', group: 'F', team1: '突尼斯', team2: '荷兰', score1: 1, score2: 3, scorers1: ['Mastouri 54\''], scorers2: ['Skhiri OG 3\'', 'Brobbey 7\'', 'van Hecke 62\''], ground: '堪萨斯城' },
+  { date: '2026-06-26', group: 'D', team1: '巴拉圭', team2: '澳大利亚', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '旧金山' },
+  { date: '2026-06-26', group: 'D', team1: '土耳其', team2: '美国', score1: 3, score2: 2, scorers1: ['Güler 10\'', 'Yilmaz 31\'', 'Ayhan 90+8\''], scorers2: ['Trusty 3\'', 'Berhalter 49\''], ground: '洛杉矶' },
+  { date: '2026-06-26', group: 'I', team1: '挪威', team2: '法国', score1: 1, score2: 4, scorers1: ['Aasgaard 21\''], scorers2: ['Dembélé 7\'', 'Dembélé 20\'', 'Dembélé 32\'', 'Doué 90+4\''], ground: '波士顿' },
+  { date: '2026-06-26', group: 'I', team1: '塞内加尔', team2: '伊拉克', score1: 5, score2: 0, scorers1: ['Diarra 4\'', 'Sarr 56\'', 'Gueye 59\'', 'Gueye 71\'', 'Ndiaye 82\''], scorers2: [], ground: '多伦多' },
+  { date: '2026-06-27', group: 'H', team1: '佛得角', team2: '沙特', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '休斯顿' },
+  { date: '2026-06-27', group: 'H', team1: '乌拉圭', team2: '西班牙', score1: 0, score2: 1, scorers1: [], scorers2: ['Baena 42\''], ground: '瓜达拉哈拉' },
+  { date: '2026-06-27', group: 'G', team1: '埃及', team2: '伊朗', score1: 1, score2: 1, scorers1: ['Saber 5\''], scorers2: ['Rezaeian 14\''], ground: '西雅图' },
+  { date: '2026-06-27', group: 'G', team1: '新西兰', team2: '比利时', score1: 1, score2: 5, scorers1: ['Just 84\''], scorers2: ['Trossard 28\'', 'Trossard 50\'', 'De Bruyne 66\'', 'Lukaku 86\'', 'Saelemaekers 90+4\''], ground: '温哥华' },
+  { date: '2026-06-27', group: 'L', team1: '克罗地亚', team2: '加纳', score1: 2, score2: 1, scorers1: ['Sucic 31\'', 'Vlasic 83\''], scorers2: ['Luckassen 73\''], ground: '费城' },
+  { date: '2026-06-27', group: 'L', team1: '巴拿马', team2: '英格兰', score1: 0, score2: 2, scorers1: [], scorers2: ['Bellingham 62\'', 'Kane 67\''], ground: '纽约' },
+  { date: '2026-06-27', group: 'K', team1: '哥伦比亚', team2: '葡萄牙', score1: 0, score2: 0, scorers1: [], scorers2: [], ground: '迈阿密' },
+  { date: '2026-06-27', group: 'K', team1: '刚果(金)', team2: '乌兹别克', score1: 3, score2: 1, scorers1: ['Mayele 78\'', 'Wissa 90+1\''], scorers2: ['Shomurodov 10\''], ground: '亚特兰大' },
+  { date: '2026-06-28', group: 'J', team1: '阿尔及利亚', team2: '奥地利', score1: 3, score2: 3, scorers1: ['Belghali 45\'', 'Mahrez 60\'', 'Mahrez 90+3\''], scorers2: ['Arnautovic 28\'', 'Sabitzer 55\'', 'Kalajdzic 90+6\''], ground: '堪萨斯城' },
+  { date: '2026-06-28', group: 'J', team1: '约旦', team2: '阿根廷', score1: 1, score2: 3, scorers1: ['Al-Tamari 55\''], scorers2: ['Lo Celso FK 19\'', 'Messi FK 80\''], ground: '达拉斯' },
   // ====== 淘汰赛 R32 ======
   { date: '2026-06-28', group: 'R32', team1: '南非', team2: '加拿大', score1: 0, score2: 1, scorers1: [], scorers2: ['待补充'], ground: '洛杉矶' },
+  { date: '2026-06-29', group: 'R32', team1: '巴西', team2: '日本', score1: 2, score2: 1, scorers1: ['Casemiro 56\'', 'Martinelli 90+5\''], scorers2: ['Sano 29\''], ground: '休斯顿' },
+  { date: '2026-06-29', group: 'R32', team1: '德国', team2: '巴拉圭', score1: 1, score2: 1, scorers1: ['Havertz 54\''], scorers2: ['Enciso 42\''], ground: '波士顿(点球巴拉圭胜)' },
+  { date: '2026-06-30', group: 'R32', team1: '荷兰', team2: '摩洛哥', score1: 1, score2: 1, scorers1: ['Gakpo 72\''], scorers2: ['Diop 90+1\''], ground: '蒙特雷(点球摩洛哥胜)' },
+  { date: '2026-06-30', group: 'R32', team1: '科特迪瓦', team2: '挪威', score1: 1, score2: 2, scorers1: ['Amad Diallo 74\''], scorers2: ['Nusa 39\'', 'Haaland 86\''], ground: '达拉斯' },
+  { date: '2026-06-30', group: 'R32', team1: '法国', team2: '瑞典', score1: 3, score2: 0, scorers1: ['Mbappé 45\'', 'Barcola 53\'', 'Mbappé 74\''], scorers2: [], ground: '纽约' },
+  { date: '2026-07-01', group: 'R32', team1: '墨西哥', team2: '厄瓜多尔', score1: 2, score2: 0, scorers1: ['Quiñones 22\'', 'Jiménez 31\''], scorers2: [], ground: '蒙特雷' },
+  { date: '2026-07-01', group: 'R32', team1: '英格兰', team2: '刚果(金)', score1: 2, score2: 1, scorers1: ['Kane 75\'', 'Kane 86\''], scorers2: ['Cipenga 7\''], ground: '亚特兰大' },
+  { date: '2026-07-01', group: 'R32', team1: '比利时', team2: '塞内加尔', score1: 3, score2: 2, scorers1: ['Lukaku 86\'', 'Tielemans 89\'', 'Tielemans(P) 120+5\''], scorers2: ['Diarra 24\'', 'Sarr 51\''], ground: '西雅图(加时)' },
+  { date: '2026-07-02', group: 'R32', team1: '美国', team2: '波黑', score1: 2, score2: 0, scorers1: ['Balogun 45\'', 'Tillman FK 82\''], scorers2: [], ground: '旧金山' },
 ]
 
 // ====== 6/18 模型 vs 实际 ======
@@ -404,14 +439,14 @@ export const goalDistributions: Record<string, GoalDistribution> = {
 
 // ====== 赛事统计 ======
 export const tournamentStats: TournamentStats = {
-  totalMatches: 36,
-  totalGoals: 95,
-  avgGoals: 2.64,
-  homeWins: 16,
-  draws: 11,
-  awayWins: 9,
+  totalMatches: 88,
+  totalGoals: 211,
+  avgGoals: 2.40,
+  homeWins: 37,
+  draws: 22,
+  awayWins: 29,
   biggestWin: { match: '德国 7-1 库拉索', date: '6/14' },
-  latestGoal: { match: '日本 4-0 突尼斯', scorer: '待补充', date: '6/21' }
+  latestGoal: { match: '比利时 3-2 塞内加尔', scorer: 'Tielemans(P)', date: '7/1' }
 }
 
 // ====== 商业盘口精算分析 (6/20) ======
