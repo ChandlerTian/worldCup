@@ -364,8 +364,7 @@ function renderAllCharts(): void {
     charts.push(renderProbComparison(probEl, p))
   }
   if (gdEl && gdEl.offsetParent !== null && p) {
-    const key = `${p.team1}vs${p.team2}`
-    const dist = goalDistributions[key]
+    const dist = goalDistributions.find(d => d.team1 === p.team1 && d.team2 === p.team2)
     if (dist) charts.push(renderGoalDiffChart(gdEl, dist))
   }
 
